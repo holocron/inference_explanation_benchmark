@@ -13,10 +13,23 @@ class LemonadeHandler:
 		self.model_ = model
 		self.base_url_ = base_url.rstrip("/")
 
+	# Some chat templates (e.g. Gemma) reject consecutive same-role
+	# messages ("roles must alternate"). The benchmark's init_prompt
+	# starts with two consecutive user messages, so fold them into one;
+	# the content is unchanged, only joined with a newline.
+	def _merge_same_role(self, messages):
+		merged = []
+		for m in messages:
+			if merged and merged[-1]["role"] == m["role"]:
+				merged[-1]["content"] += "\n" + m["content"]
+			else:
+				merged.append({"role": m["role"], "content": m["content"]})
+		return merged
+
 	def call(self, question, verbose = False, full_verbose = False):
 		payload = {
 			"model": self.model_,
-			"messages": question,
+			"messages": self._merge_same_role(question),
 			"temperature": 0,
 			"stream": False,
 		}

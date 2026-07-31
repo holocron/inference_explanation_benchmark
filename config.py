@@ -3,17 +3,33 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent
 DATASET_DIR = BASE_DIR / "dataset_2026"
 
-# Backend: "lemonade" (Lemonade Server, OpenAI-compatible) or "ollama"
-BACKEND = "lemonade"
+# Endpoints.
+# Small models are served by our own llama-server instances (run_own.py),
+# one at a time on port 9101, so lemond's single resident-LLM slot stays
+# with gpt-oss-120b (rag gists run on it around the clock — never evict it).
+# gpt-oss-120b itself is queried through the lemond router, where it is
+# already loaded; we never issue load/unload for it.
 LEMONADE_BASE_URL = "http://localhost:13305/api/v1"
+OWN_SERVER_URL = "http://localhost:9101/v1"
 
-# Model ids as served by Lemonade (see /api/v1/models on the server)
 MODELS = [
   "Gemma-3-4b-it-GGUF",
   "Llama-3.2-3B-Instruct-GGUF",
   "Bonsai-8B-gguf",
   "gpt-oss-20b-mxfp4-GGUF",
-  "gpt-oss-120b-GGUF",
 ]
-# Ollama ids used by the original paper's setup:
-# MODELS = ["llama3.2:3b", "gemma3:4b"] #, "llama3.1:8b", "gemma2:2b", "gemma2:9b", "mistral-nemo:12b", "mistral-small:22b"]
+
+MODEL_ENDPOINTS = {model: OWN_SERVER_URL for model in MODELS}
+MODEL_ENDPOINTS["gpt-oss-120b-GGUF"] = LEMONADE_BASE_URL
+
+# Models we must never load/unload ourselves — managed elsewhere (lemond).
+NEVER_LOAD = {"gpt-oss-120b-GGUF"}
+
+# Local GGUF files for our own llama-server instances — same checkpoints
+# (repo + quant) that lemond serves, downloaded to ./models.
+LOCAL_GGUF = {
+  "Gemma-3-4b-it-GGUF":        BASE_DIR / "models/gemma-3-4b-it-Q4_K_M.gguf",
+  "Llama-3.2-3B-Instruct-GGUF": BASE_DIR / "models/Llama-3.2-3B-Instruct-UD-Q4_K_XL.gguf",
+  "Bonsai-8B-gguf":            BASE_DIR / "models/Bonsai-8B-Q1_0.gguf",
+  "gpt-oss-20b-mxfp4-GGUF":    BASE_DIR / "models/gpt-oss-20b-MXFP4.gguf",
+}

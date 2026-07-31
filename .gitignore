@@ -3,4 +3,5 @@ src/__pycache__
 
 settings.json
 .vscode/
-*.pyc
+*.pycmodels/
+logs/

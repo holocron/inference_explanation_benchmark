@@ -16,9 +16,12 @@ class LemonadeHandler:
 	The handler therefore (re)loads the model via /api/v1/load and
 	retries transparently.
 	"""
-	def __init__(self, model, base_url="http://localhost:13305/api/v1"):
+	def __init__(self, model, base_url="http://localhost:13305/api/v1", load_on_missing=True):
 		self.model_ = model
 		self.base_url_ = base_url.rstrip("/")
+		# False for models managed elsewhere (e.g. gpt-oss-120b in lemond):
+		# wait-and-retry instead of issuing /load ourselves
+		self.load_on_missing_ = load_on_missing
 
 	# Some chat templates (e.g. Gemma) reject consecutive same-role
 	# messages ("roles must alternate"). The benchmark's init_prompt
@@ -64,8 +67,12 @@ class LemonadeHandler:
 			except urllib.error.HTTPError as e:
 				body = e.read().decode(errors = "replace")
 				if "model_not_loaded" in body and attempt < 3:
-					print(f"model {self.model_} not loaded, loading (attempt {attempt + 1})...")
-					self._load_model()
+					if self.load_on_missing_:
+						print(f"model {self.model_} not loaded, loading (attempt {attempt + 1})...")
+						self._load_model()
+					else:
+						print(f"model {self.model_} temporarily unavailable, waiting (attempt {attempt + 1})...")
+						time.sleep(60)
 					continue
 				raise
 			except (urllib.error.URLError, TimeoutError):

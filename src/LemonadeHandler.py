@@ -1,4 +1,6 @@
 import json
+import time
+import urllib.error
 import urllib.request
 
 class LemonadeHandler:
@@ -8,6 +10,11 @@ class LemonadeHandler:
 	Same interface: call(question) -> (answer_text, duration).
 	Duration is reported on the same scale as OllamaHandler
 	((prompt_eval_duration + eval_duration) / 1000, i.e. microseconds).
+
+	Lemonade evicts models from memory when another model is loaded or
+	after idle time, answering chat requests with 'model_not_loaded'.
+	The handler therefore (re)loads the model via /api/v1/load and
+	retries transparently.
 	"""
 	def __init__(self, model, base_url="http://localhost:13305/api/v1"):
 		self.model_ = model
@@ -26,20 +33,46 @@ class LemonadeHandler:
 				merged.append({"role": m["role"], "content": m["content"]})
 		return merged
 
-	def call(self, question, verbose = False, full_verbose = False):
+	def _post(self, path, payload, timeout = None):
+		req = urllib.request.Request(
+			self.base_url_ + path,
+			data = json.dumps(payload).encode(),
+			headers = {"Content-Type": "application/json"},
+		)
+		with urllib.request.urlopen(req, timeout = timeout) as resp:
+			return json.load(resp)
+
+	def _load_model(self):
+		# loading a large model (gpt-oss-120b) can take several minutes
+		self._post("/load", {"model_name": self.model_}, timeout = 1800)
+
+	def _call_once(self, question):
 		payload = {
 			"model": self.model_,
 			"messages": self._merge_same_role(question),
 			"temperature": 0,
 			"stream": False,
 		}
-		req = urllib.request.Request(
-			self.base_url_ + "/chat/completions",
-			data = json.dumps(payload).encode(),
-			headers = {"Content-Type": "application/json"},
-		)
-		with urllib.request.urlopen(req) as resp:
-			response = json.load(resp)
+		return self._post("/chat/completions", payload)
+
+	def call(self, question, verbose = False, full_verbose = False):
+		response = None
+		for attempt in range(4):
+			try:
+				response = self._call_once(question)
+				break
+			except urllib.error.HTTPError as e:
+				body = e.read().decode(errors = "replace")
+				if "model_not_loaded" in body and attempt < 3:
+					print(f"model {self.model_} not loaded, loading (attempt {attempt + 1})...")
+					self._load_model()
+					continue
+				raise
+			except (urllib.error.URLError, TimeoutError):
+				if attempt < 3:
+					time.sleep(10 * (attempt + 1))
+					continue
+				raise
 
 		message = response["choices"][0]["message"]
 		# reasoning models (gpt-oss): chain-of-thought goes to

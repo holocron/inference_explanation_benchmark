@@ -1,7 +1,6 @@
 import os
 import json
 import copy
-from src.OllamaHandler import OllamaHandler
 
 class AnswerGenerator:
   def __init__(self, path):

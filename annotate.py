@@ -245,9 +245,16 @@ def display_variant_menu(base_path, eval_path, question, model):
     return variations[int(choice) - 1]
 
 def main():
-    root_path = "/home/bdussard/inference_explanation/dataset_test/"
-    base_path = root_path + "answers"
-    evaluations_path = root_path + "evaluations"
+    # paths configurable so the tool can annotate any answers tree into a
+    # separate evaluations dir (never overwrite the reference evaluations):
+    #   python3 annotate.py <answers_dir> <eval_dir>
+    if len(sys.argv) == 3:
+        base_path = sys.argv[1]
+        evaluations_path = sys.argv[2]
+    else:
+        root_path = "/home/bdussard/inference_explanation/dataset_test/"
+        base_path = root_path + "answers"
+        evaluations_path = root_path + "evaluations"
 
     if not os.path.exists(evaluations_path):
         os.makedirs(evaluations_path)

@@ -14,21 +14,28 @@ Writes <out_dir>/<model>/<condition>/<file> with the same JSON shape as the
 reference evaluations: [{question_id, is_correct, score, missing_concepts}].
 """
 import json
+import re
 import sys
 from pathlib import Path
+
+def normalize(text):
+    # CamelCase class names ("TwoFingerClaw") must match their natural
+    # renderings ("two-finger claw", "two finger claw") — compare on
+    # alphanumerics only
+    return re.sub(r"[^a-z0-9]", "", text.lower())
 
 def auto_evaluate(answer_file):
     data = json.load(open(answer_file))
     concepts = data["concepts"]
     evaluations = []
     for answer_data in data["answers"]:
-        text = (answer_data.get("answer") or "").lower()
+        text = normalize(answer_data.get("answer") or "")
         selected_classes = answer_data.get("selected_classes", [])
         total = len(selected_classes) + len(concepts)
         matched = 0
         missing = []
         for value in list(selected_classes) + list(concepts):
-            if value.lower() in text:
+            if normalize(value) in text:
                 matched += 1
             else:
                 missing.append(value)

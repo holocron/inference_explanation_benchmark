@@ -8,6 +8,11 @@ def print_progress_bar(current, total, bar_length=40):
     spaces = ' ' * (bar_length - len(arrow))
     print(f"\rProgress: |{arrow}{spaces}| {current}/{total} ({int(progress * 100)}%)")
 
+def format_question(question_text):
+    """Render the justification triples one per line instead of a single
+    comma-joined blob (safe: built-ins like greaterThan(a,b) use no space)."""
+    return question_text.replace(", ", ",\n    ")
+
 def build_alias_legend(question_text, selected_names=None):
     """Decode anonymised individual names (v, yo, onq...) into their classes
     using the triples inside the question, so the annotator does not have to
@@ -67,7 +72,7 @@ def evaluate_answers(json_file_path, target_file):
 
             print("\033[1m\033[94mQuestion ID:\033[0m", f"\033[92m{question_id}\033[0m")
             print("\033[1m\033[94mAliases:\033[0m", f"\033[96m{build_alias_legend(question, answer_data.get('selected_names', []))}\033[0m")
-            print("\033[1m\033[94mQuestion:\033[0m", f"\033[93m{question}\033[0m")
+            print("\033[1m\033[94mQuestion:\033[0m", f"\033[93m{format_question(question)}\033[0m")
             print("\033[1m\033[94mAnswer:\033[0m", f"\033[95m{answer}\033[0m\n")
 
             # Validate the answer

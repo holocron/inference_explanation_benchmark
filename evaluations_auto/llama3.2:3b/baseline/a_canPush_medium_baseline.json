@@ -1,0 +1,233 @@
+[
+  {
+    "question_id": "a_canPush_medium_0b",
+    "is_correct": null,
+    "score": 0.4,
+    "missing_concepts": [
+      "Claw",
+      "Wheel",
+      "pushable",
+      "approachable",
+      "applicable_force",
+      "required_force"
+    ]
+  },
+  {
+    "question_id": "a_canPush_medium_1b",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "Manipulator",
+      "Caster",
+      "approachable",
+      "applicable_force",
+      "required_force"
+    ]
+  },
+  {
+    "question_id": "a_canPush_medium_2b",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "MechanicalHand",
+      "PivotRoller",
+      "pushable",
+      "approachable",
+      "applicable_force"
+    ]
+  },
+  {
+    "question_id": "a_canPush_medium_3b",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "TwoFingerClaw",
+      "Wheel",
+      "pushable",
+      "approachable",
+      "applicable_force"
+    ]
+  },
+  {
+    "question_id": "a_canPush_medium_4b",
+    "is_correct": null,
+    "score": 0.4,
+    "missing_concepts": [
+      "TwoFingerClaw",
+      "Caster",
+      "pushable",
+      "approachable",
+      "applicable_force",
+      "required_force"
+    ]
+  },
+  {
+    "question_id": "a_canPush_medium_5b",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "Manipulator",
+      "Roller",
+      "pushable",
+      "applicable_force",
+      "required_force"
+    ]
+  },
+  {
+    "question_id": "a_canPush_medium_6b",
+    "is_correct": null,
+    "score": 0.6,
+    "missing_concepts": [
+      "Wheel",
+      "pushable",
+      "applicable_force",
+      "required_force"
+    ]
+  },
+  {
+    "question_id": "a_canPush_medium_7b",
+    "is_correct": null,
+    "score": 0.8,
+    "missing_concepts": [
+      "applicable_force",
+      "required_force"
+    ]
+  },
+  {
+    "question_id": "a_canPush_medium_8b",
+    "is_correct": null,
+    "score": 0.4,
+    "missing_concepts": [
+      "Claw",
+      "PivotRoller",
+      "pushable",
+      "approachable",
+      "applicable_force",
+      "required_force"
+    ]
+  },
+  {
+    "question_id": "a_canPush_medium_9b",
+    "is_correct": null,
+    "score": 0.7,
+    "missing_concepts": [
+      "Manipulator",
+      "approachable",
+      "required_force"
+    ]
+  },
+  {
+    "question_id": "a_canPush_medium_10b",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "TwoFingerClaw",
+      "PivotRoller",
+      "approachable",
+      "applicable_force",
+      "required_force"
+    ]
+  },
+  {
+    "question_id": "a_canPush_medium_11b",
+    "is_correct": null,
+    "score": 0.7,
+    "missing_concepts": [
+      "approachable",
+      "applicable_force",
+      "required_force"
+    ]
+  },
+  {
+    "question_id": "a_canPush_medium_12b",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "Claw",
+      "Caster",
+      "pushable",
+      "applicable_force",
+      "required_force"
+    ]
+  },
+  {
+    "question_id": "a_canPush_medium_13b",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "Manipulator",
+      "PivotWheel",
+      "pushable",
+      "approachable",
+      "applicable_force"
+    ]
+  },
+  {
+    "question_id": "a_canPush_medium_14b",
+    "is_correct": null,
+    "score": 0.6,
+    "missing_concepts": [
+      "Caster",
+      "pushable",
+      "applicable_force",
+      "required_force"
+    ]
+  },
+  {
+    "question_id": "a_canPush_medium_15b",
+    "is_correct": null,
+    "score": 0.6,
+    "missing_concepts": [
+      "RoombaRobot",
+      "approachable",
+      "applicable_force",
+      "required_force"
+    ]
+  },
+  {
+    "question_id": "a_canPush_medium_16b",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "Caster",
+      "pushable",
+      "approachable",
+      "applicable_force",
+      "required_force"
+    ]
+  },
+  {
+    "question_id": "a_canPush_medium_17b",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "TwoFingerClaw",
+      "PivotRoller",
+      "pushable",
+      "approachable",
+      "applicable_force"
+    ]
+  },
+  {
+    "question_id": "a_canPush_medium_18b",
+    "is_correct": null,
+    "score": 0.7,
+    "missing_concepts": [
+      "approachable",
+      "applicable_force",
+      "required_force"
+    ]
+  },
+  {
+    "question_id": "a_canPush_medium_19b",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "TwoFingerClaw",
+      "PivotRoller",
+      "pushable",
+      "applicable_force",
+      "required_force"
+    ]
+  }
+]

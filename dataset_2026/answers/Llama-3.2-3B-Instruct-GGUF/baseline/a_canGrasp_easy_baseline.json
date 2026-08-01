@@ -1,0 +1,444 @@
+{
+  "id": "a_canGrasp_easy",
+  "template": {
+    "fact": "__agent__|canGrasp|__object__",
+    "explanation": [
+      "__agent__|Type|__Agent__",
+      "__Agent__|SubClassOf|Agent",
+      "__agent__|hasCapability|__agent_capa__",
+      "__agent_capa__|isCapabilityOf|__agent__",
+      "__agent__|hasComponent|__gripper__",
+      "__gripper__|Type|__Gripper__",
+      "__Gripper__|SubClassOf|Gripper",
+      "__object__|Type|__Object__",
+      "__Object__|SubClassOf|Object",
+      "__object__|hasDisposition|__object_disp__",
+      "__object_disp__|isDispositionOf|__object__",
+      "__object__|hasPart|__handle__",
+      "__handle__|Type|__Handle__",
+      "__Handle__|SubClassOf|GraspablePart",
+      "__object__|isReachableBy|__agent__",
+      "__gripper__|Type|Gripper",
+      "Gripper|SubClassOf|EndEffector",
+      "__agent__|hasComponent|__gripper__",
+      "__gripper__|hasOpeningWidth|integer#2",
+      "__object__|hasHoldingPartWidth|integer#1",
+      "greaterThan(integer#2,integer#1)"
+    ]
+  },
+  "rules": [
+    "Agent(?a), hasCapability(?a, ?c), GraspingCapability(?c), Object(?o), hasDisposition(?o, ?d), GraspableDisposition(?d), isReachableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasOpeningWidth(?g,?w1), hasHoldingPartWidth(?o,?w2), greaterThan(?w1,?w2) -> canGrasp(?a, ?o)",
+    "GraspingCapability|EquivalentTo|(isCapabilityOf some (hasComponent some Gripper)",
+    "GraspableDisposition|EquivalentTo|isDispositionOf some (hasPart some GraspablePart)"
+  ],
+  "concepts": [
+    "grasping",
+    "graspable",
+    "reach",
+    "opening",
+    "object_width",
+    "can grasp"
+  ],
+  "answers": [
+    {
+      "id": "a_canGrasp_easy_0b",
+      "selected_classes": [
+        "Pr2",
+        "TwoFingerClaw",
+        "HandGrip",
+        "Shovel"
+      ],
+      "selected_names": [
+        "na",
+        "eyy",
+        "mvog",
+        "wwyaq",
+        "dpuxwi",
+        "phldtq"
+      ],
+      "question": "-Inference : wwyaq|canGrasp|eyy \n -Justifications : wwyaq|Type|Pr2, Pr2|SubClassOf|Agent, wwyaq|hasCapability|na, na|isCapabilityOf|wwyaq, wwyaq|hasComponent|phldtq, phldtq|Type|TwoFingerClaw, TwoFingerClaw|SubClassOf|Gripper, eyy|Type|Shovel, Shovel|SubClassOf|Object, eyy|hasDisposition|mvog, mvog|isDispositionOf|eyy, eyy|hasPart|dpuxwi, dpuxwi|Type|HandGrip, HandGrip|SubClassOf|GraspablePart, eyy|isReachableBy|wwyaq, phldtq|Type|Gripper, Gripper|SubClassOf|EndEffector, wwyaq|hasComponent|phldtq, phldtq|hasOpeningWidth|integer#96, eyy|hasHoldingPartWidth|integer#54, greaterThan(integer#96,integer#54) \n -Rules : Agent(?a), hasCapability(?a, ?c), GraspingCapability(?c), Object(?o), hasDisposition(?o, ?d), GraspableDisposition(?d), isReachableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasOpeningWidth(?g,?w1), hasHoldingPartWidth(?o,?w2), greaterThan(?w1,?w2) -> canGrasp(?a, ?o)\n\tGraspingCapability|EquivalentTo|(isCapabilityOf some (hasComponent some Gripper)\n\tGraspableDisposition|EquivalentTo|isDispositionOf some (hasPart some GraspablePart)",
+      "answer": " the pr2 can grasp the shovel because it has a grasping capability thanks to its two-finger claw gripper, which is compatible with the shovel's hand grip, and the shovel is graspable due to its hand grip being a graspable part.",
+      "duration": 5627708.000000001
+    },
+    {
+      "id": "a_canGrasp_easy_1b",
+      "selected_classes": [
+        "Pepper",
+        "Manipulator",
+        "Grip",
+        "Lunchbox"
+      ],
+      "selected_names": [
+        "pvobfu",
+        "azhx",
+        "gsdbnt",
+        "nq",
+        "qg",
+        "wmy"
+      ],
+      "question": "-Inference : nq|canGrasp|azhx \n -Justifications : nq|Type|Pepper, Pepper|SubClassOf|Agent, nq|hasCapability|pvobfu, pvobfu|isCapabilityOf|nq, nq|hasComponent|wmy, wmy|Type|Manipulator, Manipulator|SubClassOf|Gripper, azhx|Type|Lunchbox, Lunchbox|SubClassOf|Object, azhx|hasDisposition|gsdbnt, gsdbnt|isDispositionOf|azhx, azhx|hasPart|qg, qg|Type|Grip, Grip|SubClassOf|GraspablePart, azhx|isReachableBy|nq, wmy|Type|Gripper, Gripper|SubClassOf|EndEffector, nq|hasComponent|wmy, wmy|hasOpeningWidth|integer#54, azhx|hasHoldingPartWidth|integer#39, greaterThan(integer#54,integer#39) \n -Rules : Agent(?a), hasCapability(?a, ?c), GraspingCapability(?c), Object(?o), hasDisposition(?o, ?d), GraspableDisposition(?d), isReachableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasOpeningWidth(?g,?w1), hasHoldingPartWidth(?o,?w2), greaterThan(?w1,?w2) -> canGrasp(?a, ?o)\n\tGraspingCapability|EquivalentTo|(isCapabilityOf some (hasComponent some Gripper)\n\tGraspableDisposition|EquivalentTo|isDispositionOf some (hasPart some GraspablePart)",
+      "answer": " the pepper can grasp the lunchbox because it has a grasping capability thanks to its manipulator component, which is an end effector with a larger opening width than the lunchbox's holding part, making the lunchbox graspable.",
+      "duration": 5152634.0
+    },
+    {
+      "id": "a_canGrasp_easy_2b",
+      "selected_classes": [
+        "Pepper",
+        "MechanicalHand",
+        "HandGrip",
+        "Hammer"
+      ],
+      "selected_names": [
+        "xyjws",
+        "dzs",
+        "dms",
+        "atjih",
+        "twmw",
+        "xzl"
+      ],
+      "question": "-Inference : atjih|canGrasp|dzs \n -Justifications : atjih|Type|Pepper, Pepper|SubClassOf|Agent, atjih|hasCapability|xyjws, xyjws|isCapabilityOf|atjih, atjih|hasComponent|xzl, xzl|Type|MechanicalHand, MechanicalHand|SubClassOf|Gripper, dzs|Type|Hammer, Hammer|SubClassOf|Object, dzs|hasDisposition|dms, dms|isDispositionOf|dzs, dzs|hasPart|twmw, twmw|Type|HandGrip, HandGrip|SubClassOf|GraspablePart, dzs|isReachableBy|atjih, xzl|Type|Gripper, Gripper|SubClassOf|EndEffector, atjih|hasComponent|xzl, xzl|hasOpeningWidth|integer#75, dzs|hasHoldingPartWidth|integer#13, greaterThan(integer#75,integer#13) \n -Rules : Agent(?a), hasCapability(?a, ?c), GraspingCapability(?c), Object(?o), hasDisposition(?o, ?d), GraspableDisposition(?d), isReachableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasOpeningWidth(?g,?w1), hasHoldingPartWidth(?o,?w2), greaterThan(?w1,?w2) -> canGrasp(?a, ?o)\n\tGraspingCapability|EquivalentTo|(isCapabilityOf some (hasComponent some Gripper)\n\tGraspableDisposition|EquivalentTo|isDispositionOf some (hasPart some GraspablePart)",
+      "answer": " the pepper can grasp the hammer because it has a grasping capability thanks to its mechanical hand, which is an end effector with a wider opening than the hammer's holding part, allowing the pepper to reach and grasp the hammer.",
+      "duration": 5072490.0
+    },
+    {
+      "id": "a_canGrasp_easy_3b",
+      "selected_classes": [
+        "Tiago",
+        "Claw",
+        "Grip",
+        "Hammer"
+      ],
+      "selected_names": [
+        "urc",
+        "hj",
+        "glolnx",
+        "wch",
+        "czjp",
+        "spvxds"
+      ],
+      "question": "-Inference : wch|canGrasp|hj \n -Justifications : wch|Type|Tiago, Tiago|SubClassOf|Agent, wch|hasCapability|urc, urc|isCapabilityOf|wch, wch|hasComponent|spvxds, spvxds|Type|Claw, Claw|SubClassOf|Gripper, hj|Type|Hammer, Hammer|SubClassOf|Object, hj|hasDisposition|glolnx, glolnx|isDispositionOf|hj, hj|hasPart|czjp, czjp|Type|Grip, Grip|SubClassOf|GraspablePart, hj|isReachableBy|wch, spvxds|Type|Gripper, Gripper|SubClassOf|EndEffector, wch|hasComponent|spvxds, spvxds|hasOpeningWidth|integer#42, hj|hasHoldingPartWidth|integer#18, greaterThan(integer#42,integer#18) \n -Rules : Agent(?a), hasCapability(?a, ?c), GraspingCapability(?c), Object(?o), hasDisposition(?o, ?d), GraspableDisposition(?d), isReachableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasOpeningWidth(?g,?w1), hasHoldingPartWidth(?o,?w2), greaterThan(?w1,?w2) -> canGrasp(?a, ?o)\n\tGraspingCapability|EquivalentTo|(isCapabilityOf some (hasComponent some Gripper)\n\tGraspableDisposition|EquivalentTo|isDispositionOf some (hasPart some GraspablePart)",
+      "answer": " the Tiago can grasp the hammer because it has a grasping capability thanks to its gripper end effector, which is capable of grasping due to its gripper component, and the hammer is graspable as it has a graspable part.",
+      "duration": 5247298.000000001
+    },
+    {
+      "id": "a_canGrasp_easy_4b",
+      "selected_classes": [
+        "Pr2",
+        "Manipulator",
+        "Handle",
+        "ToyBucket"
+      ],
+      "selected_names": [
+        "xcfuk",
+        "bn",
+        "pgo",
+        "gol",
+        "cck",
+        "qgcsff"
+      ],
+      "question": "-Inference : gol|canGrasp|bn \n -Justifications : gol|Type|Pr2, Pr2|SubClassOf|Agent, gol|hasCapability|xcfuk, xcfuk|isCapabilityOf|gol, gol|hasComponent|qgcsff, qgcsff|Type|Manipulator, Manipulator|SubClassOf|Gripper, bn|Type|ToyBucket, ToyBucket|SubClassOf|Object, bn|hasDisposition|pgo, pgo|isDispositionOf|bn, bn|hasPart|cck, cck|Type|Handle, Handle|SubClassOf|GraspablePart, bn|isReachableBy|gol, qgcsff|Type|Gripper, Gripper|SubClassOf|EndEffector, gol|hasComponent|qgcsff, qgcsff|hasOpeningWidth|integer#98, bn|hasHoldingPartWidth|integer#24, greaterThan(integer#98,integer#24) \n -Rules : Agent(?a), hasCapability(?a, ?c), GraspingCapability(?c), Object(?o), hasDisposition(?o, ?d), GraspableDisposition(?d), isReachableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasOpeningWidth(?g,?w1), hasHoldingPartWidth(?o,?w2), greaterThan(?w1,?w2) -> canGrasp(?a, ?o)\n\tGraspingCapability|EquivalentTo|(isCapabilityOf some (hasComponent some Gripper)\n\tGraspableDisposition|EquivalentTo|isDispositionOf some (hasPart some GraspablePart)",
+      "answer": " the pr2 can grasp the toy bucket because it has a grasping capability thanks to its gripper end effector, which is capable of grasping due to its wider opening width compared to the bucket's holding part width.",
+      "duration": 5002769.0
+    },
+    {
+      "id": "a_canGrasp_easy_5b",
+      "selected_classes": [
+        "Pr2",
+        "TwoFingerClaw",
+        "Handle",
+        "ToyBucket"
+      ],
+      "selected_names": [
+        "ht",
+        "cvu",
+        "vo",
+        "rao",
+        "koyrka",
+        "bpx"
+      ],
+      "question": "-Inference : rao|canGrasp|cvu \n -Justifications : rao|Type|Pr2, Pr2|SubClassOf|Agent, rao|hasCapability|ht, ht|isCapabilityOf|rao, rao|hasComponent|bpx, bpx|Type|TwoFingerClaw, TwoFingerClaw|SubClassOf|Gripper, cvu|Type|ToyBucket, ToyBucket|SubClassOf|Object, cvu|hasDisposition|vo, vo|isDispositionOf|cvu, cvu|hasPart|koyrka, koyrka|Type|Handle, Handle|SubClassOf|GraspablePart, cvu|isReachableBy|rao, bpx|Type|Gripper, Gripper|SubClassOf|EndEffector, rao|hasComponent|bpx, bpx|hasOpeningWidth|integer#86, cvu|hasHoldingPartWidth|integer#28, greaterThan(integer#86,integer#28) \n -Rules : Agent(?a), hasCapability(?a, ?c), GraspingCapability(?c), Object(?o), hasDisposition(?o, ?d), GraspableDisposition(?d), isReachableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasOpeningWidth(?g,?w1), hasHoldingPartWidth(?o,?w2), greaterThan(?w1,?w2) -> canGrasp(?a, ?o)\n\tGraspingCapability|EquivalentTo|(isCapabilityOf some (hasComponent some Gripper)\n\tGraspableDisposition|EquivalentTo|isDispositionOf some (hasPart some GraspablePart)",
+      "answer": " the pr2 can grasp the toy bucket because it has a grasping capability thanks to its two-finger claw gripper, which is an end effector, and the toy bucket is a graspable object with a handle that is wider than the claw's opening, making it reachable and graspable by the pr2.",
+      "duration": 4762252.0
+    },
+    {
+      "id": "a_canGrasp_easy_6b",
+      "selected_classes": [
+        "Tiago",
+        "MechanicalHand",
+        "Handle",
+        "CookingPot"
+      ],
+      "selected_names": [
+        "zzhn",
+        "jpyou",
+        "yaawt",
+        "rvwung",
+        "geppeu",
+        "gh"
+      ],
+      "question": "-Inference : rvwung|canGrasp|jpyou \n -Justifications : rvwung|Type|Tiago, Tiago|SubClassOf|Agent, rvwung|hasCapability|zzhn, zzhn|isCapabilityOf|rvwung, rvwung|hasComponent|gh, gh|Type|MechanicalHand, MechanicalHand|SubClassOf|Gripper, jpyou|Type|CookingPot, CookingPot|SubClassOf|Object, jpyou|hasDisposition|yaawt, yaawt|isDispositionOf|jpyou, jpyou|hasPart|geppeu, geppeu|Type|Handle, Handle|SubClassOf|GraspablePart, jpyou|isReachableBy|rvwung, gh|Type|Gripper, Gripper|SubClassOf|EndEffector, rvwung|hasComponent|gh, gh|hasOpeningWidth|integer#20, jpyou|hasHoldingPartWidth|integer#16, greaterThan(integer#20,integer#16) \n -Rules : Agent(?a), hasCapability(?a, ?c), GraspingCapability(?c), Object(?o), hasDisposition(?o, ?d), GraspableDisposition(?d), isReachableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasOpeningWidth(?g,?w1), hasHoldingPartWidth(?o,?w2), greaterThan(?w1,?w2) -> canGrasp(?a, ?o)\n\tGraspingCapability|EquivalentTo|(isCapabilityOf some (hasComponent some Gripper)\n\tGraspableDisposition|EquivalentTo|isDispositionOf some (hasPart some GraspablePart)",
+      "answer": " the Tiago can grasp the cooking pot because it has a grasping capability thanks to its mechanical hand, which is an end effector with a wider opening than the pot's holding part, allowing the Tiago to reach and grasp the pot.",
+      "duration": 4214151.0
+    },
+    {
+      "id": "a_canGrasp_easy_7b",
+      "selected_classes": [
+        "Pepper",
+        "TwoFingerClaw",
+        "Handle",
+        "Lunchbox"
+      ],
+      "selected_names": [
+        "qqgond",
+        "ajvba",
+        "rsj",
+        "haipdj",
+        "xcmosj",
+        "vz"
+      ],
+      "question": "-Inference : haipdj|canGrasp|ajvba \n -Justifications : haipdj|Type|Pepper, Pepper|SubClassOf|Agent, haipdj|hasCapability|qqgond, qqgond|isCapabilityOf|haipdj, haipdj|hasComponent|vz, vz|Type|TwoFingerClaw, TwoFingerClaw|SubClassOf|Gripper, ajvba|Type|Lunchbox, Lunchbox|SubClassOf|Object, ajvba|hasDisposition|rsj, rsj|isDispositionOf|ajvba, ajvba|hasPart|xcmosj, xcmosj|Type|Handle, Handle|SubClassOf|GraspablePart, ajvba|isReachableBy|haipdj, vz|Type|Gripper, Gripper|SubClassOf|EndEffector, haipdj|hasComponent|vz, vz|hasOpeningWidth|integer#43, ajvba|hasHoldingPartWidth|integer#25, greaterThan(integer#43,integer#25) \n -Rules : Agent(?a), hasCapability(?a, ?c), GraspingCapability(?c), Object(?o), hasDisposition(?o, ?d), GraspableDisposition(?d), isReachableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasOpeningWidth(?g,?w1), hasHoldingPartWidth(?o,?w2), greaterThan(?w1,?w2) -> canGrasp(?a, ?o)\n\tGraspingCapability|EquivalentTo|(isCapabilityOf some (hasComponent some Gripper)\n\tGraspableDisposition|EquivalentTo|isDispositionOf some (hasPart some GraspablePart)",
+      "answer": " the pepper can grasp the lunchbox because it has a grasping capability thanks to its two-finger claw gripper, which is an end effector, and the lunchbox is a graspable object with a wider opening than the gripper's opening, allowing the pepper to reach and grasp it.",
+      "duration": 4662410.0
+    },
+    {
+      "id": "a_canGrasp_easy_8b",
+      "selected_classes": [
+        "Pr2",
+        "TwoFingerClaw",
+        "Handle",
+        "Suitcase"
+      ],
+      "selected_names": [
+        "eakk",
+        "hcflmv",
+        "twyay",
+        "nsgu",
+        "fg",
+        "scfol"
+      ],
+      "question": "-Inference : nsgu|canGrasp|hcflmv \n -Justifications : nsgu|Type|Pr2, Pr2|SubClassOf|Agent, nsgu|hasCapability|eakk, eakk|isCapabilityOf|nsgu, nsgu|hasComponent|scfol, scfol|Type|TwoFingerClaw, TwoFingerClaw|SubClassOf|Gripper, hcflmv|Type|Suitcase, Suitcase|SubClassOf|Object, hcflmv|hasDisposition|twyay, twyay|isDispositionOf|hcflmv, hcflmv|hasPart|fg, fg|Type|Handle, Handle|SubClassOf|GraspablePart, hcflmv|isReachableBy|nsgu, scfol|Type|Gripper, Gripper|SubClassOf|EndEffector, nsgu|hasComponent|scfol, scfol|hasOpeningWidth|integer#44, hcflmv|hasHoldingPartWidth|integer#39, greaterThan(integer#44,integer#39) \n -Rules : Agent(?a), hasCapability(?a, ?c), GraspingCapability(?c), Object(?o), hasDisposition(?o, ?d), GraspableDisposition(?d), isReachableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasOpeningWidth(?g,?w1), hasHoldingPartWidth(?o,?w2), greaterThan(?w1,?w2) -> canGrasp(?a, ?o)\n\tGraspingCapability|EquivalentTo|(isCapabilityOf some (hasComponent some Gripper)\n\tGraspableDisposition|EquivalentTo|isDispositionOf some (hasPart some GraspablePart)",
+      "answer": " the pr2 can grasp the suitcase because it has a grasping capability thanks to its two-finger claw gripper, which is capable of grasping and has a wider opening than the suitcase's holding part, allowing the pr2 to reach and grasp the suitcase.",
+      "duration": 5660507.0
+    },
+    {
+      "id": "a_canGrasp_easy_9b",
+      "selected_classes": [
+        "Robot",
+        "Manipulator",
+        "HandGrip",
+        "Shovel"
+      ],
+      "selected_names": [
+        "fupkjn",
+        "sdfszg",
+        "rc",
+        "zsp",
+        "bcef",
+        "iqmkyn"
+      ],
+      "question": "-Inference : zsp|canGrasp|sdfszg \n -Justifications : zsp|Type|Robot, Robot|SubClassOf|Agent, zsp|hasCapability|fupkjn, fupkjn|isCapabilityOf|zsp, zsp|hasComponent|iqmkyn, iqmkyn|Type|Manipulator, Manipulator|SubClassOf|Gripper, sdfszg|Type|Shovel, Shovel|SubClassOf|Object, sdfszg|hasDisposition|rc, rc|isDispositionOf|sdfszg, sdfszg|hasPart|bcef, bcef|Type|HandGrip, HandGrip|SubClassOf|GraspablePart, sdfszg|isReachableBy|zsp, iqmkyn|Type|Gripper, Gripper|SubClassOf|EndEffector, zsp|hasComponent|iqmkyn, iqmkyn|hasOpeningWidth|integer#87, sdfszg|hasHoldingPartWidth|integer#68, greaterThan(integer#87,integer#68) \n -Rules : Agent(?a), hasCapability(?a, ?c), GraspingCapability(?c), Object(?o), hasDisposition(?o, ?d), GraspableDisposition(?d), isReachableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasOpeningWidth(?g,?w1), hasHoldingPartWidth(?o,?w2), greaterThan(?w1,?w2) -> canGrasp(?a, ?o)\n\tGraspingCapability|EquivalentTo|(isCapabilityOf some (hasComponent some Gripper)\n\tGraspableDisposition|EquivalentTo|isDispositionOf some (hasPart some GraspablePart)",
+      "answer": " the robot can grasp the shovel because it is an agent, has a grasping capability, and the shovel is a graspable object, having a graspable part that is part of the robot's gripper, which has an opening width greater than the shovel's holding part width.",
+      "duration": 5880464.0
+    },
+    {
+      "id": "a_canGrasp_easy_10b",
+      "selected_classes": [
+        "Pr2",
+        "MechanicalHand",
+        "HandGrip",
+        "CookingPot"
+      ],
+      "selected_names": [
+        "weap",
+        "ukt",
+        "vkiie",
+        "iezy",
+        "umx",
+        "guvi"
+      ],
+      "question": "-Inference : iezy|canGrasp|ukt \n -Justifications : iezy|Type|Pr2, Pr2|SubClassOf|Agent, iezy|hasCapability|weap, weap|isCapabilityOf|iezy, iezy|hasComponent|guvi, guvi|Type|MechanicalHand, MechanicalHand|SubClassOf|Gripper, ukt|Type|CookingPot, CookingPot|SubClassOf|Object, ukt|hasDisposition|vkiie, vkiie|isDispositionOf|ukt, ukt|hasPart|umx, umx|Type|HandGrip, HandGrip|SubClassOf|GraspablePart, ukt|isReachableBy|iezy, guvi|Type|Gripper, Gripper|SubClassOf|EndEffector, iezy|hasComponent|guvi, guvi|hasOpeningWidth|integer#76, ukt|hasHoldingPartWidth|integer#34, greaterThan(integer#76,integer#34) \n -Rules : Agent(?a), hasCapability(?a, ?c), GraspingCapability(?c), Object(?o), hasDisposition(?o, ?d), GraspableDisposition(?d), isReachableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasOpeningWidth(?g,?w1), hasHoldingPartWidth(?o,?w2), greaterThan(?w1,?w2) -> canGrasp(?a, ?o)\n\tGraspingCapability|EquivalentTo|(isCapabilityOf some (hasComponent some Gripper)\n\tGraspableDisposition|EquivalentTo|isDispositionOf some (hasPart some GraspablePart)",
+      "answer": " the pr2 can grasp the cooking pot because it has a grasping capability thanks to its gripper end effector, which is capable of grasping due to its mechanical hand component, and the pot is graspable as it has a hand grip part that is a graspable part, allowing the pr2 to reach and grasp the pot.",
+      "duration": 6531791.0
+    },
+    {
+      "id": "a_canGrasp_easy_11b",
+      "selected_classes": [
+        "Tiago",
+        "Claw",
+        "HandGrip",
+        "Lunchbox"
+      ],
+      "selected_names": [
+        "kknn",
+        "mbdj",
+        "dbbm",
+        "xudxay",
+        "fowu",
+        "mwlnr"
+      ],
+      "question": "-Inference : xudxay|canGrasp|mbdj \n -Justifications : xudxay|Type|Tiago, Tiago|SubClassOf|Agent, xudxay|hasCapability|kknn, kknn|isCapabilityOf|xudxay, xudxay|hasComponent|mwlnr, mwlnr|Type|Claw, Claw|SubClassOf|Gripper, mbdj|Type|Lunchbox, Lunchbox|SubClassOf|Object, mbdj|hasDisposition|dbbm, dbbm|isDispositionOf|mbdj, mbdj|hasPart|fowu, fowu|Type|HandGrip, HandGrip|SubClassOf|GraspablePart, mbdj|isReachableBy|xudxay, mwlnr|Type|Gripper, Gripper|SubClassOf|EndEffector, xudxay|hasComponent|mwlnr, mwlnr|hasOpeningWidth|integer#96, mbdj|hasHoldingPartWidth|integer#59, greaterThan(integer#96,integer#59) \n -Rules : Agent(?a), hasCapability(?a, ?c), GraspingCapability(?c), Object(?o), hasDisposition(?o, ?d), GraspableDisposition(?d), isReachableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasOpeningWidth(?g,?w1), hasHoldingPartWidth(?o,?w2), greaterThan(?w1,?w2) -> canGrasp(?a, ?o)\n\tGraspingCapability|EquivalentTo|(isCapabilityOf some (hasComponent some Gripper)\n\tGraspableDisposition|EquivalentTo|isDispositionOf some (hasPart some GraspablePart)",
+      "answer": " the Tiago can grasp the lunchbox because it has a grasping capability thanks to its gripper component, which is an end effector with a larger opening width than the lunchbox's holding part, allowing the Tiago to reach and grasp the lunchbox.",
+      "duration": 4381923.000000001
+    },
+    {
+      "id": "a_canGrasp_easy_12b",
+      "selected_classes": [
+        "Tiago",
+        "Claw",
+        "Grip",
+        "CookingPot"
+      ],
+      "selected_names": [
+        "cif",
+        "cvug",
+        "fxw",
+        "ff",
+        "ebgvam",
+        "vhh"
+      ],
+      "question": "-Inference : ff|canGrasp|cvug \n -Justifications : ff|Type|Tiago, Tiago|SubClassOf|Agent, ff|hasCapability|cif, cif|isCapabilityOf|ff, ff|hasComponent|vhh, vhh|Type|Claw, Claw|SubClassOf|Gripper, cvug|Type|CookingPot, CookingPot|SubClassOf|Object, cvug|hasDisposition|fxw, fxw|isDispositionOf|cvug, cvug|hasPart|ebgvam, ebgvam|Type|Grip, Grip|SubClassOf|GraspablePart, cvug|isReachableBy|ff, vhh|Type|Gripper, Gripper|SubClassOf|EndEffector, ff|hasComponent|vhh, vhh|hasOpeningWidth|integer#56, cvug|hasHoldingPartWidth|integer#28, greaterThan(integer#56,integer#28) \n -Rules : Agent(?a), hasCapability(?a, ?c), GraspingCapability(?c), Object(?o), hasDisposition(?o, ?d), GraspableDisposition(?d), isReachableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasOpeningWidth(?g,?w1), hasHoldingPartWidth(?o,?w2), greaterThan(?w1,?w2) -> canGrasp(?a, ?o)\n\tGraspingCapability|EquivalentTo|(isCapabilityOf some (hasComponent some Gripper)\n\tGraspableDisposition|EquivalentTo|isDispositionOf some (hasPart some GraspablePart)",
+      "answer": " the Tiago can grasp the cooking pot because it has a grasping capability thanks to its gripper end effector, which is capable of grasping due to its gripper component, and the cooking pot is graspable as it has a part that is a graspable part, and the gripper's opening width is greater than the pot's holding part width.",
+      "duration": 4791057.0
+    },
+    {
+      "id": "a_canGrasp_easy_13b",
+      "selected_classes": [
+        "Tiago",
+        "Claw",
+        "HandGrip",
+        "Suitcase"
+      ],
+      "selected_names": [
+        "tdv",
+        "fgn",
+        "xutgx",
+        "saj",
+        "obvrbi",
+        "njzclt"
+      ],
+      "question": "-Inference : saj|canGrasp|fgn \n -Justifications : saj|Type|Tiago, Tiago|SubClassOf|Agent, saj|hasCapability|tdv, tdv|isCapabilityOf|saj, saj|hasComponent|njzclt, njzclt|Type|Claw, Claw|SubClassOf|Gripper, fgn|Type|Suitcase, Suitcase|SubClassOf|Object, fgn|hasDisposition|xutgx, xutgx|isDispositionOf|fgn, fgn|hasPart|obvrbi, obvrbi|Type|HandGrip, HandGrip|SubClassOf|GraspablePart, fgn|isReachableBy|saj, njzclt|Type|Gripper, Gripper|SubClassOf|EndEffector, saj|hasComponent|njzclt, njzclt|hasOpeningWidth|integer#56, fgn|hasHoldingPartWidth|integer#47, greaterThan(integer#56,integer#47) \n -Rules : Agent(?a), hasCapability(?a, ?c), GraspingCapability(?c), Object(?o), hasDisposition(?o, ?d), GraspableDisposition(?d), isReachableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasOpeningWidth(?g,?w1), hasHoldingPartWidth(?o,?w2), greaterThan(?w1,?w2) -> canGrasp(?a, ?o)\n\tGraspingCapability|EquivalentTo|(isCapabilityOf some (hasComponent some Gripper)\n\tGraspableDisposition|EquivalentTo|isDispositionOf some (hasPart some GraspablePart)",
+      "answer": " the Tiago can grasp the suitcase because it has a grasping capability thanks to its gripper end effector, which is capable of grasping due to its wider opening width compared to the suitcase's holding part width, and the suitcase is a graspable object that is reachable by the Tiago's arm.",
+      "duration": 4502620.000000001
+    },
+    {
+      "id": "a_canGrasp_easy_14b",
+      "selected_classes": [
+        "Tiago",
+        "MechanicalHand",
+        "Handle",
+        "Hammer"
+      ],
+      "selected_names": [
+        "lx",
+        "dnzta",
+        "nadj",
+        "enrrf",
+        "ve",
+        "gcun"
+      ],
+      "question": "-Inference : enrrf|canGrasp|dnzta \n -Justifications : enrrf|Type|Tiago, Tiago|SubClassOf|Agent, enrrf|hasCapability|lx, lx|isCapabilityOf|enrrf, enrrf|hasComponent|gcun, gcun|Type|MechanicalHand, MechanicalHand|SubClassOf|Gripper, dnzta|Type|Hammer, Hammer|SubClassOf|Object, dnzta|hasDisposition|nadj, nadj|isDispositionOf|dnzta, dnzta|hasPart|ve, ve|Type|Handle, Handle|SubClassOf|GraspablePart, dnzta|isReachableBy|enrrf, gcun|Type|Gripper, Gripper|SubClassOf|EndEffector, enrrf|hasComponent|gcun, gcun|hasOpeningWidth|integer#60, dnzta|hasHoldingPartWidth|integer#25, greaterThan(integer#60,integer#25) \n -Rules : Agent(?a), hasCapability(?a, ?c), GraspingCapability(?c), Object(?o), hasDisposition(?o, ?d), GraspableDisposition(?d), isReachableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasOpeningWidth(?g,?w1), hasHoldingPartWidth(?o,?w2), greaterThan(?w1,?w2) -> canGrasp(?a, ?o)\n\tGraspingCapability|EquivalentTo|(isCapabilityOf some (hasComponent some Gripper)\n\tGraspableDisposition|EquivalentTo|isDispositionOf some (hasPart some GraspablePart)",
+      "answer": " the Tiago can grasp the hammer because it has a grasping capability thanks to its mechanical hand, which is an end effector with a wider opening than the hammer's holding part, allowing the Tiago to reach and grasp the hammer.",
+      "duration": 5044923.000000001
+    },
+    {
+      "id": "a_canGrasp_easy_15b",
+      "selected_classes": [
+        "Pepper",
+        "Manipulator",
+        "Handle",
+        "Suitcase"
+      ],
+      "selected_names": [
+        "ezn",
+        "kzyeb",
+        "mvuvm",
+        "gsz",
+        "pzphs",
+        "pbdsy"
+      ],
+      "question": "-Inference : gsz|canGrasp|kzyeb \n -Justifications : gsz|Type|Pepper, Pepper|SubClassOf|Agent, gsz|hasCapability|ezn, ezn|isCapabilityOf|gsz, gsz|hasComponent|pbdsy, pbdsy|Type|Manipulator, Manipulator|SubClassOf|Gripper, kzyeb|Type|Suitcase, Suitcase|SubClassOf|Object, kzyeb|hasDisposition|mvuvm, mvuvm|isDispositionOf|kzyeb, kzyeb|hasPart|pzphs, pzphs|Type|Handle, Handle|SubClassOf|GraspablePart, kzyeb|isReachableBy|gsz, pbdsy|Type|Gripper, Gripper|SubClassOf|EndEffector, gsz|hasComponent|pbdsy, pbdsy|hasOpeningWidth|integer#73, kzyeb|hasHoldingPartWidth|integer#21, greaterThan(integer#73,integer#21) \n -Rules : Agent(?a), hasCapability(?a, ?c), GraspingCapability(?c), Object(?o), hasDisposition(?o, ?d), GraspableDisposition(?d), isReachableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasOpeningWidth(?g,?w1), hasHoldingPartWidth(?o,?w2), greaterThan(?w1,?w2) -> canGrasp(?a, ?o)\n\tGraspingCapability|EquivalentTo|(isCapabilityOf some (hasComponent some Gripper)\n\tGraspableDisposition|EquivalentTo|isDispositionOf some (hasPart some GraspablePart)",
+      "answer": " the pepper can grasp the suitcase because it has a grasping capability thanks to its manipulator component, which is an end effector with a larger opening width than the suitcase's holding part, allowing the pepper to reach and grasp the suitcase.",
+      "duration": 5289171.0
+    },
+    {
+      "id": "a_canGrasp_easy_16b",
+      "selected_classes": [
+        "Tiago",
+        "TwoFingerClaw",
+        "Handle",
+        "Suitcase"
+      ],
+      "selected_names": [
+        "suazt",
+        "as",
+        "jhnmz",
+        "zntco",
+        "tvnhe",
+        "uurelz"
+      ],
+      "question": "-Inference : zntco|canGrasp|as \n -Justifications : zntco|Type|Tiago, Tiago|SubClassOf|Agent, zntco|hasCapability|suazt, suazt|isCapabilityOf|zntco, zntco|hasComponent|uurelz, uurelz|Type|TwoFingerClaw, TwoFingerClaw|SubClassOf|Gripper, as|Type|Suitcase, Suitcase|SubClassOf|Object, as|hasDisposition|jhnmz, jhnmz|isDispositionOf|as, as|hasPart|tvnhe, tvnhe|Type|Handle, Handle|SubClassOf|GraspablePart, as|isReachableBy|zntco, uurelz|Type|Gripper, Gripper|SubClassOf|EndEffector, zntco|hasComponent|uurelz, uurelz|hasOpeningWidth|integer#55, as|hasHoldingPartWidth|integer#42, greaterThan(integer#55,integer#42) \n -Rules : Agent(?a), hasCapability(?a, ?c), GraspingCapability(?c), Object(?o), hasDisposition(?o, ?d), GraspableDisposition(?d), isReachableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasOpeningWidth(?g,?w1), hasHoldingPartWidth(?o,?w2), greaterThan(?w1,?w2) -> canGrasp(?a, ?o)\n\tGraspingCapability|EquivalentTo|(isCapabilityOf some (hasComponent some Gripper)\n\tGraspableDisposition|EquivalentTo|isDispositionOf some (hasPart some GraspablePart)",
+      "answer": " the Tiago can grasp the suitcase because it has a grasping capability thanks to its two-finger claw gripper, which is an end effector, and the suitcase is a graspable object with a wider opening than the gripper's holding part, allowing the Tiago to reach and grasp it.",
+      "duration": 5980675.0
+    },
+    {
+      "id": "a_canGrasp_easy_17b",
+      "selected_classes": [
+        "Robot",
+        "Claw",
+        "Grip",
+        "Mug"
+      ],
+      "selected_names": [
+        "umf",
+        "kmj",
+        "yaivt",
+        "wo",
+        "wajawb",
+        "daunpl"
+      ],
+      "question": "-Inference : wo|canGrasp|kmj \n -Justifications : wo|Type|Robot, Robot|SubClassOf|Agent, wo|hasCapability|umf, umf|isCapabilityOf|wo, wo|hasComponent|daunpl, daunpl|Type|Claw, Claw|SubClassOf|Gripper, kmj|Type|Mug, Mug|SubClassOf|Object, kmj|hasDisposition|yaivt, yaivt|isDispositionOf|kmj, kmj|hasPart|wajawb, wajawb|Type|Grip, Grip|SubClassOf|GraspablePart, kmj|isReachableBy|wo, daunpl|Type|Gripper, Gripper|SubClassOf|EndEffector, wo|hasComponent|daunpl, daunpl|hasOpeningWidth|integer#19, kmj|hasHoldingPartWidth|integer#14, greaterThan(integer#19,integer#14) \n -Rules : Agent(?a), hasCapability(?a, ?c), GraspingCapability(?c), Object(?o), hasDisposition(?o, ?d), GraspableDisposition(?d), isReachableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasOpeningWidth(?g,?w1), hasHoldingPartWidth(?o,?w2), greaterThan(?w1,?w2) -> canGrasp(?a, ?o)\n\tGraspingCapability|EquivalentTo|(isCapabilityOf some (hasComponent some Gripper)\n\tGraspableDisposition|EquivalentTo|isDispositionOf some (hasPart some GraspablePart)",
+      "answer": " the robot can grasp the mug because it has a grasping capability thanks to its gripper end effector, which is capable of grasping due to its wider opening width compared to the mug's holding part width, and the mug is a graspable object that is reachable by the robot.",
+      "duration": 4414282.999999999
+    },
+    {
+      "id": "a_canGrasp_easy_18b",
+      "selected_classes": [
+        "Tiago",
+        "Manipulator",
+        "HandGrip",
+        "Lunchbox"
+      ],
+      "selected_names": [
+        "dowdu",
+        "atb",
+        "uyacy",
+        "maup",
+        "ihl",
+        "pcc"
+      ],
+      "question": "-Inference : maup|canGrasp|atb \n -Justifications : maup|Type|Tiago, Tiago|SubClassOf|Agent, maup|hasCapability|dowdu, dowdu|isCapabilityOf|maup, maup|hasComponent|pcc, pcc|Type|Manipulator, Manipulator|SubClassOf|Gripper, atb|Type|Lunchbox, Lunchbox|SubClassOf|Object, atb|hasDisposition|uyacy, uyacy|isDispositionOf|atb, atb|hasPart|ihl, ihl|Type|HandGrip, HandGrip|SubClassOf|GraspablePart, atb|isReachableBy|maup, pcc|Type|Gripper, Gripper|SubClassOf|EndEffector, maup|hasComponent|pcc, pcc|hasOpeningWidth|integer#71, atb|hasHoldingPartWidth|integer#34, greaterThan(integer#71,integer#34) \n -Rules : Agent(?a), hasCapability(?a, ?c), GraspingCapability(?c), Object(?o), hasDisposition(?o, ?d), GraspableDisposition(?d), isReachableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasOpeningWidth(?g,?w1), hasHoldingPartWidth(?o,?w2), greaterThan(?w1,?w2) -> canGrasp(?a, ?o)\n\tGraspingCapability|EquivalentTo|(isCapabilityOf some (hasComponent some Gripper)\n\tGraspableDisposition|EquivalentTo|isDispositionOf some (hasPart some GraspablePart)",
+      "answer": " the Tiago can grasp the lunchbox because it has a grasping capability thanks to its manipulator component, which is an end effector with a larger opening width than the lunchbox's holding part, allowing the Tiago to reach and grasp the lunchbox.",
+      "duration": 4339987.0
+    },
+    {
+      "id": "a_canGrasp_easy_19b",
+      "selected_classes": [
+        "Tiago",
+        "MechanicalHand",
+        "Handle",
+        "Shovel"
+      ],
+      "selected_names": [
+        "tazf",
+        "geke",
+        "oz",
+        "zv",
+        "hq",
+        "mvkx"
+      ],
+      "question": "-Inference : zv|canGrasp|geke \n -Justifications : zv|Type|Tiago, Tiago|SubClassOf|Agent, zv|hasCapability|tazf, tazf|isCapabilityOf|zv, zv|hasComponent|mvkx, mvkx|Type|MechanicalHand, MechanicalHand|SubClassOf|Gripper, geke|Type|Shovel, Shovel|SubClassOf|Object, geke|hasDisposition|oz, oz|isDispositionOf|geke, geke|hasPart|hq, hq|Type|Handle, Handle|SubClassOf|GraspablePart, geke|isReachableBy|zv, mvkx|Type|Gripper, Gripper|SubClassOf|EndEffector, zv|hasComponent|mvkx, mvkx|hasOpeningWidth|integer#93, geke|hasHoldingPartWidth|integer#79, greaterThan(integer#93,integer#79) \n -Rules : Agent(?a), hasCapability(?a, ?c), GraspingCapability(?c), Object(?o), hasDisposition(?o, ?d), GraspableDisposition(?d), isReachableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasOpeningWidth(?g,?w1), hasHoldingPartWidth(?o,?w2), greaterThan(?w1,?w2) -> canGrasp(?a, ?o)\n\tGraspingCapability|EquivalentTo|(isCapabilityOf some (hasComponent some Gripper)\n\tGraspableDisposition|EquivalentTo|isDispositionOf some (hasPart some GraspablePart)",
+      "answer": " the Tiago can grasp the shovel because it has a grasping capability thanks to its mechanical hand, which is an end effector with a larger opening width than the shovel's holding part, and the shovel is a graspable object that is reachable by the Tiago's mechanical hand.",
+      "duration": 4453908.0
+    }
+  ]
+}

@@ -1,0 +1,240 @@
+[
+  {
+    "question_id": "a_canGrasp_medium_0l",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "Pr2",
+      "TwoFingerClaw",
+      "HandGrip",
+      "reach",
+      "object_width"
+    ]
+  },
+  {
+    "question_id": "a_canGrasp_medium_1l",
+    "is_correct": null,
+    "score": 0.6,
+    "missing_concepts": [
+      "Manipulator",
+      "graspable",
+      "reach",
+      "object_width"
+    ]
+  },
+  {
+    "question_id": "a_canGrasp_medium_2l",
+    "is_correct": null,
+    "score": 0.6,
+    "missing_concepts": [
+      "HandGrip",
+      "graspable",
+      "reach",
+      "object_width"
+    ]
+  },
+  {
+    "question_id": "a_canGrasp_medium_3l",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "Tiago",
+      "Claw",
+      "Hammer",
+      "opening",
+      "object_width"
+    ]
+  },
+  {
+    "question_id": "a_canGrasp_medium_4l",
+    "is_correct": null,
+    "score": 0.4,
+    "missing_concepts": [
+      "Pr2",
+      "Manipulator",
+      "ToyBucket",
+      "reach",
+      "opening",
+      "object_width"
+    ]
+  },
+  {
+    "question_id": "a_canGrasp_medium_5l",
+    "is_correct": null,
+    "score": 0.3,
+    "missing_concepts": [
+      "Pr2",
+      "TwoFingerClaw",
+      "Handle",
+      "ToyBucket",
+      "reach",
+      "opening",
+      "object_width"
+    ]
+  },
+  {
+    "question_id": "a_canGrasp_medium_6l",
+    "is_correct": null,
+    "score": 0.6,
+    "missing_concepts": [
+      "Tiago",
+      "CookingPot",
+      "reach",
+      "object_width"
+    ]
+  },
+  {
+    "question_id": "a_canGrasp_medium_7l",
+    "is_correct": null,
+    "score": 0.8,
+    "missing_concepts": [
+      "Handle",
+      "object_width"
+    ]
+  },
+  {
+    "question_id": "a_canGrasp_medium_8l",
+    "is_correct": null,
+    "score": 0.4,
+    "missing_concepts": [
+      "Pr2",
+      "TwoFingerClaw",
+      "Handle",
+      "Suitcase",
+      "opening",
+      "object_width"
+    ]
+  },
+  {
+    "question_id": "a_canGrasp_medium_9l",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "Manipulator",
+      "HandGrip",
+      "reach",
+      "opening",
+      "object_width"
+    ]
+  },
+  {
+    "question_id": "a_canGrasp_medium_10l",
+    "is_correct": null,
+    "score": 0.4,
+    "missing_concepts": [
+      "Pr2",
+      "HandGrip",
+      "CookingPot",
+      "reach",
+      "opening",
+      "object_width"
+    ]
+  },
+  {
+    "question_id": "a_canGrasp_medium_11l",
+    "is_correct": null,
+    "score": 0.4,
+    "missing_concepts": [
+      "Tiago",
+      "Claw",
+      "HandGrip",
+      "Lunchbox",
+      "opening",
+      "object_width"
+    ]
+  },
+  {
+    "question_id": "a_canGrasp_medium_12l",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "Tiago",
+      "Claw",
+      "CookingPot",
+      "opening",
+      "object_width"
+    ]
+  },
+  {
+    "question_id": "a_canGrasp_medium_13l",
+    "is_correct": null,
+    "score": 0.4,
+    "missing_concepts": [
+      "Tiago",
+      "Claw",
+      "HandGrip",
+      "Suitcase",
+      "opening",
+      "object_width"
+    ]
+  },
+  {
+    "question_id": "a_canGrasp_medium_14l",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "Tiago",
+      "Hammer",
+      "reach",
+      "opening",
+      "object_width"
+    ]
+  },
+  {
+    "question_id": "a_canGrasp_medium_15l",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "Manipulator",
+      "Handle",
+      "reach",
+      "opening",
+      "object_width"
+    ]
+  },
+  {
+    "question_id": "a_canGrasp_medium_16l",
+    "is_correct": null,
+    "score": 0.6,
+    "missing_concepts": [
+      "Tiago",
+      "reach",
+      "opening",
+      "object_width"
+    ]
+  },
+  {
+    "question_id": "a_canGrasp_medium_17l",
+    "is_correct": null,
+    "score": 0.7,
+    "missing_concepts": [
+      "Claw",
+      "reach",
+      "object_width"
+    ]
+  },
+  {
+    "question_id": "a_canGrasp_medium_18l",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "Tiago",
+      "Manipulator",
+      "Lunchbox",
+      "opening",
+      "object_width"
+    ]
+  },
+  {
+    "question_id": "a_canGrasp_medium_19l",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "Tiago",
+      "Shovel",
+      "reach",
+      "opening",
+      "object_width"
+    ]
+  }
+]

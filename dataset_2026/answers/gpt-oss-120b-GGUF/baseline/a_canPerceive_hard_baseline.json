@@ -1,0 +1,472 @@
+{
+  "id": "a_canPerceive_hard",
+  "template": {
+    "fact": "__agent__|canPerceive|__object__",
+    "explanation": [
+      "__agent__|Type|__Agent__",
+      "__Agent__|SubClassOf|Agent",
+      "__agent__|hasCapability|__agent_capa__",
+      "__agent_capa__|isCapabilityOf|__agent__",
+      "__agent__|hasComponent|__camera__",
+      "__camera__|Type|__Camera__",
+      "__Camera__|SubClassOf|Camera",
+      "__camera__|isActive|boolean#true",
+      "__agent__|hasComponent|__algo__",
+      "__algo__|Type|ScanCodeDetectionAlgo",
+      "__object__|Type|__Object__",
+      "__Object__|SubClassOf|Object",
+      "__object__|hasDisposition|__object_disp__",
+      "__object_disp__|isDispositionOf|__object__",
+      "__object__|hasPart|__scannable_part__",
+      "__scannable_part__|Type|__ScanablePart__",
+      "__ScanablePart__|SubClassOf|ScannablePart",
+      "__scannable_part__|isRegistered|boolean#true",
+      "__scannable_part__|isVisible|boolean#true",
+      "__object__|hasScannableCode|__scannable_part__",
+      "__scannable_part__|isInFrontOf|__camera__",
+      "__camera__|isCameraOf|__agent__",
+      "__camera__|Type|__Camera__",
+      "__Camera__|SubClassOf|Camera",
+      "__agent__|hasComponent|__camera__",
+      "__camera__|hasMaximumDistanceRange|integer#2",
+      "__object__|isAtDistance|integer#1",
+      "greaterThan(integer#2,integer#1)"
+    ]
+  },
+  "rules": [
+    "Agent(?a), hasCapability(?a, ?c), PerceivingCapability(?c), Object(?o), hasDisposition(?o, ?d), PerceivingDisposition(?d), isVisibleBy(?o,?a), Camera(?g), hasComponent(?a,?g), hasMaximumDistanceRange(?g,?w1), isAtDistance(?o,?w2), greaterThan(?w1,?w2) -> canPerceive(?a, ?o)",
+    "PerceivingCapability|EquivalentTo|(isCapabilityOf some ((hasComponent some (Camera and (isActive value boolean#true)) and (hasComponent some ScanCodeDetectionAlgo))",
+    "PerceivingDisposition|EquivalentTo|(isDispositionOf some (hasPart some (ScannablePart and (isRegistered value boolean#true) and (isVisible value boolean#true)))",
+    "(hasScannableCode o isInFrontOf o isCameraOf)|SubPropertyOf|isVisibleBy"
+  ],
+  "concepts": [
+    "perceiving",
+    "perceivable",
+    "visible",
+    "camera range",
+    "object_distance",
+    "can perceive"
+  ],
+  "answers": [
+    {
+      "id": "a_canPerceive_hard_0b",
+      "selected_classes": [
+        "Robot",
+        "KinectV2",
+        "2DBarcode",
+        "Book"
+      ],
+      "selected_names": [
+        "tlpns",
+        "vjimq",
+        "rysvl",
+        "rmmrsb",
+        "njgpb",
+        "wl",
+        "owvjlx"
+      ],
+      "question": "-Inference : rmmrsb|canPerceive|vjimq \n -Justifications : rmmrsb|Type|Robot, Robot|SubClassOf|Agent, rmmrsb|hasCapability|tlpns, tlpns|isCapabilityOf|rmmrsb, rmmrsb|hasComponent|njgpb, njgpb|Type|KinectV2, KinectV2|SubClassOf|Camera, njgpb|isActive|boolean#true, rmmrsb|hasComponent|owvjlx, owvjlx|Type|ScanCodeDetectionAlgo, vjimq|Type|Book, Book|SubClassOf|Object, vjimq|hasDisposition|rysvl, rysvl|isDispositionOf|vjimq, vjimq|hasPart|wl, wl|Type|2DBarcode, 2DBarcode|SubClassOf|ScannablePart, wl|isRegistered|boolean#true, wl|isVisible|boolean#true, vjimq|hasScannableCode|wl, wl|isInFrontOf|njgpb, njgpb|isCameraOf|rmmrsb, njgpb|Type|KinectV2, KinectV2|SubClassOf|Camera, rmmrsb|hasComponent|njgpb, njgpb|hasMaximumDistanceRange|integer#90, vjimq|isAtDistance|integer#59, greaterThan(integer#90,integer#59) \n -Rules : Agent(?a), hasCapability(?a, ?c), PerceivingCapability(?c), Object(?o), hasDisposition(?o, ?d), PerceivingDisposition(?d), isVisibleBy(?o,?a), Camera(?g), hasComponent(?a,?g), hasMaximumDistanceRange(?g,?w1), isAtDistance(?o,?w2), greaterThan(?w1,?w2) -> canPerceive(?a, ?o)\n\tPerceivingCapability|EquivalentTo|(isCapabilityOf some ((hasComponent some (Camera and (isActive value boolean#true)) and (hasComponent some ScanCodeDetectionAlgo))\n\tPerceivingDisposition|EquivalentTo|(isDispositionOf some (hasPart some (ScannablePart and (isRegistered value boolean#true) and (isVisible value boolean#true)))\n\t(hasScannableCode o isInFrontOf o isCameraOf)|SubPropertyOf|isVisibleBy",
+      "answer": "The robot, as an agent, can perceive the book because it possesses a perceiving capability that includes an active camera and a scan\u2011code\u2011detection algorithm, the book is an object that carries a registered, visible 2D barcode (a scannable part) and therefore has a perceiving disposition, the barcode lies in front of the robot\u2019s camera, and the camera\u2019s maximum range (90\u202funits) exceeds the actual distance to the book (59\u202funits), satisfying all the required conditions for perception.",
+      "duration": 8451387.999999998
+    },
+    {
+      "id": "a_canPerceive_hard_1b",
+      "selected_classes": [
+        "Tiago",
+        "RGBCamera",
+        "QRCode",
+        "Luggage"
+      ],
+      "selected_names": [
+        "wtkncc",
+        "jnnni",
+        "gxwqv",
+        "lvvqzy",
+        "jhxqep",
+        "tpt",
+        "tp"
+      ],
+      "question": "-Inference : lvvqzy|canPerceive|jnnni \n -Justifications : lvvqzy|Type|Tiago, Tiago|SubClassOf|Agent, lvvqzy|hasCapability|wtkncc, wtkncc|isCapabilityOf|lvvqzy, lvvqzy|hasComponent|jhxqep, jhxqep|Type|RGBCamera, RGBCamera|SubClassOf|Camera, jhxqep|isActive|boolean#true, lvvqzy|hasComponent|tp, tp|Type|ScanCodeDetectionAlgo, jnnni|Type|Luggage, Luggage|SubClassOf|Object, jnnni|hasDisposition|gxwqv, gxwqv|isDispositionOf|jnnni, jnnni|hasPart|tpt, tpt|Type|QRCode, QRCode|SubClassOf|ScannablePart, tpt|isRegistered|boolean#true, tpt|isVisible|boolean#true, jnnni|hasScannableCode|tpt, tpt|isInFrontOf|jhxqep, jhxqep|isCameraOf|lvvqzy, jhxqep|Type|RGBCamera, RGBCamera|SubClassOf|Camera, lvvqzy|hasComponent|jhxqep, jhxqep|hasMaximumDistanceRange|integer#87, jnnni|isAtDistance|integer#61, greaterThan(integer#87,integer#61) \n -Rules : Agent(?a), hasCapability(?a, ?c), PerceivingCapability(?c), Object(?o), hasDisposition(?o, ?d), PerceivingDisposition(?d), isVisibleBy(?o,?a), Camera(?g), hasComponent(?a,?g), hasMaximumDistanceRange(?g,?w1), isAtDistance(?o,?w2), greaterThan(?w1,?w2) -> canPerceive(?a, ?o)\n\tPerceivingCapability|EquivalentTo|(isCapabilityOf some ((hasComponent some (Camera and (isActive value boolean#true)) and (hasComponent some ScanCodeDetectionAlgo))\n\tPerceivingDisposition|EquivalentTo|(isDispositionOf some (hasPart some (ScannablePart and (isRegistered value boolean#true) and (isVisible value boolean#true)))\n\t(hasScannableCode o isInFrontOf o isCameraOf)|SubPropertyOf|isVisibleBy",
+      "answer": "The Tiago agent can perceive the luggage because, as an agent, it possesses a perceiving capability that is realized by an active RGB camera (a camera component with a maximum distance range of\u202f87) together with a scan\u2011code detection algorithm, and the luggage, being an object, has a QR\u2011code part that is a scannable part, is registered and visible, and is positioned in front of the camera at a distance of\u202f61\u2014well within the camera\u2019s range\u2014thereby satisfying the perceiving disposition and making the object visible to the agent.",
+      "duration": 19043443.0
+    },
+    {
+      "id": "a_canPerceive_hard_2b",
+      "selected_classes": [
+        "Pepper",
+        "KinectV2",
+        "QRCode",
+        "Plate"
+      ],
+      "selected_names": [
+        "liib",
+        "ztzes",
+        "ey",
+        "ekpfs",
+        "xo",
+        "ajolru",
+        "oaq"
+      ],
+      "question": "-Inference : ekpfs|canPerceive|ztzes \n -Justifications : ekpfs|Type|Pepper, Pepper|SubClassOf|Agent, ekpfs|hasCapability|liib, liib|isCapabilityOf|ekpfs, ekpfs|hasComponent|xo, xo|Type|KinectV2, KinectV2|SubClassOf|Camera, xo|isActive|boolean#true, ekpfs|hasComponent|oaq, oaq|Type|ScanCodeDetectionAlgo, ztzes|Type|Plate, Plate|SubClassOf|Object, ztzes|hasDisposition|ey, ey|isDispositionOf|ztzes, ztzes|hasPart|ajolru, ajolru|Type|QRCode, QRCode|SubClassOf|ScannablePart, ajolru|isRegistered|boolean#true, ajolru|isVisible|boolean#true, ztzes|hasScannableCode|ajolru, ajolru|isInFrontOf|xo, xo|isCameraOf|ekpfs, xo|Type|KinectV2, KinectV2|SubClassOf|Camera, ekpfs|hasComponent|xo, xo|hasMaximumDistanceRange|integer#95, ztzes|isAtDistance|integer#21, greaterThan(integer#95,integer#21) \n -Rules : Agent(?a), hasCapability(?a, ?c), PerceivingCapability(?c), Object(?o), hasDisposition(?o, ?d), PerceivingDisposition(?d), isVisibleBy(?o,?a), Camera(?g), hasComponent(?a,?g), hasMaximumDistanceRange(?g,?w1), isAtDistance(?o,?w2), greaterThan(?w1,?w2) -> canPerceive(?a, ?o)\n\tPerceivingCapability|EquivalentTo|(isCapabilityOf some ((hasComponent some (Camera and (isActive value boolean#true)) and (hasComponent some ScanCodeDetectionAlgo))\n\tPerceivingDisposition|EquivalentTo|(isDispositionOf some (hasPart some (ScannablePart and (isRegistered value boolean#true) and (isVisible value boolean#true)))\n\t(hasScannableCode o isInFrontOf o isCameraOf)|SubPropertyOf|isVisibleBy",
+      "answer": "The Pepper robot, as an agent, has a perceiving capability that comprises an active KinectV2 camera (with a maximum range of 95 units) and a scan\u2011code\u2011detection algorithm; the plate, classified as an object, possesses a QR\u2011code part that is both registered and visible, and this part is positioned in front of the robot\u2019s camera at a distance of 21 units\u2014well within the camera\u2019s range\u2014and the plate\u2019s perceiving disposition aligns with the robot\u2019s perceiving capability, so the robot can perceive the plate.",
+      "duration": 14516679.0
+    },
+    {
+      "id": "a_canPerceive_hard_3b",
+      "selected_classes": [
+        "Pr2",
+        "RealsenseL515",
+        "2DBarcode",
+        "Plate"
+      ],
+      "selected_names": [
+        "zvfaqp",
+        "vtslo",
+        "alrc",
+        "pzrfjs",
+        "wpafkw",
+        "nbwruq",
+        "tsajm"
+      ],
+      "question": "-Inference : pzrfjs|canPerceive|vtslo \n -Justifications : pzrfjs|Type|Pr2, Pr2|SubClassOf|Agent, pzrfjs|hasCapability|zvfaqp, zvfaqp|isCapabilityOf|pzrfjs, pzrfjs|hasComponent|wpafkw, wpafkw|Type|RealsenseL515, RealsenseL515|SubClassOf|Camera, wpafkw|isActive|boolean#true, pzrfjs|hasComponent|tsajm, tsajm|Type|ScanCodeDetectionAlgo, vtslo|Type|Plate, Plate|SubClassOf|Object, vtslo|hasDisposition|alrc, alrc|isDispositionOf|vtslo, vtslo|hasPart|nbwruq, nbwruq|Type|2DBarcode, 2DBarcode|SubClassOf|ScannablePart, nbwruq|isRegistered|boolean#true, nbwruq|isVisible|boolean#true, vtslo|hasScannableCode|nbwruq, nbwruq|isInFrontOf|wpafkw, wpafkw|isCameraOf|pzrfjs, wpafkw|Type|RealsenseL515, RealsenseL515|SubClassOf|Camera, pzrfjs|hasComponent|wpafkw, wpafkw|hasMaximumDistanceRange|integer#98, vtslo|isAtDistance|integer#35, greaterThan(integer#98,integer#35) \n -Rules : Agent(?a), hasCapability(?a, ?c), PerceivingCapability(?c), Object(?o), hasDisposition(?o, ?d), PerceivingDisposition(?d), isVisibleBy(?o,?a), Camera(?g), hasComponent(?a,?g), hasMaximumDistanceRange(?g,?w1), isAtDistance(?o,?w2), greaterThan(?w1,?w2) -> canPerceive(?a, ?o)\n\tPerceivingCapability|EquivalentTo|(isCapabilityOf some ((hasComponent some (Camera and (isActive value boolean#true)) and (hasComponent some ScanCodeDetectionAlgo))\n\tPerceivingDisposition|EquivalentTo|(isDispositionOf some (hasPart some (ScannablePart and (isRegistered value boolean#true) and (isVisible value boolean#true)))\n\t(hasScannableCode o isInFrontOf o isCameraOf)|SubPropertyOf|isVisibleBy",
+      "answer": "The agent can perceive the plate because it has a perceiving capability (realised by the capability\u202fzvfaqp) that comprises an active Realsense\u202fL515 camera and a scan\u2011code detection algorithm; the camera (component\u202fwpafkw) is active, can reach up to 98 distance units, and the algorithm (component\u202ftsajm) is present, while the plate (an object with a perceiving disposition) contains a registered, visible 2\u2011D barcode part that is positioned in front of the camera, and the plate is only 35 units away\u2014well within the camera\u2019s range\u2014so the plate is visible to and therefore perceivable by the agent.",
+      "duration": 16650600.000000002
+    },
+    {
+      "id": "a_canPerceive_hard_4b",
+      "selected_classes": [
+        "Pepper",
+        "KinectV2",
+        "ScanTag",
+        "Plate"
+      ],
+      "selected_names": [
+        "jpw",
+        "nnlxt",
+        "jtlzce",
+        "msj",
+        "mlxmm",
+        "xqxkx",
+        "se"
+      ],
+      "question": "-Inference : msj|canPerceive|nnlxt \n -Justifications : msj|Type|Pepper, Pepper|SubClassOf|Agent, msj|hasCapability|jpw, jpw|isCapabilityOf|msj, msj|hasComponent|mlxmm, mlxmm|Type|KinectV2, KinectV2|SubClassOf|Camera, mlxmm|isActive|boolean#true, msj|hasComponent|se, se|Type|ScanCodeDetectionAlgo, nnlxt|Type|Plate, Plate|SubClassOf|Object, nnlxt|hasDisposition|jtlzce, jtlzce|isDispositionOf|nnlxt, nnlxt|hasPart|xqxkx, xqxkx|Type|ScanTag, ScanTag|SubClassOf|ScannablePart, xqxkx|isRegistered|boolean#true, xqxkx|isVisible|boolean#true, nnlxt|hasScannableCode|xqxkx, xqxkx|isInFrontOf|mlxmm, mlxmm|isCameraOf|msj, mlxmm|Type|KinectV2, KinectV2|SubClassOf|Camera, msj|hasComponent|mlxmm, mlxmm|hasMaximumDistanceRange|integer#47, nnlxt|isAtDistance|integer#33, greaterThan(integer#47,integer#33) \n -Rules : Agent(?a), hasCapability(?a, ?c), PerceivingCapability(?c), Object(?o), hasDisposition(?o, ?d), PerceivingDisposition(?d), isVisibleBy(?o,?a), Camera(?g), hasComponent(?a,?g), hasMaximumDistanceRange(?g,?w1), isAtDistance(?o,?w2), greaterThan(?w1,?w2) -> canPerceive(?a, ?o)\n\tPerceivingCapability|EquivalentTo|(isCapabilityOf some ((hasComponent some (Camera and (isActive value boolean#true)) and (hasComponent some ScanCodeDetectionAlgo))\n\tPerceivingDisposition|EquivalentTo|(isDispositionOf some (hasPart some (ScannablePart and (isRegistered value boolean#true) and (isVisible value boolean#true)))\n\t(hasScannableCode o isInFrontOf o isCameraOf)|SubPropertyOf|isVisibleBy",
+      "answer": "Because the Pepper robot (an agent) has a perceiving capability that includes an active Kinect\u202fV2 camera and a scan\u2011code\u2011detection algorithm, and because the plate (an object) carries a scannable part\u2014a registered, visible scan tag\u2014that is positioned in front of the robot\u2019s camera at a distance of 33 units, which is well within the camera\u2019s maximum range of 47 units, the robot is able to perceive the plate.",
+      "duration": 13810664.0
+    },
+    {
+      "id": "a_canPerceive_hard_5b",
+      "selected_classes": [
+        "Pepper",
+        "RealsenseL515",
+        "2DBarcode",
+        "Book"
+      ],
+      "selected_names": [
+        "qhjc",
+        "xfrh",
+        "cz",
+        "df",
+        "vtthy",
+        "rflomg",
+        "btk"
+      ],
+      "question": "-Inference : df|canPerceive|xfrh \n -Justifications : df|Type|Pepper, Pepper|SubClassOf|Agent, df|hasCapability|qhjc, qhjc|isCapabilityOf|df, df|hasComponent|vtthy, vtthy|Type|RealsenseL515, RealsenseL515|SubClassOf|Camera, vtthy|isActive|boolean#true, df|hasComponent|btk, btk|Type|ScanCodeDetectionAlgo, xfrh|Type|Book, Book|SubClassOf|Object, xfrh|hasDisposition|cz, cz|isDispositionOf|xfrh, xfrh|hasPart|rflomg, rflomg|Type|2DBarcode, 2DBarcode|SubClassOf|ScannablePart, rflomg|isRegistered|boolean#true, rflomg|isVisible|boolean#true, xfrh|hasScannableCode|rflomg, rflomg|isInFrontOf|vtthy, vtthy|isCameraOf|df, vtthy|Type|RealsenseL515, RealsenseL515|SubClassOf|Camera, df|hasComponent|vtthy, vtthy|hasMaximumDistanceRange|integer#59, xfrh|isAtDistance|integer#53, greaterThan(integer#59,integer#53) \n -Rules : Agent(?a), hasCapability(?a, ?c), PerceivingCapability(?c), Object(?o), hasDisposition(?o, ?d), PerceivingDisposition(?d), isVisibleBy(?o,?a), Camera(?g), hasComponent(?a,?g), hasMaximumDistanceRange(?g,?w1), isAtDistance(?o,?w2), greaterThan(?w1,?w2) -> canPerceive(?a, ?o)\n\tPerceivingCapability|EquivalentTo|(isCapabilityOf some ((hasComponent some (Camera and (isActive value boolean#true)) and (hasComponent some ScanCodeDetectionAlgo))\n\tPerceivingDisposition|EquivalentTo|(isDispositionOf some (hasPart some (ScannablePart and (isRegistered value boolean#true) and (isVisible value boolean#true)))\n\t(hasScannableCode o isInFrontOf o isCameraOf)|SubPropertyOf|isVisibleBy",
+      "answer": "The Pepper robot can perceive the book because, as an Agent, it has a perceiving capability that comprises an active Realsense\u202fL515 camera and a scan\u2011code\u2011detection algorithm; the book, being an Object, possesses a registered, visible 2D\u2011barcode part that is in front of the robot\u2019s camera; the camera\u2019s maximum distance range (59) exceeds the book\u2019s actual distance (53), and the robot\u2019s perceiving disposition matches the book\u2019s perceiving disposition, thereby satisfying all the required capability, component, visibility and range conditions.",
+      "duration": 13635940.999999998
+    },
+    {
+      "id": "a_canPerceive_hard_6b",
+      "selected_classes": [
+        "Tiago",
+        "Webcam",
+        "2DBarcode",
+        "Box"
+      ],
+      "selected_names": [
+        "icw",
+        "ara",
+        "zcima",
+        "hpx",
+        "evog",
+        "pyalk",
+        "jyugj"
+      ],
+      "question": "-Inference : hpx|canPerceive|ara \n -Justifications : hpx|Type|Tiago, Tiago|SubClassOf|Agent, hpx|hasCapability|icw, icw|isCapabilityOf|hpx, hpx|hasComponent|evog, evog|Type|Webcam, Webcam|SubClassOf|Camera, evog|isActive|boolean#true, hpx|hasComponent|jyugj, jyugj|Type|ScanCodeDetectionAlgo, ara|Type|Box, Box|SubClassOf|Object, ara|hasDisposition|zcima, zcima|isDispositionOf|ara, ara|hasPart|pyalk, pyalk|Type|2DBarcode, 2DBarcode|SubClassOf|ScannablePart, pyalk|isRegistered|boolean#true, pyalk|isVisible|boolean#true, ara|hasScannableCode|pyalk, pyalk|isInFrontOf|evog, evog|isCameraOf|hpx, evog|Type|Webcam, Webcam|SubClassOf|Camera, hpx|hasComponent|evog, evog|hasMaximumDistanceRange|integer#35, ara|isAtDistance|integer#34, greaterThan(integer#35,integer#34) \n -Rules : Agent(?a), hasCapability(?a, ?c), PerceivingCapability(?c), Object(?o), hasDisposition(?o, ?d), PerceivingDisposition(?d), isVisibleBy(?o,?a), Camera(?g), hasComponent(?a,?g), hasMaximumDistanceRange(?g,?w1), isAtDistance(?o,?w2), greaterThan(?w1,?w2) -> canPerceive(?a, ?o)\n\tPerceivingCapability|EquivalentTo|(isCapabilityOf some ((hasComponent some (Camera and (isActive value boolean#true)) and (hasComponent some ScanCodeDetectionAlgo))\n\tPerceivingDisposition|EquivalentTo|(isDispositionOf some (hasPart some (ScannablePart and (isRegistered value boolean#true) and (isVisible value boolean#true)))\n\t(hasScannableCode o isInFrontOf o isCameraOf)|SubPropertyOf|isVisibleBy",
+      "answer": "The Tiago agent can perceive the box because it has a perceiving capability that comprises an active webcam (a camera component) and a scan\u2011code\u2011detection algorithm; the webcam\u2019s maximum distance range is 35 units, the box is an object whose disposition includes a registered, visible 2\u2011D barcode that is a scannable part positioned in front of the webcam, and the box itself is only 34 units away, so the barcode is visible to the camera and within its range, satisfying the rule that an agent with a perceiving capability can perceive any object whose scannable part is visible and within the camera\u2019s range.",
+      "duration": 15026830.0
+    },
+    {
+      "id": "a_canPerceive_hard_7b",
+      "selected_classes": [
+        "Tiago",
+        "Webcam",
+        "2DBarcode",
+        "Appliance"
+      ],
+      "selected_names": [
+        "dwk",
+        "bfe",
+        "fxquai",
+        "tr",
+        "qiwva",
+        "kqari",
+        "ynhszk"
+      ],
+      "question": "-Inference : tr|canPerceive|bfe \n -Justifications : tr|Type|Tiago, Tiago|SubClassOf|Agent, tr|hasCapability|dwk, dwk|isCapabilityOf|tr, tr|hasComponent|qiwva, qiwva|Type|Webcam, Webcam|SubClassOf|Camera, qiwva|isActive|boolean#true, tr|hasComponent|ynhszk, ynhszk|Type|ScanCodeDetectionAlgo, bfe|Type|Appliance, Appliance|SubClassOf|Object, bfe|hasDisposition|fxquai, fxquai|isDispositionOf|bfe, bfe|hasPart|kqari, kqari|Type|2DBarcode, 2DBarcode|SubClassOf|ScannablePart, kqari|isRegistered|boolean#true, kqari|isVisible|boolean#true, bfe|hasScannableCode|kqari, kqari|isInFrontOf|qiwva, qiwva|isCameraOf|tr, qiwva|Type|Webcam, Webcam|SubClassOf|Camera, tr|hasComponent|qiwva, qiwva|hasMaximumDistanceRange|integer#89, bfe|isAtDistance|integer#50, greaterThan(integer#89,integer#50) \n -Rules : Agent(?a), hasCapability(?a, ?c), PerceivingCapability(?c), Object(?o), hasDisposition(?o, ?d), PerceivingDisposition(?d), isVisibleBy(?o,?a), Camera(?g), hasComponent(?a,?g), hasMaximumDistanceRange(?g,?w1), isAtDistance(?o,?w2), greaterThan(?w1,?w2) -> canPerceive(?a, ?o)\n\tPerceivingCapability|EquivalentTo|(isCapabilityOf some ((hasComponent some (Camera and (isActive value boolean#true)) and (hasComponent some ScanCodeDetectionAlgo))\n\tPerceivingDisposition|EquivalentTo|(isDispositionOf some (hasPart some (ScannablePart and (isRegistered value boolean#true) and (isVisible value boolean#true)))\n\t(hasScannableCode o isInFrontOf o isCameraOf)|SubPropertyOf|isVisibleBy",
+      "answer": "The Tiago agent can perceive the appliance because it possesses a perceiving capability\u2014realized by an active webcam and a scan\u2011code detection algorithm\u2014so that its webcam (a camera component) can see up to 89 units, while the appliance is only 50 units away; the appliance carries a registered, visible 2\u2011D barcode (a scannable part) that lies directly in front of the webcam, and its disposition is a perceiving disposition, thereby satisfying the visibility and range conditions required for perception.",
+      "duration": 15819848.0
+    },
+    {
+      "id": "a_canPerceive_hard_8b",
+      "selected_classes": [
+        "Pr2",
+        "RealsenseL515",
+        "QRCode",
+        "Cube"
+      ],
+      "selected_names": [
+        "hysxn",
+        "eblbm",
+        "csw",
+        "jdflzd",
+        "vb",
+        "qgw",
+        "lbztct"
+      ],
+      "question": "-Inference : jdflzd|canPerceive|eblbm \n -Justifications : jdflzd|Type|Pr2, Pr2|SubClassOf|Agent, jdflzd|hasCapability|hysxn, hysxn|isCapabilityOf|jdflzd, jdflzd|hasComponent|vb, vb|Type|RealsenseL515, RealsenseL515|SubClassOf|Camera, vb|isActive|boolean#true, jdflzd|hasComponent|lbztct, lbztct|Type|ScanCodeDetectionAlgo, eblbm|Type|Cube, Cube|SubClassOf|Object, eblbm|hasDisposition|csw, csw|isDispositionOf|eblbm, eblbm|hasPart|qgw, qgw|Type|QRCode, QRCode|SubClassOf|ScannablePart, qgw|isRegistered|boolean#true, qgw|isVisible|boolean#true, eblbm|hasScannableCode|qgw, qgw|isInFrontOf|vb, vb|isCameraOf|jdflzd, vb|Type|RealsenseL515, RealsenseL515|SubClassOf|Camera, jdflzd|hasComponent|vb, vb|hasMaximumDistanceRange|integer#67, eblbm|isAtDistance|integer#15, greaterThan(integer#67,integer#15) \n -Rules : Agent(?a), hasCapability(?a, ?c), PerceivingCapability(?c), Object(?o), hasDisposition(?o, ?d), PerceivingDisposition(?d), isVisibleBy(?o,?a), Camera(?g), hasComponent(?a,?g), hasMaximumDistanceRange(?g,?w1), isAtDistance(?o,?w2), greaterThan(?w1,?w2) -> canPerceive(?a, ?o)\n\tPerceivingCapability|EquivalentTo|(isCapabilityOf some ((hasComponent some (Camera and (isActive value boolean#true)) and (hasComponent some ScanCodeDetectionAlgo))\n\tPerceivingDisposition|EquivalentTo|(isDispositionOf some (hasPart some (ScannablePart and (isRegistered value boolean#true) and (isVisible value boolean#true)))\n\t(hasScannableCode o isInFrontOf o isCameraOf)|SubPropertyOf|isVisibleBy",
+      "answer": "The agent can perceive the cube because it has a perceiving capability that comprises an active Realsense\u202fL515 camera (a camera component) with a maximum distance range of 67 units together with a scan\u2011code detection algorithm, the cube (an object) carries a visible, registered QR\u2011code part that is positioned in front of the camera and is only 15 units away\u2014well within the camera\u2019s range\u2014so the object\u2019s perceiving disposition makes it visible to the agent.",
+      "duration": 15820952.0
+    },
+    {
+      "id": "a_canPerceive_hard_9b",
+      "selected_classes": [
+        "Pr2",
+        "KinectV2",
+        "2DBarcode",
+        "Appliance"
+      ],
+      "selected_names": [
+        "sr",
+        "ezhzwp",
+        "ui",
+        "ef",
+        "qe",
+        "vgd",
+        "tsbhgx"
+      ],
+      "question": "-Inference : ef|canPerceive|ezhzwp \n -Justifications : ef|Type|Pr2, Pr2|SubClassOf|Agent, ef|hasCapability|sr, sr|isCapabilityOf|ef, ef|hasComponent|qe, qe|Type|KinectV2, KinectV2|SubClassOf|Camera, qe|isActive|boolean#true, ef|hasComponent|tsbhgx, tsbhgx|Type|ScanCodeDetectionAlgo, ezhzwp|Type|Appliance, Appliance|SubClassOf|Object, ezhzwp|hasDisposition|ui, ui|isDispositionOf|ezhzwp, ezhzwp|hasPart|vgd, vgd|Type|2DBarcode, 2DBarcode|SubClassOf|ScannablePart, vgd|isRegistered|boolean#true, vgd|isVisible|boolean#true, ezhzwp|hasScannableCode|vgd, vgd|isInFrontOf|qe, qe|isCameraOf|ef, qe|Type|KinectV2, KinectV2|SubClassOf|Camera, ef|hasComponent|qe, qe|hasMaximumDistanceRange|integer#85, ezhzwp|isAtDistance|integer#45, greaterThan(integer#85,integer#45) \n -Rules : Agent(?a), hasCapability(?a, ?c), PerceivingCapability(?c), Object(?o), hasDisposition(?o, ?d), PerceivingDisposition(?d), isVisibleBy(?o,?a), Camera(?g), hasComponent(?a,?g), hasMaximumDistanceRange(?g,?w1), isAtDistance(?o,?w2), greaterThan(?w1,?w2) -> canPerceive(?a, ?o)\n\tPerceivingCapability|EquivalentTo|(isCapabilityOf some ((hasComponent some (Camera and (isActive value boolean#true)) and (hasComponent some ScanCodeDetectionAlgo))\n\tPerceivingDisposition|EquivalentTo|(isDispositionOf some (hasPart some (ScannablePart and (isRegistered value boolean#true) and (isVisible value boolean#true)))\n\t(hasScannableCode o isInFrontOf o isCameraOf)|SubPropertyOf|isVisibleBy",
+      "answer": "The agent, which has a perceiving capability instantiated by its active Kinect\u202fV2 camera and a scan\u2011code\u2011detection algorithm, can perceive the appliance because the appliance contains a registered, visible 2\u2011D barcode that is positioned in front of the camera and lies within the camera\u2019s maximum range (the barcode is only 45 units away while the camera can detect objects up to 85 units).",
+      "duration": 13233971.000000002
+    },
+    {
+      "id": "a_canPerceive_hard_10b",
+      "selected_classes": [
+        "Robot",
+        "RGBCamera",
+        "QRTag",
+        "Luggage"
+      ],
+      "selected_names": [
+        "hccozp",
+        "zcy",
+        "udkan",
+        "xkxke",
+        "ta",
+        "mxyzvb",
+        "uxjt"
+      ],
+      "question": "-Inference : xkxke|canPerceive|zcy \n -Justifications : xkxke|Type|Robot, Robot|SubClassOf|Agent, xkxke|hasCapability|hccozp, hccozp|isCapabilityOf|xkxke, xkxke|hasComponent|ta, ta|Type|RGBCamera, RGBCamera|SubClassOf|Camera, ta|isActive|boolean#true, xkxke|hasComponent|uxjt, uxjt|Type|ScanCodeDetectionAlgo, zcy|Type|Luggage, Luggage|SubClassOf|Object, zcy|hasDisposition|udkan, udkan|isDispositionOf|zcy, zcy|hasPart|mxyzvb, mxyzvb|Type|QRTag, QRTag|SubClassOf|ScannablePart, mxyzvb|isRegistered|boolean#true, mxyzvb|isVisible|boolean#true, zcy|hasScannableCode|mxyzvb, mxyzvb|isInFrontOf|ta, ta|isCameraOf|xkxke, ta|Type|RGBCamera, RGBCamera|SubClassOf|Camera, xkxke|hasComponent|ta, ta|hasMaximumDistanceRange|integer#71, zcy|isAtDistance|integer#68, greaterThan(integer#71,integer#68) \n -Rules : Agent(?a), hasCapability(?a, ?c), PerceivingCapability(?c), Object(?o), hasDisposition(?o, ?d), PerceivingDisposition(?d), isVisibleBy(?o,?a), Camera(?g), hasComponent(?a,?g), hasMaximumDistanceRange(?g,?w1), isAtDistance(?o,?w2), greaterThan(?w1,?w2) -> canPerceive(?a, ?o)\n\tPerceivingCapability|EquivalentTo|(isCapabilityOf some ((hasComponent some (Camera and (isActive value boolean#true)) and (hasComponent some ScanCodeDetectionAlgo))\n\tPerceivingDisposition|EquivalentTo|(isDispositionOf some (hasPart some (ScannablePart and (isRegistered value boolean#true) and (isVisible value boolean#true)))\n\t(hasScannableCode o isInFrontOf o isCameraOf)|SubPropertyOf|isVisibleBy",
+      "answer": "The robot, as an agent, can perceive the luggage because it has a perceiving capability that comprises an active RGB camera and a scan\u2011code\u2011detection algorithm; the camera (a component of the robot) is active, can see up to 71 distance units, and the luggage (an object) carries a QR\u2011tag part that is a registered, visible scannable part positioned in front of the camera at a distance of 68 units\u2014within the camera\u2019s range\u2014and the luggage\u2019s disposition satisfies the perceiving disposition, so the robot is able to perceive the luggage.",
+      "duration": 14472386.0
+    },
+    {
+      "id": "a_canPerceive_hard_11b",
+      "selected_classes": [
+        "Pepper",
+        "KinectV2",
+        "ScanTag",
+        "Book"
+      ],
+      "selected_names": [
+        "whnmks",
+        "kczw",
+        "zradox",
+        "ko",
+        "cylr",
+        "vih",
+        "qvr"
+      ],
+      "question": "-Inference : ko|canPerceive|kczw \n -Justifications : ko|Type|Pepper, Pepper|SubClassOf|Agent, ko|hasCapability|whnmks, whnmks|isCapabilityOf|ko, ko|hasComponent|cylr, cylr|Type|KinectV2, KinectV2|SubClassOf|Camera, cylr|isActive|boolean#true, ko|hasComponent|qvr, qvr|Type|ScanCodeDetectionAlgo, kczw|Type|Book, Book|SubClassOf|Object, kczw|hasDisposition|zradox, zradox|isDispositionOf|kczw, kczw|hasPart|vih, vih|Type|ScanTag, ScanTag|SubClassOf|ScannablePart, vih|isRegistered|boolean#true, vih|isVisible|boolean#true, kczw|hasScannableCode|vih, vih|isInFrontOf|cylr, cylr|isCameraOf|ko, cylr|Type|KinectV2, KinectV2|SubClassOf|Camera, ko|hasComponent|cylr, cylr|hasMaximumDistanceRange|integer#22, kczw|isAtDistance|integer#21, greaterThan(integer#22,integer#21) \n -Rules : Agent(?a), hasCapability(?a, ?c), PerceivingCapability(?c), Object(?o), hasDisposition(?o, ?d), PerceivingDisposition(?d), isVisibleBy(?o,?a), Camera(?g), hasComponent(?a,?g), hasMaximumDistanceRange(?g,?w1), isAtDistance(?o,?w2), greaterThan(?w1,?w2) -> canPerceive(?a, ?o)\n\tPerceivingCapability|EquivalentTo|(isCapabilityOf some ((hasComponent some (Camera and (isActive value boolean#true)) and (hasComponent some ScanCodeDetectionAlgo))\n\tPerceivingDisposition|EquivalentTo|(isDispositionOf some (hasPart some (ScannablePart and (isRegistered value boolean#true) and (isVisible value boolean#true)))\n\t(hasScannableCode o isInFrontOf o isCameraOf)|SubPropertyOf|isVisibleBy",
+      "answer": "The Pepper agent can perceive the book because it possesses a perceiving capability\u2014realised through its active KinectV2 camera and a scan\u2011code detection algorithm\u2014while the book, as an object, carries a registered, visible scan tag that lies within the camera\u2019s maximum range (the tag is in front of the camera and the book is 21 units away, less than the camera\u2019s 22\u2011unit range); the book\u2019s perceiving disposition (a scannable part that is both registered and visible) together with the agent\u2019s camera component satisfy the rule that an agent with a perceiving capability can perceive any object whose scannable part is visible and within range.",
+      "duration": 12662909.0
+    },
+    {
+      "id": "a_canPerceive_hard_12b",
+      "selected_classes": [
+        "Pepper",
+        "Webcam",
+        "QRCode",
+        "Plate"
+      ],
+      "selected_names": [
+        "vhbz",
+        "dlqg",
+        "ivp",
+        "pyemet",
+        "vjqtgp",
+        "zsph",
+        "cwof"
+      ],
+      "question": "-Inference : pyemet|canPerceive|dlqg \n -Justifications : pyemet|Type|Pepper, Pepper|SubClassOf|Agent, pyemet|hasCapability|vhbz, vhbz|isCapabilityOf|pyemet, pyemet|hasComponent|vjqtgp, vjqtgp|Type|Webcam, Webcam|SubClassOf|Camera, vjqtgp|isActive|boolean#true, pyemet|hasComponent|cwof, cwof|Type|ScanCodeDetectionAlgo, dlqg|Type|Plate, Plate|SubClassOf|Object, dlqg|hasDisposition|ivp, ivp|isDispositionOf|dlqg, dlqg|hasPart|zsph, zsph|Type|QRCode, QRCode|SubClassOf|ScannablePart, zsph|isRegistered|boolean#true, zsph|isVisible|boolean#true, dlqg|hasScannableCode|zsph, zsph|isInFrontOf|vjqtgp, vjqtgp|isCameraOf|pyemet, vjqtgp|Type|Webcam, Webcam|SubClassOf|Camera, pyemet|hasComponent|vjqtgp, vjqtgp|hasMaximumDistanceRange|integer#47, dlqg|isAtDistance|integer#42, greaterThan(integer#47,integer#42) \n -Rules : Agent(?a), hasCapability(?a, ?c), PerceivingCapability(?c), Object(?o), hasDisposition(?o, ?d), PerceivingDisposition(?d), isVisibleBy(?o,?a), Camera(?g), hasComponent(?a,?g), hasMaximumDistanceRange(?g,?w1), isAtDistance(?o,?w2), greaterThan(?w1,?w2) -> canPerceive(?a, ?o)\n\tPerceivingCapability|EquivalentTo|(isCapabilityOf some ((hasComponent some (Camera and (isActive value boolean#true)) and (hasComponent some ScanCodeDetectionAlgo))\n\tPerceivingDisposition|EquivalentTo|(isDispositionOf some (hasPart some (ScannablePart and (isRegistered value boolean#true) and (isVisible value boolean#true)))\n\t(hasScannableCode o isInFrontOf o isCameraOf)|SubPropertyOf|isVisibleBy",
+      "answer": "The Pepper robot (an agent) can perceive the plate because it has a perceiving capability that comprises an active webcam (a camera) and a scan\u2011code\u2011detection algorithm; the webcam\u2019s maximum detection range is 47 units, and the plate is only 42 units away, which is within that range. The plate, as an object, carries a QR\u2011code part that is a scannable part, is registered and visible, and is positioned directly in front of the webcam, making the plate visible to the robot. Consequently, the robot\u2019s perceiving disposition matches the plate\u2019s scannable disposition, so the robot is able to perceive the plate.",
+      "duration": 18808718.0
+    },
+    {
+      "id": "a_canPerceive_hard_13b",
+      "selected_classes": [
+        "Pr2",
+        "RGBCamera",
+        "2DBarcode",
+        "Appliance"
+      ],
+      "selected_names": [
+        "ill",
+        "rejf",
+        "ps",
+        "lqcxbs",
+        "swjs",
+        "qxy",
+        "njcg"
+      ],
+      "question": "-Inference : lqcxbs|canPerceive|rejf \n -Justifications : lqcxbs|Type|Pr2, Pr2|SubClassOf|Agent, lqcxbs|hasCapability|ill, ill|isCapabilityOf|lqcxbs, lqcxbs|hasComponent|swjs, swjs|Type|RGBCamera, RGBCamera|SubClassOf|Camera, swjs|isActive|boolean#true, lqcxbs|hasComponent|njcg, njcg|Type|ScanCodeDetectionAlgo, rejf|Type|Appliance, Appliance|SubClassOf|Object, rejf|hasDisposition|ps, ps|isDispositionOf|rejf, rejf|hasPart|qxy, qxy|Type|2DBarcode, 2DBarcode|SubClassOf|ScannablePart, qxy|isRegistered|boolean#true, qxy|isVisible|boolean#true, rejf|hasScannableCode|qxy, qxy|isInFrontOf|swjs, swjs|isCameraOf|lqcxbs, swjs|Type|RGBCamera, RGBCamera|SubClassOf|Camera, lqcxbs|hasComponent|swjs, swjs|hasMaximumDistanceRange|integer#77, rejf|isAtDistance|integer#71, greaterThan(integer#77,integer#71) \n -Rules : Agent(?a), hasCapability(?a, ?c), PerceivingCapability(?c), Object(?o), hasDisposition(?o, ?d), PerceivingDisposition(?d), isVisibleBy(?o,?a), Camera(?g), hasComponent(?a,?g), hasMaximumDistanceRange(?g,?w1), isAtDistance(?o,?w2), greaterThan(?w1,?w2) -> canPerceive(?a, ?o)\n\tPerceivingCapability|EquivalentTo|(isCapabilityOf some ((hasComponent some (Camera and (isActive value boolean#true)) and (hasComponent some ScanCodeDetectionAlgo))\n\tPerceivingDisposition|EquivalentTo|(isDispositionOf some (hasPart some (ScannablePart and (isRegistered value boolean#true) and (isVisible value boolean#true)))\n\t(hasScannableCode o isInFrontOf o isCameraOf)|SubPropertyOf|isVisibleBy",
+      "answer": "The Pr2, which is a subclass of Agent, can perceive the appliance because it has a perceiving capability instantiated by an active RGB camera and a scan\u2011code\u2011detection algorithm attached to it; the appliance, as an Object, carries a perceiving disposition that includes a registered, visible 2D\u2011barcode part (a ScannablePart) positioned in front of the camera, and the camera\u2019s maximum sensing range of 77 units exceeds the actual distance of 71 units between the agent and the appliance, thereby satisfying the rule that an agent with a perceiving capability can perceive any visible object within its sensor range.",
+      "duration": 16378540.0
+    },
+    {
+      "id": "a_canPerceive_hard_14b",
+      "selected_classes": [
+        "Pr2",
+        "KinectV2",
+        "2DBarcode",
+        "Book"
+      ],
+      "selected_names": [
+        "acoz",
+        "lkrc",
+        "lhe",
+        "cplhu",
+        "rczr",
+        "jr",
+        "muqlx"
+      ],
+      "question": "-Inference : cplhu|canPerceive|lkrc \n -Justifications : cplhu|Type|Pr2, Pr2|SubClassOf|Agent, cplhu|hasCapability|acoz, acoz|isCapabilityOf|cplhu, cplhu|hasComponent|rczr, rczr|Type|KinectV2, KinectV2|SubClassOf|Camera, rczr|isActive|boolean#true, cplhu|hasComponent|muqlx, muqlx|Type|ScanCodeDetectionAlgo, lkrc|Type|Book, Book|SubClassOf|Object, lkrc|hasDisposition|lhe, lhe|isDispositionOf|lkrc, lkrc|hasPart|jr, jr|Type|2DBarcode, 2DBarcode|SubClassOf|ScannablePart, jr|isRegistered|boolean#true, jr|isVisible|boolean#true, lkrc|hasScannableCode|jr, jr|isInFrontOf|rczr, rczr|isCameraOf|cplhu, rczr|Type|KinectV2, KinectV2|SubClassOf|Camera, cplhu|hasComponent|rczr, rczr|hasMaximumDistanceRange|integer#79, lkrc|isAtDistance|integer#27, greaterThan(integer#79,integer#27) \n -Rules : Agent(?a), hasCapability(?a, ?c), PerceivingCapability(?c), Object(?o), hasDisposition(?o, ?d), PerceivingDisposition(?d), isVisibleBy(?o,?a), Camera(?g), hasComponent(?a,?g), hasMaximumDistanceRange(?g,?w1), isAtDistance(?o,?w2), greaterThan(?w1,?w2) -> canPerceive(?a, ?o)\n\tPerceivingCapability|EquivalentTo|(isCapabilityOf some ((hasComponent some (Camera and (isActive value boolean#true)) and (hasComponent some ScanCodeDetectionAlgo))\n\tPerceivingDisposition|EquivalentTo|(isDispositionOf some (hasPart some (ScannablePart and (isRegistered value boolean#true) and (isVisible value boolean#true)))\n\t(hasScannableCode o isInFrontOf o isCameraOf)|SubPropertyOf|isVisibleBy",
+      "answer": "The agent can perceive the book because, as a member of the Agent subclass Pr2, it has a perceiving capability that is realized through an active KinectV2 camera and a scan\u2011code\u2011detection algorithm; the camera\u2019s maximum distance range (79) is greater than the book\u2019s actual distance (27), and the book\u2014an object\u2014carries a registered, visible 2D barcode (a scannable part) that is positioned in front of the camera, thereby satisfying the perceiving disposition required for visibility.",
+      "duration": 12775049.0
+    },
+    {
+      "id": "a_canPerceive_hard_15b",
+      "selected_classes": [
+        "Robot",
+        "RGBCamera",
+        "2DBarcode",
+        "Cube"
+      ],
+      "selected_names": [
+        "cu",
+        "dja",
+        "vasoeg",
+        "tn",
+        "ba",
+        "dle",
+        "uwmr"
+      ],
+      "question": "-Inference : tn|canPerceive|dja \n -Justifications : tn|Type|Robot, Robot|SubClassOf|Agent, tn|hasCapability|cu, cu|isCapabilityOf|tn, tn|hasComponent|ba, ba|Type|RGBCamera, RGBCamera|SubClassOf|Camera, ba|isActive|boolean#true, tn|hasComponent|uwmr, uwmr|Type|ScanCodeDetectionAlgo, dja|Type|Cube, Cube|SubClassOf|Object, dja|hasDisposition|vasoeg, vasoeg|isDispositionOf|dja, dja|hasPart|dle, dle|Type|2DBarcode, 2DBarcode|SubClassOf|ScannablePart, dle|isRegistered|boolean#true, dle|isVisible|boolean#true, dja|hasScannableCode|dle, dle|isInFrontOf|ba, ba|isCameraOf|tn, ba|Type|RGBCamera, RGBCamera|SubClassOf|Camera, tn|hasComponent|ba, ba|hasMaximumDistanceRange|integer#49, dja|isAtDistance|integer#16, greaterThan(integer#49,integer#16) \n -Rules : Agent(?a), hasCapability(?a, ?c), PerceivingCapability(?c), Object(?o), hasDisposition(?o, ?d), PerceivingDisposition(?d), isVisibleBy(?o,?a), Camera(?g), hasComponent(?a,?g), hasMaximumDistanceRange(?g,?w1), isAtDistance(?o,?w2), greaterThan(?w1,?w2) -> canPerceive(?a, ?o)\n\tPerceivingCapability|EquivalentTo|(isCapabilityOf some ((hasComponent some (Camera and (isActive value boolean#true)) and (hasComponent some ScanCodeDetectionAlgo))\n\tPerceivingDisposition|EquivalentTo|(isDispositionOf some (hasPart some (ScannablePart and (isRegistered value boolean#true) and (isVisible value boolean#true)))\n\t(hasScannableCode o isInFrontOf o isCameraOf)|SubPropertyOf|isVisibleBy",
+      "answer": "The robot, as an agent equipped with a perceiving capability, can perceive the cube because it carries an active RGB camera (a kind of camera) whose maximum range exceeds the cube\u2019s current distance, it also includes a scan\u2011code\u2011detection algorithm, and the cube\u2014being an object\u2014has a scannable 2\u2011D barcode that is registered, visible, and positioned in front of the robot\u2019s camera; together these conditions satisfy the rule that an agent with an active camera and scan\u2011code detection can perceive any visible object whose distance is within the camera\u2019s range.",
+      "duration": 9026712.0
+    },
+    {
+      "id": "a_canPerceive_hard_16b",
+      "selected_classes": [
+        "Pepper",
+        "Webcam",
+        "ScanTag",
+        "Appliance"
+      ],
+      "selected_names": [
+        "jxzkoc",
+        "hzzdjd",
+        "nvmdk",
+        "hzmix",
+        "hdqjie",
+        "mha",
+        "wvly"
+      ],
+      "question": "-Inference : hzmix|canPerceive|hzzdjd \n -Justifications : hzmix|Type|Pepper, Pepper|SubClassOf|Agent, hzmix|hasCapability|jxzkoc, jxzkoc|isCapabilityOf|hzmix, hzmix|hasComponent|hdqjie, hdqjie|Type|Webcam, Webcam|SubClassOf|Camera, hdqjie|isActive|boolean#true, hzmix|hasComponent|wvly, wvly|Type|ScanCodeDetectionAlgo, hzzdjd|Type|Appliance, Appliance|SubClassOf|Object, hzzdjd|hasDisposition|nvmdk, nvmdk|isDispositionOf|hzzdjd, hzzdjd|hasPart|mha, mha|Type|ScanTag, ScanTag|SubClassOf|ScannablePart, mha|isRegistered|boolean#true, mha|isVisible|boolean#true, hzzdjd|hasScannableCode|mha, mha|isInFrontOf|hdqjie, hdqjie|isCameraOf|hzmix, hdqjie|Type|Webcam, Webcam|SubClassOf|Camera, hzmix|hasComponent|hdqjie, hdqjie|hasMaximumDistanceRange|integer#27, hzzdjd|isAtDistance|integer#13, greaterThan(integer#27,integer#13) \n -Rules : Agent(?a), hasCapability(?a, ?c), PerceivingCapability(?c), Object(?o), hasDisposition(?o, ?d), PerceivingDisposition(?d), isVisibleBy(?o,?a), Camera(?g), hasComponent(?a,?g), hasMaximumDistanceRange(?g,?w1), isAtDistance(?o,?w2), greaterThan(?w1,?w2) -> canPerceive(?a, ?o)\n\tPerceivingCapability|EquivalentTo|(isCapabilityOf some ((hasComponent some (Camera and (isActive value boolean#true)) and (hasComponent some ScanCodeDetectionAlgo))\n\tPerceivingDisposition|EquivalentTo|(isDispositionOf some (hasPart some (ScannablePart and (isRegistered value boolean#true) and (isVisible value boolean#true)))\n\t(hasScannableCode o isInFrontOf o isCameraOf)|SubPropertyOf|isVisibleBy",
+      "answer": "The agent can perceive the appliance because it has a perceiving capability that includes an active webcam (a camera component) with a maximum range of 27 units and a scan\u2011code\u2011detection algorithm, the webcam\u2019s range exceeds the appliance\u2019s current distance of 13 units, and the appliance\u2014being an object with a perceiving disposition\u2014carries a registered, visible scan tag (a scannable part) that is positioned in front of the webcam, thereby satisfying the visibility condition required for perception.",
+      "duration": 20043855.0
+    },
+    {
+      "id": "a_canPerceive_hard_17b",
+      "selected_classes": [
+        "Tiago",
+        "RealsenseD435i",
+        "QRTag",
+        "Box"
+      ],
+      "selected_names": [
+        "yeew",
+        "xwvkw",
+        "wjcu",
+        "wi",
+        "yd",
+        "ar",
+        "tkv"
+      ],
+      "question": "-Inference : wi|canPerceive|xwvkw \n -Justifications : wi|Type|Tiago, Tiago|SubClassOf|Agent, wi|hasCapability|yeew, yeew|isCapabilityOf|wi, wi|hasComponent|yd, yd|Type|RealsenseD435i, RealsenseD435i|SubClassOf|Camera, yd|isActive|boolean#true, wi|hasComponent|tkv, tkv|Type|ScanCodeDetectionAlgo, xwvkw|Type|Box, Box|SubClassOf|Object, xwvkw|hasDisposition|wjcu, wjcu|isDispositionOf|xwvkw, xwvkw|hasPart|ar, ar|Type|QRTag, QRTag|SubClassOf|ScannablePart, ar|isRegistered|boolean#true, ar|isVisible|boolean#true, xwvkw|hasScannableCode|ar, ar|isInFrontOf|yd, yd|isCameraOf|wi, yd|Type|RealsenseD435i, RealsenseD435i|SubClassOf|Camera, wi|hasComponent|yd, yd|hasMaximumDistanceRange|integer#98, xwvkw|isAtDistance|integer#19, greaterThan(integer#98,integer#19) \n -Rules : Agent(?a), hasCapability(?a, ?c), PerceivingCapability(?c), Object(?o), hasDisposition(?o, ?d), PerceivingDisposition(?d), isVisibleBy(?o,?a), Camera(?g), hasComponent(?a,?g), hasMaximumDistanceRange(?g,?w1), isAtDistance(?o,?w2), greaterThan(?w1,?w2) -> canPerceive(?a, ?o)\n\tPerceivingCapability|EquivalentTo|(isCapabilityOf some ((hasComponent some (Camera and (isActive value boolean#true)) and (hasComponent some ScanCodeDetectionAlgo))\n\tPerceivingDisposition|EquivalentTo|(isDispositionOf some (hasPart some (ScannablePart and (isRegistered value boolean#true) and (isVisible value boolean#true)))\n\t(hasScannableCode o isInFrontOf o isCameraOf)|SubPropertyOf|isVisibleBy",
+      "answer": "The Tiago robot, as an agent, can perceive the box because it has a perceiving capability that comprises an active Realsense\u202fD435i camera and a scan\u2011code\u2011detection algorithm; the box is an object that carries a registered, visible QR\u2011tag part, and the QR\u2011tag is positioned in front of the robot\u2019s camera, while the camera\u2019s maximum detection range (98 units) exceeds the actual distance to the box (19 units), thereby satisfying all the required conditions for perception.",
+      "duration": 11933940.999999998
+    },
+    {
+      "id": "a_canPerceive_hard_18b",
+      "selected_classes": [
+        "Pepper",
+        "RealsenseD435i",
+        "ScanTag",
+        "Luggage"
+      ],
+      "selected_names": [
+        "szlwz",
+        "jxrpd",
+        "azhwkb",
+        "kgtq",
+        "uznn",
+        "wnegx",
+        "szd"
+      ],
+      "question": "-Inference : kgtq|canPerceive|jxrpd \n -Justifications : kgtq|Type|Pepper, Pepper|SubClassOf|Agent, kgtq|hasCapability|szlwz, szlwz|isCapabilityOf|kgtq, kgtq|hasComponent|uznn, uznn|Type|RealsenseD435i, RealsenseD435i|SubClassOf|Camera, uznn|isActive|boolean#true, kgtq|hasComponent|szd, szd|Type|ScanCodeDetectionAlgo, jxrpd|Type|Luggage, Luggage|SubClassOf|Object, jxrpd|hasDisposition|azhwkb, azhwkb|isDispositionOf|jxrpd, jxrpd|hasPart|wnegx, wnegx|Type|ScanTag, ScanTag|SubClassOf|ScannablePart, wnegx|isRegistered|boolean#true, wnegx|isVisible|boolean#true, jxrpd|hasScannableCode|wnegx, wnegx|isInFrontOf|uznn, uznn|isCameraOf|kgtq, uznn|Type|RealsenseD435i, RealsenseD435i|SubClassOf|Camera, kgtq|hasComponent|uznn, uznn|hasMaximumDistanceRange|integer#90, jxrpd|isAtDistance|integer#41, greaterThan(integer#90,integer#41) \n -Rules : Agent(?a), hasCapability(?a, ?c), PerceivingCapability(?c), Object(?o), hasDisposition(?o, ?d), PerceivingDisposition(?d), isVisibleBy(?o,?a), Camera(?g), hasComponent(?a,?g), hasMaximumDistanceRange(?g,?w1), isAtDistance(?o,?w2), greaterThan(?w1,?w2) -> canPerceive(?a, ?o)\n\tPerceivingCapability|EquivalentTo|(isCapabilityOf some ((hasComponent some (Camera and (isActive value boolean#true)) and (hasComponent some ScanCodeDetectionAlgo))\n\tPerceivingDisposition|EquivalentTo|(isDispositionOf some (hasPart some (ScannablePart and (isRegistered value boolean#true) and (isVisible value boolean#true)))\n\t(hasScannableCode o isInFrontOf o isCameraOf)|SubPropertyOf|isVisibleBy",
+      "answer": "The Pepper\u2011type agent can perceive the luggage because it has a perceiving capability realized through an active Realsense\u202fD435i camera and a scan\u2011code detection algorithm; the luggage carries a scannable tag that is both registered and visible, the tag is positioned directly in front of the camera, and the object\u2019s distance (41 units) is well within the camera\u2019s maximum range (90 units), so the tag is visible to the agent and the agent therefore perceives the object.",
+      "duration": 16732684.000000002
+    },
+    {
+      "id": "a_canPerceive_hard_19b",
+      "selected_classes": [
+        "Tiago",
+        "KinectV2",
+        "QRTag",
+        "Appliance"
+      ],
+      "selected_names": [
+        "pv",
+        "xq",
+        "scd",
+        "msst",
+        "nlbaq",
+        "zbb",
+        "hmes"
+      ],
+      "question": "-Inference : msst|canPerceive|xq \n -Justifications : msst|Type|Tiago, Tiago|SubClassOf|Agent, msst|hasCapability|pv, pv|isCapabilityOf|msst, msst|hasComponent|nlbaq, nlbaq|Type|KinectV2, KinectV2|SubClassOf|Camera, nlbaq|isActive|boolean#true, msst|hasComponent|hmes, hmes|Type|ScanCodeDetectionAlgo, xq|Type|Appliance, Appliance|SubClassOf|Object, xq|hasDisposition|scd, scd|isDispositionOf|xq, xq|hasPart|zbb, zbb|Type|QRTag, QRTag|SubClassOf|ScannablePart, zbb|isRegistered|boolean#true, zbb|isVisible|boolean#true, xq|hasScannableCode|zbb, zbb|isInFrontOf|nlbaq, nlbaq|isCameraOf|msst, nlbaq|Type|KinectV2, KinectV2|SubClassOf|Camera, msst|hasComponent|nlbaq, nlbaq|hasMaximumDistanceRange|integer#82, xq|isAtDistance|integer#70, greaterThan(integer#82,integer#70) \n -Rules : Agent(?a), hasCapability(?a, ?c), PerceivingCapability(?c), Object(?o), hasDisposition(?o, ?d), PerceivingDisposition(?d), isVisibleBy(?o,?a), Camera(?g), hasComponent(?a,?g), hasMaximumDistanceRange(?g,?w1), isAtDistance(?o,?w2), greaterThan(?w1,?w2) -> canPerceive(?a, ?o)\n\tPerceivingCapability|EquivalentTo|(isCapabilityOf some ((hasComponent some (Camera and (isActive value boolean#true)) and (hasComponent some ScanCodeDetectionAlgo))\n\tPerceivingDisposition|EquivalentTo|(isDispositionOf some (hasPart some (ScannablePart and (isRegistered value boolean#true) and (isVisible value boolean#true)))\n\t(hasScannableCode o isInFrontOf o isCameraOf)|SubPropertyOf|isVisibleBy",
+      "answer": "The Tiago robot can perceive the appliance because it has a perceiving capability that comprises an active KinectV2 camera and a scan\u2011code detection algorithm; the camera\u2019s maximum range of 82 units exceeds the appliance\u2019s distance of 70 units, and the appliance\u2014an object\u2014carries a registered, visible QR tag (a scannable part) that is positioned in front of the camera, thereby satisfying the perceiving disposition required for perception.",
+      "duration": 13938418.0
+    }
+  ]
+}

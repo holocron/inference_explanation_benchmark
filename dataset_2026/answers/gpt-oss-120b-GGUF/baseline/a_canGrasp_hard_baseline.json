@@ -1,0 +1,512 @@
+{
+  "id": "a_canGrasp_hard",
+  "template": {
+    "fact": "__agent__|canGrasp|__object__",
+    "explanation": [
+      "__agent__|Type|__Agent__",
+      "__Agent__|SubClassOf|Agent",
+      "__agent__|hasCapability|__agent_capa__",
+      "__agent_capa__|isCapabilityOf|__agent__",
+      "__agent__|hasComponent|__gripper__",
+      "__gripper__|Type|__Gripper__",
+      "__Gripper__|SubClassOf|Gripper",
+      "__gripper__|holdsSomething|boolean#false",
+      "__agent__|hasComponent|__algo__",
+      "__algo__|Type|MotionPlanningAlgo",
+      "__object__|Type|__Object__",
+      "__Object__|SubClassOf|Object",
+      "__object__|hasDisposition|__object_disp__",
+      "__object_disp__|isDispositionOf|__object__",
+      "__object__|hasPart|__handle__",
+      "__handle__|Type|__Handle__",
+      "__Handle__|SubClassOf|GraspablePart",
+      "__handle__|IsAlreadyInUse|boolean#false",
+      "__object__|isATouchableObject|boolean#true",
+      "__object__|isContainedIn|__container__",
+      "__container__|isLocatedInArea|__room__",
+      "__room__|isWithinGraspRangeOf|__agent__",
+      "__gripper__|Type|Gripper",
+      "Gripper|SubClassOf|EndEffector",
+      "__agent__|hasComponent|__gripper__",
+      "__gripper__|hasOpeningWidth|integer#2",
+      "__object__|hasHoldingPartWidth|integer#1",
+      "greaterThan(integer#2,integer#1)"
+    ]
+  },
+  "rules": [
+    "Agent(?a), hasCapability(?a, ?c), GraspingCapability(?c), Object(?o), hasDisposition(?o, ?d), GraspableDisposition(?d), isReachableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasOpeningWidth(?g,?w1), hasHoldingPartWidth(?o,?w2), greaterThan(?w1,?w2) -> canGrasp(?a, ?o)",
+    "GraspingCapability|EquivalentTo|(isCapabilityOf some ((hasComponent some (Gripper and (holdsSomething value boolean#false)) and (hasComponent some MotionPlanningAlgo))",
+    "GraspableDisposition|EquivalentTo|(isDispositionOf some ((hasPart some (GraspablePart and (IsAlreadyInUse value boolean#false)) and (isATouchableObject value boolean#true)))",
+    "(isContainedIn o isLocatedInArea o isWithinGraspRangeOf)|SubPropertyOf|isReachableBy"
+  ],
+  "concepts": [
+    "grasping",
+    "graspable",
+    "reach",
+    "opening",
+    "object_width",
+    "can grasp"
+  ],
+  "answers": [
+    {
+      "id": "a_canGrasp_hard_0b",
+      "selected_classes": [
+        "Pr2",
+        "TwoFingerClaw",
+        "HandGrip",
+        "Shovel"
+      ],
+      "selected_names": [
+        "na",
+        "eyy",
+        "xgsjbm",
+        "mvog",
+        "wwyaq",
+        "dpuxwi",
+        "ijpe",
+        "phldtq",
+        "xqo"
+      ],
+      "question": "-Inference : wwyaq|canGrasp|eyy \n -Justifications : wwyaq|Type|Pr2, Pr2|SubClassOf|Agent, wwyaq|hasCapability|na, na|isCapabilityOf|wwyaq, wwyaq|hasComponent|phldtq, phldtq|Type|TwoFingerClaw, TwoFingerClaw|SubClassOf|Gripper, phldtq|holdsSomething|boolean#false, wwyaq|hasComponent|xqo, xqo|Type|MotionPlanningAlgo, eyy|Type|Shovel, Shovel|SubClassOf|Object, eyy|hasDisposition|mvog, mvog|isDispositionOf|eyy, eyy|hasPart|dpuxwi, dpuxwi|Type|HandGrip, HandGrip|SubClassOf|GraspablePart, dpuxwi|IsAlreadyInUse|boolean#false, eyy|isATouchableObject|boolean#true, eyy|isContainedIn|ijpe, ijpe|isLocatedInArea|xgsjbm, xgsjbm|isWithinGraspRangeOf|wwyaq, phldtq|Type|Gripper, Gripper|SubClassOf|EndEffector, wwyaq|hasComponent|phldtq, phldtq|hasOpeningWidth|integer#96, eyy|hasHoldingPartWidth|integer#54, greaterThan(integer#96,integer#54) \n -Rules : Agent(?a), hasCapability(?a, ?c), GraspingCapability(?c), Object(?o), hasDisposition(?o, ?d), GraspableDisposition(?d), isReachableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasOpeningWidth(?g,?w1), hasHoldingPartWidth(?o,?w2), greaterThan(?w1,?w2) -> canGrasp(?a, ?o)\n\tGraspingCapability|EquivalentTo|(isCapabilityOf some ((hasComponent some (Gripper and (holdsSomething value boolean#false)) and (hasComponent some MotionPlanningAlgo))\n\tGraspableDisposition|EquivalentTo|(isDispositionOf some ((hasPart some (GraspablePart and (IsAlreadyInUse value boolean#false)) and (isATouchableObject value boolean#true)))\n\t(isContainedIn o isLocatedInArea o isWithinGraspRangeOf)|SubPropertyOf|isReachableBy",
+      "answer": "The agent can grasp the shovel because it has a grasping capability instantiated by a two\u2011finger claw end\u2011effector (which currently holds nothing) together with a motion\u2011planning algorithm; the claw\u2019s opening width (96) is greater than the shovel\u2019s holding\u2011part width (54), the shovel is a touchable object whose hand\u2011grip part is a GraspablePart that is not already in use, and the shovel lies in a location that, via the containment\u2011\u2192\u2011area\u2011\u2192\u2011within\u2011grasp\u2011range chain, is reachable by the agent.",
+      "duration": 17598844.0
+    },
+    {
+      "id": "a_canGrasp_hard_1b",
+      "selected_classes": [
+        "Pepper",
+        "Manipulator",
+        "Grip",
+        "Lunchbox"
+      ],
+      "selected_names": [
+        "pvobfu",
+        "azhx",
+        "oswvz",
+        "gsdbnt",
+        "nq",
+        "qg",
+        "vw",
+        "wmy",
+        "bzdol"
+      ],
+      "question": "-Inference : nq|canGrasp|azhx \n -Justifications : nq|Type|Pepper, Pepper|SubClassOf|Agent, nq|hasCapability|pvobfu, pvobfu|isCapabilityOf|nq, nq|hasComponent|wmy, wmy|Type|Manipulator, Manipulator|SubClassOf|Gripper, wmy|holdsSomething|boolean#false, nq|hasComponent|bzdol, bzdol|Type|MotionPlanningAlgo, azhx|Type|Lunchbox, Lunchbox|SubClassOf|Object, azhx|hasDisposition|gsdbnt, gsdbnt|isDispositionOf|azhx, azhx|hasPart|qg, qg|Type|Grip, Grip|SubClassOf|GraspablePart, qg|IsAlreadyInUse|boolean#false, azhx|isATouchableObject|boolean#true, azhx|isContainedIn|vw, vw|isLocatedInArea|oswvz, oswvz|isWithinGraspRangeOf|nq, wmy|Type|Gripper, Gripper|SubClassOf|EndEffector, nq|hasComponent|wmy, wmy|hasOpeningWidth|integer#54, azhx|hasHoldingPartWidth|integer#39, greaterThan(integer#54,integer#39) \n -Rules : Agent(?a), hasCapability(?a, ?c), GraspingCapability(?c), Object(?o), hasDisposition(?o, ?d), GraspableDisposition(?d), isReachableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasOpeningWidth(?g,?w1), hasHoldingPartWidth(?o,?w2), greaterThan(?w1,?w2) -> canGrasp(?a, ?o)\n\tGraspingCapability|EquivalentTo|(isCapabilityOf some ((hasComponent some (Gripper and (holdsSomething value boolean#false)) and (hasComponent some MotionPlanningAlgo))\n\tGraspableDisposition|EquivalentTo|(isDispositionOf some ((hasPart some (GraspablePart and (IsAlreadyInUse value boolean#false)) and (isATouchableObject value boolean#true)))\n\t(isContainedIn o isLocatedInArea o isWithinGraspRangeOf)|SubPropertyOf|isReachableBy",
+      "answer": "The pepper robot, as an agent that possesses a grasping capability consisting of a free\u2011moving gripper (a manipulator that is not currently holding anything) together with a motion\u2011planning algorithm, can grasp the lunchbox because the gripper\u2019s opening width (54) exceeds the lunchbox\u2019s required holding\u2011part width (39), the lunchbox is a touchable object whose graspable part is not already in use, and it is located in an area that lies within the robot\u2019s grasp range, making the object reachable for grasping.",
+      "duration": 13362789.0
+    },
+    {
+      "id": "a_canGrasp_hard_2b",
+      "selected_classes": [
+        "Pepper",
+        "MechanicalHand",
+        "HandGrip",
+        "Hammer"
+      ],
+      "selected_names": [
+        "xyjws",
+        "dzs",
+        "aedfu",
+        "dms",
+        "atjih",
+        "twmw",
+        "xwx",
+        "xzl",
+        "kk"
+      ],
+      "question": "-Inference : atjih|canGrasp|dzs \n -Justifications : atjih|Type|Pepper, Pepper|SubClassOf|Agent, atjih|hasCapability|xyjws, xyjws|isCapabilityOf|atjih, atjih|hasComponent|xzl, xzl|Type|MechanicalHand, MechanicalHand|SubClassOf|Gripper, xzl|holdsSomething|boolean#false, atjih|hasComponent|kk, kk|Type|MotionPlanningAlgo, dzs|Type|Hammer, Hammer|SubClassOf|Object, dzs|hasDisposition|dms, dms|isDispositionOf|dzs, dzs|hasPart|twmw, twmw|Type|HandGrip, HandGrip|SubClassOf|GraspablePart, twmw|IsAlreadyInUse|boolean#false, dzs|isATouchableObject|boolean#true, dzs|isContainedIn|xwx, xwx|isLocatedInArea|aedfu, aedfu|isWithinGraspRangeOf|atjih, xzl|Type|Gripper, Gripper|SubClassOf|EndEffector, atjih|hasComponent|xzl, xzl|hasOpeningWidth|integer#75, dzs|hasHoldingPartWidth|integer#13, greaterThan(integer#75,integer#13) \n -Rules : Agent(?a), hasCapability(?a, ?c), GraspingCapability(?c), Object(?o), hasDisposition(?o, ?d), GraspableDisposition(?d), isReachableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasOpeningWidth(?g,?w1), hasHoldingPartWidth(?o,?w2), greaterThan(?w1,?w2) -> canGrasp(?a, ?o)\n\tGraspingCapability|EquivalentTo|(isCapabilityOf some ((hasComponent some (Gripper and (holdsSomething value boolean#false)) and (hasComponent some MotionPlanningAlgo))\n\tGraspableDisposition|EquivalentTo|(isDispositionOf some ((hasPart some (GraspablePart and (IsAlreadyInUse value boolean#false)) and (isATouchableObject value boolean#true)))\n\t(isContainedIn o isLocatedInArea o isWithinGraspRangeOf)|SubPropertyOf|isReachableBy",
+      "answer": "Because the Pepper robot (an agent) has a grasping capability\u2014realised by its mechanical hand, which is a gripper component that is currently empty and has an opening width of\u202f75, together with a motion\u2011planning algorithm component\u2014and because the hammer (a graspable object) possesses a graspable disposition, includes a hand\u2011grip part of width\u202f13 that is not already in use, is marked as touchable, and is located in a container that lies within the robot\u2019s reachable area, the robot\u2019s opening is wide enough and the object is within reach, so the Pepper robot can grasp the hammer.",
+      "duration": 15805983.0
+    },
+    {
+      "id": "a_canGrasp_hard_3b",
+      "selected_classes": [
+        "Tiago",
+        "Claw",
+        "Grip",
+        "Hammer"
+      ],
+      "selected_names": [
+        "urc",
+        "hj",
+        "inrnq",
+        "glolnx",
+        "wch",
+        "czjp",
+        "klear",
+        "spvxds",
+        "bbguwz"
+      ],
+      "question": "-Inference : wch|canGrasp|hj \n -Justifications : wch|Type|Tiago, Tiago|SubClassOf|Agent, wch|hasCapability|urc, urc|isCapabilityOf|wch, wch|hasComponent|spvxds, spvxds|Type|Claw, Claw|SubClassOf|Gripper, spvxds|holdsSomething|boolean#false, wch|hasComponent|bbguwz, bbguwz|Type|MotionPlanningAlgo, hj|Type|Hammer, Hammer|SubClassOf|Object, hj|hasDisposition|glolnx, glolnx|isDispositionOf|hj, hj|hasPart|czjp, czjp|Type|Grip, Grip|SubClassOf|GraspablePart, czjp|IsAlreadyInUse|boolean#false, hj|isATouchableObject|boolean#true, hj|isContainedIn|klear, klear|isLocatedInArea|inrnq, inrnq|isWithinGraspRangeOf|wch, spvxds|Type|Gripper, Gripper|SubClassOf|EndEffector, wch|hasComponent|spvxds, spvxds|hasOpeningWidth|integer#42, hj|hasHoldingPartWidth|integer#18, greaterThan(integer#42,integer#18) \n -Rules : Agent(?a), hasCapability(?a, ?c), GraspingCapability(?c), Object(?o), hasDisposition(?o, ?d), GraspableDisposition(?d), isReachableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasOpeningWidth(?g,?w1), hasHoldingPartWidth(?o,?w2), greaterThan(?w1,?w2) -> canGrasp(?a, ?o)\n\tGraspingCapability|EquivalentTo|(isCapabilityOf some ((hasComponent some (Gripper and (holdsSomething value boolean#false)) and (hasComponent some MotionPlanningAlgo))\n\tGraspableDisposition|EquivalentTo|(isDispositionOf some ((hasPart some (GraspablePart and (IsAlreadyInUse value boolean#false)) and (isATouchableObject value boolean#true)))\n\t(isContainedIn o isLocatedInArea o isWithinGraspRangeOf)|SubPropertyOf|isReachableBy",
+      "answer": "The Tiago robot, as an agent with a grasping capability, can grasp the hammer because it is equipped with a claw end\u2011effector (a gripper) that is currently empty, has an opening width of\u202f42 which exceeds the hammer\u2019s required holding\u2011part width of\u202f18, includes a motion\u2011planning algorithm, and the hammer is a touchable object whose grip part is not already in use and is located within the robot\u2019s grasp range (via its containment in a location that lies within the robot\u2019s reachable area).",
+      "duration": 15758638.0
+    },
+    {
+      "id": "a_canGrasp_hard_4b",
+      "selected_classes": [
+        "Pr2",
+        "Manipulator",
+        "Handle",
+        "ToyBucket"
+      ],
+      "selected_names": [
+        "xcfuk",
+        "bn",
+        "unxt",
+        "pgo",
+        "gol",
+        "cck",
+        "ywxo",
+        "qgcsff",
+        "orsc"
+      ],
+      "question": "-Inference : gol|canGrasp|bn \n -Justifications : gol|Type|Pr2, Pr2|SubClassOf|Agent, gol|hasCapability|xcfuk, xcfuk|isCapabilityOf|gol, gol|hasComponent|qgcsff, qgcsff|Type|Manipulator, Manipulator|SubClassOf|Gripper, qgcsff|holdsSomething|boolean#false, gol|hasComponent|orsc, orsc|Type|MotionPlanningAlgo, bn|Type|ToyBucket, ToyBucket|SubClassOf|Object, bn|hasDisposition|pgo, pgo|isDispositionOf|bn, bn|hasPart|cck, cck|Type|Handle, Handle|SubClassOf|GraspablePart, cck|IsAlreadyInUse|boolean#false, bn|isATouchableObject|boolean#true, bn|isContainedIn|ywxo, ywxo|isLocatedInArea|unxt, unxt|isWithinGraspRangeOf|gol, qgcsff|Type|Gripper, Gripper|SubClassOf|EndEffector, gol|hasComponent|qgcsff, qgcsff|hasOpeningWidth|integer#98, bn|hasHoldingPartWidth|integer#24, greaterThan(integer#98,integer#24) \n -Rules : Agent(?a), hasCapability(?a, ?c), GraspingCapability(?c), Object(?o), hasDisposition(?o, ?d), GraspableDisposition(?d), isReachableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasOpeningWidth(?g,?w1), hasHoldingPartWidth(?o,?w2), greaterThan(?w1,?w2) -> canGrasp(?a, ?o)\n\tGraspingCapability|EquivalentTo|(isCapabilityOf some ((hasComponent some (Gripper and (holdsSomething value boolean#false)) and (hasComponent some MotionPlanningAlgo))\n\tGraspableDisposition|EquivalentTo|(isDispositionOf some ((hasPart some (GraspablePart and (IsAlreadyInUse value boolean#false)) and (isATouchableObject value boolean#true)))\n\t(isContainedIn o isLocatedInArea o isWithinGraspRangeOf)|SubPropertyOf|isReachableBy",
+      "answer": "Because the Pr2\u2011type agent possesses a grasping capability\u2014realized by a manipulator component that is a gripper not currently holding anything together with a motion\u2011planning algorithm\u2014and because this gripper\u2019s opening width (98) exceeds the width of the toy\u2011bucket\u2019s graspable handle (24), and because the toy bucket is classified as a touchable, graspable object whose handle is not already in use, and because the bucket is contained in a location that, via the chain \u201cisContainedIn\u202f\u2192\u202fisLocatedInArea\u202f\u2192\u202fisWithinGraspRangeOf,\u201d lies within the agent\u2019s grasp range, the agent can grasp the bucket.",
+      "duration": 21949916.999999996
+    },
+    {
+      "id": "a_canGrasp_hard_5b",
+      "selected_classes": [
+        "Pr2",
+        "TwoFingerClaw",
+        "Handle",
+        "ToyBucket"
+      ],
+      "selected_names": [
+        "ht",
+        "cvu",
+        "fpimx",
+        "vo",
+        "rao",
+        "koyrka",
+        "aeqvm",
+        "bpx",
+        "alf"
+      ],
+      "question": "-Inference : rao|canGrasp|cvu \n -Justifications : rao|Type|Pr2, Pr2|SubClassOf|Agent, rao|hasCapability|ht, ht|isCapabilityOf|rao, rao|hasComponent|bpx, bpx|Type|TwoFingerClaw, TwoFingerClaw|SubClassOf|Gripper, bpx|holdsSomething|boolean#false, rao|hasComponent|alf, alf|Type|MotionPlanningAlgo, cvu|Type|ToyBucket, ToyBucket|SubClassOf|Object, cvu|hasDisposition|vo, vo|isDispositionOf|cvu, cvu|hasPart|koyrka, koyrka|Type|Handle, Handle|SubClassOf|GraspablePart, koyrka|IsAlreadyInUse|boolean#false, cvu|isATouchableObject|boolean#true, cvu|isContainedIn|aeqvm, aeqvm|isLocatedInArea|fpimx, fpimx|isWithinGraspRangeOf|rao, bpx|Type|Gripper, Gripper|SubClassOf|EndEffector, rao|hasComponent|bpx, bpx|hasOpeningWidth|integer#86, cvu|hasHoldingPartWidth|integer#28, greaterThan(integer#86,integer#28) \n -Rules : Agent(?a), hasCapability(?a, ?c), GraspingCapability(?c), Object(?o), hasDisposition(?o, ?d), GraspableDisposition(?d), isReachableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasOpeningWidth(?g,?w1), hasHoldingPartWidth(?o,?w2), greaterThan(?w1,?w2) -> canGrasp(?a, ?o)\n\tGraspingCapability|EquivalentTo|(isCapabilityOf some ((hasComponent some (Gripper and (holdsSomething value boolean#false)) and (hasComponent some MotionPlanningAlgo))\n\tGraspableDisposition|EquivalentTo|(isDispositionOf some ((hasPart some (GraspablePart and (IsAlreadyInUse value boolean#false)) and (isATouchableObject value boolean#true)))\n\t(isContainedIn o isLocatedInArea o isWithinGraspRangeOf)|SubPropertyOf|isReachableBy",
+      "answer": "The Pr2 robot, as an agent, can grasp the toy bucket because it has a grasping capability that includes a two\u2011finger claw end\u2011effector (currently not holding anything) together with a motion\u2011planning algorithm, the claw\u2019s opening width (86) is larger than the bucket\u2019s holding\u2011part width (28), the bucket is a touchable object whose handle is a graspable part that is not already in use, and the bucket lies in an area that is within the robot\u2019s grasp range.",
+      "duration": 17509047.0
+    },
+    {
+      "id": "a_canGrasp_hard_6b",
+      "selected_classes": [
+        "Tiago",
+        "MechanicalHand",
+        "Handle",
+        "CookingPot"
+      ],
+      "selected_names": [
+        "zzhn",
+        "jpyou",
+        "wv",
+        "yaawt",
+        "rvwung",
+        "geppeu",
+        "xtn",
+        "gh",
+        "ueb"
+      ],
+      "question": "-Inference : rvwung|canGrasp|jpyou \n -Justifications : rvwung|Type|Tiago, Tiago|SubClassOf|Agent, rvwung|hasCapability|zzhn, zzhn|isCapabilityOf|rvwung, rvwung|hasComponent|gh, gh|Type|MechanicalHand, MechanicalHand|SubClassOf|Gripper, gh|holdsSomething|boolean#false, rvwung|hasComponent|ueb, ueb|Type|MotionPlanningAlgo, jpyou|Type|CookingPot, CookingPot|SubClassOf|Object, jpyou|hasDisposition|yaawt, yaawt|isDispositionOf|jpyou, jpyou|hasPart|geppeu, geppeu|Type|Handle, Handle|SubClassOf|GraspablePart, geppeu|IsAlreadyInUse|boolean#false, jpyou|isATouchableObject|boolean#true, jpyou|isContainedIn|xtn, xtn|isLocatedInArea|wv, wv|isWithinGraspRangeOf|rvwung, gh|Type|Gripper, Gripper|SubClassOf|EndEffector, rvwung|hasComponent|gh, gh|hasOpeningWidth|integer#20, jpyou|hasHoldingPartWidth|integer#16, greaterThan(integer#20,integer#16) \n -Rules : Agent(?a), hasCapability(?a, ?c), GraspingCapability(?c), Object(?o), hasDisposition(?o, ?d), GraspableDisposition(?d), isReachableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasOpeningWidth(?g,?w1), hasHoldingPartWidth(?o,?w2), greaterThan(?w1,?w2) -> canGrasp(?a, ?o)\n\tGraspingCapability|EquivalentTo|(isCapabilityOf some ((hasComponent some (Gripper and (holdsSomething value boolean#false)) and (hasComponent some MotionPlanningAlgo))\n\tGraspableDisposition|EquivalentTo|(isDispositionOf some ((hasPart some (GraspablePart and (IsAlreadyInUse value boolean#false)) and (isATouchableObject value boolean#true)))\n\t(isContainedIn o isLocatedInArea o isWithinGraspRangeOf)|SubPropertyOf|isReachableBy",
+      "answer": "The Tiago robot, as an agent, can grasp the cooking pot because it has a grasping capability that includes a mechanical hand (a gripper) with an opening width of\u202f20\u202funits and a motion\u2011planning algorithm, the hand is currently empty, and the pot possesses a handle (a graspable part) of width\u202f16\u202funits that is not already in use, is marked as touchable, and is located in an area that lies within the robot\u2019s grasp range; since the hand\u2019s opening exceeds the handle\u2019s width and the pot\u2019s disposition satisfies the graspable\u2011part conditions, the robot is able to grasp the pot.",
+      "duration": 16015465.0
+    },
+    {
+      "id": "a_canGrasp_hard_7b",
+      "selected_classes": [
+        "Pepper",
+        "TwoFingerClaw",
+        "Handle",
+        "Lunchbox"
+      ],
+      "selected_names": [
+        "qqgond",
+        "ajvba",
+        "nnyfr",
+        "rsj",
+        "haipdj",
+        "xcmosj",
+        "drfn",
+        "vz",
+        "alsrg"
+      ],
+      "question": "-Inference : haipdj|canGrasp|ajvba \n -Justifications : haipdj|Type|Pepper, Pepper|SubClassOf|Agent, haipdj|hasCapability|qqgond, qqgond|isCapabilityOf|haipdj, haipdj|hasComponent|vz, vz|Type|TwoFingerClaw, TwoFingerClaw|SubClassOf|Gripper, vz|holdsSomething|boolean#false, haipdj|hasComponent|alsrg, alsrg|Type|MotionPlanningAlgo, ajvba|Type|Lunchbox, Lunchbox|SubClassOf|Object, ajvba|hasDisposition|rsj, rsj|isDispositionOf|ajvba, ajvba|hasPart|xcmosj, xcmosj|Type|Handle, Handle|SubClassOf|GraspablePart, xcmosj|IsAlreadyInUse|boolean#false, ajvba|isATouchableObject|boolean#true, ajvba|isContainedIn|drfn, drfn|isLocatedInArea|nnyfr, nnyfr|isWithinGraspRangeOf|haipdj, vz|Type|Gripper, Gripper|SubClassOf|EndEffector, haipdj|hasComponent|vz, vz|hasOpeningWidth|integer#43, ajvba|hasHoldingPartWidth|integer#25, greaterThan(integer#43,integer#25) \n -Rules : Agent(?a), hasCapability(?a, ?c), GraspingCapability(?c), Object(?o), hasDisposition(?o, ?d), GraspableDisposition(?d), isReachableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasOpeningWidth(?g,?w1), hasHoldingPartWidth(?o,?w2), greaterThan(?w1,?w2) -> canGrasp(?a, ?o)\n\tGraspingCapability|EquivalentTo|(isCapabilityOf some ((hasComponent some (Gripper and (holdsSomething value boolean#false)) and (hasComponent some MotionPlanningAlgo))\n\tGraspableDisposition|EquivalentTo|(isDispositionOf some ((hasPart some (GraspablePart and (IsAlreadyInUse value boolean#false)) and (isATouchableObject value boolean#true)))\n\t(isContainedIn o isLocatedInArea o isWithinGraspRangeOf)|SubPropertyOf|isReachableBy",
+      "answer": "The Pepper robot, being an agent with a grasping capability, is equipped with a two\u2011finger claw end\u2011effector (currently not holding anything) that has an opening width of 43 and a motion\u2011planning algorithm, and the lunchbox is a touchable object whose handle\u2014a graspable part that is not already in use\u2014has a width of 25 and lies in a location that is within the robot\u2019s grasp range; because the robot\u2019s opening width exceeds the handle\u2019s width and the object is reachable via the containment\u2011area\u2011within\u2011grasp\u2011range chain, the robot can grasp the lunchbox.",
+      "duration": 18459724.000000004
+    },
+    {
+      "id": "a_canGrasp_hard_8b",
+      "selected_classes": [
+        "Pr2",
+        "TwoFingerClaw",
+        "Handle",
+        "Suitcase"
+      ],
+      "selected_names": [
+        "eakk",
+        "hcflmv",
+        "lola",
+        "twyay",
+        "nsgu",
+        "fg",
+        "cjilq",
+        "scfol",
+        "ravug"
+      ],
+      "question": "-Inference : nsgu|canGrasp|hcflmv \n -Justifications : nsgu|Type|Pr2, Pr2|SubClassOf|Agent, nsgu|hasCapability|eakk, eakk|isCapabilityOf|nsgu, nsgu|hasComponent|scfol, scfol|Type|TwoFingerClaw, TwoFingerClaw|SubClassOf|Gripper, scfol|holdsSomething|boolean#false, nsgu|hasComponent|ravug, ravug|Type|MotionPlanningAlgo, hcflmv|Type|Suitcase, Suitcase|SubClassOf|Object, hcflmv|hasDisposition|twyay, twyay|isDispositionOf|hcflmv, hcflmv|hasPart|fg, fg|Type|Handle, Handle|SubClassOf|GraspablePart, fg|IsAlreadyInUse|boolean#false, hcflmv|isATouchableObject|boolean#true, hcflmv|isContainedIn|cjilq, cjilq|isLocatedInArea|lola, lola|isWithinGraspRangeOf|nsgu, scfol|Type|Gripper, Gripper|SubClassOf|EndEffector, nsgu|hasComponent|scfol, scfol|hasOpeningWidth|integer#44, hcflmv|hasHoldingPartWidth|integer#39, greaterThan(integer#44,integer#39) \n -Rules : Agent(?a), hasCapability(?a, ?c), GraspingCapability(?c), Object(?o), hasDisposition(?o, ?d), GraspableDisposition(?d), isReachableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasOpeningWidth(?g,?w1), hasHoldingPartWidth(?o,?w2), greaterThan(?w1,?w2) -> canGrasp(?a, ?o)\n\tGraspingCapability|EquivalentTo|(isCapabilityOf some ((hasComponent some (Gripper and (holdsSomething value boolean#false)) and (hasComponent some MotionPlanningAlgo))\n\tGraspableDisposition|EquivalentTo|(isDispositionOf some ((hasPart some (GraspablePart and (IsAlreadyInUse value boolean#false)) and (isATouchableObject value boolean#true)))\n\t(isContainedIn o isLocatedInArea o isWithinGraspRangeOf)|SubPropertyOf|isReachableBy",
+      "answer": "The agent can grasp the suitcase because it has a grasping capability instantiated by a two\u2011finger claw end\u2011effector (a gripper) whose opening width of 44 is currently empty, together with a motion\u2011planning algorithm, and the suitcase is a touchable object that contains a handle (a graspable part) of width 39 that is not already in use; the suitcase is located in a container that lies in an area within the agent\u2019s grasp range, and the claw\u2019s opening width exceeds the handle\u2019s width, thereby satisfying the conditions for a successful grasp.",
+      "duration": 17430031.0
+    },
+    {
+      "id": "a_canGrasp_hard_9b",
+      "selected_classes": [
+        "Robot",
+        "Manipulator",
+        "HandGrip",
+        "Shovel"
+      ],
+      "selected_names": [
+        "fupkjn",
+        "sdfszg",
+        "vjr",
+        "rc",
+        "zsp",
+        "bcef",
+        "mnndi",
+        "iqmkyn",
+        "uflhlr"
+      ],
+      "question": "-Inference : zsp|canGrasp|sdfszg \n -Justifications : zsp|Type|Robot, Robot|SubClassOf|Agent, zsp|hasCapability|fupkjn, fupkjn|isCapabilityOf|zsp, zsp|hasComponent|iqmkyn, iqmkyn|Type|Manipulator, Manipulator|SubClassOf|Gripper, iqmkyn|holdsSomething|boolean#false, zsp|hasComponent|uflhlr, uflhlr|Type|MotionPlanningAlgo, sdfszg|Type|Shovel, Shovel|SubClassOf|Object, sdfszg|hasDisposition|rc, rc|isDispositionOf|sdfszg, sdfszg|hasPart|bcef, bcef|Type|HandGrip, HandGrip|SubClassOf|GraspablePart, bcef|IsAlreadyInUse|boolean#false, sdfszg|isATouchableObject|boolean#true, sdfszg|isContainedIn|mnndi, mnndi|isLocatedInArea|vjr, vjr|isWithinGraspRangeOf|zsp, iqmkyn|Type|Gripper, Gripper|SubClassOf|EndEffector, zsp|hasComponent|iqmkyn, iqmkyn|hasOpeningWidth|integer#87, sdfszg|hasHoldingPartWidth|integer#68, greaterThan(integer#87,integer#68) \n -Rules : Agent(?a), hasCapability(?a, ?c), GraspingCapability(?c), Object(?o), hasDisposition(?o, ?d), GraspableDisposition(?d), isReachableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasOpeningWidth(?g,?w1), hasHoldingPartWidth(?o,?w2), greaterThan(?w1,?w2) -> canGrasp(?a, ?o)\n\tGraspingCapability|EquivalentTo|(isCapabilityOf some ((hasComponent some (Gripper and (holdsSomething value boolean#false)) and (hasComponent some MotionPlanningAlgo))\n\tGraspableDisposition|EquivalentTo|(isDispositionOf some ((hasPart some (GraspablePart and (IsAlreadyInUse value boolean#false)) and (isATouchableObject value boolean#true)))\n\t(isContainedIn o isLocatedInArea o isWithinGraspRangeOf)|SubPropertyOf|isReachableBy",
+      "answer": "The robot, as an agent, possesses a grasping capability that includes a free gripper (its manipulator) with an opening width of 87\u202fmm and a motion\u2011planning component, and the shovel is an object whose disposition makes it graspable, featuring a hand\u2011grip part that is not already in use, is touchable, and has a holding\u2011part width of 68\u202fmm; because the shovel lies in a location that is within the robot\u2019s grasp range, and the gripper\u2019s opening is larger than the shovel\u2019s holding part, the robot can grasp the shovel.",
+      "duration": 19040324.0
+    },
+    {
+      "id": "a_canGrasp_hard_10b",
+      "selected_classes": [
+        "Pr2",
+        "MechanicalHand",
+        "HandGrip",
+        "CookingPot"
+      ],
+      "selected_names": [
+        "weap",
+        "ukt",
+        "pnehj",
+        "vkiie",
+        "iezy",
+        "umx",
+        "byxmtn",
+        "guvi",
+        "xx"
+      ],
+      "question": "-Inference : iezy|canGrasp|ukt \n -Justifications : iezy|Type|Pr2, Pr2|SubClassOf|Agent, iezy|hasCapability|weap, weap|isCapabilityOf|iezy, iezy|hasComponent|guvi, guvi|Type|MechanicalHand, MechanicalHand|SubClassOf|Gripper, guvi|holdsSomething|boolean#false, iezy|hasComponent|xx, xx|Type|MotionPlanningAlgo, ukt|Type|CookingPot, CookingPot|SubClassOf|Object, ukt|hasDisposition|vkiie, vkiie|isDispositionOf|ukt, ukt|hasPart|umx, umx|Type|HandGrip, HandGrip|SubClassOf|GraspablePart, umx|IsAlreadyInUse|boolean#false, ukt|isATouchableObject|boolean#true, ukt|isContainedIn|byxmtn, byxmtn|isLocatedInArea|pnehj, pnehj|isWithinGraspRangeOf|iezy, guvi|Type|Gripper, Gripper|SubClassOf|EndEffector, iezy|hasComponent|guvi, guvi|hasOpeningWidth|integer#76, ukt|hasHoldingPartWidth|integer#34, greaterThan(integer#76,integer#34) \n -Rules : Agent(?a), hasCapability(?a, ?c), GraspingCapability(?c), Object(?o), hasDisposition(?o, ?d), GraspableDisposition(?d), isReachableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasOpeningWidth(?g,?w1), hasHoldingPartWidth(?o,?w2), greaterThan(?w1,?w2) -> canGrasp(?a, ?o)\n\tGraspingCapability|EquivalentTo|(isCapabilityOf some ((hasComponent some (Gripper and (holdsSomething value boolean#false)) and (hasComponent some MotionPlanningAlgo))\n\tGraspableDisposition|EquivalentTo|(isDispositionOf some ((hasPart some (GraspablePart and (IsAlreadyInUse value boolean#false)) and (isATouchableObject value boolean#true)))\n\t(isContainedIn o isLocatedInArea o isWithinGraspRangeOf)|SubPropertyOf|isReachableBy",
+      "answer": "Because the Pr2 entity is an Agent that has a grasping capability, which is realized by a mechanical hand (a Gripper/End\u2011Effector) that is currently empty and a motion\u2011planning algorithm, and because the hand\u2019s opening width (76) is larger than the cooking pot\u2019s holding\u2011part width (34), the cooking pot\u2014an Object with a graspable disposition, a touchable hand\u2011grip part that is not already in use, and located in an area that lies within the agent\u2019s grasp range\u2014satisfies all the reachability and size conditions, so the Agent can grasp the cooking pot.",
+      "duration": 13967130.0
+    },
+    {
+      "id": "a_canGrasp_hard_11b",
+      "selected_classes": [
+        "Tiago",
+        "Claw",
+        "HandGrip",
+        "Lunchbox"
+      ],
+      "selected_names": [
+        "kknn",
+        "mbdj",
+        "pfqoll",
+        "dbbm",
+        "xudxay",
+        "fowu",
+        "bjlm",
+        "mwlnr",
+        "ihqy"
+      ],
+      "question": "-Inference : xudxay|canGrasp|mbdj \n -Justifications : xudxay|Type|Tiago, Tiago|SubClassOf|Agent, xudxay|hasCapability|kknn, kknn|isCapabilityOf|xudxay, xudxay|hasComponent|mwlnr, mwlnr|Type|Claw, Claw|SubClassOf|Gripper, mwlnr|holdsSomething|boolean#false, xudxay|hasComponent|ihqy, ihqy|Type|MotionPlanningAlgo, mbdj|Type|Lunchbox, Lunchbox|SubClassOf|Object, mbdj|hasDisposition|dbbm, dbbm|isDispositionOf|mbdj, mbdj|hasPart|fowu, fowu|Type|HandGrip, HandGrip|SubClassOf|GraspablePart, fowu|IsAlreadyInUse|boolean#false, mbdj|isATouchableObject|boolean#true, mbdj|isContainedIn|bjlm, bjlm|isLocatedInArea|pfqoll, pfqoll|isWithinGraspRangeOf|xudxay, mwlnr|Type|Gripper, Gripper|SubClassOf|EndEffector, xudxay|hasComponent|mwlnr, mwlnr|hasOpeningWidth|integer#96, mbdj|hasHoldingPartWidth|integer#59, greaterThan(integer#96,integer#59) \n -Rules : Agent(?a), hasCapability(?a, ?c), GraspingCapability(?c), Object(?o), hasDisposition(?o, ?d), GraspableDisposition(?d), isReachableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasOpeningWidth(?g,?w1), hasHoldingPartWidth(?o,?w2), greaterThan(?w1,?w2) -> canGrasp(?a, ?o)\n\tGraspingCapability|EquivalentTo|(isCapabilityOf some ((hasComponent some (Gripper and (holdsSomething value boolean#false)) and (hasComponent some MotionPlanningAlgo))\n\tGraspableDisposition|EquivalentTo|(isDispositionOf some ((hasPart some (GraspablePart and (IsAlreadyInUse value boolean#false)) and (isATouchableObject value boolean#true)))\n\t(isContainedIn o isLocatedInArea o isWithinGraspRangeOf)|SubPropertyOf|isReachableBy",
+      "answer": "The Tiago robot, as an agent with a grasping capability, can grasp the lunchbox because it is equipped with a claw end\u2011effector (a gripper) that is currently empty, a motion\u2011planning algorithm, and an opening width of 96\u202fmm that exceeds the lunchbox\u2019s holding\u2011part width of 59\u202fmm; the lunchbox is a touchable object that contains a hand\u2011grip part not already in use, and it lies within the robot\u2019s grasp range (via its containment in an area that is within the robot\u2019s graspable zone).",
+      "duration": 14179097.0
+    },
+    {
+      "id": "a_canGrasp_hard_12b",
+      "selected_classes": [
+        "Tiago",
+        "Claw",
+        "Grip",
+        "CookingPot"
+      ],
+      "selected_names": [
+        "cif",
+        "cvug",
+        "vzprx",
+        "fxw",
+        "ff",
+        "ebgvam",
+        "gmxts",
+        "vhh",
+        "hz"
+      ],
+      "question": "-Inference : ff|canGrasp|cvug \n -Justifications : ff|Type|Tiago, Tiago|SubClassOf|Agent, ff|hasCapability|cif, cif|isCapabilityOf|ff, ff|hasComponent|vhh, vhh|Type|Claw, Claw|SubClassOf|Gripper, vhh|holdsSomething|boolean#false, ff|hasComponent|hz, hz|Type|MotionPlanningAlgo, cvug|Type|CookingPot, CookingPot|SubClassOf|Object, cvug|hasDisposition|fxw, fxw|isDispositionOf|cvug, cvug|hasPart|ebgvam, ebgvam|Type|Grip, Grip|SubClassOf|GraspablePart, ebgvam|IsAlreadyInUse|boolean#false, cvug|isATouchableObject|boolean#true, cvug|isContainedIn|gmxts, gmxts|isLocatedInArea|vzprx, vzprx|isWithinGraspRangeOf|ff, vhh|Type|Gripper, Gripper|SubClassOf|EndEffector, ff|hasComponent|vhh, vhh|hasOpeningWidth|integer#56, cvug|hasHoldingPartWidth|integer#28, greaterThan(integer#56,integer#28) \n -Rules : Agent(?a), hasCapability(?a, ?c), GraspingCapability(?c), Object(?o), hasDisposition(?o, ?d), GraspableDisposition(?d), isReachableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasOpeningWidth(?g,?w1), hasHoldingPartWidth(?o,?w2), greaterThan(?w1,?w2) -> canGrasp(?a, ?o)\n\tGraspingCapability|EquivalentTo|(isCapabilityOf some ((hasComponent some (Gripper and (holdsSomething value boolean#false)) and (hasComponent some MotionPlanningAlgo))\n\tGraspableDisposition|EquivalentTo|(isDispositionOf some ((hasPart some (GraspablePart and (IsAlreadyInUse value boolean#false)) and (isATouchableObject value boolean#true)))\n\t(isContainedIn o isLocatedInArea o isWithinGraspRangeOf)|SubPropertyOf|isReachableBy",
+      "answer": "The Tiago robot can grasp the cooking pot because, as an agent, it has a grasping capability that is realized by a claw (a gripper) that is currently empty and a motion\u2011planning component, and the claw\u2019s opening width (56\u202funits) exceeds the pot\u2019s holding\u2011part width (28\u202funits); the pot is a touchable object that possesses a graspable part (a grip) which is not already in use, and the pot is located in an area that lies within the robot\u2019s grasp range, making the object reachable for the robot.",
+      "duration": 23637629.0
+    },
+    {
+      "id": "a_canGrasp_hard_13b",
+      "selected_classes": [
+        "Tiago",
+        "Claw",
+        "HandGrip",
+        "Suitcase"
+      ],
+      "selected_names": [
+        "tdv",
+        "fgn",
+        "met",
+        "xutgx",
+        "saj",
+        "obvrbi",
+        "etw",
+        "njzclt",
+        "sbicel"
+      ],
+      "question": "-Inference : saj|canGrasp|fgn \n -Justifications : saj|Type|Tiago, Tiago|SubClassOf|Agent, saj|hasCapability|tdv, tdv|isCapabilityOf|saj, saj|hasComponent|njzclt, njzclt|Type|Claw, Claw|SubClassOf|Gripper, njzclt|holdsSomething|boolean#false, saj|hasComponent|sbicel, sbicel|Type|MotionPlanningAlgo, fgn|Type|Suitcase, Suitcase|SubClassOf|Object, fgn|hasDisposition|xutgx, xutgx|isDispositionOf|fgn, fgn|hasPart|obvrbi, obvrbi|Type|HandGrip, HandGrip|SubClassOf|GraspablePart, obvrbi|IsAlreadyInUse|boolean#false, fgn|isATouchableObject|boolean#true, fgn|isContainedIn|etw, etw|isLocatedInArea|met, met|isWithinGraspRangeOf|saj, njzclt|Type|Gripper, Gripper|SubClassOf|EndEffector, saj|hasComponent|njzclt, njzclt|hasOpeningWidth|integer#56, fgn|hasHoldingPartWidth|integer#47, greaterThan(integer#56,integer#47) \n -Rules : Agent(?a), hasCapability(?a, ?c), GraspingCapability(?c), Object(?o), hasDisposition(?o, ?d), GraspableDisposition(?d), isReachableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasOpeningWidth(?g,?w1), hasHoldingPartWidth(?o,?w2), greaterThan(?w1,?w2) -> canGrasp(?a, ?o)\n\tGraspingCapability|EquivalentTo|(isCapabilityOf some ((hasComponent some (Gripper and (holdsSomething value boolean#false)) and (hasComponent some MotionPlanningAlgo))\n\tGraspableDisposition|EquivalentTo|(isDispositionOf some ((hasPart some (GraspablePart and (IsAlreadyInUse value boolean#false)) and (isATouchableObject value boolean#true)))\n\t(isContainedIn o isLocatedInArea o isWithinGraspRangeOf)|SubPropertyOf|isReachableBy",
+      "answer": "The Tiago robot (an agent) can grasp the suitcase because it possesses a grasping capability\u2014realised through its empty claw (a gripper) with a 56\u202fmm opening and a motion\u2011planning algorithm\u2014and the suitcase is a touchable object whose graspable part (a hand\u2011grip) is 47\u202fmm wide, not currently in use, and, via its containment in a location that lies within the robot\u2019s grasp range, is reachable; the robot\u2019s opening width exceeds the part\u2019s width, satisfying the rule that an agent with such a capability can grasp an object that is reachable and fits within its gripper.",
+      "duration": 15647839.0
+    },
+    {
+      "id": "a_canGrasp_hard_14b",
+      "selected_classes": [
+        "Tiago",
+        "MechanicalHand",
+        "Handle",
+        "Hammer"
+      ],
+      "selected_names": [
+        "lx",
+        "dnzta",
+        "kg",
+        "nadj",
+        "enrrf",
+        "ve",
+        "xtqr",
+        "gcun",
+        "ywgta"
+      ],
+      "question": "-Inference : enrrf|canGrasp|dnzta \n -Justifications : enrrf|Type|Tiago, Tiago|SubClassOf|Agent, enrrf|hasCapability|lx, lx|isCapabilityOf|enrrf, enrrf|hasComponent|gcun, gcun|Type|MechanicalHand, MechanicalHand|SubClassOf|Gripper, gcun|holdsSomething|boolean#false, enrrf|hasComponent|ywgta, ywgta|Type|MotionPlanningAlgo, dnzta|Type|Hammer, Hammer|SubClassOf|Object, dnzta|hasDisposition|nadj, nadj|isDispositionOf|dnzta, dnzta|hasPart|ve, ve|Type|Handle, Handle|SubClassOf|GraspablePart, ve|IsAlreadyInUse|boolean#false, dnzta|isATouchableObject|boolean#true, dnzta|isContainedIn|xtqr, xtqr|isLocatedInArea|kg, kg|isWithinGraspRangeOf|enrrf, gcun|Type|Gripper, Gripper|SubClassOf|EndEffector, enrrf|hasComponent|gcun, gcun|hasOpeningWidth|integer#60, dnzta|hasHoldingPartWidth|integer#25, greaterThan(integer#60,integer#25) \n -Rules : Agent(?a), hasCapability(?a, ?c), GraspingCapability(?c), Object(?o), hasDisposition(?o, ?d), GraspableDisposition(?d), isReachableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasOpeningWidth(?g,?w1), hasHoldingPartWidth(?o,?w2), greaterThan(?w1,?w2) -> canGrasp(?a, ?o)\n\tGraspingCapability|EquivalentTo|(isCapabilityOf some ((hasComponent some (Gripper and (holdsSomething value boolean#false)) and (hasComponent some MotionPlanningAlgo))\n\tGraspableDisposition|EquivalentTo|(isDispositionOf some ((hasPart some (GraspablePart and (IsAlreadyInUse value boolean#false)) and (isATouchableObject value boolean#true)))\n\t(isContainedIn o isLocatedInArea o isWithinGraspRangeOf)|SubPropertyOf|isReachableBy",
+      "answer": "The Tiago robot, being an agent that possesses a grasping capability defined by an empty mechanical hand (a gripper) together with a motion\u2011planning algorithm, can grasp the hammer because its gripper\u2019s opening width (60\u202fmm) is larger than the hammer\u2019s holding\u2011part width (25\u202fmm), the hammer\u2019s handle (a graspable part) is not already in use, is marked as touchable, and the hammer is located in a container that lies in an area that is within the robot\u2019s grasp range.",
+      "duration": 14111824.0
+    },
+    {
+      "id": "a_canGrasp_hard_15b",
+      "selected_classes": [
+        "Pepper",
+        "Manipulator",
+        "Handle",
+        "Suitcase"
+      ],
+      "selected_names": [
+        "ezn",
+        "kzyeb",
+        "snqv",
+        "mvuvm",
+        "gsz",
+        "pzphs",
+        "pgx",
+        "pbdsy",
+        "hbd"
+      ],
+      "question": "-Inference : gsz|canGrasp|kzyeb \n -Justifications : gsz|Type|Pepper, Pepper|SubClassOf|Agent, gsz|hasCapability|ezn, ezn|isCapabilityOf|gsz, gsz|hasComponent|pbdsy, pbdsy|Type|Manipulator, Manipulator|SubClassOf|Gripper, pbdsy|holdsSomething|boolean#false, gsz|hasComponent|hbd, hbd|Type|MotionPlanningAlgo, kzyeb|Type|Suitcase, Suitcase|SubClassOf|Object, kzyeb|hasDisposition|mvuvm, mvuvm|isDispositionOf|kzyeb, kzyeb|hasPart|pzphs, pzphs|Type|Handle, Handle|SubClassOf|GraspablePart, pzphs|IsAlreadyInUse|boolean#false, kzyeb|isATouchableObject|boolean#true, kzyeb|isContainedIn|pgx, pgx|isLocatedInArea|snqv, snqv|isWithinGraspRangeOf|gsz, pbdsy|Type|Gripper, Gripper|SubClassOf|EndEffector, gsz|hasComponent|pbdsy, pbdsy|hasOpeningWidth|integer#73, kzyeb|hasHoldingPartWidth|integer#21, greaterThan(integer#73,integer#21) \n -Rules : Agent(?a), hasCapability(?a, ?c), GraspingCapability(?c), Object(?o), hasDisposition(?o, ?d), GraspableDisposition(?d), isReachableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasOpeningWidth(?g,?w1), hasHoldingPartWidth(?o,?w2), greaterThan(?w1,?w2) -> canGrasp(?a, ?o)\n\tGraspingCapability|EquivalentTo|(isCapabilityOf some ((hasComponent some (Gripper and (holdsSomething value boolean#false)) and (hasComponent some MotionPlanningAlgo))\n\tGraspableDisposition|EquivalentTo|(isDispositionOf some ((hasPart some (GraspablePart and (IsAlreadyInUse value boolean#false)) and (isATouchableObject value boolean#true)))\n\t(isContainedIn o isLocatedInArea o isWithinGraspRangeOf)|SubPropertyOf|isReachableBy",
+      "answer": "The Pepper robot (a kind of agent) can grasp the suitcase because it has a grasping capability that is realized by a manipulator component classified as a gripper (an end\u2011effector) which is currently empty, and by a motion\u2011planning algorithm; the gripper\u2019s opening width of 73 exceeds the suitcase\u2019s holding\u2011part width of 21, the suitcase is a touchable object that contains a handle\u2014a graspable part that is not already in use\u2014and the suitcase lies within the robot\u2019s grasp range (it is contained in an area that is within the robot\u2019s grasp\u2011range zone), thereby satisfying all the reachability and size conditions required for a successful grasp.",
+      "duration": 26287675.0
+    },
+    {
+      "id": "a_canGrasp_hard_16b",
+      "selected_classes": [
+        "Tiago",
+        "TwoFingerClaw",
+        "Handle",
+        "Suitcase"
+      ],
+      "selected_names": [
+        "suazt",
+        "as",
+        "udux",
+        "jhnmz",
+        "zntco",
+        "tvnhe",
+        "sx",
+        "uurelz",
+        "ctw"
+      ],
+      "question": "-Inference : zntco|canGrasp|as \n -Justifications : zntco|Type|Tiago, Tiago|SubClassOf|Agent, zntco|hasCapability|suazt, suazt|isCapabilityOf|zntco, zntco|hasComponent|uurelz, uurelz|Type|TwoFingerClaw, TwoFingerClaw|SubClassOf|Gripper, uurelz|holdsSomething|boolean#false, zntco|hasComponent|ctw, ctw|Type|MotionPlanningAlgo, as|Type|Suitcase, Suitcase|SubClassOf|Object, as|hasDisposition|jhnmz, jhnmz|isDispositionOf|as, as|hasPart|tvnhe, tvnhe|Type|Handle, Handle|SubClassOf|GraspablePart, tvnhe|IsAlreadyInUse|boolean#false, as|isATouchableObject|boolean#true, as|isContainedIn|sx, sx|isLocatedInArea|udux, udux|isWithinGraspRangeOf|zntco, uurelz|Type|Gripper, Gripper|SubClassOf|EndEffector, zntco|hasComponent|uurelz, uurelz|hasOpeningWidth|integer#55, as|hasHoldingPartWidth|integer#42, greaterThan(integer#55,integer#42) \n -Rules : Agent(?a), hasCapability(?a, ?c), GraspingCapability(?c), Object(?o), hasDisposition(?o, ?d), GraspableDisposition(?d), isReachableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasOpeningWidth(?g,?w1), hasHoldingPartWidth(?o,?w2), greaterThan(?w1,?w2) -> canGrasp(?a, ?o)\n\tGraspingCapability|EquivalentTo|(isCapabilityOf some ((hasComponent some (Gripper and (holdsSomething value boolean#false)) and (hasComponent some MotionPlanningAlgo))\n\tGraspableDisposition|EquivalentTo|(isDispositionOf some ((hasPart some (GraspablePart and (IsAlreadyInUse value boolean#false)) and (isATouchableObject value boolean#true)))\n\t(isContainedIn o isLocatedInArea o isWithinGraspRangeOf)|SubPropertyOf|isReachableBy",
+      "answer": "The Tiago robot (an agent) can grasp the suitcase because it possesses a grasping capability that is realized through a two\u2011finger claw (a gripper and thus an end\u2011effector) that is not already holding anything and has an opening width of 55, which exceeds the suitcase\u2019s holding\u2011part width of 42; the robot also includes a motion\u2011planning algorithm, the suitcase is a touchable object classified as an object and has a disposition that makes it graspable, it contains a handle that is a graspable part and is not already in use, and through the containment\u2011location chain the suitcase lies within the robot\u2019s grasp range, thereby satisfying the reachability condition required for grasping.",
+      "duration": 18119974.000000004
+    },
+    {
+      "id": "a_canGrasp_hard_17b",
+      "selected_classes": [
+        "Robot",
+        "Claw",
+        "Grip",
+        "Mug"
+      ],
+      "selected_names": [
+        "umf",
+        "kmj",
+        "zl",
+        "yaivt",
+        "wo",
+        "wajawb",
+        "lgccjl",
+        "daunpl",
+        "fd"
+      ],
+      "question": "-Inference : wo|canGrasp|kmj \n -Justifications : wo|Type|Robot, Robot|SubClassOf|Agent, wo|hasCapability|umf, umf|isCapabilityOf|wo, wo|hasComponent|daunpl, daunpl|Type|Claw, Claw|SubClassOf|Gripper, daunpl|holdsSomething|boolean#false, wo|hasComponent|fd, fd|Type|MotionPlanningAlgo, kmj|Type|Mug, Mug|SubClassOf|Object, kmj|hasDisposition|yaivt, yaivt|isDispositionOf|kmj, kmj|hasPart|wajawb, wajawb|Type|Grip, Grip|SubClassOf|GraspablePart, wajawb|IsAlreadyInUse|boolean#false, kmj|isATouchableObject|boolean#true, kmj|isContainedIn|lgccjl, lgccjl|isLocatedInArea|zl, zl|isWithinGraspRangeOf|wo, daunpl|Type|Gripper, Gripper|SubClassOf|EndEffector, wo|hasComponent|daunpl, daunpl|hasOpeningWidth|integer#19, kmj|hasHoldingPartWidth|integer#14, greaterThan(integer#19,integer#14) \n -Rules : Agent(?a), hasCapability(?a, ?c), GraspingCapability(?c), Object(?o), hasDisposition(?o, ?d), GraspableDisposition(?d), isReachableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasOpeningWidth(?g,?w1), hasHoldingPartWidth(?o,?w2), greaterThan(?w1,?w2) -> canGrasp(?a, ?o)\n\tGraspingCapability|EquivalentTo|(isCapabilityOf some ((hasComponent some (Gripper and (holdsSomething value boolean#false)) and (hasComponent some MotionPlanningAlgo))\n\tGraspableDisposition|EquivalentTo|(isDispositionOf some ((hasPart some (GraspablePart and (IsAlreadyInUse value boolean#false)) and (isATouchableObject value boolean#true)))\n\t(isContainedIn o isLocatedInArea o isWithinGraspRangeOf)|SubPropertyOf|isReachableBy",
+      "answer": "The robot (an agent) can grasp the mug because it has a grasping capability that comprises an empty claw (a gripper\u2011type end\u2011effector) together with a motion\u2011planning algorithm, the claw\u2019s opening width (19) exceeds the mug\u2019s required holding\u2011part width (14), the mug is an object that carries a graspable disposition\u2014its grip part is not already in use and the mug is marked as touchable\u2014and, via the chain \u201cisContainedIn\u202f\u2192\u202fisLocatedInArea\u202f\u2192\u202fisWithinGraspRangeOf\u201d, the mug resides in a location that lies within the robot\u2019s grasp range. All these conditions together justify that the robot can grasp the mug.",
+      "duration": 17300050.0
+    },
+    {
+      "id": "a_canGrasp_hard_18b",
+      "selected_classes": [
+        "Tiago",
+        "Manipulator",
+        "HandGrip",
+        "Lunchbox"
+      ],
+      "selected_names": [
+        "dowdu",
+        "atb",
+        "dnnd",
+        "uyacy",
+        "maup",
+        "ihl",
+        "rylfc",
+        "pcc",
+        "mz"
+      ],
+      "question": "-Inference : maup|canGrasp|atb \n -Justifications : maup|Type|Tiago, Tiago|SubClassOf|Agent, maup|hasCapability|dowdu, dowdu|isCapabilityOf|maup, maup|hasComponent|pcc, pcc|Type|Manipulator, Manipulator|SubClassOf|Gripper, pcc|holdsSomething|boolean#false, maup|hasComponent|mz, mz|Type|MotionPlanningAlgo, atb|Type|Lunchbox, Lunchbox|SubClassOf|Object, atb|hasDisposition|uyacy, uyacy|isDispositionOf|atb, atb|hasPart|ihl, ihl|Type|HandGrip, HandGrip|SubClassOf|GraspablePart, ihl|IsAlreadyInUse|boolean#false, atb|isATouchableObject|boolean#true, atb|isContainedIn|rylfc, rylfc|isLocatedInArea|dnnd, dnnd|isWithinGraspRangeOf|maup, pcc|Type|Gripper, Gripper|SubClassOf|EndEffector, maup|hasComponent|pcc, pcc|hasOpeningWidth|integer#71, atb|hasHoldingPartWidth|integer#34, greaterThan(integer#71,integer#34) \n -Rules : Agent(?a), hasCapability(?a, ?c), GraspingCapability(?c), Object(?o), hasDisposition(?o, ?d), GraspableDisposition(?d), isReachableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasOpeningWidth(?g,?w1), hasHoldingPartWidth(?o,?w2), greaterThan(?w1,?w2) -> canGrasp(?a, ?o)\n\tGraspingCapability|EquivalentTo|(isCapabilityOf some ((hasComponent some (Gripper and (holdsSomething value boolean#false)) and (hasComponent some MotionPlanningAlgo))\n\tGraspableDisposition|EquivalentTo|(isDispositionOf some ((hasPart some (GraspablePart and (IsAlreadyInUse value boolean#false)) and (isATouchableObject value boolean#true)))\n\t(isContainedIn o isLocatedInArea o isWithinGraspRangeOf)|SubPropertyOf|isReachableBy",
+      "answer": "The Tiago robot, as an agent, can grasp the lunchbox because it has a grasping capability realized by a free manipulator gripper and a motion\u2011planning component; the gripper (an end\u2011effector) has an opening width of 71\u202fmm, which is greater than the lunchbox\u2019s holding\u2011part width of 34\u202fmm, the lunchbox is a touchable object whose graspable part (a hand\u2011grip) is not already in use, and the lunchbox is located in an area that lies within the robot\u2019s grasp range, making the object reachable for grasping.",
+      "duration": 17645784.0
+    },
+    {
+      "id": "a_canGrasp_hard_19b",
+      "selected_classes": [
+        "Tiago",
+        "MechanicalHand",
+        "Handle",
+        "Shovel"
+      ],
+      "selected_names": [
+        "tazf",
+        "geke",
+        "aeoor",
+        "oz",
+        "zv",
+        "hq",
+        "yc",
+        "mvkx",
+        "qvnu"
+      ],
+      "question": "-Inference : zv|canGrasp|geke \n -Justifications : zv|Type|Tiago, Tiago|SubClassOf|Agent, zv|hasCapability|tazf, tazf|isCapabilityOf|zv, zv|hasComponent|mvkx, mvkx|Type|MechanicalHand, MechanicalHand|SubClassOf|Gripper, mvkx|holdsSomething|boolean#false, zv|hasComponent|qvnu, qvnu|Type|MotionPlanningAlgo, geke|Type|Shovel, Shovel|SubClassOf|Object, geke|hasDisposition|oz, oz|isDispositionOf|geke, geke|hasPart|hq, hq|Type|Handle, Handle|SubClassOf|GraspablePart, hq|IsAlreadyInUse|boolean#false, geke|isATouchableObject|boolean#true, geke|isContainedIn|yc, yc|isLocatedInArea|aeoor, aeoor|isWithinGraspRangeOf|zv, mvkx|Type|Gripper, Gripper|SubClassOf|EndEffector, zv|hasComponent|mvkx, mvkx|hasOpeningWidth|integer#93, geke|hasHoldingPartWidth|integer#79, greaterThan(integer#93,integer#79) \n -Rules : Agent(?a), hasCapability(?a, ?c), GraspingCapability(?c), Object(?o), hasDisposition(?o, ?d), GraspableDisposition(?d), isReachableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasOpeningWidth(?g,?w1), hasHoldingPartWidth(?o,?w2), greaterThan(?w1,?w2) -> canGrasp(?a, ?o)\n\tGraspingCapability|EquivalentTo|(isCapabilityOf some ((hasComponent some (Gripper and (holdsSomething value boolean#false)) and (hasComponent some MotionPlanningAlgo))\n\tGraspableDisposition|EquivalentTo|(isDispositionOf some ((hasPart some (GraspablePart and (IsAlreadyInUse value boolean#false)) and (isATouchableObject value boolean#true)))\n\t(isContainedIn o isLocatedInArea o isWithinGraspRangeOf)|SubPropertyOf|isReachableBy",
+      "answer": "Because the Tiago agent has a grasping capability (realised by a free mechanical hand that is a gripper and a motion\u2011planning algorithm), the hand\u2019s opening width (93) is larger than the shovel\u2019s holding\u2011part width (79), the shovel is a touchable object whose handle is a graspable part that is not already in use, and the shovel (via its containment in an area that is within the agent\u2019s grasp range) is reachable by the agent, the agent can grasp the shovel.",
+      "duration": 16134599.0
+    }
+  ]
+}

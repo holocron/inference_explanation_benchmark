@@ -1,0 +1,238 @@
+[
+  {
+    "question_id": "a_canLift_medium_0l",
+    "is_correct": null,
+    "score": 0.4,
+    "missing_concepts": [
+      "Pepper",
+      "TwoFingerClaw",
+      "Handle",
+      "CookingPot",
+      "touchable",
+      "object_weight"
+    ]
+  },
+  {
+    "question_id": "a_canLift_medium_1l",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "Pr2",
+      "TwoFingerClaw",
+      "Handle",
+      "Suitcase",
+      "object_weight"
+    ]
+  },
+  {
+    "question_id": "a_canLift_medium_2l",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "Tiago",
+      "MechanicalHand",
+      "Handle",
+      "OvenTray",
+      "object_weight"
+    ]
+  },
+  {
+    "question_id": "a_canLift_medium_3l",
+    "is_correct": null,
+    "score": 0.6,
+    "missing_concepts": [
+      "Pepper",
+      "Claw",
+      "Suitcase",
+      "object_weight"
+    ]
+  },
+  {
+    "question_id": "a_canLift_medium_4l",
+    "is_correct": null,
+    "score": 0.6,
+    "missing_concepts": [
+      "Tiago",
+      "Manipulator",
+      "Bucket",
+      "object_weight"
+    ]
+  },
+  {
+    "question_id": "a_canLift_medium_5l",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "Tiago",
+      "Manipulator",
+      "HandGrip",
+      "Toolbox",
+      "object_weight"
+    ]
+  },
+  {
+    "question_id": "a_canLift_medium_6l",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "Pr2",
+      "TwoFingerClaw",
+      "Handle",
+      "Bucket",
+      "object_weight"
+    ]
+  },
+  {
+    "question_id": "a_canLift_medium_7l",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "Tiago",
+      "Claw",
+      "Handle",
+      "OvenTray",
+      "object_weight"
+    ]
+  },
+  {
+    "question_id": "a_canLift_medium_8l",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "Pepper",
+      "TwoFingerClaw",
+      "Handle",
+      "CookingPot",
+      "object_weight"
+    ]
+  },
+  {
+    "question_id": "a_canLift_medium_9l",
+    "is_correct": null,
+    "score": 0.6,
+    "missing_concepts": [
+      "Manipulator",
+      "Handle",
+      "touchable",
+      "object_weight"
+    ]
+  },
+  {
+    "question_id": "a_canLift_medium_10l",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "Pr2",
+      "MechanicalHand",
+      "Handle",
+      "Toolbox",
+      "object_weight"
+    ]
+  },
+  {
+    "question_id": "a_canLift_medium_11l",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "Pr2",
+      "Claw",
+      "Suitcase",
+      "touchable",
+      "object_weight"
+    ]
+  },
+  {
+    "question_id": "a_canLift_medium_12l",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "Tiago",
+      "MechanicalHand",
+      "OvenTray",
+      "touchable",
+      "object_weight"
+    ]
+  },
+  {
+    "question_id": "a_canLift_medium_13l",
+    "is_correct": null,
+    "score": 0.6,
+    "missing_concepts": [
+      "TwoFingerClaw",
+      "HandGrip",
+      "touchable",
+      "object_weight"
+    ]
+  },
+  {
+    "question_id": "a_canLift_medium_14l",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "Pepper",
+      "Manipulator",
+      "Toolbox",
+      "touchable",
+      "object_weight"
+    ]
+  },
+  {
+    "question_id": "a_canLift_medium_15l",
+    "is_correct": null,
+    "score": 0.6,
+    "missing_concepts": [
+      "MechanicalHand",
+      "Handle",
+      "OvenTray",
+      "object_weight"
+    ]
+  },
+  {
+    "question_id": "a_canLift_medium_16l",
+    "is_correct": null,
+    "score": 0.6,
+    "missing_concepts": [
+      "TwoFingerClaw",
+      "HandGrip",
+      "touchable",
+      "object_weight"
+    ]
+  },
+  {
+    "question_id": "a_canLift_medium_17l",
+    "is_correct": null,
+    "score": 0.4,
+    "missing_concepts": [
+      "Pr2",
+      "Claw",
+      "HandGrip",
+      "Bucket",
+      "touchable",
+      "object_weight"
+    ]
+  },
+  {
+    "question_id": "a_canLift_medium_18l",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "Pr2",
+      "MechanicalHand",
+      "HandGrip",
+      "LaundryBasket",
+      "object_weight"
+    ]
+  },
+  {
+    "question_id": "a_canLift_medium_19l",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "Tiago",
+      "Manipulator",
+      "HandGrip",
+      "CookingPot",
+      "object_weight"
+    ]
+  }
+]

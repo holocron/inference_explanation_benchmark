@@ -1,0 +1,210 @@
+[
+  {
+    "question_id": "a_canGrasp_medium_0l",
+    "is_correct": null,
+    "score": 0.6,
+    "missing_concepts": [
+      "HandGrip",
+      "graspable",
+      "reach",
+      "object_width"
+    ]
+  },
+  {
+    "question_id": "a_canGrasp_medium_1l",
+    "is_correct": null,
+    "score": 0.7,
+    "missing_concepts": [
+      "Manipulator",
+      "graspable",
+      "object_width"
+    ]
+  },
+  {
+    "question_id": "a_canGrasp_medium_2l",
+    "is_correct": null,
+    "score": 0.6,
+    "missing_concepts": [
+      "MechanicalHand",
+      "HandGrip",
+      "opening",
+      "object_width"
+    ]
+  },
+  {
+    "question_id": "a_canGrasp_medium_3l",
+    "is_correct": null,
+    "score": 0.8,
+    "missing_concepts": [
+      "opening",
+      "object_width"
+    ]
+  },
+  {
+    "question_id": "a_canGrasp_medium_4l",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "Manipulator",
+      "Handle",
+      "reach",
+      "opening",
+      "object_width"
+    ]
+  },
+  {
+    "question_id": "a_canGrasp_medium_5l",
+    "is_correct": null,
+    "score": 0.7,
+    "missing_concepts": [
+      "Handle",
+      "graspable",
+      "object_width"
+    ]
+  },
+  {
+    "question_id": "a_canGrasp_medium_6l",
+    "is_correct": null,
+    "score": 0.8,
+    "missing_concepts": [
+      "opening",
+      "object_width"
+    ]
+  },
+  {
+    "question_id": "a_canGrasp_medium_7l",
+    "is_correct": null,
+    "score": 0.7,
+    "missing_concepts": [
+      "Handle",
+      "graspable",
+      "object_width"
+    ]
+  },
+  {
+    "question_id": "a_canGrasp_medium_8l",
+    "is_correct": null,
+    "score": 0.6,
+    "missing_concepts": [
+      "Handle",
+      "graspable",
+      "reach",
+      "object_width"
+    ]
+  },
+  {
+    "question_id": "a_canGrasp_medium_9l",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "Manipulator",
+      "HandGrip",
+      "graspable",
+      "reach",
+      "object_width"
+    ]
+  },
+  {
+    "question_id": "a_canGrasp_medium_10l",
+    "is_correct": null,
+    "score": 0.6,
+    "missing_concepts": [
+      "HandGrip",
+      "reach",
+      "opening",
+      "object_width"
+    ]
+  },
+  {
+    "question_id": "a_canGrasp_medium_11l",
+    "is_correct": null,
+    "score": 0.6,
+    "missing_concepts": [
+      "Claw",
+      "HandGrip",
+      "opening",
+      "object_width"
+    ]
+  },
+  {
+    "question_id": "a_canGrasp_medium_12l",
+    "is_correct": null,
+    "score": 0.8,
+    "missing_concepts": [
+      "opening",
+      "object_width"
+    ]
+  },
+  {
+    "question_id": "a_canGrasp_medium_13l",
+    "is_correct": null,
+    "score": 0.7,
+    "missing_concepts": [
+      "HandGrip",
+      "opening",
+      "object_width"
+    ]
+  },
+  {
+    "question_id": "a_canGrasp_medium_14l",
+    "is_correct": null,
+    "score": 0.6,
+    "missing_concepts": [
+      "MechanicalHand",
+      "graspable",
+      "opening",
+      "object_width"
+    ]
+  },
+  {
+    "question_id": "a_canGrasp_medium_15l",
+    "is_correct": null,
+    "score": 0.7,
+    "missing_concepts": [
+      "Manipulator",
+      "opening",
+      "object_width"
+    ]
+  },
+  {
+    "question_id": "a_canGrasp_medium_16l",
+    "is_correct": null,
+    "score": 0.6,
+    "missing_concepts": [
+      "TwoFingerClaw",
+      "Handle",
+      "opening",
+      "object_width"
+    ]
+  },
+  {
+    "question_id": "a_canGrasp_medium_17l",
+    "is_correct": null,
+    "score": 0.7,
+    "missing_concepts": [
+      "Claw",
+      "reach",
+      "object_width"
+    ]
+  },
+  {
+    "question_id": "a_canGrasp_medium_18l",
+    "is_correct": null,
+    "score": 0.7,
+    "missing_concepts": [
+      "Manipulator",
+      "reach",
+      "object_width"
+    ]
+  },
+  {
+    "question_id": "a_canGrasp_medium_19l",
+    "is_correct": null,
+    "score": 0.7,
+    "missing_concepts": [
+      "Handle",
+      "opening",
+      "object_width"
+    ]
+  }
+]

@@ -1,0 +1,242 @@
+[
+  {
+    "question_id": "a_canPerceive_hard_0l",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "KinectV2",
+      "2DBarcode",
+      "perceivable",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_hard_1l",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "RGBCamera",
+      "QRCode",
+      "perceivable",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_hard_2l",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "KinectV2",
+      "QRCode",
+      "perceivable",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_hard_3l",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "RealsenseL515",
+      "2DBarcode",
+      "perceivable",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_hard_4l",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "KinectV2",
+      "ScanTag",
+      "perceivable",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_hard_5l",
+    "is_correct": null,
+    "score": 0.4,
+    "missing_concepts": [
+      "RealsenseL515",
+      "2DBarcode",
+      "perceivable",
+      "visible",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_hard_6l",
+    "is_correct": null,
+    "score": 0.6,
+    "missing_concepts": [
+      "2DBarcode",
+      "perceivable",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_hard_7l",
+    "is_correct": null,
+    "score": 0.6,
+    "missing_concepts": [
+      "2DBarcode",
+      "perceivable",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_hard_8l",
+    "is_correct": null,
+    "score": 0.6,
+    "missing_concepts": [
+      "RealsenseL515",
+      "perceivable",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_hard_9l",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "KinectV2",
+      "2DBarcode",
+      "perceivable",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_hard_10l",
+    "is_correct": null,
+    "score": 0.4,
+    "missing_concepts": [
+      "RGBCamera",
+      "QRTag",
+      "perceivable",
+      "visible",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_hard_11l",
+    "is_correct": null,
+    "score": 0.4,
+    "missing_concepts": [
+      "KinectV2",
+      "ScanTag",
+      "perceivable",
+      "visible",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_hard_12l",
+    "is_correct": null,
+    "score": 0.6,
+    "missing_concepts": [
+      "QRCode",
+      "perceivable",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_hard_13l",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "RGBCamera",
+      "2DBarcode",
+      "perceivable",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_hard_14l",
+    "is_correct": null,
+    "score": 0.4,
+    "missing_concepts": [
+      "KinectV2",
+      "2DBarcode",
+      "perceivable",
+      "visible",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_hard_15l",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "RGBCamera",
+      "2DBarcode",
+      "perceivable",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_hard_16l",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "ScanTag",
+      "perceivable",
+      "visible",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_hard_17l",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "RealsenseD435i",
+      "QRTag",
+      "perceivable",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_hard_18l",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "RealsenseD435i",
+      "ScanTag",
+      "perceivable",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_hard_19l",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "KinectV2",
+      "QRTag",
+      "perceivable",
+      "camera range",
+      "object_distance"
+    ]
+  }
+]

@@ -1,0 +1,209 @@
+[
+  {
+    "question_id": "a_canLift_medium_0b",
+    "is_correct": null,
+    "score": 0.7,
+    "missing_concepts": [
+      "TwoFingerClaw",
+      "weight limit",
+      "object_weight"
+    ]
+  },
+  {
+    "question_id": "a_canLift_medium_1b",
+    "is_correct": null,
+    "score": 0.6,
+    "missing_concepts": [
+      "TwoFingerClaw",
+      "touchable",
+      "weight limit",
+      "object_weight"
+    ]
+  },
+  {
+    "question_id": "a_canLift_medium_2b",
+    "is_correct": null,
+    "score": 0.8,
+    "missing_concepts": [
+      "MechanicalHand",
+      "object_weight"
+    ]
+  },
+  {
+    "question_id": "a_canLift_medium_3b",
+    "is_correct": null,
+    "score": 0.7,
+    "missing_concepts": [
+      "Claw",
+      "touchable",
+      "object_weight"
+    ]
+  },
+  {
+    "question_id": "a_canLift_medium_4b",
+    "is_correct": null,
+    "score": 0.6,
+    "missing_concepts": [
+      "Manipulator",
+      "touchable",
+      "weight limit",
+      "object_weight"
+    ]
+  },
+  {
+    "question_id": "a_canLift_medium_5b",
+    "is_correct": null,
+    "score": 0.6,
+    "missing_concepts": [
+      "Manipulator",
+      "HandGrip",
+      "touchable",
+      "object_weight"
+    ]
+  },
+  {
+    "question_id": "a_canLift_medium_6b",
+    "is_correct": null,
+    "score": 0.8,
+    "missing_concepts": [
+      "TwoFingerClaw",
+      "object_weight"
+    ]
+  },
+  {
+    "question_id": "a_canLift_medium_7b",
+    "is_correct": null,
+    "score": 0.6,
+    "missing_concepts": [
+      "Claw",
+      "Handle",
+      "touchable",
+      "object_weight"
+    ]
+  },
+  {
+    "question_id": "a_canLift_medium_8b",
+    "is_correct": null,
+    "score": 0.6,
+    "missing_concepts": [
+      "TwoFingerClaw",
+      "touchable",
+      "weight limit",
+      "object_weight"
+    ]
+  },
+  {
+    "question_id": "a_canLift_medium_9b",
+    "is_correct": null,
+    "score": 0.6,
+    "missing_concepts": [
+      "Manipulator",
+      "Handle",
+      "touchable",
+      "object_weight"
+    ]
+  },
+  {
+    "question_id": "a_canLift_medium_10b",
+    "is_correct": null,
+    "score": 0.7,
+    "missing_concepts": [
+      "MechanicalHand",
+      "Handle",
+      "object_weight"
+    ]
+  },
+  {
+    "question_id": "a_canLift_medium_11b",
+    "is_correct": null,
+    "score": 0.6,
+    "missing_concepts": [
+      "Claw",
+      "Handle",
+      "touchable",
+      "object_weight"
+    ]
+  },
+  {
+    "question_id": "a_canLift_medium_12b",
+    "is_correct": null,
+    "score": 0.9,
+    "missing_concepts": [
+      "object_weight"
+    ]
+  },
+  {
+    "question_id": "a_canLift_medium_13b",
+    "is_correct": null,
+    "score": 0.8,
+    "missing_concepts": [
+      "TwoFingerClaw",
+      "object_weight"
+    ]
+  },
+  {
+    "question_id": "a_canLift_medium_14b",
+    "is_correct": null,
+    "score": 0.7,
+    "missing_concepts": [
+      "Manipulator",
+      "weight limit",
+      "object_weight"
+    ]
+  },
+  {
+    "question_id": "a_canLift_medium_15b",
+    "is_correct": null,
+    "score": 0.7,
+    "missing_concepts": [
+      "Handle",
+      "weight limit",
+      "object_weight"
+    ]
+  },
+  {
+    "question_id": "a_canLift_medium_16b",
+    "is_correct": null,
+    "score": 0.6,
+    "missing_concepts": [
+      "TwoFingerClaw",
+      "HandGrip",
+      "touchable",
+      "object_weight"
+    ]
+  },
+  {
+    "question_id": "a_canLift_medium_17b",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "Claw",
+      "HandGrip",
+      "touchable",
+      "weight limit",
+      "object_weight"
+    ]
+  },
+  {
+    "question_id": "a_canLift_medium_18b",
+    "is_correct": null,
+    "score": 0.6,
+    "missing_concepts": [
+      "HandGrip",
+      "touchable",
+      "weight limit",
+      "object_weight"
+    ]
+  },
+  {
+    "question_id": "a_canLift_medium_19b",
+    "is_correct": null,
+    "score": 0.6,
+    "missing_concepts": [
+      "Manipulator",
+      "HandGrip",
+      "touchable",
+      "object_weight"
+    ]
+  }
+]

@@ -1,0 +1,490 @@
+{
+  "id": "a_canLift_easy",
+  "template": {
+    "fact": "__agent__|canLift|__object__",
+    "explanation": [
+      "__agent__|Type|__Agent__",
+      "__Agent__|SubClassOf|Agent",
+      "__agent__|hasCapability|__agent_capa__",
+      "__agent_capa__|isCapabilityOf|__agent__",
+      "__agent__|hasComponent|__gripper_1__",
+      "__gripper_1__|Type|__Gripper__",
+      "__Gripper__|SubClassOf|Gripper",
+      "__agent__|hasComponent|__gripper_2__",
+      "__gripper_2__|Type|__Gripper__",
+      "__Gripper__|SubClassOf|Gripper",
+      "__object__|Type|__Object__",
+      "__Object__|SubClassOf|Object",
+      "__object__|hasDisposition|__object_disp__",
+      "__object_disp__|isDispositionOf|__object__",
+      "__object__|hasPart|__handle_1__",
+      "__handle_1__|Type|__Handle__",
+      "__Handle__|SubClassOf|HoldablePart",
+      "__object__|hasPart|__handle_2__",
+      "__handle_2__|Type|__Handle__",
+      "__Handle__|SubClassOf|HoldablePart",
+      "__object__|isTouchableBy|__agent__",
+      "__gripper_1__|Type|Gripper",
+      "Gripper|SubClassOf|EndEffector",
+      "__agent__|hasComponent|__gripper_1__",
+      "__gripper_1__|hasWeightLimit|integer#2",
+      "__object__|hasWeight|integer#1",
+      "lesserThan(integer#1,integer#2)"
+    ]
+  },
+  "rules": [
+    "Agent(?a), hasCapability(?a, ?c), LiftingCapability(?c), Object(?o), hasDisposition(?o, ?d), LiftableDisposition(?d), isTouchableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasWeightLimit(?g,?w1), hasWeight(?o,?w2), lesserThan(?w2,?w1) -> canLift(?a, ?o)",
+    "LiftingCapability|EquivalentTo|(isCapabilityOf some (hasComponent min 2 Gripper)",
+    "LiftableDisposition|EquivalentTo|(isDispositionOf some (hasPart min 2 HoldablePart))"
+  ],
+  "concepts": [
+    "lifting",
+    "liftable",
+    "touchable",
+    "weight limit",
+    "object_weight",
+    "can lift"
+  ],
+  "answers": [
+    {
+      "id": "a_canLift_easy_0b",
+      "selected_classes": [
+        "Pepper",
+        "TwoFingerClaw",
+        "Handle",
+        "CookingPot"
+      ],
+      "selected_names": [
+        "rwukem",
+        "ugef",
+        "agbhg",
+        "xkce",
+        "gsxbn",
+        "ij",
+        "oyy",
+        "hfxw"
+      ],
+      "question": "-Inference : ij|canLift|ugef \n -Justifications : ij|Type|Pepper, Pepper|SubClassOf|Agent, ij|hasCapability|rwukem, rwukem|isCapabilityOf|ij, ij|hasComponent|oyy, oyy|Type|TwoFingerClaw, TwoFingerClaw|SubClassOf|Gripper, ij|hasComponent|hfxw, hfxw|Type|TwoFingerClaw, TwoFingerClaw|SubClassOf|Gripper, ugef|Type|CookingPot, CookingPot|SubClassOf|Object, ugef|hasDisposition|xkce, xkce|isDispositionOf|ugef, ugef|hasPart|agbhg, agbhg|Type|Handle, Handle|SubClassOf|HoldablePart, ugef|hasPart|gsxbn, gsxbn|Type|Handle, Handle|SubClassOf|HoldablePart, ugef|isTouchableBy|ij, oyy|Type|Gripper, Gripper|SubClassOf|EndEffector, ij|hasComponent|oyy, oyy|hasWeightLimit|integer#79, ugef|hasWeight|integer#60, lesserThan(integer#60,integer#79) \n -Rules : Agent(?a), hasCapability(?a, ?c), LiftingCapability(?c), Object(?o), hasDisposition(?o, ?d), LiftableDisposition(?d), isTouchableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasWeightLimit(?g,?w1), hasWeight(?o,?w2), lesserThan(?w2,?w1) -> canLift(?a, ?o)\n\tLiftingCapability|EquivalentTo|(isCapabilityOf some (hasComponent min 2 Gripper)\n\tLiftableDisposition|EquivalentTo|(isDispositionOf some (hasPart min 2 HoldablePart))",
+      "answer": "\u00a0the pepper robot can lift the cooking pot because it has a lifting capability, and the cooking pot is touchable by the robot, and the robot has a two-finger claw component, and the cooking pot has a weight less than the claw's weight limit.",
+      "duration": 6147606.0
+    },
+    {
+      "id": "a_canLift_easy_1b",
+      "selected_classes": [
+        "Pr2",
+        "TwoFingerClaw",
+        "Handle",
+        "Suitcase"
+      ],
+      "selected_names": [
+        "wgzq",
+        "nata",
+        "okfy",
+        "rp",
+        "jfdqfo",
+        "ba",
+        "xcuh",
+        "fwzndw"
+      ],
+      "question": "-Inference : ba|canLift|nata \n -Justifications : ba|Type|Pr2, Pr2|SubClassOf|Agent, ba|hasCapability|wgzq, wgzq|isCapabilityOf|ba, ba|hasComponent|xcuh, xcuh|Type|TwoFingerClaw, TwoFingerClaw|SubClassOf|Gripper, ba|hasComponent|fwzndw, fwzndw|Type|TwoFingerClaw, TwoFingerClaw|SubClassOf|Gripper, nata|Type|Suitcase, Suitcase|SubClassOf|Object, nata|hasDisposition|rp, rp|isDispositionOf|nata, nata|hasPart|okfy, okfy|Type|Handle, Handle|SubClassOf|HoldablePart, nata|hasPart|jfdqfo, jfdqfo|Type|Handle, Handle|SubClassOf|HoldablePart, nata|isTouchableBy|ba, xcuh|Type|Gripper, Gripper|SubClassOf|EndEffector, ba|hasComponent|xcuh, xcuh|hasWeightLimit|integer#96, nata|hasWeight|integer#23, lesserThan(integer#23,integer#96) \n -Rules : Agent(?a), hasCapability(?a, ?c), LiftingCapability(?c), Object(?o), hasDisposition(?o, ?d), LiftableDisposition(?d), isTouchableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasWeightLimit(?g,?w1), hasWeight(?o,?w2), lesserThan(?w2,?w1) -> canLift(?a, ?o)\n\tLiftingCapability|EquivalentTo|(isCapabilityOf some (hasComponent min 2 Gripper)\n\tLiftableDisposition|EquivalentTo|(isDispositionOf some (hasPart min 2 HoldablePart))",
+      "answer": "2 finger claw robot can lift the suitcase because the robot has a gripper component with a weight limit of 96 and the suitcase weighs 23, which is less than the gripper's weight limit.",
+      "duration": 3783595.0
+    },
+    {
+      "id": "a_canLift_easy_2b",
+      "selected_classes": [
+        "Tiago",
+        "MechanicalHand",
+        "Handle",
+        "OvenTray"
+      ],
+      "selected_names": [
+        "ifhu",
+        "tkf",
+        "ivtf",
+        "jyet",
+        "wvsqz",
+        "apve",
+        "awdgr",
+        "pdkey"
+      ],
+      "question": "-Inference : apve|canLift|tkf \n -Justifications : apve|Type|Tiago, Tiago|SubClassOf|Agent, apve|hasCapability|ifhu, ifhu|isCapabilityOf|apve, apve|hasComponent|awdgr, awdgr|Type|MechanicalHand, MechanicalHand|SubClassOf|Gripper, apve|hasComponent|pdkey, pdkey|Type|MechanicalHand, MechanicalHand|SubClassOf|Gripper, tkf|Type|OvenTray, OvenTray|SubClassOf|Object, tkf|hasDisposition|jyet, jyet|isDispositionOf|tkf, tkf|hasPart|ivtf, ivtf|Type|Handle, Handle|SubClassOf|HoldablePart, tkf|hasPart|wvsqz, wvsqz|Type|Handle, Handle|SubClassOf|HoldablePart, tkf|isTouchableBy|apve, awdgr|Type|Gripper, Gripper|SubClassOf|EndEffector, apve|hasComponent|awdgr, awdgr|hasWeightLimit|integer#25, tkf|hasWeight|integer#23, lesserThan(integer#23,integer#25) \n -Rules : Agent(?a), hasCapability(?a, ?c), LiftingCapability(?c), Object(?o), hasDisposition(?o, ?d), LiftableDisposition(?d), isTouchableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasWeightLimit(?g,?w1), hasWeight(?o,?w2), lesserThan(?w2,?w1) -> canLift(?a, ?o)\n\tLiftingCapability|EquivalentTo|(isCapabilityOf some (hasComponent min 2 Gripper)\n\tLiftableDisposition|EquivalentTo|(isDispositionOf some (hasPart min 2 HoldablePart))",
+      "answer": "\u00a0the tiago robot can lift the oven tray because it has a mechanical hand component, the oven tray has a handle, and the robot\u2019s mechanical hand has a weight limit that is less than the weight of the tray.",
+      "duration": 4050880.0
+    },
+    {
+      "id": "a_canLift_easy_3b",
+      "selected_classes": [
+        "Pepper",
+        "Claw",
+        "Grip",
+        "Suitcase"
+      ],
+      "selected_names": [
+        "va",
+        "bn",
+        "tgxglh",
+        "rc",
+        "bcwfg",
+        "mcffja",
+        "vkgm",
+        "asaqu"
+      ],
+      "question": "-Inference : mcffja|canLift|bn \n -Justifications : mcffja|Type|Pepper, Pepper|SubClassOf|Agent, mcffja|hasCapability|va, va|isCapabilityOf|mcffja, mcffja|hasComponent|vkgm, vkgm|Type|Claw, Claw|SubClassOf|Gripper, mcffja|hasComponent|asaqu, asaqu|Type|Claw, Claw|SubClassOf|Gripper, bn|Type|Suitcase, Suitcase|SubClassOf|Object, bn|hasDisposition|rc, rc|isDispositionOf|bn, bn|hasPart|tgxglh, tgxglh|Type|Grip, Grip|SubClassOf|HoldablePart, bn|hasPart|bcwfg, bcwfg|Type|Grip, Grip|SubClassOf|HoldablePart, bn|isTouchableBy|mcffja, vkgm|Type|Gripper, Gripper|SubClassOf|EndEffector, mcffja|hasComponent|vkgm, vkgm|hasWeightLimit|integer#79, bn|hasWeight|integer#34, lesserThan(integer#34,integer#79) \n -Rules : Agent(?a), hasCapability(?a, ?c), LiftingCapability(?c), Object(?o), hasDisposition(?o, ?d), LiftableDisposition(?d), isTouchableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasWeightLimit(?g,?w1), hasWeight(?o,?w2), lesserThan(?w2,?w1) -> canLift(?a, ?o)\n\tLiftingCapability|EquivalentTo|(isCapabilityOf some (hasComponent min 2 Gripper)\n\tLiftableDisposition|EquivalentTo|(isDispositionOf some (hasPart min 2 HoldablePart))",
+      "answer": "\u00a0the pepper can lift the suitcase because it has a gripper component, the suitcase is touchable by the pepper, and the gripper has a weight limit that is less than the suitcase's weight. The gripper also has a component that is a gripper, and the suitcase is a touchable object.",
+      "duration": 4705829.0
+    },
+    {
+      "id": "a_canLift_easy_4b",
+      "selected_classes": [
+        "Tiago",
+        "Manipulator",
+        "Grip",
+        "Bucket"
+      ],
+      "selected_names": [
+        "mszqgx",
+        "avh",
+        "jsbmd",
+        "ue",
+        "rujtg",
+        "ou",
+        "lpbvsp",
+        "iqq"
+      ],
+      "question": "-Inference : ou|canLift|avh \n -Justifications : ou|Type|Tiago, Tiago|SubClassOf|Agent, ou|hasCapability|mszqgx, mszqgx|isCapabilityOf|ou, ou|hasComponent|lpbvsp, lpbvsp|Type|Manipulator, Manipulator|SubClassOf|Gripper, ou|hasComponent|iqq, iqq|Type|Manipulator, Manipulator|SubClassOf|Gripper, avh|Type|Bucket, Bucket|SubClassOf|Object, avh|hasDisposition|ue, ue|isDispositionOf|avh, avh|hasPart|jsbmd, jsbmd|Type|Grip, Grip|SubClassOf|HoldablePart, avh|hasPart|rujtg, rujtg|Type|Grip, Grip|SubClassOf|HoldablePart, avh|isTouchableBy|ou, lpbvsp|Type|Gripper, Gripper|SubClassOf|EndEffector, ou|hasComponent|lpbvsp, lpbvsp|hasWeightLimit|integer#59, avh|hasWeight|integer#17, lesserThan(integer#17,integer#59) \n -Rules : Agent(?a), hasCapability(?a, ?c), LiftingCapability(?c), Object(?o), hasDisposition(?o, ?d), LiftableDisposition(?d), isTouchableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasWeightLimit(?g,?w1), hasWeight(?o,?w2), lesserThan(?w2,?w1) -> canLift(?a, ?o)\n\tLiftingCapability|EquivalentTo|(isCapabilityOf some (hasComponent min 2 Gripper)\n\tLiftableDisposition|EquivalentTo|(isDispositionOf some (hasPart min 2 HoldablePart))",
+      "answer": "\u00a0the tiago robot can lift the bucket because it has a manipulator component, the bucket has a grip part, and the tiago robot is touchable by the bucket, and the manipulator has a weight limit that is less than the bucket's weight.",
+      "duration": 4357983.0
+    },
+    {
+      "id": "a_canLift_easy_5b",
+      "selected_classes": [
+        "Tiago",
+        "Manipulator",
+        "HandGrip",
+        "Toolbox"
+      ],
+      "selected_names": [
+        "mazow",
+        "emycac",
+        "dptmb",
+        "wphxl",
+        "uf",
+        "zbcz",
+        "sard",
+        "sptz"
+      ],
+      "question": "-Inference : zbcz|canLift|emycac \n -Justifications : zbcz|Type|Tiago, Tiago|SubClassOf|Agent, zbcz|hasCapability|mazow, mazow|isCapabilityOf|zbcz, zbcz|hasComponent|sard, sard|Type|Manipulator, Manipulator|SubClassOf|Gripper, zbcz|hasComponent|sptz, sptz|Type|Manipulator, Manipulator|SubClassOf|Gripper, emycac|Type|Toolbox, Toolbox|SubClassOf|Object, emycac|hasDisposition|wphxl, wphxl|isDispositionOf|emycac, emycac|hasPart|dptmb, dptmb|Type|HandGrip, HandGrip|SubClassOf|HoldablePart, emycac|hasPart|uf, uf|Type|HandGrip, HandGrip|SubClassOf|HoldablePart, emycac|isTouchableBy|zbcz, sard|Type|Gripper, Gripper|SubClassOf|EndEffector, zbcz|hasComponent|sard, sard|hasWeightLimit|integer#93, emycac|hasWeight|integer#56, lesserThan(integer#56,integer#93) \n -Rules : Agent(?a), hasCapability(?a, ?c), LiftingCapability(?c), Object(?o), hasDisposition(?o, ?d), LiftableDisposition(?d), isTouchableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasWeightLimit(?g,?w1), hasWeight(?o,?w2), lesserThan(?w2,?w1) -> canLift(?a, ?o)\n\tLiftingCapability|EquivalentTo|(isCapabilityOf some (hasComponent min 2 Gripper)\n\tLiftableDisposition|EquivalentTo|(isDispositionOf some (hasPart min 2 HoldablePart))",
+      "answer": "\nThe tiago robot can lift the toolbox because it has a lifting capability and the toolbox has a part that is a hand grip, and the tiago robot has a gripper component, and the toolbox weighs less than the gripper's weight limit.",
+      "duration": 5688877.0
+    },
+    {
+      "id": "a_canLift_easy_6b",
+      "selected_classes": [
+        "Pr2",
+        "TwoFingerClaw",
+        "Handle",
+        "Bucket"
+      ],
+      "selected_names": [
+        "bnfjd",
+        "xv",
+        "cn",
+        "wb",
+        "wfsg",
+        "btpy",
+        "ivy",
+        "qhflxa"
+      ],
+      "question": "-Inference : btpy|canLift|xv \n -Justifications : btpy|Type|Pr2, Pr2|SubClassOf|Agent, btpy|hasCapability|bnfjd, bnfjd|isCapabilityOf|btpy, btpy|hasComponent|ivy, ivy|Type|TwoFingerClaw, TwoFingerClaw|SubClassOf|Gripper, btpy|hasComponent|qhflxa, qhflxa|Type|TwoFingerClaw, TwoFingerClaw|SubClassOf|Gripper, xv|Type|Bucket, Bucket|SubClassOf|Object, xv|hasDisposition|wb, wb|isDispositionOf|xv, xv|hasPart|cn, cn|Type|Handle, Handle|SubClassOf|HoldablePart, xv|hasPart|wfsg, wfsg|Type|Handle, Handle|SubClassOf|HoldablePart, xv|isTouchableBy|btpy, ivy|Type|Gripper, Gripper|SubClassOf|EndEffector, btpy|hasComponent|ivy, ivy|hasWeightLimit|integer#83, xv|hasWeight|integer#38, lesserThan(integer#38,integer#83) \n -Rules : Agent(?a), hasCapability(?a, ?c), LiftingCapability(?c), Object(?o), hasDisposition(?o, ?d), LiftableDisposition(?d), isTouchableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasWeightLimit(?g,?w1), hasWeight(?o,?w2), lesserThan(?w2,?w1) -> canLift(?a, ?o)\n\tLiftingCapability|EquivalentTo|(isCapabilityOf some (hasComponent min 2 Gripper)\n\tLiftableDisposition|EquivalentTo|(isDispositionOf some (hasPart min 2 HoldablePart))",
+      "answer": "2 finger claw robot can lift the bucket because it has a lifting capability, the bucket has a disposition and the robot is able to touch it, and the robot has a component of a 2 finger claw with a weight limit less than the bucket's weight.",
+      "duration": 5876500.0
+    },
+    {
+      "id": "a_canLift_easy_7b",
+      "selected_classes": [
+        "Tiago",
+        "Claw",
+        "Handle",
+        "OvenTray"
+      ],
+      "selected_names": [
+        "hlqhm",
+        "ko",
+        "vtx",
+        "ohdj",
+        "yufs",
+        "bc",
+        "ctlumt",
+        "qunpsu"
+      ],
+      "question": "-Inference : bc|canLift|ko \n -Justifications : bc|Type|Tiago, Tiago|SubClassOf|Agent, bc|hasCapability|hlqhm, hlqhm|isCapabilityOf|bc, bc|hasComponent|ctlumt, ctlumt|Type|Claw, Claw|SubClassOf|Gripper, bc|hasComponent|qunpsu, qunpsu|Type|Claw, Claw|SubClassOf|Gripper, ko|Type|OvenTray, OvenTray|SubClassOf|Object, ko|hasDisposition|ohdj, ohdj|isDispositionOf|ko, ko|hasPart|vtx, vtx|Type|Handle, Handle|SubClassOf|HoldablePart, ko|hasPart|yufs, yufs|Type|Handle, Handle|SubClassOf|HoldablePart, ko|isTouchableBy|bc, ctlumt|Type|Gripper, Gripper|SubClassOf|EndEffector, bc|hasComponent|ctlumt, ctlumt|hasWeightLimit|integer#55, ko|hasWeight|integer#19, lesserThan(integer#19,integer#55) \n -Rules : Agent(?a), hasCapability(?a, ?c), LiftingCapability(?c), Object(?o), hasDisposition(?o, ?d), LiftableDisposition(?d), isTouchableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasWeightLimit(?g,?w1), hasWeight(?o,?w2), lesserThan(?w2,?w1) -> canLift(?a, ?o)\n\tLiftingCapability|EquivalentTo|(isCapabilityOf some (hasComponent min 2 Gripper)\n\tLiftableDisposition|EquivalentTo|(isDispositionOf some (hasPart min 2 HoldablePart))",
+      "answer": "\u00a0the tiago robot can lift the oven tray because it has a lifting capability and a gripper component, the oven tray is touchable by the tiago robot, and the tiago robot\u2019s gripper has a weight limit that is greater than the weight of the oven tray.",
+      "duration": 5643994.0
+    },
+    {
+      "id": "a_canLift_easy_8b",
+      "selected_classes": [
+        "Pepper",
+        "TwoFingerClaw",
+        "Handle",
+        "CookingPot"
+      ],
+      "selected_names": [
+        "kv",
+        "vf",
+        "hoa",
+        "ri",
+        "kjxt",
+        "vxrc",
+        "aih",
+        "dmc"
+      ],
+      "question": "-Inference : vxrc|canLift|vf \n -Justifications : vxrc|Type|Pepper, Pepper|SubClassOf|Agent, vxrc|hasCapability|kv, kv|isCapabilityOf|vxrc, vxrc|hasComponent|aih, aih|Type|TwoFingerClaw, TwoFingerClaw|SubClassOf|Gripper, vxrc|hasComponent|dmc, dmc|Type|TwoFingerClaw, TwoFingerClaw|SubClassOf|Gripper, vf|Type|CookingPot, CookingPot|SubClassOf|Object, vf|hasDisposition|ri, ri|isDispositionOf|vf, vf|hasPart|hoa, hoa|Type|Handle, Handle|SubClassOf|HoldablePart, vf|hasPart|kjxt, kjxt|Type|Handle, Handle|SubClassOf|HoldablePart, vf|isTouchableBy|vxrc, aih|Type|Gripper, Gripper|SubClassOf|EndEffector, vxrc|hasComponent|aih, aih|hasWeightLimit|integer#94, vf|hasWeight|integer#65, lesserThan(integer#65,integer#94) \n -Rules : Agent(?a), hasCapability(?a, ?c), LiftingCapability(?c), Object(?o), hasDisposition(?o, ?d), LiftableDisposition(?d), isTouchableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasWeightLimit(?g,?w1), hasWeight(?o,?w2), lesserThan(?w2,?w1) -> canLift(?a, ?o)\n\tLiftingCapability|EquivalentTo|(isCapabilityOf some (hasComponent min 2 Gripper)\n\tLiftableDisposition|EquivalentTo|(isDispositionOf some (hasPart min 2 HoldablePart))",
+      "answer": "\u00a0the pepper robot can lift the cooking pot because it has a lifting capability and a two-finger claw component, and the cooking pot is touchable by the robot, and the robot\u2019s weight is less than the claw\u2019s weight limit.",
+      "duration": 4088761.9999999995
+    },
+    {
+      "id": "a_canLift_easy_9b",
+      "selected_classes": [
+        "Robot",
+        "Manipulator",
+        "Handle",
+        "Suitcase"
+      ],
+      "selected_names": [
+        "hmofm",
+        "tff",
+        "rudiu",
+        "kwrc",
+        "ahk",
+        "rqfayw",
+        "mrvbl",
+        "uti"
+      ],
+      "question": "-Inference : rqfayw|canLift|tff \n -Justifications : rqfayw|Type|Robot, Robot|SubClassOf|Agent, rqfayw|hasCapability|hmofm, hmofm|isCapabilityOf|rqfayw, rqfayw|hasComponent|mrvbl, mrvbl|Type|Manipulator, Manipulator|SubClassOf|Gripper, rqfayw|hasComponent|uti, uti|Type|Manipulator, Manipulator|SubClassOf|Gripper, tff|Type|Suitcase, Suitcase|SubClassOf|Object, tff|hasDisposition|kwrc, kwrc|isDispositionOf|tff, tff|hasPart|rudiu, rudiu|Type|Handle, Handle|SubClassOf|HoldablePart, tff|hasPart|ahk, ahk|Type|Handle, Handle|SubClassOf|HoldablePart, tff|isTouchableBy|rqfayw, mrvbl|Type|Gripper, Gripper|SubClassOf|EndEffector, rqfayw|hasComponent|mrvbl, mrvbl|hasWeightLimit|integer#62, tff|hasWeight|integer#16, lesserThan(integer#16,integer#62) \n -Rules : Agent(?a), hasCapability(?a, ?c), LiftingCapability(?c), Object(?o), hasDisposition(?o, ?d), LiftableDisposition(?d), isTouchableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasWeightLimit(?g,?w1), hasWeight(?o,?w2), lesserThan(?w2,?w1) -> canLift(?a, ?o)\n\tLiftingCapability|EquivalentTo|(isCapabilityOf some (hasComponent min 2 Gripper)\n\tLiftableDisposition|EquivalentTo|(isDispositionOf some (hasPart min 2 HoldablePart))",
+      "answer": "\u00a0the robot can lift the suitcase because it has a lifting capability and a gripper component, the suitcase has a handle and a grip, and the robot\u2019s gripper has a weight limit that is greater than the suitcase\u2019s weight, making it liftable.",
+      "duration": 5884406.000000001
+    },
+    {
+      "id": "a_canLift_easy_10b",
+      "selected_classes": [
+        "Pr2",
+        "MechanicalHand",
+        "Handle",
+        "Toolbox"
+      ],
+      "selected_names": [
+        "vxxzps",
+        "szwb",
+        "gx",
+        "vag",
+        "xc",
+        "vdw",
+        "iaack",
+        "rlonve"
+      ],
+      "question": "-Inference : vdw|canLift|szwb \n -Justifications : vdw|Type|Pr2, Pr2|SubClassOf|Agent, vdw|hasCapability|vxxzps, vxxzps|isCapabilityOf|vdw, vdw|hasComponent|iaack, iaack|Type|MechanicalHand, MechanicalHand|SubClassOf|Gripper, vdw|hasComponent|rlonve, rlonve|Type|MechanicalHand, MechanicalHand|SubClassOf|Gripper, szwb|Type|Toolbox, Toolbox|SubClassOf|Object, szwb|hasDisposition|vag, vag|isDispositionOf|szwb, szwb|hasPart|gx, gx|Type|Handle, Handle|SubClassOf|HoldablePart, szwb|hasPart|xc, xc|Type|Handle, Handle|SubClassOf|HoldablePart, szwb|isTouchableBy|vdw, iaack|Type|Gripper, Gripper|SubClassOf|EndEffector, vdw|hasComponent|iaack, iaack|hasWeightLimit|integer#47, szwb|hasWeight|integer#22, lesserThan(integer#22,integer#47) \n -Rules : Agent(?a), hasCapability(?a, ?c), LiftingCapability(?c), Object(?o), hasDisposition(?o, ?d), LiftableDisposition(?d), isTouchableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasWeightLimit(?g,?w1), hasWeight(?o,?w2), lesserThan(?w2,?w1) -> canLift(?a, ?o)\n\tLiftingCapability|EquivalentTo|(isCapabilityOf some (hasComponent min 2 Gripper)\n\tLiftableDisposition|EquivalentTo|(isDispositionOf some (hasPart min 2 HoldablePart))",
+      "answer": "2 the pr2 robot can lift the toolbox because it has a lifting capability, it has a mechanical hand as a component, and the toolbox has a weight less than the mechanical hand's weight limit.",
+      "duration": 4971770.0
+    },
+    {
+      "id": "a_canLift_easy_11b",
+      "selected_classes": [
+        "Pr2",
+        "Claw",
+        "Handle",
+        "Suitcase"
+      ],
+      "selected_names": [
+        "rpb",
+        "gcpc",
+        "jaxp",
+        "rh",
+        "wh",
+        "qwzr",
+        "in",
+        "povlw"
+      ],
+      "question": "-Inference : qwzr|canLift|gcpc \n -Justifications : qwzr|Type|Pr2, Pr2|SubClassOf|Agent, qwzr|hasCapability|rpb, rpb|isCapabilityOf|qwzr, qwzr|hasComponent|in, in|Type|Claw, Claw|SubClassOf|Gripper, qwzr|hasComponent|povlw, povlw|Type|Claw, Claw|SubClassOf|Gripper, gcpc|Type|Suitcase, Suitcase|SubClassOf|Object, gcpc|hasDisposition|rh, rh|isDispositionOf|gcpc, gcpc|hasPart|jaxp, jaxp|Type|Handle, Handle|SubClassOf|HoldablePart, gcpc|hasPart|wh, wh|Type|Handle, Handle|SubClassOf|HoldablePart, gcpc|isTouchableBy|qwzr, in|Type|Gripper, Gripper|SubClassOf|EndEffector, qwzr|hasComponent|in, in|hasWeightLimit|integer#94, gcpc|hasWeight|integer#30, lesserThan(integer#30,integer#94) \n -Rules : Agent(?a), hasCapability(?a, ?c), LiftingCapability(?c), Object(?o), hasDisposition(?o, ?d), LiftableDisposition(?d), isTouchableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasWeightLimit(?g,?w1), hasWeight(?o,?w2), lesserThan(?w2,?w1) -> canLift(?a, ?o)\n\tLiftingCapability|EquivalentTo|(isCapabilityOf some (hasComponent min 2 Gripper)\n\tLiftableDisposition|EquivalentTo|(isDispositionOf some (hasPart min 2 HoldablePart))",
+      "answer": "2 the robot can lift the suitcase because it has a lifting capability, the suitcase has a handle and is touchable by the robot, and the robot's gripper has a weight limit that is greater than the suitcase's weight.",
+      "duration": 4562264.999999999
+    },
+    {
+      "id": "a_canLift_easy_12b",
+      "selected_classes": [
+        "Tiago",
+        "MechanicalHand",
+        "Grip",
+        "OvenTray"
+      ],
+      "selected_names": [
+        "obme",
+        "dzo",
+        "ogez",
+        "yrkcl",
+        "xb",
+        "qjcjq",
+        "iwxlm",
+        "vrit"
+      ],
+      "question": "-Inference : qjcjq|canLift|dzo \n -Justifications : qjcjq|Type|Tiago, Tiago|SubClassOf|Agent, qjcjq|hasCapability|obme, obme|isCapabilityOf|qjcjq, qjcjq|hasComponent|iwxlm, iwxlm|Type|MechanicalHand, MechanicalHand|SubClassOf|Gripper, qjcjq|hasComponent|vrit, vrit|Type|MechanicalHand, MechanicalHand|SubClassOf|Gripper, dzo|Type|OvenTray, OvenTray|SubClassOf|Object, dzo|hasDisposition|yrkcl, yrkcl|isDispositionOf|dzo, dzo|hasPart|ogez, ogez|Type|Grip, Grip|SubClassOf|HoldablePart, dzo|hasPart|xb, xb|Type|Grip, Grip|SubClassOf|HoldablePart, dzo|isTouchableBy|qjcjq, iwxlm|Type|Gripper, Gripper|SubClassOf|EndEffector, qjcjq|hasComponent|iwxlm, iwxlm|hasWeightLimit|integer#80, dzo|hasWeight|integer#40, lesserThan(integer#40,integer#80) \n -Rules : Agent(?a), hasCapability(?a, ?c), LiftingCapability(?c), Object(?o), hasDisposition(?o, ?d), LiftableDisposition(?d), isTouchableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasWeightLimit(?g,?w1), hasWeight(?o,?w2), lesserThan(?w2,?w1) -> canLift(?a, ?o)\n\tLiftingCapability|EquivalentTo|(isCapabilityOf some (hasComponent min 2 Gripper)\n\tLiftableDisposition|EquivalentTo|(isDispositionOf some (hasPart min 2 HoldablePart))",
+      "answer": "\u00a0the tiago robot can lift the oven tray because it has a mechanical hand component, the oven tray has a grip part, and the robot\u2019s mechanical hand has a weight limit that is less than the weight of the tray.",
+      "duration": 4067541.0
+    },
+    {
+      "id": "a_canLift_easy_13b",
+      "selected_classes": [
+        "Robot",
+        "TwoFingerClaw",
+        "HandGrip",
+        "LaundryBasket"
+      ],
+      "selected_names": [
+        "zdr",
+        "tizg",
+        "jtl",
+        "ie",
+        "yus",
+        "zwwky",
+        "crua",
+        "oika"
+      ],
+      "question": "-Inference : zwwky|canLift|tizg \n -Justifications : zwwky|Type|Robot, Robot|SubClassOf|Agent, zwwky|hasCapability|zdr, zdr|isCapabilityOf|zwwky, zwwky|hasComponent|crua, crua|Type|TwoFingerClaw, TwoFingerClaw|SubClassOf|Gripper, zwwky|hasComponent|oika, oika|Type|TwoFingerClaw, TwoFingerClaw|SubClassOf|Gripper, tizg|Type|LaundryBasket, LaundryBasket|SubClassOf|Object, tizg|hasDisposition|ie, ie|isDispositionOf|tizg, tizg|hasPart|jtl, jtl|Type|HandGrip, HandGrip|SubClassOf|HoldablePart, tizg|hasPart|yus, yus|Type|HandGrip, HandGrip|SubClassOf|HoldablePart, tizg|isTouchableBy|zwwky, crua|Type|Gripper, Gripper|SubClassOf|EndEffector, zwwky|hasComponent|crua, crua|hasWeightLimit|integer#83, tizg|hasWeight|integer#29, lesserThan(integer#29,integer#83) \n -Rules : Agent(?a), hasCapability(?a, ?c), LiftingCapability(?c), Object(?o), hasDisposition(?o, ?d), LiftableDisposition(?d), isTouchableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasWeightLimit(?g,?w1), hasWeight(?o,?w2), lesserThan(?w2,?w1) -> canLift(?a, ?o)\n\tLiftingCapability|EquivalentTo|(isCapabilityOf some (hasComponent min 2 Gripper)\n\tLiftableDisposition|EquivalentTo|(isDispositionOf some (hasPart min 2 HoldablePart))",
+      "answer": "\u00a0the robot can lift the laundry basket because it has a lifting capability and the robot has a two-finger claw component, the laundry basket is touchable by the robot, and the robot\u2019s weight is less than the claw\u2019s weight limit.",
+      "duration": 4350205.0
+    },
+    {
+      "id": "a_canLift_easy_14b",
+      "selected_classes": [
+        "Pepper",
+        "Manipulator",
+        "Grip",
+        "Toolbox"
+      ],
+      "selected_names": [
+        "fbql",
+        "pmfd",
+        "grphvr",
+        "btl",
+        "lwwaxn",
+        "tio",
+        "naqm",
+        "yje"
+      ],
+      "question": "-Inference : tio|canLift|pmfd \n -Justifications : tio|Type|Pepper, Pepper|SubClassOf|Agent, tio|hasCapability|fbql, fbql|isCapabilityOf|tio, tio|hasComponent|naqm, naqm|Type|Manipulator, Manipulator|SubClassOf|Gripper, tio|hasComponent|yje, yje|Type|Manipulator, Manipulator|SubClassOf|Gripper, pmfd|Type|Toolbox, Toolbox|SubClassOf|Object, pmfd|hasDisposition|btl, btl|isDispositionOf|pmfd, pmfd|hasPart|grphvr, grphvr|Type|Grip, Grip|SubClassOf|HoldablePart, pmfd|hasPart|lwwaxn, lwwaxn|Type|Grip, Grip|SubClassOf|HoldablePart, pmfd|isTouchableBy|tio, naqm|Type|Gripper, Gripper|SubClassOf|EndEffector, tio|hasComponent|naqm, naqm|hasWeightLimit|integer#99, pmfd|hasWeight|integer#24, lesserThan(integer#24,integer#99) \n -Rules : Agent(?a), hasCapability(?a, ?c), LiftingCapability(?c), Object(?o), hasDisposition(?o, ?d), LiftableDisposition(?d), isTouchableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasWeightLimit(?g,?w1), hasWeight(?o,?w2), lesserThan(?w2,?w1) -> canLift(?a, ?o)\n\tLiftingCapability|EquivalentTo|(isCapabilityOf some (hasComponent min 2 Gripper)\n\tLiftableDisposition|EquivalentTo|(isDispositionOf some (hasPart min 2 HoldablePart))",
+      "answer": "\u00a0the pepper robot can lift the toolbox because it has a manipulator component, the toolbox has a grip part, and the robot can touch the toolbox, and the toolbox\u2019s weight is greater than the manipulator\u2019s weight limit.",
+      "duration": 4105510.0
+    },
+    {
+      "id": "a_canLift_easy_15b",
+      "selected_classes": [
+        "Robot",
+        "MechanicalHand",
+        "Handle",
+        "OvenTray"
+      ],
+      "selected_names": [
+        "xxc",
+        "sqi",
+        "xnadv",
+        "soqz",
+        "wwblf",
+        "csuyb",
+        "hozh",
+        "lzwsj"
+      ],
+      "question": "-Inference : csuyb|canLift|sqi \n -Justifications : csuyb|Type|Robot, Robot|SubClassOf|Agent, csuyb|hasCapability|xxc, xxc|isCapabilityOf|csuyb, csuyb|hasComponent|hozh, hozh|Type|MechanicalHand, MechanicalHand|SubClassOf|Gripper, csuyb|hasComponent|lzwsj, lzwsj|Type|MechanicalHand, MechanicalHand|SubClassOf|Gripper, sqi|Type|OvenTray, OvenTray|SubClassOf|Object, sqi|hasDisposition|soqz, soqz|isDispositionOf|sqi, sqi|hasPart|xnadv, xnadv|Type|Handle, Handle|SubClassOf|HoldablePart, sqi|hasPart|wwblf, wwblf|Type|Handle, Handle|SubClassOf|HoldablePart, sqi|isTouchableBy|csuyb, hozh|Type|Gripper, Gripper|SubClassOf|EndEffector, csuyb|hasComponent|hozh, hozh|hasWeightLimit|integer#13, sqi|hasWeight|integer#10, lesserThan(integer#10,integer#13) \n -Rules : Agent(?a), hasCapability(?a, ?c), LiftingCapability(?c), Object(?o), hasDisposition(?o, ?d), LiftableDisposition(?d), isTouchableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasWeightLimit(?g,?w1), hasWeight(?o,?w2), lesserThan(?w2,?w1) -> canLift(?a, ?o)\n\tLiftingCapability|EquivalentTo|(isCapabilityOf some (hasComponent min 2 Gripper)\n\tLiftableDisposition|EquivalentTo|(isDispositionOf some (hasPart min 2 HoldablePart))",
+      "answer": "\u00a0the robot can lift the oven tray because it has a gripper component, the tray has a handle, and the robot can touch the tray, and the gripper has a weight limit that is less than the tray's weight. The gripper has two grippers, which is equivalent to having two grippers.",
+      "duration": 6537531.999999999
+    },
+    {
+      "id": "a_canLift_easy_16b",
+      "selected_classes": [
+        "Robot",
+        "TwoFingerClaw",
+        "HandGrip",
+        "Bucket"
+      ],
+      "selected_names": [
+        "bdg",
+        "der",
+        "njr",
+        "rndujd",
+        "noh",
+        "plztpx",
+        "gcltt",
+        "jzf"
+      ],
+      "question": "-Inference : plztpx|canLift|der \n -Justifications : plztpx|Type|Robot, Robot|SubClassOf|Agent, plztpx|hasCapability|bdg, bdg|isCapabilityOf|plztpx, plztpx|hasComponent|gcltt, gcltt|Type|TwoFingerClaw, TwoFingerClaw|SubClassOf|Gripper, plztpx|hasComponent|jzf, jzf|Type|TwoFingerClaw, TwoFingerClaw|SubClassOf|Gripper, der|Type|Bucket, Bucket|SubClassOf|Object, der|hasDisposition|rndujd, rndujd|isDispositionOf|der, der|hasPart|njr, njr|Type|HandGrip, HandGrip|SubClassOf|HoldablePart, der|hasPart|noh, noh|Type|HandGrip, HandGrip|SubClassOf|HoldablePart, der|isTouchableBy|plztpx, gcltt|Type|Gripper, Gripper|SubClassOf|EndEffector, plztpx|hasComponent|gcltt, gcltt|hasWeightLimit|integer#76, der|hasWeight|integer#26, lesserThan(integer#26,integer#76) \n -Rules : Agent(?a), hasCapability(?a, ?c), LiftingCapability(?c), Object(?o), hasDisposition(?o, ?d), LiftableDisposition(?d), isTouchableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasWeightLimit(?g,?w1), hasWeight(?o,?w2), lesserThan(?w2,?w1) -> canLift(?a, ?o)\n\tLiftingCapability|EquivalentTo|(isCapabilityOf some (hasComponent min 2 Gripper)\n\tLiftableDisposition|EquivalentTo|(isDispositionOf some (hasPart min 2 HoldablePart))",
+      "answer": "\u00a0the robot can lift the bucket because it has a lifting capability, and the robot has a two-finger claw as a component, the bucket has a hand grip as a part, and the robot is touchable by the claw, with the claw\u2019s weight limit being less than the bucket\u2019s weight.",
+      "duration": 6872384.0
+    },
+    {
+      "id": "a_canLift_easy_17b",
+      "selected_classes": [
+        "Pr2",
+        "Claw",
+        "HandGrip",
+        "Bucket"
+      ],
+      "selected_names": [
+        "yc",
+        "mrv",
+        "pteyn",
+        "tgu",
+        "yd",
+        "nu",
+        "nxrvc",
+        "lqspt"
+      ],
+      "question": "-Inference : nu|canLift|mrv \n -Justifications : nu|Type|Pr2, Pr2|SubClassOf|Agent, nu|hasCapability|yc, yc|isCapabilityOf|nu, nu|hasComponent|nxrvc, nxrvc|Type|Claw, Claw|SubClassOf|Gripper, nu|hasComponent|lqspt, lqspt|Type|Claw, Claw|SubClassOf|Gripper, mrv|Type|Bucket, Bucket|SubClassOf|Object, mrv|hasDisposition|tgu, tgu|isDispositionOf|mrv, mrv|hasPart|pteyn, pteyn|Type|HandGrip, HandGrip|SubClassOf|HoldablePart, mrv|hasPart|yd, yd|Type|HandGrip, HandGrip|SubClassOf|HoldablePart, mrv|isTouchableBy|nu, nxrvc|Type|Gripper, Gripper|SubClassOf|EndEffector, nu|hasComponent|nxrvc, nxrvc|hasWeightLimit|integer#98, mrv|hasWeight|integer#63, lesserThan(integer#63,integer#98) \n -Rules : Agent(?a), hasCapability(?a, ?c), LiftingCapability(?c), Object(?o), hasDisposition(?o, ?d), LiftableDisposition(?d), isTouchableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasWeightLimit(?g,?w1), hasWeight(?o,?w2), lesserThan(?w2,?w1) -> canLift(?a, ?o)\n\tLiftingCapability|EquivalentTo|(isCapabilityOf some (hasComponent min 2 Gripper)\n\tLiftableDisposition|EquivalentTo|(isDispositionOf some (hasPart min 2 HoldablePart))",
+      "answer": "\u00a0the robot can lift the bucket because it has a lifting capability, and the robot has a gripper component, the bucket has a weight less than the gripper\u2019s weight limit.",
+      "duration": 4607546.0
+    },
+    {
+      "id": "a_canLift_easy_18b",
+      "selected_classes": [
+        "Pr2",
+        "MechanicalHand",
+        "HandGrip",
+        "LaundryBasket"
+      ],
+      "selected_names": [
+        "ma",
+        "lqs",
+        "uzisiz",
+        "grlzns",
+        "lssll",
+        "rgz",
+        "oxhgjx",
+        "vcvrm"
+      ],
+      "question": "-Inference : rgz|canLift|lqs \n -Justifications : rgz|Type|Pr2, Pr2|SubClassOf|Agent, rgz|hasCapability|ma, ma|isCapabilityOf|rgz, rgz|hasComponent|oxhgjx, oxhgjx|Type|MechanicalHand, MechanicalHand|SubClassOf|Gripper, rgz|hasComponent|vcvrm, vcvrm|Type|MechanicalHand, MechanicalHand|SubClassOf|Gripper, lqs|Type|LaundryBasket, LaundryBasket|SubClassOf|Object, lqs|hasDisposition|grlzns, grlzns|isDispositionOf|lqs, lqs|hasPart|uzisiz, uzisiz|Type|HandGrip, HandGrip|SubClassOf|HoldablePart, lqs|hasPart|lssll, lssll|Type|HandGrip, HandGrip|SubClassOf|HoldablePart, lqs|isTouchableBy|rgz, oxhgjx|Type|Gripper, Gripper|SubClassOf|EndEffector, rgz|hasComponent|oxhgjx, oxhgjx|hasWeightLimit|integer#61, lqs|hasWeight|integer#38, lesserThan(integer#38,integer#61) \n -Rules : Agent(?a), hasCapability(?a, ?c), LiftingCapability(?c), Object(?o), hasDisposition(?o, ?d), LiftableDisposition(?d), isTouchableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasWeightLimit(?g,?w1), hasWeight(?o,?w2), lesserThan(?w2,?w1) -> canLift(?a, ?o)\n\tLiftingCapability|EquivalentTo|(isCapabilityOf some (hasComponent min 2 Gripper)\n\tLiftableDisposition|EquivalentTo|(isDispositionOf some (hasPart min 2 HoldablePart))",
+      "answer": "\u00a0the robot can lift the laundry basket because it has a gripper component, and the gripper has a weight limit that is greater than the weight of the laundry basket, thus allowing the robot to lift it.",
+      "duration": 4028975.0
+    },
+    {
+      "id": "a_canLift_easy_19b",
+      "selected_classes": [
+        "Tiago",
+        "Manipulator",
+        "HandGrip",
+        "CookingPot"
+      ],
+      "selected_names": [
+        "gfanen",
+        "vui",
+        "wmmtpu",
+        "uffov",
+        "vx",
+        "uuq",
+        "howwu",
+        "jmdl"
+      ],
+      "question": "-Inference : uuq|canLift|vui \n -Justifications : uuq|Type|Tiago, Tiago|SubClassOf|Agent, uuq|hasCapability|gfanen, gfanen|isCapabilityOf|uuq, uuq|hasComponent|howwu, howwu|Type|Manipulator, Manipulator|SubClassOf|Gripper, uuq|hasComponent|jmdl, jmdl|Type|Manipulator, Manipulator|SubClassOf|Gripper, vui|Type|CookingPot, CookingPot|SubClassOf|Object, vui|hasDisposition|uffov, uffov|isDispositionOf|vui, vui|hasPart|wmmtpu, wmmtpu|Type|HandGrip, HandGrip|SubClassOf|HoldablePart, vui|hasPart|vx, vx|Type|HandGrip, HandGrip|SubClassOf|HoldablePart, vui|isTouchableBy|uuq, howwu|Type|Gripper, Gripper|SubClassOf|EndEffector, uuq|hasComponent|howwu, howwu|hasWeightLimit|integer#94, vui|hasWeight|integer#76, lesserThan(integer#76,integer#94) \n -Rules : Agent(?a), hasCapability(?a, ?c), LiftingCapability(?c), Object(?o), hasDisposition(?o, ?d), LiftableDisposition(?d), isTouchableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasWeightLimit(?g,?w1), hasWeight(?o,?w2), lesserThan(?w2,?w1) -> canLift(?a, ?o)\n\tLiftingCapability|EquivalentTo|(isCapabilityOf some (hasComponent min 2 Gripper)\n\tLiftableDisposition|EquivalentTo|(isDispositionOf some (hasPart min 2 HoldablePart))",
+      "answer": "\u00a0the tiago robot can lift the cooking pot because it has a lifting capability and a gripper component, and the cooking pot is touchable by the robot, with a weight less than the gripper's weight limit.",
+      "duration": 4058447.0
+    }
+  ]
+}

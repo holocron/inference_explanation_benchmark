@@ -1,0 +1,535 @@
+{
+  "id": "a_canLift_medium",
+  "template": {
+    "fact": "__agent__|canLift|__object__",
+    "explanation": [
+      "__agent__|Type|__Agent__",
+      "__Agent__|SubClassOf|Agent",
+      "__agent__|hasCapability|__agent_capa__",
+      "__agent_capa__|isCapabilityOf|__agent__",
+      "__agent__|hasComponent|__gripper_1__",
+      "__gripper_1__|Type|__Gripper__",
+      "__Gripper__|SubClassOf|Gripper",
+      "__agent__|hasComponent|__gripper_2__",
+      "__gripper_2__|Type|__Gripper__",
+      "__Gripper__|SubClassOf|Gripper",
+      "__agent__|hasComponent|__algo__",
+      "__algo__|Type|MotionPlanningAlgo",
+      "__object__|Type|__Object__",
+      "__Object__|SubClassOf|Object",
+      "__object__|hasDisposition|__object_disp__",
+      "__object_disp__|isDispositionOf|__object__",
+      "__object__|hasPart|__handle_1__",
+      "__handle_1__|Type|__Handle__",
+      "__Handle__|SubClassOf|HoldablePart",
+      "__object__|hasPart|__handle_2__",
+      "__handle_2__|Type|__Handle__",
+      "__Handle__|SubClassOf|HoldablePart",
+      "__object__|canBeUsed|boolean#true",
+      "__object__|isOnTouchableSupport|__table__",
+      "__table__|isWithinMovingRangeOf|__agent__",
+      "__gripper_1__|Type|Gripper",
+      "Gripper|SubClassOf|EndEffector",
+      "__agent__|hasComponent|__gripper_1__",
+      "__gripper_1__|hasWeightLimit|integer#2",
+      "__object__|hasWeight|integer#1",
+      "lesserThan(integer#1,integer#2)"
+    ]
+  },
+  "rules": [
+    "Agent(?a), hasCapability(?a, ?c), LiftingCapability(?c), Object(?o), hasDisposition(?o, ?d), LiftableDisposition(?d), isTouchableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasWeightLimit(?g,?w1), hasWeight(?o,?w2), lesserThan(?w2,?w1) -> canLift(?a, ?o)",
+    "LiftingCapability|EquivalentTo|(isCapabilityOf some ((hasComponent min 2 Gripper) and (hasComponent some MotionPlanningAlgo))",
+    "LiftableDisposition|EquivalentTo|(isDispositionOf some ((hasPart min 2 HoldablePart) and (canBeUsed value boolean#true)))",
+    "(isOnTouchableSupport o isWithinMovingRangeOf)|SubPropertyOf|isTouchableBy"
+  ],
+  "concepts": [
+    "lifting",
+    "liftable",
+    "touchable",
+    "weight limit",
+    "object_weight",
+    "can lift"
+  ],
+  "answers": [
+    {
+      "id": "a_canLift_medium_0b",
+      "selected_classes": [
+        "Pepper",
+        "TwoFingerClaw",
+        "Handle",
+        "CookingPot"
+      ],
+      "selected_names": [
+        "rwukem",
+        "ugef",
+        "ieqqo",
+        "agbhg",
+        "xkce",
+        "gsxbn",
+        "ij",
+        "oyy",
+        "hfxw",
+        "vwhhdp"
+      ],
+      "question": "-Inference : ij|canLift|ugef \n -Justifications : ij|Type|Pepper, Pepper|SubClassOf|Agent, ij|hasCapability|rwukem, rwukem|isCapabilityOf|ij, ij|hasComponent|oyy, oyy|Type|TwoFingerClaw, TwoFingerClaw|SubClassOf|Gripper, ij|hasComponent|hfxw, hfxw|Type|TwoFingerClaw, TwoFingerClaw|SubClassOf|Gripper, ij|hasComponent|vwhhdp, vwhhdp|Type|MotionPlanningAlgo, ugef|Type|CookingPot, CookingPot|SubClassOf|Object, ugef|hasDisposition|xkce, xkce|isDispositionOf|ugef, ugef|hasPart|agbhg, agbhg|Type|Handle, Handle|SubClassOf|HoldablePart, ugef|hasPart|gsxbn, gsxbn|Type|Handle, Handle|SubClassOf|HoldablePart, ugef|canBeUsed|boolean#true, ugef|isOnTouchableSupport|ieqqo, ieqqo|isWithinMovingRangeOf|ij, oyy|Type|Gripper, Gripper|SubClassOf|EndEffector, ij|hasComponent|oyy, oyy|hasWeightLimit|integer#79, ugef|hasWeight|integer#60, lesserThan(integer#60,integer#79) \n -Rules : Agent(?a), hasCapability(?a, ?c), LiftingCapability(?c), Object(?o), hasDisposition(?o, ?d), LiftableDisposition(?d), isTouchableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasWeightLimit(?g,?w1), hasWeight(?o,?w2), lesserThan(?w2,?w1) -> canLift(?a, ?o)\n\tLiftingCapability|EquivalentTo|(isCapabilityOf some ((hasComponent min 2 Gripper) and (hasComponent some MotionPlanningAlgo))\n\tLiftableDisposition|EquivalentTo|(isDispositionOf some ((hasPart min 2 HoldablePart) and (canBeUsed value boolean#true)))\n\t(isOnTouchableSupport o isWithinMovingRangeOf)|SubPropertyOf|isTouchableBy",
+      "answer": "The Pepper\u2011type agent can lift the cooking pot because it has a lifting capability\u2014realised by possessing at least two grippers (end\u2011effectors) and a motion\u2011planning algorithm\u2014and each gripper\u2019s weight limit (79\u202funits) exceeds the pot\u2019s weight (60\u202funits); the pot itself carries a liftable disposition, meaning it includes at least two holdable parts (handles) and is usable, and it rests on a touchable support that lies within the agent\u2019s moving range, thereby satisfying the touchability condition required for lifting.",
+      "duration": 14750372.0
+    },
+    {
+      "id": "a_canLift_medium_1b",
+      "selected_classes": [
+        "Pr2",
+        "TwoFingerClaw",
+        "Handle",
+        "Suitcase"
+      ],
+      "selected_names": [
+        "wgzq",
+        "nata",
+        "awzka",
+        "okfy",
+        "rp",
+        "jfdqfo",
+        "ba",
+        "xcuh",
+        "fwzndw",
+        "ntdk"
+      ],
+      "question": "-Inference : ba|canLift|nata \n -Justifications : ba|Type|Pr2, Pr2|SubClassOf|Agent, ba|hasCapability|wgzq, wgzq|isCapabilityOf|ba, ba|hasComponent|xcuh, xcuh|Type|TwoFingerClaw, TwoFingerClaw|SubClassOf|Gripper, ba|hasComponent|fwzndw, fwzndw|Type|TwoFingerClaw, TwoFingerClaw|SubClassOf|Gripper, ba|hasComponent|ntdk, ntdk|Type|MotionPlanningAlgo, nata|Type|Suitcase, Suitcase|SubClassOf|Object, nata|hasDisposition|rp, rp|isDispositionOf|nata, nata|hasPart|okfy, okfy|Type|Handle, Handle|SubClassOf|HoldablePart, nata|hasPart|jfdqfo, jfdqfo|Type|Handle, Handle|SubClassOf|HoldablePart, nata|canBeUsed|boolean#true, nata|isOnTouchableSupport|awzka, awzka|isWithinMovingRangeOf|ba, xcuh|Type|Gripper, Gripper|SubClassOf|EndEffector, ba|hasComponent|xcuh, xcuh|hasWeightLimit|integer#96, nata|hasWeight|integer#23, lesserThan(integer#23,integer#96) \n -Rules : Agent(?a), hasCapability(?a, ?c), LiftingCapability(?c), Object(?o), hasDisposition(?o, ?d), LiftableDisposition(?d), isTouchableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasWeightLimit(?g,?w1), hasWeight(?o,?w2), lesserThan(?w2,?w1) -> canLift(?a, ?o)\n\tLiftingCapability|EquivalentTo|(isCapabilityOf some ((hasComponent min 2 Gripper) and (hasComponent some MotionPlanningAlgo))\n\tLiftableDisposition|EquivalentTo|(isDispositionOf some ((hasPart min 2 HoldablePart) and (canBeUsed value boolean#true)))\n\t(isOnTouchableSupport o isWithinMovingRangeOf)|SubPropertyOf|isTouchableBy",
+      "answer": "The Pr2 robot, which is an agent that has a lifting capability realized through at least two two\u2011finger grippers (each a gripper end\u2011effector with a weight limit of\u202f96) together with a motion\u2011planning algorithm, can lift the suitcase because the suitcase is an object that possesses a liftable disposition (it has at least two handles, each a holdable part, and is marked as usable), its weight of\u202f23 is lower than the grippers\u2019 weight limit, and it rests on a support that lies within the robot\u2019s moving range, making the suitcase touchable by the robot.",
+      "duration": 16414212.0
+    },
+    {
+      "id": "a_canLift_medium_2b",
+      "selected_classes": [
+        "Tiago",
+        "MechanicalHand",
+        "Handle",
+        "OvenTray"
+      ],
+      "selected_names": [
+        "ifhu",
+        "tkf",
+        "pm",
+        "ivtf",
+        "jyet",
+        "wvsqz",
+        "apve",
+        "awdgr",
+        "pdkey",
+        "uz"
+      ],
+      "question": "-Inference : apve|canLift|tkf \n -Justifications : apve|Type|Tiago, Tiago|SubClassOf|Agent, apve|hasCapability|ifhu, ifhu|isCapabilityOf|apve, apve|hasComponent|awdgr, awdgr|Type|MechanicalHand, MechanicalHand|SubClassOf|Gripper, apve|hasComponent|pdkey, pdkey|Type|MechanicalHand, MechanicalHand|SubClassOf|Gripper, apve|hasComponent|uz, uz|Type|MotionPlanningAlgo, tkf|Type|OvenTray, OvenTray|SubClassOf|Object, tkf|hasDisposition|jyet, jyet|isDispositionOf|tkf, tkf|hasPart|ivtf, ivtf|Type|Handle, Handle|SubClassOf|HoldablePart, tkf|hasPart|wvsqz, wvsqz|Type|Handle, Handle|SubClassOf|HoldablePart, tkf|canBeUsed|boolean#true, tkf|isOnTouchableSupport|pm, pm|isWithinMovingRangeOf|apve, awdgr|Type|Gripper, Gripper|SubClassOf|EndEffector, apve|hasComponent|awdgr, awdgr|hasWeightLimit|integer#25, tkf|hasWeight|integer#23, lesserThan(integer#23,integer#25) \n -Rules : Agent(?a), hasCapability(?a, ?c), LiftingCapability(?c), Object(?o), hasDisposition(?o, ?d), LiftableDisposition(?d), isTouchableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasWeightLimit(?g,?w1), hasWeight(?o,?w2), lesserThan(?w2,?w1) -> canLift(?a, ?o)\n\tLiftingCapability|EquivalentTo|(isCapabilityOf some ((hasComponent min 2 Gripper) and (hasComponent some MotionPlanningAlgo))\n\tLiftableDisposition|EquivalentTo|(isDispositionOf some ((hasPart min 2 HoldablePart) and (canBeUsed value boolean#true)))\n\t(isOnTouchableSupport o isWithinMovingRangeOf)|SubPropertyOf|isTouchableBy",
+      "answer": "The Tiago robot, as an agent that possesses a lifting capability defined by having at least two grippers (mechanical hands) and a motion\u2011planning algorithm, can lift the oven tray because the tray is an object classified as liftable (it has a liftable disposition and includes holdable parts such as handles), it is usable and positioned on a support that lies within the robot\u2019s reachable range, and its weight of 23 units is below the 25\u2011unit weight limit of each gripper.",
+      "duration": 17201331.0
+    },
+    {
+      "id": "a_canLift_medium_3b",
+      "selected_classes": [
+        "Pepper",
+        "Claw",
+        "Grip",
+        "Suitcase"
+      ],
+      "selected_names": [
+        "va",
+        "bn",
+        "pndk",
+        "tgxglh",
+        "rc",
+        "bcwfg",
+        "mcffja",
+        "vkgm",
+        "asaqu",
+        "vo"
+      ],
+      "question": "-Inference : mcffja|canLift|bn \n -Justifications : mcffja|Type|Pepper, Pepper|SubClassOf|Agent, mcffja|hasCapability|va, va|isCapabilityOf|mcffja, mcffja|hasComponent|vkgm, vkgm|Type|Claw, Claw|SubClassOf|Gripper, mcffja|hasComponent|asaqu, asaqu|Type|Claw, Claw|SubClassOf|Gripper, mcffja|hasComponent|vo, vo|Type|MotionPlanningAlgo, bn|Type|Suitcase, Suitcase|SubClassOf|Object, bn|hasDisposition|rc, rc|isDispositionOf|bn, bn|hasPart|tgxglh, tgxglh|Type|Grip, Grip|SubClassOf|HoldablePart, bn|hasPart|bcwfg, bcwfg|Type|Grip, Grip|SubClassOf|HoldablePart, bn|canBeUsed|boolean#true, bn|isOnTouchableSupport|pndk, pndk|isWithinMovingRangeOf|mcffja, vkgm|Type|Gripper, Gripper|SubClassOf|EndEffector, mcffja|hasComponent|vkgm, vkgm|hasWeightLimit|integer#79, bn|hasWeight|integer#34, lesserThan(integer#34,integer#79) \n -Rules : Agent(?a), hasCapability(?a, ?c), LiftingCapability(?c), Object(?o), hasDisposition(?o, ?d), LiftableDisposition(?d), isTouchableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasWeightLimit(?g,?w1), hasWeight(?o,?w2), lesserThan(?w2,?w1) -> canLift(?a, ?o)\n\tLiftingCapability|EquivalentTo|(isCapabilityOf some ((hasComponent min 2 Gripper) and (hasComponent some MotionPlanningAlgo))\n\tLiftableDisposition|EquivalentTo|(isDispositionOf some ((hasPart min 2 HoldablePart) and (canBeUsed value boolean#true)))\n\t(isOnTouchableSupport o isWithinMovingRangeOf)|SubPropertyOf|isTouchableBy",
+      "answer": "The Pepper robot can lift the suitcase because, as an agent, it has a lifting capability realized through at least two gripper components (claws) and a motion\u2011planning algorithm; each gripper is an end\u2011effector with a weight limit of\u202f79, which exceeds the suitcase\u2019s weight of\u202f34, the suitcase bears a liftable disposition defined by holdable parts (grips) and is marked usable, and it rests on a touchable support that lies within the robot\u2019s moving range, thereby satisfying the touchable\u2011by condition.",
+      "duration": 14511378.0
+    },
+    {
+      "id": "a_canLift_medium_4b",
+      "selected_classes": [
+        "Tiago",
+        "Manipulator",
+        "Grip",
+        "Bucket"
+      ],
+      "selected_names": [
+        "mszqgx",
+        "avh",
+        "moqi",
+        "jsbmd",
+        "ue",
+        "rujtg",
+        "ou",
+        "lpbvsp",
+        "iqq",
+        "xl"
+      ],
+      "question": "-Inference : ou|canLift|avh \n -Justifications : ou|Type|Tiago, Tiago|SubClassOf|Agent, ou|hasCapability|mszqgx, mszqgx|isCapabilityOf|ou, ou|hasComponent|lpbvsp, lpbvsp|Type|Manipulator, Manipulator|SubClassOf|Gripper, ou|hasComponent|iqq, iqq|Type|Manipulator, Manipulator|SubClassOf|Gripper, ou|hasComponent|xl, xl|Type|MotionPlanningAlgo, avh|Type|Bucket, Bucket|SubClassOf|Object, avh|hasDisposition|ue, ue|isDispositionOf|avh, avh|hasPart|jsbmd, jsbmd|Type|Grip, Grip|SubClassOf|HoldablePart, avh|hasPart|rujtg, rujtg|Type|Grip, Grip|SubClassOf|HoldablePart, avh|canBeUsed|boolean#true, avh|isOnTouchableSupport|moqi, moqi|isWithinMovingRangeOf|ou, lpbvsp|Type|Gripper, Gripper|SubClassOf|EndEffector, ou|hasComponent|lpbvsp, lpbvsp|hasWeightLimit|integer#59, avh|hasWeight|integer#17, lesserThan(integer#17,integer#59) \n -Rules : Agent(?a), hasCapability(?a, ?c), LiftingCapability(?c), Object(?o), hasDisposition(?o, ?d), LiftableDisposition(?d), isTouchableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasWeightLimit(?g,?w1), hasWeight(?o,?w2), lesserThan(?w2,?w1) -> canLift(?a, ?o)\n\tLiftingCapability|EquivalentTo|(isCapabilityOf some ((hasComponent min 2 Gripper) and (hasComponent some MotionPlanningAlgo))\n\tLiftableDisposition|EquivalentTo|(isDispositionOf some ((hasPart min 2 HoldablePart) and (canBeUsed value boolean#true)))\n\t(isOnTouchableSupport o isWithinMovingRangeOf)|SubPropertyOf|isTouchableBy",
+      "answer": "The Tiago robot can lift the bucket because it possesses a lifting capability (realized by two gripper components and a motion\u2011planning algorithm), its grippers (as end\u2011effectors) have a weight limit of 59 units, the bucket weighs only 17 units, the bucket is classified as liftable through a liftable disposition that includes at least two holdable parts, and the bucket rests on a support that lies within the robot\u2019s moving range, making the bucket touchable by the robot.",
+      "duration": 15180308.0
+    },
+    {
+      "id": "a_canLift_medium_5b",
+      "selected_classes": [
+        "Tiago",
+        "Manipulator",
+        "HandGrip",
+        "Toolbox"
+      ],
+      "selected_names": [
+        "mazow",
+        "emycac",
+        "nkbu",
+        "dptmb",
+        "wphxl",
+        "uf",
+        "zbcz",
+        "sard",
+        "sptz",
+        "py"
+      ],
+      "question": "-Inference : zbcz|canLift|emycac \n -Justifications : zbcz|Type|Tiago, Tiago|SubClassOf|Agent, zbcz|hasCapability|mazow, mazow|isCapabilityOf|zbcz, zbcz|hasComponent|sard, sard|Type|Manipulator, Manipulator|SubClassOf|Gripper, zbcz|hasComponent|sptz, sptz|Type|Manipulator, Manipulator|SubClassOf|Gripper, zbcz|hasComponent|py, py|Type|MotionPlanningAlgo, emycac|Type|Toolbox, Toolbox|SubClassOf|Object, emycac|hasDisposition|wphxl, wphxl|isDispositionOf|emycac, emycac|hasPart|dptmb, dptmb|Type|HandGrip, HandGrip|SubClassOf|HoldablePart, emycac|hasPart|uf, uf|Type|HandGrip, HandGrip|SubClassOf|HoldablePart, emycac|canBeUsed|boolean#true, emycac|isOnTouchableSupport|nkbu, nkbu|isWithinMovingRangeOf|zbcz, sard|Type|Gripper, Gripper|SubClassOf|EndEffector, zbcz|hasComponent|sard, sard|hasWeightLimit|integer#93, emycac|hasWeight|integer#56, lesserThan(integer#56,integer#93) \n -Rules : Agent(?a), hasCapability(?a, ?c), LiftingCapability(?c), Object(?o), hasDisposition(?o, ?d), LiftableDisposition(?d), isTouchableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasWeightLimit(?g,?w1), hasWeight(?o,?w2), lesserThan(?w2,?w1) -> canLift(?a, ?o)\n\tLiftingCapability|EquivalentTo|(isCapabilityOf some ((hasComponent min 2 Gripper) and (hasComponent some MotionPlanningAlgo))\n\tLiftableDisposition|EquivalentTo|(isDispositionOf some ((hasPart min 2 HoldablePart) and (canBeUsed value boolean#true)))\n\t(isOnTouchableSupport o isWithinMovingRangeOf)|SubPropertyOf|isTouchableBy",
+      "answer": "The Tiago agent can lift the toolbox because it has a lifting capability (via its mazow capability) that includes at least two grippers (the manipulators\u202fsard\u202fand\u202fsptz) and a motion\u2011planning algorithm (py), the toolbox carries a liftable disposition (wphxl) with holdable parts (the hand\u2011grips\u202fdptmb\u202fand\u202fuf) and is placed on a support (nkbu) that lies within the agent\u2019s moving range, making it touchable, and the toolbox\u2019s weight (56) is below the weight limit of the agent\u2019s grippers (93).",
+      "duration": 14624104.0
+    },
+    {
+      "id": "a_canLift_medium_6b",
+      "selected_classes": [
+        "Pr2",
+        "TwoFingerClaw",
+        "Handle",
+        "Bucket"
+      ],
+      "selected_names": [
+        "bnfjd",
+        "xv",
+        "pdqxcr",
+        "cn",
+        "wb",
+        "wfsg",
+        "btpy",
+        "ivy",
+        "qhflxa",
+        "aiv"
+      ],
+      "question": "-Inference : btpy|canLift|xv \n -Justifications : btpy|Type|Pr2, Pr2|SubClassOf|Agent, btpy|hasCapability|bnfjd, bnfjd|isCapabilityOf|btpy, btpy|hasComponent|ivy, ivy|Type|TwoFingerClaw, TwoFingerClaw|SubClassOf|Gripper, btpy|hasComponent|qhflxa, qhflxa|Type|TwoFingerClaw, TwoFingerClaw|SubClassOf|Gripper, btpy|hasComponent|aiv, aiv|Type|MotionPlanningAlgo, xv|Type|Bucket, Bucket|SubClassOf|Object, xv|hasDisposition|wb, wb|isDispositionOf|xv, xv|hasPart|cn, cn|Type|Handle, Handle|SubClassOf|HoldablePart, xv|hasPart|wfsg, wfsg|Type|Handle, Handle|SubClassOf|HoldablePart, xv|canBeUsed|boolean#true, xv|isOnTouchableSupport|pdqxcr, pdqxcr|isWithinMovingRangeOf|btpy, ivy|Type|Gripper, Gripper|SubClassOf|EndEffector, btpy|hasComponent|ivy, ivy|hasWeightLimit|integer#83, xv|hasWeight|integer#38, lesserThan(integer#38,integer#83) \n -Rules : Agent(?a), hasCapability(?a, ?c), LiftingCapability(?c), Object(?o), hasDisposition(?o, ?d), LiftableDisposition(?d), isTouchableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasWeightLimit(?g,?w1), hasWeight(?o,?w2), lesserThan(?w2,?w1) -> canLift(?a, ?o)\n\tLiftingCapability|EquivalentTo|(isCapabilityOf some ((hasComponent min 2 Gripper) and (hasComponent some MotionPlanningAlgo))\n\tLiftableDisposition|EquivalentTo|(isDispositionOf some ((hasPart min 2 HoldablePart) and (canBeUsed value boolean#true)))\n\t(isOnTouchableSupport o isWithinMovingRangeOf)|SubPropertyOf|isTouchableBy",
+      "answer": "The agent (a Pr2, which is a subclass of Agent) can lift the bucket because it has a lifting capability that is realized through its components: it possesses at least two grippers (two Two\u2011Finger Claws, each a Gripper and thus an End\u2011Effector) and a motion\u2011planning algorithm, satisfying the definition of a LiftingCapability; each gripper can support up to 83 weight units, while the bucket weighs only 38 units, so its weight is below the grippers\u2019 limit. The bucket is classified as liftable since it has a liftable disposition (it is usable and contains at least two holdable parts\u2014two Handles, each a HoldablePart). Moreover, the bucket rests on a touchable support that lies within the agent\u2019s moving range, establishing the required touchability relation. Because all these conditions are met, the rule concludes that the agent can lift the bucket.",
+      "duration": 17323809.0
+    },
+    {
+      "id": "a_canLift_medium_7b",
+      "selected_classes": [
+        "Tiago",
+        "Claw",
+        "Handle",
+        "OvenTray"
+      ],
+      "selected_names": [
+        "hlqhm",
+        "ko",
+        "ayl",
+        "vtx",
+        "ohdj",
+        "yufs",
+        "bc",
+        "ctlumt",
+        "qunpsu",
+        "pstqb"
+      ],
+      "question": "-Inference : bc|canLift|ko \n -Justifications : bc|Type|Tiago, Tiago|SubClassOf|Agent, bc|hasCapability|hlqhm, hlqhm|isCapabilityOf|bc, bc|hasComponent|ctlumt, ctlumt|Type|Claw, Claw|SubClassOf|Gripper, bc|hasComponent|qunpsu, qunpsu|Type|Claw, Claw|SubClassOf|Gripper, bc|hasComponent|pstqb, pstqb|Type|MotionPlanningAlgo, ko|Type|OvenTray, OvenTray|SubClassOf|Object, ko|hasDisposition|ohdj, ohdj|isDispositionOf|ko, ko|hasPart|vtx, vtx|Type|Handle, Handle|SubClassOf|HoldablePart, ko|hasPart|yufs, yufs|Type|Handle, Handle|SubClassOf|HoldablePart, ko|canBeUsed|boolean#true, ko|isOnTouchableSupport|ayl, ayl|isWithinMovingRangeOf|bc, ctlumt|Type|Gripper, Gripper|SubClassOf|EndEffector, bc|hasComponent|ctlumt, ctlumt|hasWeightLimit|integer#55, ko|hasWeight|integer#19, lesserThan(integer#19,integer#55) \n -Rules : Agent(?a), hasCapability(?a, ?c), LiftingCapability(?c), Object(?o), hasDisposition(?o, ?d), LiftableDisposition(?d), isTouchableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasWeightLimit(?g,?w1), hasWeight(?o,?w2), lesserThan(?w2,?w1) -> canLift(?a, ?o)\n\tLiftingCapability|EquivalentTo|(isCapabilityOf some ((hasComponent min 2 Gripper) and (hasComponent some MotionPlanningAlgo))\n\tLiftableDisposition|EquivalentTo|(isDispositionOf some ((hasPart min 2 HoldablePart) and (canBeUsed value boolean#true)))\n\t(isOnTouchableSupport o isWithinMovingRangeOf)|SubPropertyOf|isTouchableBy",
+      "answer": "The Tiago, which is an Agent, can lift the oven tray because it has a lifting capability that requires at least two grippers and a motion\u2011planning algorithm; it indeed possesses two claw components (both subclasses of Gripper) and a motion\u2011planning algorithm component, and each gripper (as an EndEffector) can support up to 55 weight units, which exceeds the tray\u2019s weight of 19. The oven tray is an Object with a liftable disposition\u2014its disposition is liftable because it contains at least two holdable parts (the handles) and is marked as usable\u2014and it rests on a support that lies within the Tiago\u2019s moving range, making the tray touchable by the Tiago. Since all the rule\u2019s conditions are met, the Tiago can lift the oven tray.",
+      "duration": 15389044.0
+    },
+    {
+      "id": "a_canLift_medium_8b",
+      "selected_classes": [
+        "Pepper",
+        "TwoFingerClaw",
+        "Handle",
+        "CookingPot"
+      ],
+      "selected_names": [
+        "kv",
+        "vf",
+        "ojlzl",
+        "hoa",
+        "ri",
+        "kjxt",
+        "vxrc",
+        "aih",
+        "dmc",
+        "ksy"
+      ],
+      "question": "-Inference : vxrc|canLift|vf \n -Justifications : vxrc|Type|Pepper, Pepper|SubClassOf|Agent, vxrc|hasCapability|kv, kv|isCapabilityOf|vxrc, vxrc|hasComponent|aih, aih|Type|TwoFingerClaw, TwoFingerClaw|SubClassOf|Gripper, vxrc|hasComponent|dmc, dmc|Type|TwoFingerClaw, TwoFingerClaw|SubClassOf|Gripper, vxrc|hasComponent|ksy, ksy|Type|MotionPlanningAlgo, vf|Type|CookingPot, CookingPot|SubClassOf|Object, vf|hasDisposition|ri, ri|isDispositionOf|vf, vf|hasPart|hoa, hoa|Type|Handle, Handle|SubClassOf|HoldablePart, vf|hasPart|kjxt, kjxt|Type|Handle, Handle|SubClassOf|HoldablePart, vf|canBeUsed|boolean#true, vf|isOnTouchableSupport|ojlzl, ojlzl|isWithinMovingRangeOf|vxrc, aih|Type|Gripper, Gripper|SubClassOf|EndEffector, vxrc|hasComponent|aih, aih|hasWeightLimit|integer#94, vf|hasWeight|integer#65, lesserThan(integer#65,integer#94) \n -Rules : Agent(?a), hasCapability(?a, ?c), LiftingCapability(?c), Object(?o), hasDisposition(?o, ?d), LiftableDisposition(?d), isTouchableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasWeightLimit(?g,?w1), hasWeight(?o,?w2), lesserThan(?w2,?w1) -> canLift(?a, ?o)\n\tLiftingCapability|EquivalentTo|(isCapabilityOf some ((hasComponent min 2 Gripper) and (hasComponent some MotionPlanningAlgo))\n\tLiftableDisposition|EquivalentTo|(isDispositionOf some ((hasPart min 2 HoldablePart) and (canBeUsed value boolean#true)))\n\t(isOnTouchableSupport o isWithinMovingRangeOf)|SubPropertyOf|isTouchableBy",
+      "answer": "The Pepper\u2011type agent can lift the cooking pot because it possesses a lifting capability\u2014defined as having at least two grippers and a motion\u2011planning algorithm\u2014its grippers each have a weight limit of 94 units, which exceeds the pot\u2019s weight of 65 units; the pot is classified as liftable (it has a liftable disposition, contains holdable parts such as handles, and is marked as usable), and it rests on a support that lies within the agent\u2019s reachable range, satisfying the touchability condition.",
+      "duration": 15967893.0
+    },
+    {
+      "id": "a_canLift_medium_9b",
+      "selected_classes": [
+        "Robot",
+        "Manipulator",
+        "Handle",
+        "Suitcase"
+      ],
+      "selected_names": [
+        "hmofm",
+        "tff",
+        "wehn",
+        "rudiu",
+        "kwrc",
+        "ahk",
+        "rqfayw",
+        "mrvbl",
+        "uti",
+        "tokrgc"
+      ],
+      "question": "-Inference : rqfayw|canLift|tff \n -Justifications : rqfayw|Type|Robot, Robot|SubClassOf|Agent, rqfayw|hasCapability|hmofm, hmofm|isCapabilityOf|rqfayw, rqfayw|hasComponent|mrvbl, mrvbl|Type|Manipulator, Manipulator|SubClassOf|Gripper, rqfayw|hasComponent|uti, uti|Type|Manipulator, Manipulator|SubClassOf|Gripper, rqfayw|hasComponent|tokrgc, tokrgc|Type|MotionPlanningAlgo, tff|Type|Suitcase, Suitcase|SubClassOf|Object, tff|hasDisposition|kwrc, kwrc|isDispositionOf|tff, tff|hasPart|rudiu, rudiu|Type|Handle, Handle|SubClassOf|HoldablePart, tff|hasPart|ahk, ahk|Type|Handle, Handle|SubClassOf|HoldablePart, tff|canBeUsed|boolean#true, tff|isOnTouchableSupport|wehn, wehn|isWithinMovingRangeOf|rqfayw, mrvbl|Type|Gripper, Gripper|SubClassOf|EndEffector, rqfayw|hasComponent|mrvbl, mrvbl|hasWeightLimit|integer#62, tff|hasWeight|integer#16, lesserThan(integer#16,integer#62) \n -Rules : Agent(?a), hasCapability(?a, ?c), LiftingCapability(?c), Object(?o), hasDisposition(?o, ?d), LiftableDisposition(?d), isTouchableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasWeightLimit(?g,?w1), hasWeight(?o,?w2), lesserThan(?w2,?w1) -> canLift(?a, ?o)\n\tLiftingCapability|EquivalentTo|(isCapabilityOf some ((hasComponent min 2 Gripper) and (hasComponent some MotionPlanningAlgo))\n\tLiftableDisposition|EquivalentTo|(isDispositionOf some ((hasPart min 2 HoldablePart) and (canBeUsed value boolean#true)))\n\t(isOnTouchableSupport o isWithinMovingRangeOf)|SubPropertyOf|isTouchableBy",
+      "answer": "The robot, being an agent, can lift the suitcase because it has a lifting capability expressed through at least two gripper manipulators (the manipulators are end\u2011effectors with a weight limit of 62 units) together with a motion\u2011planning algorithm, and these end\u2011effectors\u2019 weight limit exceeds the suitcase\u2019s weight of 16 units; the suitcase is a liftable object\u2014its liftable disposition is shown by the presence of two holdable handles and the fact that it is usable\u2014and it rests on a touchable support that lies within the robot\u2019s moving range, satisfying the requirement that the object be touchable by the agent.",
+      "duration": 15200137.0
+    },
+    {
+      "id": "a_canLift_medium_10b",
+      "selected_classes": [
+        "Pr2",
+        "MechanicalHand",
+        "Handle",
+        "Toolbox"
+      ],
+      "selected_names": [
+        "vxxzps",
+        "szwb",
+        "tgjdw",
+        "gx",
+        "vag",
+        "xc",
+        "vdw",
+        "iaack",
+        "rlonve",
+        "lc"
+      ],
+      "question": "-Inference : vdw|canLift|szwb \n -Justifications : vdw|Type|Pr2, Pr2|SubClassOf|Agent, vdw|hasCapability|vxxzps, vxxzps|isCapabilityOf|vdw, vdw|hasComponent|iaack, iaack|Type|MechanicalHand, MechanicalHand|SubClassOf|Gripper, vdw|hasComponent|rlonve, rlonve|Type|MechanicalHand, MechanicalHand|SubClassOf|Gripper, vdw|hasComponent|lc, lc|Type|MotionPlanningAlgo, szwb|Type|Toolbox, Toolbox|SubClassOf|Object, szwb|hasDisposition|vag, vag|isDispositionOf|szwb, szwb|hasPart|gx, gx|Type|Handle, Handle|SubClassOf|HoldablePart, szwb|hasPart|xc, xc|Type|Handle, Handle|SubClassOf|HoldablePart, szwb|canBeUsed|boolean#true, szwb|isOnTouchableSupport|tgjdw, tgjdw|isWithinMovingRangeOf|vdw, iaack|Type|Gripper, Gripper|SubClassOf|EndEffector, vdw|hasComponent|iaack, iaack|hasWeightLimit|integer#47, szwb|hasWeight|integer#22, lesserThan(integer#22,integer#47) \n -Rules : Agent(?a), hasCapability(?a, ?c), LiftingCapability(?c), Object(?o), hasDisposition(?o, ?d), LiftableDisposition(?d), isTouchableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasWeightLimit(?g,?w1), hasWeight(?o,?w2), lesserThan(?w2,?w1) -> canLift(?a, ?o)\n\tLiftingCapability|EquivalentTo|(isCapabilityOf some ((hasComponent min 2 Gripper) and (hasComponent some MotionPlanningAlgo))\n\tLiftableDisposition|EquivalentTo|(isDispositionOf some ((hasPart min 2 HoldablePart) and (canBeUsed value boolean#true)))\n\t(isOnTouchableSupport o isWithinMovingRangeOf)|SubPropertyOf|isTouchableBy",
+      "answer": "The agent can lift the toolbox because it has a lifting capability\u2014defined as possessing at least two grippers and a motion\u2011planning component\u2014and indeed it is equipped with two mechanical\u2011hand grippers (each a gripper/end\u2011effector) and a motion\u2011planning algorithm; each gripper can support up to 47 weight units, while the toolbox weighs only 22 units, satisfying the weight\u2011limit condition. The toolbox is classified as liftable through its liftable disposition, which requires it to contain at least two holdable parts (its handles) and to be marked usable, both of which are true. Finally, the toolbox rests on a support that lies within the agent\u2019s moving range, making it touchable. Since all these conditions are met, the rule concludes that the agent can lift the toolbox.",
+      "duration": 15503874.0
+    },
+    {
+      "id": "a_canLift_medium_11b",
+      "selected_classes": [
+        "Pr2",
+        "Claw",
+        "Handle",
+        "Suitcase"
+      ],
+      "selected_names": [
+        "rpb",
+        "gcpc",
+        "wzc",
+        "jaxp",
+        "rh",
+        "wh",
+        "qwzr",
+        "in",
+        "povlw",
+        "inr"
+      ],
+      "question": "-Inference : qwzr|canLift|gcpc \n -Justifications : qwzr|Type|Pr2, Pr2|SubClassOf|Agent, qwzr|hasCapability|rpb, rpb|isCapabilityOf|qwzr, qwzr|hasComponent|in, in|Type|Claw, Claw|SubClassOf|Gripper, qwzr|hasComponent|povlw, povlw|Type|Claw, Claw|SubClassOf|Gripper, qwzr|hasComponent|inr, inr|Type|MotionPlanningAlgo, gcpc|Type|Suitcase, Suitcase|SubClassOf|Object, gcpc|hasDisposition|rh, rh|isDispositionOf|gcpc, gcpc|hasPart|jaxp, jaxp|Type|Handle, Handle|SubClassOf|HoldablePart, gcpc|hasPart|wh, wh|Type|Handle, Handle|SubClassOf|HoldablePart, gcpc|canBeUsed|boolean#true, gcpc|isOnTouchableSupport|wzc, wzc|isWithinMovingRangeOf|qwzr, in|Type|Gripper, Gripper|SubClassOf|EndEffector, qwzr|hasComponent|in, in|hasWeightLimit|integer#94, gcpc|hasWeight|integer#30, lesserThan(integer#30,integer#94) \n -Rules : Agent(?a), hasCapability(?a, ?c), LiftingCapability(?c), Object(?o), hasDisposition(?o, ?d), LiftableDisposition(?d), isTouchableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasWeightLimit(?g,?w1), hasWeight(?o,?w2), lesserThan(?w2,?w1) -> canLift(?a, ?o)\n\tLiftingCapability|EquivalentTo|(isCapabilityOf some ((hasComponent min 2 Gripper) and (hasComponent some MotionPlanningAlgo))\n\tLiftableDisposition|EquivalentTo|(isDispositionOf some ((hasPart min 2 HoldablePart) and (canBeUsed value boolean#true)))\n\t(isOnTouchableSupport o isWithinMovingRangeOf)|SubPropertyOf|isTouchableBy",
+      "answer": "The Pr2 robot, as an agent, can lift the suitcase because it possesses a lifting capability that is realized through its two claw components (each a Gripper and thus an EndEffector) together with a motion\u2011planning algorithm; these grippers have a weight limit of 94, while the suitcase weighs only 30, and the suitcase\u2014being an object with a liftable disposition (it contains holdable handles and is marked usable)\u2014is placed on a touchable support that lies within the robot\u2019s moving range, satisfying all the conditions for the lift.",
+      "duration": 14685791.0
+    },
+    {
+      "id": "a_canLift_medium_12b",
+      "selected_classes": [
+        "Tiago",
+        "MechanicalHand",
+        "Grip",
+        "OvenTray"
+      ],
+      "selected_names": [
+        "obme",
+        "dzo",
+        "vy",
+        "ogez",
+        "yrkcl",
+        "xb",
+        "qjcjq",
+        "iwxlm",
+        "vrit",
+        "vtalnk"
+      ],
+      "question": "-Inference : qjcjq|canLift|dzo \n -Justifications : qjcjq|Type|Tiago, Tiago|SubClassOf|Agent, qjcjq|hasCapability|obme, obme|isCapabilityOf|qjcjq, qjcjq|hasComponent|iwxlm, iwxlm|Type|MechanicalHand, MechanicalHand|SubClassOf|Gripper, qjcjq|hasComponent|vrit, vrit|Type|MechanicalHand, MechanicalHand|SubClassOf|Gripper, qjcjq|hasComponent|vtalnk, vtalnk|Type|MotionPlanningAlgo, dzo|Type|OvenTray, OvenTray|SubClassOf|Object, dzo|hasDisposition|yrkcl, yrkcl|isDispositionOf|dzo, dzo|hasPart|ogez, ogez|Type|Grip, Grip|SubClassOf|HoldablePart, dzo|hasPart|xb, xb|Type|Grip, Grip|SubClassOf|HoldablePart, dzo|canBeUsed|boolean#true, dzo|isOnTouchableSupport|vy, vy|isWithinMovingRangeOf|qjcjq, iwxlm|Type|Gripper, Gripper|SubClassOf|EndEffector, qjcjq|hasComponent|iwxlm, iwxlm|hasWeightLimit|integer#80, dzo|hasWeight|integer#40, lesserThan(integer#40,integer#80) \n -Rules : Agent(?a), hasCapability(?a, ?c), LiftingCapability(?c), Object(?o), hasDisposition(?o, ?d), LiftableDisposition(?d), isTouchableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasWeightLimit(?g,?w1), hasWeight(?o,?w2), lesserThan(?w2,?w1) -> canLift(?a, ?o)\n\tLiftingCapability|EquivalentTo|(isCapabilityOf some ((hasComponent min 2 Gripper) and (hasComponent some MotionPlanningAlgo))\n\tLiftableDisposition|EquivalentTo|(isDispositionOf some ((hasPart min 2 HoldablePart) and (canBeUsed value boolean#true)))\n\t(isOnTouchableSupport o isWithinMovingRangeOf)|SubPropertyOf|isTouchableBy",
+      "answer": "The Tiago, which is an agent, can lift the oven tray because it has a lifting capability expressed through two mechanical hands (grippers) each able to support up to 80 weight units together with a motion\u2011planning algorithm, the tray is an object classified as liftable (it carries a liftable disposition, contains holdable grip parts and is usable), its weight of 40 is below the hands\u2019 limit, and it rests on a touchable support that lies within the robot\u2019s moving range, thereby satisfying the required touching condition.",
+      "duration": 13686043.000000002
+    },
+    {
+      "id": "a_canLift_medium_13b",
+      "selected_classes": [
+        "Robot",
+        "TwoFingerClaw",
+        "HandGrip",
+        "LaundryBasket"
+      ],
+      "selected_names": [
+        "zdr",
+        "tizg",
+        "uqsubf",
+        "jtl",
+        "ie",
+        "yus",
+        "zwwky",
+        "crua",
+        "oika",
+        "mn"
+      ],
+      "question": "-Inference : zwwky|canLift|tizg \n -Justifications : zwwky|Type|Robot, Robot|SubClassOf|Agent, zwwky|hasCapability|zdr, zdr|isCapabilityOf|zwwky, zwwky|hasComponent|crua, crua|Type|TwoFingerClaw, TwoFingerClaw|SubClassOf|Gripper, zwwky|hasComponent|oika, oika|Type|TwoFingerClaw, TwoFingerClaw|SubClassOf|Gripper, zwwky|hasComponent|mn, mn|Type|MotionPlanningAlgo, tizg|Type|LaundryBasket, LaundryBasket|SubClassOf|Object, tizg|hasDisposition|ie, ie|isDispositionOf|tizg, tizg|hasPart|jtl, jtl|Type|HandGrip, HandGrip|SubClassOf|HoldablePart, tizg|hasPart|yus, yus|Type|HandGrip, HandGrip|SubClassOf|HoldablePart, tizg|canBeUsed|boolean#true, tizg|isOnTouchableSupport|uqsubf, uqsubf|isWithinMovingRangeOf|zwwky, crua|Type|Gripper, Gripper|SubClassOf|EndEffector, zwwky|hasComponent|crua, crua|hasWeightLimit|integer#83, tizg|hasWeight|integer#29, lesserThan(integer#29,integer#83) \n -Rules : Agent(?a), hasCapability(?a, ?c), LiftingCapability(?c), Object(?o), hasDisposition(?o, ?d), LiftableDisposition(?d), isTouchableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasWeightLimit(?g,?w1), hasWeight(?o,?w2), lesserThan(?w2,?w1) -> canLift(?a, ?o)\n\tLiftingCapability|EquivalentTo|(isCapabilityOf some ((hasComponent min 2 Gripper) and (hasComponent some MotionPlanningAlgo))\n\tLiftableDisposition|EquivalentTo|(isDispositionOf some ((hasPart min 2 HoldablePart) and (canBeUsed value boolean#true)))\n\t(isOnTouchableSupport o isWithinMovingRangeOf)|SubPropertyOf|isTouchableBy",
+      "answer": "The robot, being an agent that possesses a lifting capability expressed through at least two grippers (two\u2011finger claws) and a motion\u2011planning algorithm, can lift the laundry basket because the basket is an object with a liftable disposition\u2014it contains holdable hand\u2011grip parts, is marked as usable, and rests on a support that lies within the robot\u2019s reachable range\u2014its weight (29) is lower than the weight limit of the robot\u2019s grippers (83), and the robot is within moving range of that support, satisfying all the conditions for a successful lift.",
+      "duration": 11565944.0
+    },
+    {
+      "id": "a_canLift_medium_14b",
+      "selected_classes": [
+        "Pepper",
+        "Manipulator",
+        "Grip",
+        "Toolbox"
+      ],
+      "selected_names": [
+        "fbql",
+        "pmfd",
+        "tpddny",
+        "grphvr",
+        "btl",
+        "lwwaxn",
+        "tio",
+        "naqm",
+        "yje",
+        "lss"
+      ],
+      "question": "-Inference : tio|canLift|pmfd \n -Justifications : tio|Type|Pepper, Pepper|SubClassOf|Agent, tio|hasCapability|fbql, fbql|isCapabilityOf|tio, tio|hasComponent|naqm, naqm|Type|Manipulator, Manipulator|SubClassOf|Gripper, tio|hasComponent|yje, yje|Type|Manipulator, Manipulator|SubClassOf|Gripper, tio|hasComponent|lss, lss|Type|MotionPlanningAlgo, pmfd|Type|Toolbox, Toolbox|SubClassOf|Object, pmfd|hasDisposition|btl, btl|isDispositionOf|pmfd, pmfd|hasPart|grphvr, grphvr|Type|Grip, Grip|SubClassOf|HoldablePart, pmfd|hasPart|lwwaxn, lwwaxn|Type|Grip, Grip|SubClassOf|HoldablePart, pmfd|canBeUsed|boolean#true, pmfd|isOnTouchableSupport|tpddny, tpddny|isWithinMovingRangeOf|tio, naqm|Type|Gripper, Gripper|SubClassOf|EndEffector, tio|hasComponent|naqm, naqm|hasWeightLimit|integer#99, pmfd|hasWeight|integer#24, lesserThan(integer#24,integer#99) \n -Rules : Agent(?a), hasCapability(?a, ?c), LiftingCapability(?c), Object(?o), hasDisposition(?o, ?d), LiftableDisposition(?d), isTouchableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasWeightLimit(?g,?w1), hasWeight(?o,?w2), lesserThan(?w2,?w1) -> canLift(?a, ?o)\n\tLiftingCapability|EquivalentTo|(isCapabilityOf some ((hasComponent min 2 Gripper) and (hasComponent some MotionPlanningAlgo))\n\tLiftableDisposition|EquivalentTo|(isDispositionOf some ((hasPart min 2 HoldablePart) and (canBeUsed value boolean#true)))\n\t(isOnTouchableSupport o isWithinMovingRangeOf)|SubPropertyOf|isTouchableBy",
+      "answer": "Because the Pepper robot (a subclass of Agent) has a lifting capability that is defined by possessing at least two grippers and a motion\u2011planning algorithm, and because its two gripper components each have a weight limit of 99, the 24\u2011unit\u2011weight toolbox\u2014an object whose liftable disposition is evidenced by its two grip parts (both subclasses of HoldablePart), its \u201ccan be used\u201d flag set to true, and its placement on a support that lies within the Pepper\u2019s moving range\u2014satisfies the weight\u2011limit condition and is touchable, so the Pepper can lift the toolbox.",
+      "duration": 17623581.0
+    },
+    {
+      "id": "a_canLift_medium_15b",
+      "selected_classes": [
+        "Robot",
+        "MechanicalHand",
+        "Handle",
+        "OvenTray"
+      ],
+      "selected_names": [
+        "xxc",
+        "sqi",
+        "kyvxuw",
+        "xnadv",
+        "soqz",
+        "wwblf",
+        "csuyb",
+        "hozh",
+        "lzwsj",
+        "uo"
+      ],
+      "question": "-Inference : csuyb|canLift|sqi \n -Justifications : csuyb|Type|Robot, Robot|SubClassOf|Agent, csuyb|hasCapability|xxc, xxc|isCapabilityOf|csuyb, csuyb|hasComponent|hozh, hozh|Type|MechanicalHand, MechanicalHand|SubClassOf|Gripper, csuyb|hasComponent|lzwsj, lzwsj|Type|MechanicalHand, MechanicalHand|SubClassOf|Gripper, csuyb|hasComponent|uo, uo|Type|MotionPlanningAlgo, sqi|Type|OvenTray, OvenTray|SubClassOf|Object, sqi|hasDisposition|soqz, soqz|isDispositionOf|sqi, sqi|hasPart|xnadv, xnadv|Type|Handle, Handle|SubClassOf|HoldablePart, sqi|hasPart|wwblf, wwblf|Type|Handle, Handle|SubClassOf|HoldablePart, sqi|canBeUsed|boolean#true, sqi|isOnTouchableSupport|kyvxuw, kyvxuw|isWithinMovingRangeOf|csuyb, hozh|Type|Gripper, Gripper|SubClassOf|EndEffector, csuyb|hasComponent|hozh, hozh|hasWeightLimit|integer#13, sqi|hasWeight|integer#10, lesserThan(integer#10,integer#13) \n -Rules : Agent(?a), hasCapability(?a, ?c), LiftingCapability(?c), Object(?o), hasDisposition(?o, ?d), LiftableDisposition(?d), isTouchableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasWeightLimit(?g,?w1), hasWeight(?o,?w2), lesserThan(?w2,?w1) -> canLift(?a, ?o)\n\tLiftingCapability|EquivalentTo|(isCapabilityOf some ((hasComponent min 2 Gripper) and (hasComponent some MotionPlanningAlgo))\n\tLiftableDisposition|EquivalentTo|(isDispositionOf some ((hasPart min 2 HoldablePart) and (canBeUsed value boolean#true)))\n\t(isOnTouchableSupport o isWithinMovingRangeOf)|SubPropertyOf|isTouchableBy",
+      "answer": "The robot can lift the oven tray because, as an agent, it possesses a lifting capability that requires both a motion\u2011planning algorithm and at least two grippers; it indeed has two mechanical\u2011hand grippers (each an end\u2011effector) with a weight limit of\u202f13\u202funits and a motion\u2011planning component, while the oven tray is an object whose liftable disposition is confirmed by having two handles (holdable parts) and being marked usable, and its weight of\u202f10\u202funits is below the grippers\u2019 13\u2011unit limit; additionally, the tray rests on a support that lies within the robot\u2019s moving range, making the tray touchable by the robot, so all conditions for the canLift relation are satisfied.",
+      "duration": 14137381.0
+    },
+    {
+      "id": "a_canLift_medium_16b",
+      "selected_classes": [
+        "Robot",
+        "TwoFingerClaw",
+        "HandGrip",
+        "Bucket"
+      ],
+      "selected_names": [
+        "bdg",
+        "der",
+        "gpvu",
+        "njr",
+        "rndujd",
+        "noh",
+        "plztpx",
+        "gcltt",
+        "jzf",
+        "jgpzzk"
+      ],
+      "question": "-Inference : plztpx|canLift|der \n -Justifications : plztpx|Type|Robot, Robot|SubClassOf|Agent, plztpx|hasCapability|bdg, bdg|isCapabilityOf|plztpx, plztpx|hasComponent|gcltt, gcltt|Type|TwoFingerClaw, TwoFingerClaw|SubClassOf|Gripper, plztpx|hasComponent|jzf, jzf|Type|TwoFingerClaw, TwoFingerClaw|SubClassOf|Gripper, plztpx|hasComponent|jgpzzk, jgpzzk|Type|MotionPlanningAlgo, der|Type|Bucket, Bucket|SubClassOf|Object, der|hasDisposition|rndujd, rndujd|isDispositionOf|der, der|hasPart|njr, njr|Type|HandGrip, HandGrip|SubClassOf|HoldablePart, der|hasPart|noh, noh|Type|HandGrip, HandGrip|SubClassOf|HoldablePart, der|canBeUsed|boolean#true, der|isOnTouchableSupport|gpvu, gpvu|isWithinMovingRangeOf|plztpx, gcltt|Type|Gripper, Gripper|SubClassOf|EndEffector, plztpx|hasComponent|gcltt, gcltt|hasWeightLimit|integer#76, der|hasWeight|integer#26, lesserThan(integer#26,integer#76) \n -Rules : Agent(?a), hasCapability(?a, ?c), LiftingCapability(?c), Object(?o), hasDisposition(?o, ?d), LiftableDisposition(?d), isTouchableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasWeightLimit(?g,?w1), hasWeight(?o,?w2), lesserThan(?w2,?w1) -> canLift(?a, ?o)\n\tLiftingCapability|EquivalentTo|(isCapabilityOf some ((hasComponent min 2 Gripper) and (hasComponent some MotionPlanningAlgo))\n\tLiftableDisposition|EquivalentTo|(isDispositionOf some ((hasPart min 2 HoldablePart) and (canBeUsed value boolean#true)))\n\t(isOnTouchableSupport o isWithinMovingRangeOf)|SubPropertyOf|isTouchableBy",
+      "answer": "The robot (an agent) can lift the bucket (an object) because it has a lifting capability realized through at least two grippers\u2014two two\u2011finger claws that are end\u2011effectors each with a weight limit of 76 units\u2014and a motion\u2011planning algorithm, and the bucket\u2019s weight of 26 units is below that limit; moreover, the bucket possesses a liftable disposition, being made of two hand\u2011grip parts, marked as usable, and resting on a support that lies within the robot\u2019s moving range, thereby satisfying the touchable\u2011by condition required for lifting.",
+      "duration": 20000335.0
+    },
+    {
+      "id": "a_canLift_medium_17b",
+      "selected_classes": [
+        "Pr2",
+        "Claw",
+        "HandGrip",
+        "Bucket"
+      ],
+      "selected_names": [
+        "yc",
+        "mrv",
+        "hlegxv",
+        "pteyn",
+        "tgu",
+        "yd",
+        "nu",
+        "nxrvc",
+        "lqspt",
+        "at"
+      ],
+      "question": "-Inference : nu|canLift|mrv \n -Justifications : nu|Type|Pr2, Pr2|SubClassOf|Agent, nu|hasCapability|yc, yc|isCapabilityOf|nu, nu|hasComponent|nxrvc, nxrvc|Type|Claw, Claw|SubClassOf|Gripper, nu|hasComponent|lqspt, lqspt|Type|Claw, Claw|SubClassOf|Gripper, nu|hasComponent|at, at|Type|MotionPlanningAlgo, mrv|Type|Bucket, Bucket|SubClassOf|Object, mrv|hasDisposition|tgu, tgu|isDispositionOf|mrv, mrv|hasPart|pteyn, pteyn|Type|HandGrip, HandGrip|SubClassOf|HoldablePart, mrv|hasPart|yd, yd|Type|HandGrip, HandGrip|SubClassOf|HoldablePart, mrv|canBeUsed|boolean#true, mrv|isOnTouchableSupport|hlegxv, hlegxv|isWithinMovingRangeOf|nu, nxrvc|Type|Gripper, Gripper|SubClassOf|EndEffector, nu|hasComponent|nxrvc, nxrvc|hasWeightLimit|integer#98, mrv|hasWeight|integer#63, lesserThan(integer#63,integer#98) \n -Rules : Agent(?a), hasCapability(?a, ?c), LiftingCapability(?c), Object(?o), hasDisposition(?o, ?d), LiftableDisposition(?d), isTouchableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasWeightLimit(?g,?w1), hasWeight(?o,?w2), lesserThan(?w2,?w1) -> canLift(?a, ?o)\n\tLiftingCapability|EquivalentTo|(isCapabilityOf some ((hasComponent min 2 Gripper) and (hasComponent some MotionPlanningAlgo))\n\tLiftableDisposition|EquivalentTo|(isDispositionOf some ((hasPart min 2 HoldablePart) and (canBeUsed value boolean#true)))\n\t(isOnTouchableSupport o isWithinMovingRangeOf)|SubPropertyOf|isTouchableBy",
+      "answer": "The Pr2 agent (a subclass of Agent) can lift the bucket because it has a lifting capability\u2014realized through its two claw end\u2011effectors (both subclasses of Gripper) and a motion\u2011planning algorithm component\u2014and each claw end\u2011effector can support up to 98 weight units, while the bucket weighs only 63; the bucket is classified as liftable via a disposition that requires at least two holdable parts (its two hand\u2011grip components) and a usable flag, and it sits on a support that lies within the agent\u2019s moving range, making the bucket touchable by the agent; thus all the conditions of the lifting rule are met, so the agent can lift the bucket.",
+      "duration": 18130127.0
+    },
+    {
+      "id": "a_canLift_medium_18b",
+      "selected_classes": [
+        "Pr2",
+        "MechanicalHand",
+        "HandGrip",
+        "LaundryBasket"
+      ],
+      "selected_names": [
+        "ma",
+        "lqs",
+        "mrwwp",
+        "uzisiz",
+        "grlzns",
+        "lssll",
+        "rgz",
+        "oxhgjx",
+        "vcvrm",
+        "bv"
+      ],
+      "question": "-Inference : rgz|canLift|lqs \n -Justifications : rgz|Type|Pr2, Pr2|SubClassOf|Agent, rgz|hasCapability|ma, ma|isCapabilityOf|rgz, rgz|hasComponent|oxhgjx, oxhgjx|Type|MechanicalHand, MechanicalHand|SubClassOf|Gripper, rgz|hasComponent|vcvrm, vcvrm|Type|MechanicalHand, MechanicalHand|SubClassOf|Gripper, rgz|hasComponent|bv, bv|Type|MotionPlanningAlgo, lqs|Type|LaundryBasket, LaundryBasket|SubClassOf|Object, lqs|hasDisposition|grlzns, grlzns|isDispositionOf|lqs, lqs|hasPart|uzisiz, uzisiz|Type|HandGrip, HandGrip|SubClassOf|HoldablePart, lqs|hasPart|lssll, lssll|Type|HandGrip, HandGrip|SubClassOf|HoldablePart, lqs|canBeUsed|boolean#true, lqs|isOnTouchableSupport|mrwwp, mrwwp|isWithinMovingRangeOf|rgz, oxhgjx|Type|Gripper, Gripper|SubClassOf|EndEffector, rgz|hasComponent|oxhgjx, oxhgjx|hasWeightLimit|integer#61, lqs|hasWeight|integer#38, lesserThan(integer#38,integer#61) \n -Rules : Agent(?a), hasCapability(?a, ?c), LiftingCapability(?c), Object(?o), hasDisposition(?o, ?d), LiftableDisposition(?d), isTouchableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasWeightLimit(?g,?w1), hasWeight(?o,?w2), lesserThan(?w2,?w1) -> canLift(?a, ?o)\n\tLiftingCapability|EquivalentTo|(isCapabilityOf some ((hasComponent min 2 Gripper) and (hasComponent some MotionPlanningAlgo))\n\tLiftableDisposition|EquivalentTo|(isDispositionOf some ((hasPart min 2 HoldablePart) and (canBeUsed value boolean#true)))\n\t(isOnTouchableSupport o isWithinMovingRangeOf)|SubPropertyOf|isTouchableBy",
+      "answer": "The Pr2, which is a subclass of Agent, can lift the laundry basket because it has a lifting capability\u2014realized by its two mechanical hands (each a Gripper and therefore an EndEffector) together with a motion\u2011planning algorithm\u2014and the basket is a liftable Object (it has a liftable disposition, i.e., at least two holdable parts and is usable), it rests on a touchable support that is within the agent\u2019s moving range (making it touchable), and its weight of 38 is below the 61\u2011unit weight limit of the agent\u2019s grippers.",
+      "duration": 16698098.999999998
+    },
+    {
+      "id": "a_canLift_medium_19b",
+      "selected_classes": [
+        "Tiago",
+        "Manipulator",
+        "HandGrip",
+        "CookingPot"
+      ],
+      "selected_names": [
+        "gfanen",
+        "vui",
+        "qv",
+        "wmmtpu",
+        "uffov",
+        "vx",
+        "uuq",
+        "howwu",
+        "jmdl",
+        "ldow"
+      ],
+      "question": "-Inference : uuq|canLift|vui \n -Justifications : uuq|Type|Tiago, Tiago|SubClassOf|Agent, uuq|hasCapability|gfanen, gfanen|isCapabilityOf|uuq, uuq|hasComponent|howwu, howwu|Type|Manipulator, Manipulator|SubClassOf|Gripper, uuq|hasComponent|jmdl, jmdl|Type|Manipulator, Manipulator|SubClassOf|Gripper, uuq|hasComponent|ldow, ldow|Type|MotionPlanningAlgo, vui|Type|CookingPot, CookingPot|SubClassOf|Object, vui|hasDisposition|uffov, uffov|isDispositionOf|vui, vui|hasPart|wmmtpu, wmmtpu|Type|HandGrip, HandGrip|SubClassOf|HoldablePart, vui|hasPart|vx, vx|Type|HandGrip, HandGrip|SubClassOf|HoldablePart, vui|canBeUsed|boolean#true, vui|isOnTouchableSupport|qv, qv|isWithinMovingRangeOf|uuq, howwu|Type|Gripper, Gripper|SubClassOf|EndEffector, uuq|hasComponent|howwu, howwu|hasWeightLimit|integer#94, vui|hasWeight|integer#76, lesserThan(integer#76,integer#94) \n -Rules : Agent(?a), hasCapability(?a, ?c), LiftingCapability(?c), Object(?o), hasDisposition(?o, ?d), LiftableDisposition(?d), isTouchableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasWeightLimit(?g,?w1), hasWeight(?o,?w2), lesserThan(?w2,?w1) -> canLift(?a, ?o)\n\tLiftingCapability|EquivalentTo|(isCapabilityOf some ((hasComponent min 2 Gripper) and (hasComponent some MotionPlanningAlgo))\n\tLiftableDisposition|EquivalentTo|(isDispositionOf some ((hasPart min 2 HoldablePart) and (canBeUsed value boolean#true)))\n\t(isOnTouchableSupport o isWithinMovingRangeOf)|SubPropertyOf|isTouchableBy",
+      "answer": "Because the Tiago is an agent that has a lifting capability\u2014realized through at least two gripper end\u2011effectors (the manipulators howwu and jmdl, both subclasses of Gripper) together with a motion\u2011planning algorithm component (ldow)\u2014and because the cooking pot is an object that carries a liftable disposition (its disposition uffov is a liftable disposition, since the pot contains at least two holdable parts, the hand\u2011grips wmmtpu and vx, and is marked usable), and because the pot rests on a support (qv) that lies within the agent\u2019s moving range (making the pot touchable by the agent via the subproperty chain), and because the pot\u2019s weight (76) is lower than the weight limit of the agent\u2019s gripper (94), the agent can lift the pot.",
+      "duration": 17793174.0
+    }
+  ]
+}

@@ -1,0 +1,208 @@
+[
+  {
+    "question_id": "a_canLift_easy_0l",
+    "is_correct": null,
+    "score": 0.7,
+    "missing_concepts": [
+      "Handle",
+      "touchable",
+      "object_weight"
+    ]
+  },
+  {
+    "question_id": "a_canLift_easy_1l",
+    "is_correct": null,
+    "score": 0.6,
+    "missing_concepts": [
+      "TwoFingerClaw",
+      "Handle",
+      "touchable",
+      "object_weight"
+    ]
+  },
+  {
+    "question_id": "a_canLift_easy_2l",
+    "is_correct": null,
+    "score": 0.7,
+    "missing_concepts": [
+      "touchable",
+      "weight limit",
+      "object_weight"
+    ]
+  },
+  {
+    "question_id": "a_canLift_easy_3l",
+    "is_correct": null,
+    "score": 0.6,
+    "missing_concepts": [
+      "Claw",
+      "touchable",
+      "weight limit",
+      "object_weight"
+    ]
+  },
+  {
+    "question_id": "a_canLift_easy_4l",
+    "is_correct": null,
+    "score": 0.8,
+    "missing_concepts": [
+      "Manipulator",
+      "object_weight"
+    ]
+  },
+  {
+    "question_id": "a_canLift_easy_5l",
+    "is_correct": null,
+    "score": 0.6,
+    "missing_concepts": [
+      "Manipulator",
+      "HandGrip",
+      "touchable",
+      "object_weight"
+    ]
+  },
+  {
+    "question_id": "a_canLift_easy_6l",
+    "is_correct": null,
+    "score": 0.8,
+    "missing_concepts": [
+      "weight limit",
+      "object_weight"
+    ]
+  },
+  {
+    "question_id": "a_canLift_easy_7l",
+    "is_correct": null,
+    "score": 0.7,
+    "missing_concepts": [
+      "touchable",
+      "weight limit",
+      "object_weight"
+    ]
+  },
+  {
+    "question_id": "a_canLift_easy_8l",
+    "is_correct": null,
+    "score": 0.8,
+    "missing_concepts": [
+      "weight limit",
+      "object_weight"
+    ]
+  },
+  {
+    "question_id": "a_canLift_easy_9l",
+    "is_correct": null,
+    "score": 0.6,
+    "missing_concepts": [
+      "Manipulator",
+      "Handle",
+      "weight limit",
+      "object_weight"
+    ]
+  },
+  {
+    "question_id": "a_canLift_easy_10l",
+    "is_correct": null,
+    "score": 0.7,
+    "missing_concepts": [
+      "Handle",
+      "touchable",
+      "object_weight"
+    ]
+  },
+  {
+    "question_id": "a_canLift_easy_11l",
+    "is_correct": null,
+    "score": 0.6,
+    "missing_concepts": [
+      "Claw",
+      "Handle",
+      "touchable",
+      "object_weight"
+    ]
+  },
+  {
+    "question_id": "a_canLift_easy_12l",
+    "is_correct": null,
+    "score": 0.7,
+    "missing_concepts": [
+      "touchable",
+      "weight limit",
+      "object_weight"
+    ]
+  },
+  {
+    "question_id": "a_canLift_easy_13l",
+    "is_correct": null,
+    "score": 0.7,
+    "missing_concepts": [
+      "HandGrip",
+      "touchable",
+      "object_weight"
+    ]
+  },
+  {
+    "question_id": "a_canLift_easy_14l",
+    "is_correct": null,
+    "score": 0.6,
+    "missing_concepts": [
+      "Manipulator",
+      "touchable",
+      "weight limit",
+      "object_weight"
+    ]
+  },
+  {
+    "question_id": "a_canLift_easy_15l",
+    "is_correct": null,
+    "score": 0.7,
+    "missing_concepts": [
+      "touchable",
+      "weight limit",
+      "object_weight"
+    ]
+  },
+  {
+    "question_id": "a_canLift_easy_16l",
+    "is_correct": null,
+    "score": 0.7,
+    "missing_concepts": [
+      "HandGrip",
+      "touchable",
+      "object_weight"
+    ]
+  },
+  {
+    "question_id": "a_canLift_easy_17l",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "Claw",
+      "HandGrip",
+      "touchable",
+      "weight limit",
+      "object_weight"
+    ]
+  },
+  {
+    "question_id": "a_canLift_easy_18l",
+    "is_correct": null,
+    "score": 0.7,
+    "missing_concepts": [
+      "HandGrip",
+      "touchable",
+      "object_weight"
+    ]
+  },
+  {
+    "question_id": "a_canLift_easy_19l",
+    "is_correct": null,
+    "score": 0.6,
+    "missing_concepts": [
+      "Manipulator",
+      "HandGrip",
+      "touchable",
+      "object_weight"
+    ]
+  }
+]

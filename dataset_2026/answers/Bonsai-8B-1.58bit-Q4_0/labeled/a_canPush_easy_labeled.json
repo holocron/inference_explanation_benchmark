@@ -1,0 +1,444 @@
+{
+  "id": "a_canPush_easy",
+  "template": {
+    "fact": "__agent__|canPush|__object__",
+    "explanation": [
+      "__agent__|Type|__Agent__",
+      "__Agent__|SubClassOf|Agent",
+      "__agent__|hasCapability|__agent_capa__",
+      "__agent_capa__|isCapabilityOf|__agent__",
+      "__agent__|hasGripper|__gripper__",
+      "__gripper__|Type|__Gripper__",
+      "__Gripper__|SubClassOf|Gripper",
+      "__object__|Type|__Object__",
+      "__Object__|SubClassOf|Object",
+      "__object__|hasDisposition|__object_disp__",
+      "chair_1_disp|isDispositionOf|__object__",
+      "__object__|hasPart|__wheel__",
+      "__wheel__|Type|__Wheel__",
+      "__Wheel__|SubClassOf|RollablePart",
+      "__object__|isApproachableBy|__agent__",
+      "__gripper__|Type|Gripper",
+      "Gripper|SubClassOf|EndEffector",
+      "__agent__|hasComponent|__gripper__",
+      "__gripper__|hasApplicableForce|integer#1",
+      "__object__|requiresForce|integer#1",
+      "equal(integer#1,integer#1)"
+    ]
+  },
+  "rules": [
+    "Agent(?a), hasCapability(?a, ?c), PushingCapability(?c), Object(?o), hasDisposition(?o, ?d), PushableDisposition(?d), isApproachableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasApplicableForce(?g,?w1), requiresForce(?o,?w2), equal(?w2,?w1) -> canPush(?a, ?o)",
+    "PushingCapability|EquivalentTo|(isCapabilityOf some (hasGripper min 1 Gripper)",
+    "PushableDisposition|EquivalentTo|(isDispositionOf some (hasPart some RollablePart))"
+  ],
+  "concepts": [
+    "pushing",
+    "pushable",
+    "approachable",
+    "applicable_force",
+    "required_force",
+    "can push"
+  ],
+  "answers": [
+    {
+      "id": "a_canPush_easy_0l",
+      "selected_classes": [
+        "Pepper",
+        "Claw",
+        "Wheel",
+        "OfficeChair"
+      ],
+      "selected_names": [
+        "agent_capa_okjr",
+        "object_jgu",
+        "object_disp_fdj",
+        "wheel_zxh",
+        "agent_byjr",
+        "gripper_fyj"
+      ],
+      "question": "-Inference : agent_byjr|canPush|object_jgu \n -Justifications : agent_byjr|Type|Pepper, Pepper|SubClassOf|Agent, agent_byjr|hasCapability|agent_capa_okjr, agent_capa_okjr|isCapabilityOf|agent_byjr, agent_byjr|hasGripper|gripper_fyj, gripper_fyj|Type|Claw, Claw|SubClassOf|Gripper, object_jgu|Type|OfficeChair, OfficeChair|SubClassOf|Object, object_jgu|hasDisposition|object_disp_fdj, chair_1_disp|isDispositionOf|object_jgu, object_jgu|hasPart|wheel_zxh, wheel_zxh|Type|Wheel, Wheel|SubClassOf|RollablePart, object_jgu|isApproachableBy|agent_byjr, gripper_fyj|Type|Gripper, Gripper|SubClassOf|EndEffector, agent_byjr|hasComponent|gripper_fyj, gripper_fyj|hasApplicableForce|integer#12, object_jgu|requiresForce|integer#12, equal(integer#12,integer#12) \n -Rules : Agent(?a), hasCapability(?a, ?c), PushingCapability(?c), Object(?o), hasDisposition(?o, ?d), PushableDisposition(?d), isApproachableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasApplicableForce(?g,?w1), requiresForce(?o,?w2), equal(?w2,?w1) -> canPush(?a, ?o)\n\tPushingCapability|EquivalentTo|(isCapabilityOf some (hasGripper min 1 Gripper)\n\tPushableDisposition|EquivalentTo|(isDispositionOf some (hasPart some RollablePart))",
+      "answer": "the pepper agent can push the office chair because it has a pushing capability through its gripper, which is an end effector, and the chair has a pushable disposition due to having a wheel, a rollable part, and the agent can apply the required force.",
+      "duration": 5987715.0
+    },
+    {
+      "id": "a_canPush_easy_1l",
+      "selected_classes": [
+        "Pr2",
+        "Manipulator",
+        "Caster",
+        "MiniShoppingCart"
+      ],
+      "selected_names": [
+        "agent_capa_nncr",
+        "object_flrnre",
+        "object_disp_rjuqbv",
+        "wheel_tpq",
+        "agent_emcl",
+        "gripper_ogfhhy"
+      ],
+      "question": "-Inference : agent_emcl|canPush|object_flrnre \n -Justifications : agent_emcl|Type|Pr2, Pr2|SubClassOf|Agent, agent_emcl|hasCapability|agent_capa_nncr, agent_capa_nncr|isCapabilityOf|agent_emcl, agent_emcl|hasGripper|gripper_ogfhhy, gripper_ogfhhy|Type|Manipulator, Manipulator|SubClassOf|Gripper, object_flrnre|Type|MiniShoppingCart, MiniShoppingCart|SubClassOf|Object, object_flrnre|hasDisposition|object_disp_rjuqbv, chair_1_disp|isDispositionOf|object_flrnre, object_flrnre|hasPart|wheel_tpq, wheel_tpq|Type|Caster, Caster|SubClassOf|RollablePart, object_flrnre|isApproachableBy|agent_emcl, gripper_ogfhhy|Type|Gripper, Gripper|SubClassOf|EndEffector, agent_emcl|hasComponent|gripper_ogfhhy, gripper_ogfhhy|hasApplicableForce|integer#81, object_flrnre|requiresForce|integer#81, equal(integer#81,integer#81) \n -Rules : Agent(?a), hasCapability(?a, ?c), PushingCapability(?c), Object(?o), hasDisposition(?o, ?d), PushableDisposition(?d), isApproachableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasApplicableForce(?g,?w1), requiresForce(?o,?w2), equal(?w2,?w1) -> canPush(?a, ?o)\n\tPushingCapability|EquivalentTo|(isCapabilityOf some (hasGripper min 1 Gripper)\n\tPushableDisposition|EquivalentTo|(isDispositionOf some (hasPart some RollablePart))",
+      "answer": "the agent can push the object because it has a pushing capability through its gripper, which is a manipulator and an end effector, and the object has a pushable disposition as it is approachable by the agent and has a part that is a caster, a type of rollable part. Additionally, the gripper can apply a force equal to the force required by the object.",
+      "duration": 7517592.000000001
+    },
+    {
+      "id": "a_canPush_easy_2l",
+      "selected_classes": [
+        "Robot",
+        "MechanicalHand",
+        "PivotRoller",
+        "ToyWagon"
+      ],
+      "selected_names": [
+        "agent_capa_zqsrl",
+        "object_fm",
+        "object_disp_vp",
+        "wheel_bmf",
+        "agent_twfymr",
+        "gripper_pyfux"
+      ],
+      "question": "-Inference : agent_twfymr|canPush|object_fm \n -Justifications : agent_twfymr|Type|Robot, Robot|SubClassOf|Agent, agent_twfymr|hasCapability|agent_capa_zqsrl, agent_capa_zqsrl|isCapabilityOf|agent_twfymr, agent_twfymr|hasGripper|gripper_pyfux, gripper_pyfux|Type|MechanicalHand, MechanicalHand|SubClassOf|Gripper, object_fm|Type|ToyWagon, ToyWagon|SubClassOf|Object, object_fm|hasDisposition|object_disp_vp, chair_1_disp|isDispositionOf|object_fm, object_fm|hasPart|wheel_bmf, wheel_bmf|Type|PivotRoller, PivotRoller|SubClassOf|RollablePart, object_fm|isApproachableBy|agent_twfymr, gripper_pyfux|Type|Gripper, Gripper|SubClassOf|EndEffector, agent_twfymr|hasComponent|gripper_pyfux, gripper_pyfux|hasApplicableForce|integer#66, object_fm|requiresForce|integer#66, equal(integer#66,integer#66) \n -Rules : Agent(?a), hasCapability(?a, ?c), PushingCapability(?c), Object(?o), hasDisposition(?o, ?d), PushableDisposition(?d), isApproachableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasApplicableForce(?g,?w1), requiresForce(?o,?w2), equal(?w2,?w1) -> canPush(?a, ?o)\n\tPushingCapability|EquivalentTo|(isCapabilityOf some (hasGripper min 1 Gripper)\n\tPushableDisposition|EquivalentTo|(isDispositionOf some (hasPart some RollablePart))",
+      "answer": "the robot can push the toy wagon because it has a pushing capability through its mechanical hand, which is an end effector and has an applicable force matching the force required by the toy wagon, and the toy wagon is approachable and has a pushable disposition due to its rollable parts.",
+      "duration": 6265517.0
+    },
+    {
+      "id": "a_canPush_easy_3l",
+      "selected_classes": [
+        "Robot",
+        "TwoFingerClaw",
+        "Wheel",
+        "MiniShoppingCart"
+      ],
+      "selected_names": [
+        "agent_capa_tvlakc",
+        "object_jczn",
+        "object_disp_ep",
+        "wheel_znd",
+        "agent_kr",
+        "gripper_odzwyi"
+      ],
+      "question": "-Inference : agent_kr|canPush|object_jczn \n -Justifications : agent_kr|Type|Robot, Robot|SubClassOf|Agent, agent_kr|hasCapability|agent_capa_tvlakc, agent_capa_tvlakc|isCapabilityOf|agent_kr, agent_kr|hasGripper|gripper_odzwyi, gripper_odzwyi|Type|TwoFingerClaw, TwoFingerClaw|SubClassOf|Gripper, object_jczn|Type|MiniShoppingCart, MiniShoppingCart|SubClassOf|Object, object_jczn|hasDisposition|object_disp_ep, chair_1_disp|isDispositionOf|object_jczn, object_jczn|hasPart|wheel_znd, wheel_znd|Type|Wheel, Wheel|SubClassOf|RollablePart, object_jczn|isApproachableBy|agent_kr, gripper_odzwyi|Type|Gripper, Gripper|SubClassOf|EndEffector, agent_kr|hasComponent|gripper_odzwyi, gripper_odzwyi|hasApplicableForce|integer#19, object_jczn|requiresForce|integer#19, equal(integer#19,integer#19) \n -Rules : Agent(?a), hasCapability(?a, ?c), PushingCapability(?c), Object(?o), hasDisposition(?o, ?d), PushableDisposition(?d), isApproachableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasApplicableForce(?g,?w1), requiresForce(?o,?w2), equal(?w2,?w1) -> canPush(?a, ?o)\n\tPushingCapability|EquivalentTo|(isCapabilityOf some (hasGripper min 1 Gripper)\n\tPushableDisposition|EquivalentTo|(isDispositionOf some (hasPart some RollablePart))",
+      "answer": "the robot can push the mini shopping cart because it has a pushing capability through its two-finger claw, which is an end effector, and the cart is pushable due to having a wheel, a rollable part, and the cart is approachable by the robot. Additionally, the robot's applicable force matches the force required by the cart.",
+      "duration": 7139100.0
+    },
+    {
+      "id": "a_canPush_easy_4l",
+      "selected_classes": [
+        "Pepper",
+        "TwoFingerClaw",
+        "Caster",
+        "OfficeChair"
+      ],
+      "selected_names": [
+        "agent_capa_waxi",
+        "object_yluht",
+        "object_disp_jr",
+        "wheel_rw",
+        "agent_la",
+        "gripper_lc"
+      ],
+      "question": "-Inference : agent_la|canPush|object_yluht \n -Justifications : agent_la|Type|Pepper, Pepper|SubClassOf|Agent, agent_la|hasCapability|agent_capa_waxi, agent_capa_waxi|isCapabilityOf|agent_la, agent_la|hasGripper|gripper_lc, gripper_lc|Type|TwoFingerClaw, TwoFingerClaw|SubClassOf|Gripper, object_yluht|Type|OfficeChair, OfficeChair|SubClassOf|Object, object_yluht|hasDisposition|object_disp_jr, chair_1_disp|isDispositionOf|object_yluht, object_yluht|hasPart|wheel_rw, wheel_rw|Type|Caster, Caster|SubClassOf|RollablePart, object_yluht|isApproachableBy|agent_la, gripper_lc|Type|Gripper, Gripper|SubClassOf|EndEffector, agent_la|hasComponent|gripper_lc, gripper_lc|hasApplicableForce|integer#57, object_yluht|requiresForce|integer#57, equal(integer#57,integer#57) \n -Rules : Agent(?a), hasCapability(?a, ?c), PushingCapability(?c), Object(?o), hasDisposition(?o, ?d), PushableDisposition(?d), isApproachableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasApplicableForce(?g,?w1), requiresForce(?o,?w2), equal(?w2,?w1) -> canPush(?a, ?o)\n\tPushingCapability|EquivalentTo|(isCapabilityOf some (hasGripper min 1 Gripper)\n\tPushableDisposition|EquivalentTo|(isDispositionOf some (hasPart some RollablePart))",
+      "answer": "the pepper agent can push the office chair because it has a pushing capability through its two-finger claw, which is a gripper and an end effector, and the chair is pushable due to having a caster as a part, and the agent can apply the required force of 57, which matches the chair's requirement.",
+      "duration": 6790264.0
+    },
+    {
+      "id": "a_canPush_easy_5l",
+      "selected_classes": [
+        "Robot",
+        "Manipulator",
+        "Roller",
+        "OfficeChair"
+      ],
+      "selected_names": [
+        "agent_capa_feel",
+        "object_ois",
+        "object_disp_wrpp",
+        "wheel_kgqrx",
+        "agent_bvhqdd",
+        "gripper_qrowz"
+      ],
+      "question": "-Inference : agent_bvhqdd|canPush|object_ois \n -Justifications : agent_bvhqdd|Type|Robot, Robot|SubClassOf|Agent, agent_bvhqdd|hasCapability|agent_capa_feel, agent_capa_feel|isCapabilityOf|agent_bvhqdd, agent_bvhqdd|hasGripper|gripper_qrowz, gripper_qrowz|Type|Manipulator, Manipulator|SubClassOf|Gripper, object_ois|Type|OfficeChair, OfficeChair|SubClassOf|Object, object_ois|hasDisposition|object_disp_wrpp, chair_1_disp|isDispositionOf|object_ois, object_ois|hasPart|wheel_kgqrx, wheel_kgqrx|Type|Roller, Roller|SubClassOf|RollablePart, object_ois|isApproachableBy|agent_bvhqdd, gripper_qrowz|Type|Gripper, Gripper|SubClassOf|EndEffector, agent_bvhqdd|hasComponent|gripper_qrowz, gripper_qrowz|hasApplicableForce|integer#77, object_ois|requiresForce|integer#77, equal(integer#77,integer#77) \n -Rules : Agent(?a), hasCapability(?a, ?c), PushingCapability(?c), Object(?o), hasDisposition(?o, ?d), PushableDisposition(?d), isApproachableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasApplicableForce(?g,?w1), requiresForce(?o,?w2), equal(?w2,?w1) -> canPush(?a, ?o)\n\tPushingCapability|EquivalentTo|(isCapabilityOf some (hasGripper min 1 Gripper)\n\tPushableDisposition|EquivalentTo|(isDispositionOf some (hasPart some RollablePart))",
+      "answer": "the robot can push the office chair because it has a pushing capability through its gripper, which is a type of end effector, and the chair is pushable due to having a part that is a roller, and the robot's applicable force matches the force required by the chair.",
+      "duration": 6312533.0
+    },
+    {
+      "id": "a_canPush_easy_6l",
+      "selected_classes": [
+        "Pepper",
+        "TwoFingerClaw",
+        "Wheel",
+        "OfficeChair"
+      ],
+      "selected_names": [
+        "agent_capa_khtefl",
+        "object_qpfgfp",
+        "object_disp_eohzo",
+        "wheel_umbw",
+        "agent_dt",
+        "gripper_evgr"
+      ],
+      "question": "-Inference : agent_dt|canPush|object_qpfgfp \n -Justifications : agent_dt|Type|Pepper, Pepper|SubClassOf|Agent, agent_dt|hasCapability|agent_capa_khtefl, agent_capa_khtefl|isCapabilityOf|agent_dt, agent_dt|hasGripper|gripper_evgr, gripper_evgr|Type|TwoFingerClaw, TwoFingerClaw|SubClassOf|Gripper, object_qpfgfp|Type|OfficeChair, OfficeChair|SubClassOf|Object, object_qpfgfp|hasDisposition|object_disp_eohzo, chair_1_disp|isDispositionOf|object_qpfgfp, object_qpfgfp|hasPart|wheel_umbw, wheel_umbw|Type|Wheel, Wheel|SubClassOf|RollablePart, object_qpfgfp|isApproachableBy|agent_dt, gripper_evgr|Type|Gripper, Gripper|SubClassOf|EndEffector, agent_dt|hasComponent|gripper_evgr, gripper_evgr|hasApplicableForce|integer#55, object_qpfgfp|requiresForce|integer#55, equal(integer#55,integer#55) \n -Rules : Agent(?a), hasCapability(?a, ?c), PushingCapability(?c), Object(?o), hasDisposition(?o, ?d), PushableDisposition(?d), isApproachableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasApplicableForce(?g,?w1), requiresForce(?o,?w2), equal(?w2,?w1) -> canPush(?a, ?o)\n\tPushingCapability|EquivalentTo|(isCapabilityOf some (hasGripper min 1 Gripper)\n\tPushableDisposition|EquivalentTo|(isDispositionOf some (hasPart some RollablePart))",
+      "answer": "the pepper agent can push the office chair because it has a pushing capability through its two-finger claw, which is an end effector, and the chair is pushable due to having a part that is a wheel, a rollable part. Additionally, the chair requires a force of 55 and the agent's applicable force is also 55, satisfying the condition for pushing.",
+      "duration": 7496800.999999999
+    },
+    {
+      "id": "a_canPush_easy_7l",
+      "selected_classes": [
+        "Pr2",
+        "TwoFingerClaw",
+        "PivotRoller",
+        "ToyWagon"
+      ],
+      "selected_names": [
+        "agent_capa_idggdg",
+        "object_kbownv",
+        "object_disp_pgvy",
+        "wheel_gxh",
+        "agent_keqaw",
+        "gripper_dpe"
+      ],
+      "question": "-Inference : agent_keqaw|canPush|object_kbownv \n -Justifications : agent_keqaw|Type|Pr2, Pr2|SubClassOf|Agent, agent_keqaw|hasCapability|agent_capa_idggdg, agent_capa_idggdg|isCapabilityOf|agent_keqaw, agent_keqaw|hasGripper|gripper_dpe, gripper_dpe|Type|TwoFingerClaw, TwoFingerClaw|SubClassOf|Gripper, object_kbownv|Type|ToyWagon, ToyWagon|SubClassOf|Object, object_kbownv|hasDisposition|object_disp_pgvy, chair_1_disp|isDispositionOf|object_kbownv, object_kbownv|hasPart|wheel_gxh, wheel_gxh|Type|PivotRoller, PivotRoller|SubClassOf|RollablePart, object_kbownv|isApproachableBy|agent_keqaw, gripper_dpe|Type|Gripper, Gripper|SubClassOf|EndEffector, agent_keqaw|hasComponent|gripper_dpe, gripper_dpe|hasApplicableForce|integer#96, object_kbownv|requiresForce|integer#96, equal(integer#96,integer#96) \n -Rules : Agent(?a), hasCapability(?a, ?c), PushingCapability(?c), Object(?o), hasDisposition(?o, ?d), PushableDisposition(?d), isApproachableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasApplicableForce(?g,?w1), requiresForce(?o,?w2), equal(?w2,?w1) -> canPush(?a, ?o)\n\tPushingCapability|EquivalentTo|(isCapabilityOf some (hasGripper min 1 Gripper)\n\tPushableDisposition|EquivalentTo|(isDispositionOf some (hasPart some RollablePart))",
+      "answer": "the agent can push the object because it has a pushing capability through its gripper, the object is pushable due to having a rollable part, and the agent can apply the required force to push the object.",
+      "duration": 5381951.0
+    },
+    {
+      "id": "a_canPush_easy_8l",
+      "selected_classes": [
+        "Pepper",
+        "Claw",
+        "PivotRoller",
+        "OfficeChair"
+      ],
+      "selected_names": [
+        "agent_capa_djl",
+        "object_pqvler",
+        "object_disp_ybvsm",
+        "wheel_xzszr",
+        "agent_vwliq",
+        "gripper_ykr"
+      ],
+      "question": "-Inference : agent_vwliq|canPush|object_pqvler \n -Justifications : agent_vwliq|Type|Pepper, Pepper|SubClassOf|Agent, agent_vwliq|hasCapability|agent_capa_djl, agent_capa_djl|isCapabilityOf|agent_vwliq, agent_vwliq|hasGripper|gripper_ykr, gripper_ykr|Type|Claw, Claw|SubClassOf|Gripper, object_pqvler|Type|OfficeChair, OfficeChair|SubClassOf|Object, object_pqvler|hasDisposition|object_disp_ybvsm, chair_1_disp|isDispositionOf|object_pqvler, object_pqvler|hasPart|wheel_xzszr, wheel_xzszr|Type|PivotRoller, PivotRoller|SubClassOf|RollablePart, object_pqvler|isApproachableBy|agent_vwliq, gripper_ykr|Type|Gripper, Gripper|SubClassOf|EndEffector, agent_vwliq|hasComponent|gripper_ykr, gripper_ykr|hasApplicableForce|integer#51, object_pqvler|requiresForce|integer#51, equal(integer#51,integer#51) \n -Rules : Agent(?a), hasCapability(?a, ?c), PushingCapability(?c), Object(?o), hasDisposition(?o, ?d), PushableDisposition(?d), isApproachableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasApplicableForce(?g,?w1), requiresForce(?o,?w2), equal(?w2,?w1) -> canPush(?a, ?o)\n\tPushingCapability|EquivalentTo|(isCapabilityOf some (hasGripper min 1 Gripper)\n\tPushableDisposition|EquivalentTo|(isDispositionOf some (hasPart some RollablePart))",
+      "answer": "the pepper agent can push the office chair because it has a pushing capability through its gripper, which is a type of end effector, and the chair is pushable due to having a part that is a rollable part. Additionally, the chair requires a force that matches the force the gripper can apply, ensuring the push is feasible.",
+      "duration": 6986262.000000001
+    },
+    {
+      "id": "a_canPush_easy_9l",
+      "selected_classes": [
+        "Pr2",
+        "Manipulator",
+        "Caster",
+        "RemoteControlledCar"
+      ],
+      "selected_names": [
+        "agent_capa_gxxle",
+        "object_ctdc",
+        "object_disp_ab",
+        "wheel_kttor",
+        "agent_crkzbj",
+        "gripper_liv"
+      ],
+      "question": "-Inference : agent_crkzbj|canPush|object_ctdc \n -Justifications : agent_crkzbj|Type|Pr2, Pr2|SubClassOf|Agent, agent_crkzbj|hasCapability|agent_capa_gxxle, agent_capa_gxxle|isCapabilityOf|agent_crkzbj, agent_crkzbj|hasGripper|gripper_liv, gripper_liv|Type|Manipulator, Manipulator|SubClassOf|Gripper, object_ctdc|Type|RemoteControlledCar, RemoteControlledCar|SubClassOf|Object, object_ctdc|hasDisposition|object_disp_ab, chair_1_disp|isDispositionOf|object_ctdc, object_ctdc|hasPart|wheel_kttor, wheel_kttor|Type|Caster, Caster|SubClassOf|RollablePart, object_ctdc|isApproachableBy|agent_crkzbj, gripper_liv|Type|Gripper, Gripper|SubClassOf|EndEffector, agent_crkzbj|hasComponent|gripper_liv, gripper_liv|hasApplicableForce|integer#11, object_ctdc|requiresForce|integer#11, equal(integer#11,integer#11) \n -Rules : Agent(?a), hasCapability(?a, ?c), PushingCapability(?c), Object(?o), hasDisposition(?o, ?d), PushableDisposition(?d), isApproachableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasApplicableForce(?g,?w1), requiresForce(?o,?w2), equal(?w2,?w1) -> canPush(?a, ?o)\n\tPushingCapability|EquivalentTo|(isCapabilityOf some (hasGripper min 1 Gripper)\n\tPushableDisposition|EquivalentTo|(isDispositionOf some (hasPart some RollablePart))",
+      "answer": "the agent can push the object because it has a pushing capability through its gripper, which is a manipulator and a type of end effector, and the object is pushable due to having a part that is a caster, a type of rollable part. Additionally, the agent's applicable force matches the force required by the object.",
+      "duration": 6895612.0
+    },
+    {
+      "id": "a_canPush_easy_10l",
+      "selected_classes": [
+        "Tiago",
+        "TwoFingerClaw",
+        "PivotRoller",
+        "RoombaRobot"
+      ],
+      "selected_names": [
+        "agent_capa_vlizx",
+        "object_pdgns",
+        "object_disp_jq",
+        "wheel_gats",
+        "agent_rerace",
+        "gripper_jgizl"
+      ],
+      "question": "-Inference : agent_rerace|canPush|object_pdgns \n -Justifications : agent_rerace|Type|Tiago, Tiago|SubClassOf|Agent, agent_rerace|hasCapability|agent_capa_vlizx, agent_capa_vlizx|isCapabilityOf|agent_rerace, agent_rerace|hasGripper|gripper_jgizl, gripper_jgizl|Type|TwoFingerClaw, TwoFingerClaw|SubClassOf|Gripper, object_pdgns|Type|RoombaRobot, RoombaRobot|SubClassOf|Object, object_pdgns|hasDisposition|object_disp_jq, chair_1_disp|isDispositionOf|object_pdgns, object_pdgns|hasPart|wheel_gats, wheel_gats|Type|PivotRoller, PivotRoller|SubClassOf|RollablePart, object_pdgns|isApproachableBy|agent_rerace, gripper_jgizl|Type|Gripper, Gripper|SubClassOf|EndEffector, agent_rerace|hasComponent|gripper_jgizl, gripper_jgizl|hasApplicableForce|integer#87, object_pdgns|requiresForce|integer#87, equal(integer#87,integer#87) \n -Rules : Agent(?a), hasCapability(?a, ?c), PushingCapability(?c), Object(?o), hasDisposition(?o, ?d), PushableDisposition(?d), isApproachableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasApplicableForce(?g,?w1), requiresForce(?o,?w2), equal(?w2,?w1) -> canPush(?a, ?o)\n\tPushingCapability|EquivalentTo|(isCapabilityOf some (hasGripper min 1 Gripper)\n\tPushableDisposition|EquivalentTo|(isDispositionOf some (hasPart some RollablePart))",
+      "answer": "the agent can push the object because it has a pushing capability through its gripper, which is an end effector, and the object has a pushable disposition as it is approachable by the agent and has a part that is a rollable part. the gripper can apply a force equal to the force required by the object.",
+      "duration": 6927758.0
+    },
+    {
+      "id": "a_canPush_easy_11l",
+      "selected_classes": [
+        "Pr2",
+        "MechanicalHand",
+        "PivotWheel",
+        "OfficeChair"
+      ],
+      "selected_names": [
+        "agent_capa_pwdlj",
+        "object_ugoxa",
+        "object_disp_azoa",
+        "wheel_bmn",
+        "agent_apwunk",
+        "gripper_kmwky"
+      ],
+      "question": "-Inference : agent_apwunk|canPush|object_ugoxa \n -Justifications : agent_apwunk|Type|Pr2, Pr2|SubClassOf|Agent, agent_apwunk|hasCapability|agent_capa_pwdlj, agent_capa_pwdlj|isCapabilityOf|agent_apwunk, agent_apwunk|hasGripper|gripper_kmwky, gripper_kmwky|Type|MechanicalHand, MechanicalHand|SubClassOf|Gripper, object_ugoxa|Type|OfficeChair, OfficeChair|SubClassOf|Object, object_ugoxa|hasDisposition|object_disp_azoa, chair_1_disp|isDispositionOf|object_ugoxa, object_ugoxa|hasPart|wheel_bmn, wheel_bmn|Type|PivotWheel, PivotWheel|SubClassOf|RollablePart, object_ugoxa|isApproachableBy|agent_apwunk, gripper_kmwky|Type|Gripper, Gripper|SubClassOf|EndEffector, agent_apwunk|hasComponent|gripper_kmwky, gripper_kmwky|hasApplicableForce|integer#81, object_ugoxa|requiresForce|integer#81, equal(integer#81,integer#81) \n -Rules : Agent(?a), hasCapability(?a, ?c), PushingCapability(?c), Object(?o), hasDisposition(?o, ?d), PushableDisposition(?d), isApproachableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasApplicableForce(?g,?w1), requiresForce(?o,?w2), equal(?w2,?w1) -> canPush(?a, ?o)\n\tPushingCapability|EquivalentTo|(isCapabilityOf some (hasGripper min 1 Gripper)\n\tPushableDisposition|EquivalentTo|(isDispositionOf some (hasPart some RollablePart))",
+      "answer": "the agent can push the object because it has a pushing capability through its mechanical hand, which is an end effector, and the object has a pushable disposition as it is approachable by the agent and has a part that is a rollable part. the mechanical hand applies a force equal to the force required by the object.",
+      "duration": 6891227.0
+    },
+    {
+      "id": "a_canPush_easy_12l",
+      "selected_classes": [
+        "Pepper",
+        "Claw",
+        "Caster",
+        "RoombaRobot"
+      ],
+      "selected_names": [
+        "agent_capa_wt",
+        "object_lcsbj",
+        "object_disp_eggeuv",
+        "wheel_gzvvsy",
+        "agent_smrpam",
+        "gripper_bsfsuh"
+      ],
+      "question": "-Inference : agent_smrpam|canPush|object_lcsbj \n -Justifications : agent_smrpam|Type|Pepper, Pepper|SubClassOf|Agent, agent_smrpam|hasCapability|agent_capa_wt, agent_capa_wt|isCapabilityOf|agent_smrpam, agent_smrpam|hasGripper|gripper_bsfsuh, gripper_bsfsuh|Type|Claw, Claw|SubClassOf|Gripper, object_lcsbj|Type|RoombaRobot, RoombaRobot|SubClassOf|Object, object_lcsbj|hasDisposition|object_disp_eggeuv, chair_1_disp|isDispositionOf|object_lcsbj, object_lcsbj|hasPart|wheel_gzvvsy, wheel_gzvvsy|Type|Caster, Caster|SubClassOf|RollablePart, object_lcsbj|isApproachableBy|agent_smrpam, gripper_bsfsuh|Type|Gripper, Gripper|SubClassOf|EndEffector, agent_smrpam|hasComponent|gripper_bsfsuh, gripper_bsfsuh|hasApplicableForce|integer#75, object_lcsbj|requiresForce|integer#75, equal(integer#75,integer#75) \n -Rules : Agent(?a), hasCapability(?a, ?c), PushingCapability(?c), Object(?o), hasDisposition(?o, ?d), PushableDisposition(?d), isApproachableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasApplicableForce(?g,?w1), requiresForce(?o,?w2), equal(?w2,?w1) -> canPush(?a, ?o)\n\tPushingCapability|EquivalentTo|(isCapabilityOf some (hasGripper min 1 Gripper)\n\tPushableDisposition|EquivalentTo|(isDispositionOf some (hasPart some RollablePart))",
+      "answer": "the pepper agent can push the roomba robot because it has a pushing capability through its gripper, which is capable of applying the required force, and the roomba robot is approachable and has a pushable disposition due to its rollable parts.",
+      "duration": 5922150.0
+    },
+    {
+      "id": "a_canPush_easy_13l",
+      "selected_classes": [
+        "Pepper",
+        "Manipulator",
+        "PivotWheel",
+        "MiniShoppingCart"
+      ],
+      "selected_names": [
+        "agent_capa_boh",
+        "object_yvuk",
+        "object_disp_vltli",
+        "wheel_pz",
+        "agent_iveu",
+        "gripper_crwxfg"
+      ],
+      "question": "-Inference : agent_iveu|canPush|object_yvuk \n -Justifications : agent_iveu|Type|Pepper, Pepper|SubClassOf|Agent, agent_iveu|hasCapability|agent_capa_boh, agent_capa_boh|isCapabilityOf|agent_iveu, agent_iveu|hasGripper|gripper_crwxfg, gripper_crwxfg|Type|Manipulator, Manipulator|SubClassOf|Gripper, object_yvuk|Type|MiniShoppingCart, MiniShoppingCart|SubClassOf|Object, object_yvuk|hasDisposition|object_disp_vltli, chair_1_disp|isDispositionOf|object_yvuk, object_yvuk|hasPart|wheel_pz, wheel_pz|Type|PivotWheel, PivotWheel|SubClassOf|RollablePart, object_yvuk|isApproachableBy|agent_iveu, gripper_crwxfg|Type|Gripper, Gripper|SubClassOf|EndEffector, agent_iveu|hasComponent|gripper_crwxfg, gripper_crwxfg|hasApplicableForce|integer#93, object_yvuk|requiresForce|integer#93, equal(integer#93,integer#93) \n -Rules : Agent(?a), hasCapability(?a, ?c), PushingCapability(?c), Object(?o), hasDisposition(?o, ?d), PushableDisposition(?d), isApproachableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasApplicableForce(?g,?w1), requiresForce(?o,?w2), equal(?w2,?w1) -> canPush(?a, ?o)\n\tPushingCapability|EquivalentTo|(isCapabilityOf some (hasGripper min 1 Gripper)\n\tPushableDisposition|EquivalentTo|(isDispositionOf some (hasPart some RollablePart))",
+      "answer": "the pepper agent can push the mini shopping cart because it has a pushing capability through its gripper, which is a manipulator and a type of end effector, and the cart is pushable due to its rollable part, and the cart requires a force that matches the gripper's applicable force.",
+      "duration": 6568056.000000001
+    },
+    {
+      "id": "a_canPush_easy_14l",
+      "selected_classes": [
+        "Robot",
+        "TwoFingerClaw",
+        "Caster",
+        "RemoteControlledCar"
+      ],
+      "selected_names": [
+        "agent_capa_ccirrb",
+        "object_bpva",
+        "object_disp_ik",
+        "wheel_wc",
+        "agent_nuwo",
+        "gripper_xkpihb"
+      ],
+      "question": "-Inference : agent_nuwo|canPush|object_bpva \n -Justifications : agent_nuwo|Type|Robot, Robot|SubClassOf|Agent, agent_nuwo|hasCapability|agent_capa_ccirrb, agent_capa_ccirrb|isCapabilityOf|agent_nuwo, agent_nuwo|hasGripper|gripper_xkpihb, gripper_xkpihb|Type|TwoFingerClaw, TwoFingerClaw|SubClassOf|Gripper, object_bpva|Type|RemoteControlledCar, RemoteControlledCar|SubClassOf|Object, object_bpva|hasDisposition|object_disp_ik, chair_1_disp|isDispositionOf|object_bpva, object_bpva|hasPart|wheel_wc, wheel_wc|Type|Caster, Caster|SubClassOf|RollablePart, object_bpva|isApproachableBy|agent_nuwo, gripper_xkpihb|Type|Gripper, Gripper|SubClassOf|EndEffector, agent_nuwo|hasComponent|gripper_xkpihb, gripper_xkpihb|hasApplicableForce|integer#45, object_bpva|requiresForce|integer#45, equal(integer#45,integer#45) \n -Rules : Agent(?a), hasCapability(?a, ?c), PushingCapability(?c), Object(?o), hasDisposition(?o, ?d), PushableDisposition(?d), isApproachableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasApplicableForce(?g,?w1), requiresForce(?o,?w2), equal(?w2,?w1) -> canPush(?a, ?o)\n\tPushingCapability|EquivalentTo|(isCapabilityOf some (hasGripper min 1 Gripper)\n\tPushableDisposition|EquivalentTo|(isDispositionOf some (hasPart some RollablePart))",
+      "answer": "the robot can push the remote-controlled car because it has a pushing capability through its two-finger claw, which is an end effector, and the car has a pushable disposition due to having a caster part. Additionally, the robot's applicable force matches the force required by the car.",
+      "duration": 6317809.999999999
+    },
+    {
+      "id": "a_canPush_easy_15l",
+      "selected_classes": [
+        "Robot",
+        "TwoFingerClaw",
+        "PivotWheel",
+        "RoombaRobot"
+      ],
+      "selected_names": [
+        "agent_capa_dkma",
+        "object_qww",
+        "object_disp_uufut",
+        "wheel_qpljtp",
+        "agent_ojbq",
+        "gripper_lf"
+      ],
+      "question": "-Inference : agent_ojbq|canPush|object_qww \n -Justifications : agent_ojbq|Type|Robot, Robot|SubClassOf|Agent, agent_ojbq|hasCapability|agent_capa_dkma, agent_capa_dkma|isCapabilityOf|agent_ojbq, agent_ojbq|hasGripper|gripper_lf, gripper_lf|Type|TwoFingerClaw, TwoFingerClaw|SubClassOf|Gripper, object_qww|Type|RoombaRobot, RoombaRobot|SubClassOf|Object, object_qww|hasDisposition|object_disp_uufut, chair_1_disp|isDispositionOf|object_qww, object_qww|hasPart|wheel_qpljtp, wheel_qpljtp|Type|PivotWheel, PivotWheel|SubClassOf|RollablePart, object_qww|isApproachableBy|agent_ojbq, gripper_lf|Type|Gripper, Gripper|SubClassOf|EndEffector, agent_ojbq|hasComponent|gripper_lf, gripper_lf|hasApplicableForce|integer#41, object_qww|requiresForce|integer#41, equal(integer#41,integer#41) \n -Rules : Agent(?a), hasCapability(?a, ?c), PushingCapability(?c), Object(?o), hasDisposition(?o, ?d), PushableDisposition(?d), isApproachableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasApplicableForce(?g,?w1), requiresForce(?o,?w2), equal(?w2,?w1) -> canPush(?a, ?o)\n\tPushingCapability|EquivalentTo|(isCapabilityOf some (hasGripper min 1 Gripper)\n\tPushableDisposition|EquivalentTo|(isDispositionOf some (hasPart some RollablePart))",
+      "answer": "the robot can push the object because it has a pushing capability through its gripper, which is an end effector, and the object has a pushable disposition due to having a rollable part. Additionally, the robot's applicable force matches the force required by the object.",
+      "duration": 6093300.999999999
+    },
+    {
+      "id": "a_canPush_easy_16l",
+      "selected_classes": [
+        "Robot",
+        "MechanicalHand",
+        "Caster",
+        "MiniShoppingCart"
+      ],
+      "selected_names": [
+        "agent_capa_fnkx",
+        "object_siaby",
+        "object_disp_qye",
+        "wheel_kisx",
+        "agent_ugryor",
+        "gripper_augiyz"
+      ],
+      "question": "-Inference : agent_ugryor|canPush|object_siaby \n -Justifications : agent_ugryor|Type|Robot, Robot|SubClassOf|Agent, agent_ugryor|hasCapability|agent_capa_fnkx, agent_capa_fnkx|isCapabilityOf|agent_ugryor, agent_ugryor|hasGripper|gripper_augiyz, gripper_augiyz|Type|MechanicalHand, MechanicalHand|SubClassOf|Gripper, object_siaby|Type|MiniShoppingCart, MiniShoppingCart|SubClassOf|Object, object_siaby|hasDisposition|object_disp_qye, chair_1_disp|isDispositionOf|object_siaby, object_siaby|hasPart|wheel_kisx, wheel_kisx|Type|Caster, Caster|SubClassOf|RollablePart, object_siaby|isApproachableBy|agent_ugryor, gripper_augiyz|Type|Gripper, Gripper|SubClassOf|EndEffector, agent_ugryor|hasComponent|gripper_augiyz, gripper_augiyz|hasApplicableForce|integer#31, object_siaby|requiresForce|integer#31, equal(integer#31,integer#31) \n -Rules : Agent(?a), hasCapability(?a, ?c), PushingCapability(?c), Object(?o), hasDisposition(?o, ?d), PushableDisposition(?d), isApproachableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasApplicableForce(?g,?w1), requiresForce(?o,?w2), equal(?w2,?w1) -> canPush(?a, ?o)\n\tPushingCapability|EquivalentTo|(isCapabilityOf some (hasGripper min 1 Gripper)\n\tPushableDisposition|EquivalentTo|(isDispositionOf some (hasPart some RollablePart))",
+      "answer": "the robot can push the mini shopping cart because it has a pushing capability through its mechanical hand, which is an end effector and has an applicable force matching the cart's required force, and the cart is approachable and has a pushable disposition due to its rollable part.",
+      "duration": 6266504.000000001
+    },
+    {
+      "id": "a_canPush_easy_17l",
+      "selected_classes": [
+        "Robot",
+        "TwoFingerClaw",
+        "PivotRoller",
+        "OfficeChair"
+      ],
+      "selected_names": [
+        "agent_capa_qxybz",
+        "object_ozkaho",
+        "object_disp_kl",
+        "wheel_wvl",
+        "agent_mhapow",
+        "gripper_wjou"
+      ],
+      "question": "-Inference : agent_mhapow|canPush|object_ozkaho \n -Justifications : agent_mhapow|Type|Robot, Robot|SubClassOf|Agent, agent_mhapow|hasCapability|agent_capa_qxybz, agent_capa_qxybz|isCapabilityOf|agent_mhapow, agent_mhapow|hasGripper|gripper_wjou, gripper_wjou|Type|TwoFingerClaw, TwoFingerClaw|SubClassOf|Gripper, object_ozkaho|Type|OfficeChair, OfficeChair|SubClassOf|Object, object_ozkaho|hasDisposition|object_disp_kl, chair_1_disp|isDispositionOf|object_ozkaho, object_ozkaho|hasPart|wheel_wvl, wheel_wvl|Type|PivotRoller, PivotRoller|SubClassOf|RollablePart, object_ozkaho|isApproachableBy|agent_mhapow, gripper_wjou|Type|Gripper, Gripper|SubClassOf|EndEffector, agent_mhapow|hasComponent|gripper_wjou, gripper_wjou|hasApplicableForce|integer#52, object_ozkaho|requiresForce|integer#52, equal(integer#52,integer#52) \n -Rules : Agent(?a), hasCapability(?a, ?c), PushingCapability(?c), Object(?o), hasDisposition(?o, ?d), PushableDisposition(?d), isApproachableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasApplicableForce(?g,?w1), requiresForce(?o,?w2), equal(?w2,?w1) -> canPush(?a, ?o)\n\tPushingCapability|EquivalentTo|(isCapabilityOf some (hasGripper min 1 Gripper)\n\tPushableDisposition|EquivalentTo|(isDispositionOf some (hasPart some RollablePart))",
+      "answer": "the robot can push the office chair because it has a pushing capability through its two-finger claw gripper, which is compatible with the chair's pushable disposition, and the chair is approachable by the robot. Additionally, the gripper can apply a force of 52, which matches the force required by the chair.",
+      "duration": 6831713.0
+    },
+    {
+      "id": "a_canPush_easy_18l",
+      "selected_classes": [
+        "Pepper",
+        "TwoFingerClaw",
+        "Wheel",
+        "MiniShoppingCart"
+      ],
+      "selected_names": [
+        "agent_capa_vc",
+        "object_dv",
+        "object_disp_hbm",
+        "wheel_cxg",
+        "agent_stz",
+        "gripper_temx"
+      ],
+      "question": "-Inference : agent_stz|canPush|object_dv \n -Justifications : agent_stz|Type|Pepper, Pepper|SubClassOf|Agent, agent_stz|hasCapability|agent_capa_vc, agent_capa_vc|isCapabilityOf|agent_stz, agent_stz|hasGripper|gripper_temx, gripper_temx|Type|TwoFingerClaw, TwoFingerClaw|SubClassOf|Gripper, object_dv|Type|MiniShoppingCart, MiniShoppingCart|SubClassOf|Object, object_dv|hasDisposition|object_disp_hbm, chair_1_disp|isDispositionOf|object_dv, object_dv|hasPart|wheel_cxg, wheel_cxg|Type|Wheel, Wheel|SubClassOf|RollablePart, object_dv|isApproachableBy|agent_stz, gripper_temx|Type|Gripper, Gripper|SubClassOf|EndEffector, agent_stz|hasComponent|gripper_temx, gripper_temx|hasApplicableForce|integer#57, object_dv|requiresForce|integer#57, equal(integer#57,integer#57) \n -Rules : Agent(?a), hasCapability(?a, ?c), PushingCapability(?c), Object(?o), hasDisposition(?o, ?d), PushableDisposition(?d), isApproachableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasApplicableForce(?g,?w1), requiresForce(?o,?w2), equal(?w2,?w1) -> canPush(?a, ?o)\n\tPushingCapability|EquivalentTo|(isCapabilityOf some (hasGripper min 1 Gripper)\n\tPushableDisposition|EquivalentTo|(isDispositionOf some (hasPart some RollablePart))",
+      "answer": "the pepper agent can push the mini shopping cart because it has a pushing capability through its two-finger claw, which is an end effector, and the cart is pushable due to having a rollable part. Additionally, the cart requires a force of 57, which matches the force the agent can apply, and the cart is approachable by the agent.",
+      "duration": 7169946.0
+    },
+    {
+      "id": "a_canPush_easy_19l",
+      "selected_classes": [
+        "Tiago",
+        "TwoFingerClaw",
+        "PivotRoller",
+        "MiniShoppingCart"
+      ],
+      "selected_names": [
+        "agent_capa_alfp",
+        "object_rafhp",
+        "object_disp_suuz",
+        "wheel_wfno",
+        "agent_pb",
+        "gripper_vaasyj"
+      ],
+      "question": "-Inference : agent_pb|canPush|object_rafhp \n -Justifications : agent_pb|Type|Tiago, Tiago|SubClassOf|Agent, agent_pb|hasCapability|agent_capa_alfp, agent_capa_alfp|isCapabilityOf|agent_pb, agent_pb|hasGripper|gripper_vaasyj, gripper_vaasyj|Type|TwoFingerClaw, TwoFingerClaw|SubClassOf|Gripper, object_rafhp|Type|MiniShoppingCart, MiniShoppingCart|SubClassOf|Object, object_rafhp|hasDisposition|object_disp_suuz, chair_1_disp|isDispositionOf|object_rafhp, object_rafhp|hasPart|wheel_wfno, wheel_wfno|Type|PivotRoller, PivotRoller|SubClassOf|RollablePart, object_rafhp|isApproachableBy|agent_pb, gripper_vaasyj|Type|Gripper, Gripper|SubClassOf|EndEffector, agent_pb|hasComponent|gripper_vaasyj, gripper_vaasyj|hasApplicableForce|integer#18, object_rafhp|requiresForce|integer#18, equal(integer#18,integer#18) \n -Rules : Agent(?a), hasCapability(?a, ?c), PushingCapability(?c), Object(?o), hasDisposition(?o, ?d), PushableDisposition(?d), isApproachableBy(?o,?a), EndEffector(?g), hasComponent(?a,?g), hasApplicableForce(?g,?w1), requiresForce(?o,?w2), equal(?w2,?w1) -> canPush(?a, ?o)\n\tPushingCapability|EquivalentTo|(isCapabilityOf some (hasGripper min 1 Gripper)\n\tPushableDisposition|EquivalentTo|(isDispositionOf some (hasPart some RollablePart))",
+      "answer": "the agent can push the object because it has a pushing capability through its gripper, which is an end effector, and the object is pushable due to having a rollable part. Additionally, the object requires a force that matches the gripper's applicable force, ensuring the push is feasible.",
+      "duration": 6478038.0
+    }
+  ]
+}

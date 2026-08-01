@@ -1,0 +1,260 @@
+[
+  {
+    "question_id": "a_canPerceive_medium_0l",
+    "is_correct": null,
+    "score": 0.8,
+    "missing_concepts": [
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_medium_1l",
+    "is_correct": null,
+    "score": 0.4,
+    "missing_concepts": [
+      "Tiago",
+      "RGBCamera",
+      "Luggage",
+      "perceivable",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_medium_2l",
+    "is_correct": null,
+    "score": 0.6,
+    "missing_concepts": [
+      "perceivable",
+      "visible",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_medium_3l",
+    "is_correct": null,
+    "score": 0.2,
+    "missing_concepts": [
+      "Pr2",
+      "RealsenseL515",
+      "2DBarcode",
+      "Plate",
+      "perceivable",
+      "visible",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_medium_4l",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "ScanTag",
+      "perceivable",
+      "visible",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_medium_5l",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "2DBarcode",
+      "perceivable",
+      "visible",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_medium_6l",
+    "is_correct": null,
+    "score": 0.4,
+    "missing_concepts": [
+      "Tiago",
+      "Box",
+      "perceivable",
+      "visible",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_medium_7l",
+    "is_correct": null,
+    "score": 0.3,
+    "missing_concepts": [
+      "Tiago",
+      "2DBarcode",
+      "Appliance",
+      "perceivable",
+      "visible",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_medium_8l",
+    "is_correct": null,
+    "score": 0.2,
+    "missing_concepts": [
+      "Pr2",
+      "RealsenseL515",
+      "QRCode",
+      "Cube",
+      "perceivable",
+      "visible",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_medium_9l",
+    "is_correct": null,
+    "score": 0.3,
+    "missing_concepts": [
+      "Pr2",
+      "2DBarcode",
+      "Appliance",
+      "perceivable",
+      "visible",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_medium_10l",
+    "is_correct": null,
+    "score": 0.6,
+    "missing_concepts": [
+      "perceivable",
+      "visible",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_medium_11l",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "ScanTag",
+      "perceivable",
+      "visible",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_medium_12l",
+    "is_correct": null,
+    "score": 0.6,
+    "missing_concepts": [
+      "perceivable",
+      "visible",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_medium_13l",
+    "is_correct": null,
+    "score": 0.2,
+    "missing_concepts": [
+      "Pr2",
+      "RGBCamera",
+      "2DBarcode",
+      "Appliance",
+      "perceivable",
+      "visible",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_medium_14l",
+    "is_correct": null,
+    "score": 0.3,
+    "missing_concepts": [
+      "Pr2",
+      "KinectV2",
+      "Book",
+      "perceivable",
+      "visible",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_medium_15l",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "2DBarcode",
+      "perceivable",
+      "visible",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_medium_16l",
+    "is_correct": null,
+    "score": 0.4,
+    "missing_concepts": [
+      "ScanTag",
+      "Appliance",
+      "perceivable",
+      "visible",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_medium_17l",
+    "is_correct": null,
+    "score": 0.2,
+    "missing_concepts": [
+      "Tiago",
+      "RealsenseD435i",
+      "QRTag",
+      "Box",
+      "perceivable",
+      "visible",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_medium_18l",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "ScanTag",
+      "perceivable",
+      "visible",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_medium_19l",
+    "is_correct": null,
+    "score": 0.2,
+    "missing_concepts": [
+      "Tiago",
+      "KinectV2",
+      "QRTag",
+      "Appliance",
+      "perceivable",
+      "visible",
+      "camera range",
+      "object_distance"
+    ]
+  }
+]

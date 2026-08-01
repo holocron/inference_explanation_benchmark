@@ -1,0 +1,245 @@
+[
+  {
+    "question_id": "a_canPerceive_medium_0b",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "2DBarcode",
+      "perceivable",
+      "visible",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_medium_1b",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "RGBCamera",
+      "QRCode",
+      "perceivable",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_medium_2b",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "QRCode",
+      "perceivable",
+      "visible",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_medium_3b",
+    "is_correct": null,
+    "score": 0.4,
+    "missing_concepts": [
+      "Pr2",
+      "2DBarcode",
+      "perceivable",
+      "visible",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_medium_4b",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "Pepper",
+      "ScanTag",
+      "perceivable",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_medium_5b",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "2DBarcode",
+      "perceivable",
+      "visible",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_medium_6b",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "Tiago",
+      "2DBarcode",
+      "perceivable",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_medium_7b",
+    "is_correct": null,
+    "score": 0.6,
+    "missing_concepts": [
+      "2DBarcode",
+      "perceivable",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_medium_8b",
+    "is_correct": null,
+    "score": 0.4,
+    "missing_concepts": [
+      "Pr2",
+      "QRCode",
+      "perceivable",
+      "visible",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_medium_9b",
+    "is_correct": null,
+    "score": 0.4,
+    "missing_concepts": [
+      "Pr2",
+      "KinectV2",
+      "2DBarcode",
+      "perceivable",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_medium_10b",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "RGBCamera",
+      "QRTag",
+      "perceivable",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_medium_11b",
+    "is_correct": null,
+    "score": 0.4,
+    "missing_concepts": [
+      "Pepper",
+      "ScanTag",
+      "perceivable",
+      "visible",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_medium_12b",
+    "is_correct": null,
+    "score": 0.4,
+    "missing_concepts": [
+      "Pepper",
+      "QRCode",
+      "perceivable",
+      "visible",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_medium_13b",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "Pr2",
+      "2DBarcode",
+      "perceivable",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_medium_14b",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "Pr2",
+      "2DBarcode",
+      "perceivable",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_medium_15b",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "RGBCamera",
+      "2DBarcode",
+      "perceivable",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_medium_16b",
+    "is_correct": null,
+    "score": 0.6,
+    "missing_concepts": [
+      "ScanTag",
+      "perceivable",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_medium_17b",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "RealsenseD435i",
+      "QRTag",
+      "perceivable",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_medium_18b",
+    "is_correct": null,
+    "score": 0.4,
+    "missing_concepts": [
+      "Pepper",
+      "ScanTag",
+      "perceivable",
+      "visible",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_medium_19b",
+    "is_correct": null,
+    "score": 0.6,
+    "missing_concepts": [
+      "QRTag",
+      "perceivable",
+      "camera range",
+      "object_distance"
+    ]
+  }
+]

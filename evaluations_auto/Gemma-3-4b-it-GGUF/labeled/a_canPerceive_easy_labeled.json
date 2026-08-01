@@ -1,0 +1,275 @@
+[
+  {
+    "question_id": "a_canPerceive_easy_0l",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "2DBarcode",
+      "perceivable",
+      "visible",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_easy_1l",
+    "is_correct": null,
+    "score": 0.3,
+    "missing_concepts": [
+      "Tiago",
+      "RGBCamera",
+      "QRCode",
+      "perceivable",
+      "visible",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_easy_2l",
+    "is_correct": null,
+    "score": 0.3,
+    "missing_concepts": [
+      "Pepper",
+      "KinectV2",
+      "QRCode",
+      "perceivable",
+      "visible",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_easy_3l",
+    "is_correct": null,
+    "score": 0.3,
+    "missing_concepts": [
+      "Pr2",
+      "2DBarcode",
+      "perceiving",
+      "perceivable",
+      "visible",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_easy_4l",
+    "is_correct": null,
+    "score": 0.4,
+    "missing_concepts": [
+      "Pepper",
+      "ScanTag",
+      "Plate",
+      "perceivable",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_easy_5l",
+    "is_correct": null,
+    "score": 0.3,
+    "missing_concepts": [
+      "Pepper",
+      "2DBarcode",
+      "perceiving",
+      "perceivable",
+      "visible",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_easy_6l",
+    "is_correct": null,
+    "score": 0.4,
+    "missing_concepts": [
+      "Tiago",
+      "2DBarcode",
+      "Box",
+      "perceivable",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_easy_7l",
+    "is_correct": null,
+    "score": 0.4,
+    "missing_concepts": [
+      "Tiago",
+      "2DBarcode",
+      "perceiving",
+      "perceivable",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_easy_8l",
+    "is_correct": null,
+    "score": 0.4,
+    "missing_concepts": [
+      "Pr2",
+      "QRCode",
+      "perceivable",
+      "visible",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_easy_9l",
+    "is_correct": null,
+    "score": 0.3,
+    "missing_concepts": [
+      "Pr2",
+      "KinectV2",
+      "2DBarcode",
+      "perceiving",
+      "perceivable",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_easy_10l",
+    "is_correct": null,
+    "score": 0.4,
+    "missing_concepts": [
+      "RGBCamera",
+      "QRTag",
+      "perceiving",
+      "perceivable",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_easy_11l",
+    "is_correct": null,
+    "score": 0.3,
+    "missing_concepts": [
+      "Pepper",
+      "KinectV2",
+      "ScanTag",
+      "perceiving",
+      "perceivable",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_easy_12l",
+    "is_correct": null,
+    "score": 0.2,
+    "missing_concepts": [
+      "Pepper",
+      "Webcam",
+      "QRCode",
+      "Plate",
+      "perceivable",
+      "visible",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_easy_13l",
+    "is_correct": null,
+    "score": 0.3,
+    "missing_concepts": [
+      "Pr2",
+      "RGBCamera",
+      "2DBarcode",
+      "perceivable",
+      "visible",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_easy_14l",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "Pr2",
+      "2DBarcode",
+      "perceivable",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_easy_15l",
+    "is_correct": null,
+    "score": 0.4,
+    "missing_concepts": [
+      "RGBCamera",
+      "2DBarcode",
+      "perceiving",
+      "perceivable",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_easy_16l",
+    "is_correct": null,
+    "score": 0.2,
+    "missing_concepts": [
+      "Pepper",
+      "Webcam",
+      "ScanTag",
+      "Appliance",
+      "perceivable",
+      "visible",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_easy_17l",
+    "is_correct": null,
+    "score": 0.3,
+    "missing_concepts": [
+      "Tiago",
+      "QRTag",
+      "Box",
+      "perceivable",
+      "visible",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_easy_18l",
+    "is_correct": null,
+    "score": 0.2,
+    "missing_concepts": [
+      "Pepper",
+      "RealsenseD435i",
+      "ScanTag",
+      "perceiving",
+      "perceivable",
+      "visible",
+      "camera range",
+      "object_distance"
+    ]
+  },
+  {
+    "question_id": "a_canPerceive_easy_19l",
+    "is_correct": null,
+    "score": 0.3,
+    "missing_concepts": [
+      "Tiago",
+      "KinectV2",
+      "QRTag",
+      "Appliance",
+      "perceivable",
+      "camera range",
+      "object_distance"
+    ]
+  }
+]

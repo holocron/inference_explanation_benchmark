@@ -1,0 +1,229 @@
+[
+  {
+    "question_id": "a_canPush_hard_0l",
+    "is_correct": null,
+    "score": 0.6,
+    "missing_concepts": [
+      "Wheel",
+      "pushable",
+      "approachable",
+      "applicable_force"
+    ]
+  },
+  {
+    "question_id": "a_canPush_hard_1l",
+    "is_correct": null,
+    "score": 0.6,
+    "missing_concepts": [
+      "Manipulator",
+      "approachable",
+      "applicable_force",
+      "required_force"
+    ]
+  },
+  {
+    "question_id": "a_canPush_hard_2l",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "PivotRoller",
+      "pushable",
+      "approachable",
+      "applicable_force",
+      "required_force"
+    ]
+  },
+  {
+    "question_id": "a_canPush_hard_3l",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "Wheel",
+      "pushable",
+      "approachable",
+      "applicable_force",
+      "required_force"
+    ]
+  },
+  {
+    "question_id": "a_canPush_hard_4l",
+    "is_correct": null,
+    "score": 0.7,
+    "missing_concepts": [
+      "Caster",
+      "approachable",
+      "applicable_force"
+    ]
+  },
+  {
+    "question_id": "a_canPush_hard_5l",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "Manipulator",
+      "Roller",
+      "approachable",
+      "applicable_force",
+      "required_force"
+    ]
+  },
+  {
+    "question_id": "a_canPush_hard_6l",
+    "is_correct": null,
+    "score": 0.6,
+    "missing_concepts": [
+      "Wheel",
+      "pushable",
+      "applicable_force",
+      "required_force"
+    ]
+  },
+  {
+    "question_id": "a_canPush_hard_7l",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "PivotRoller",
+      "pushable",
+      "approachable",
+      "applicable_force",
+      "required_force"
+    ]
+  },
+  {
+    "question_id": "a_canPush_hard_8l",
+    "is_correct": null,
+    "score": 0.6,
+    "missing_concepts": [
+      "PivotRoller",
+      "pushable",
+      "approachable",
+      "required_force"
+    ]
+  },
+  {
+    "question_id": "a_canPush_hard_9l",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "Manipulator",
+      "Caster",
+      "pushable",
+      "approachable",
+      "required_force"
+    ]
+  },
+  {
+    "question_id": "a_canPush_hard_10l",
+    "is_correct": null,
+    "score": 0.6,
+    "missing_concepts": [
+      "PivotRoller",
+      "pushable",
+      "applicable_force",
+      "required_force"
+    ]
+  },
+  {
+    "question_id": "a_canPush_hard_11l",
+    "is_correct": null,
+    "score": 0.7,
+    "missing_concepts": [
+      "approachable",
+      "applicable_force",
+      "required_force"
+    ]
+  },
+  {
+    "question_id": "a_canPush_hard_12l",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "Caster",
+      "pushable",
+      "approachable",
+      "applicable_force",
+      "required_force"
+    ]
+  },
+  {
+    "question_id": "a_canPush_hard_13l",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "Manipulator",
+      "PivotWheel",
+      "approachable",
+      "applicable_force",
+      "required_force"
+    ]
+  },
+  {
+    "question_id": "a_canPush_hard_14l",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "Caster",
+      "RemoteControlledCar",
+      "approachable",
+      "applicable_force",
+      "required_force"
+    ]
+  },
+  {
+    "question_id": "a_canPush_hard_15l",
+    "is_correct": null,
+    "score": 0.4,
+    "missing_concepts": [
+      "PivotWheel",
+      "RoombaRobot",
+      "pushable",
+      "approachable",
+      "applicable_force",
+      "required_force"
+    ]
+  },
+  {
+    "question_id": "a_canPush_hard_16l",
+    "is_correct": null,
+    "score": 0.7,
+    "missing_concepts": [
+      "Caster",
+      "pushable",
+      "approachable"
+    ]
+  },
+  {
+    "question_id": "a_canPush_hard_17l",
+    "is_correct": null,
+    "score": 0.7,
+    "missing_concepts": [
+      "approachable",
+      "applicable_force",
+      "required_force"
+    ]
+  },
+  {
+    "question_id": "a_canPush_hard_18l",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "Wheel",
+      "pushable",
+      "approachable",
+      "applicable_force",
+      "required_force"
+    ]
+  },
+  {
+    "question_id": "a_canPush_hard_19l",
+    "is_correct": null,
+    "score": 0.6,
+    "missing_concepts": [
+      "PivotRoller",
+      "approachable",
+      "applicable_force",
+      "required_force"
+    ]
+  }
+]

@@ -1,0 +1,236 @@
+[
+  {
+    "question_id": "a_canPush_medium_0l",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "Claw",
+      "Wheel",
+      "pushable",
+      "approachable",
+      "applicable_force"
+    ]
+  },
+  {
+    "question_id": "a_canPush_medium_1l",
+    "is_correct": null,
+    "score": 0.3,
+    "missing_concepts": [
+      "Pr2",
+      "Manipulator",
+      "Caster",
+      "MiniShoppingCart",
+      "approachable",
+      "applicable_force",
+      "required_force"
+    ]
+  },
+  {
+    "question_id": "a_canPush_medium_2l",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "PivotRoller",
+      "pushable",
+      "approachable",
+      "applicable_force",
+      "required_force"
+    ]
+  },
+  {
+    "question_id": "a_canPush_medium_3l",
+    "is_correct": null,
+    "score": 0.6,
+    "missing_concepts": [
+      "TwoFingerClaw",
+      "Wheel",
+      "approachable",
+      "required_force"
+    ]
+  },
+  {
+    "question_id": "a_canPush_medium_4l",
+    "is_correct": null,
+    "score": 0.6,
+    "missing_concepts": [
+      "Caster",
+      "pushable",
+      "approachable",
+      "applicable_force"
+    ]
+  },
+  {
+    "question_id": "a_canPush_medium_5l",
+    "is_correct": null,
+    "score": 0.6,
+    "missing_concepts": [
+      "Manipulator",
+      "Roller",
+      "pushable",
+      "applicable_force"
+    ]
+  },
+  {
+    "question_id": "a_canPush_medium_6l",
+    "is_correct": null,
+    "score": 0.6,
+    "missing_concepts": [
+      "Wheel",
+      "pushable",
+      "approachable",
+      "applicable_force"
+    ]
+  },
+  {
+    "question_id": "a_canPush_medium_7l",
+    "is_correct": null,
+    "score": 0.3,
+    "missing_concepts": [
+      "Pr2",
+      "TwoFingerClaw",
+      "PivotRoller",
+      "ToyWagon",
+      "approachable",
+      "applicable_force",
+      "required_force"
+    ]
+  },
+  {
+    "question_id": "a_canPush_medium_8l",
+    "is_correct": null,
+    "score": 0.7,
+    "missing_concepts": [
+      "PivotRoller",
+      "approachable",
+      "applicable_force"
+    ]
+  },
+  {
+    "question_id": "a_canPush_medium_9l",
+    "is_correct": null,
+    "score": 0.3,
+    "missing_concepts": [
+      "Pr2",
+      "Manipulator",
+      "Caster",
+      "RemoteControlledCar",
+      "approachable",
+      "applicable_force",
+      "required_force"
+    ]
+  },
+  {
+    "question_id": "a_canPush_medium_10l",
+    "is_correct": null,
+    "score": 0.2,
+    "missing_concepts": [
+      "Tiago",
+      "TwoFingerClaw",
+      "PivotRoller",
+      "RoombaRobot",
+      "pushable",
+      "approachable",
+      "applicable_force",
+      "required_force"
+    ]
+  },
+  {
+    "question_id": "a_canPush_medium_11l",
+    "is_correct": null,
+    "score": 0.5,
+    "missing_concepts": [
+      "Pr2",
+      "PivotWheel",
+      "OfficeChair",
+      "approachable",
+      "applicable_force"
+    ]
+  },
+  {
+    "question_id": "a_canPush_medium_12l",
+    "is_correct": null,
+    "score": 0.6,
+    "missing_concepts": [
+      "Claw",
+      "Caster",
+      "approachable",
+      "applicable_force"
+    ]
+  },
+  {
+    "question_id": "a_canPush_medium_13l",
+    "is_correct": null,
+    "score": 0.7,
+    "missing_concepts": [
+      "PivotWheel",
+      "approachable",
+      "applicable_force"
+    ]
+  },
+  {
+    "question_id": "a_canPush_medium_14l",
+    "is_correct": null,
+    "score": 0.6,
+    "missing_concepts": [
+      "Caster",
+      "approachable",
+      "applicable_force",
+      "required_force"
+    ]
+  },
+  {
+    "question_id": "a_canPush_medium_15l",
+    "is_correct": null,
+    "score": 0.6,
+    "missing_concepts": [
+      "TwoFingerClaw",
+      "PivotWheel",
+      "RoombaRobot",
+      "approachable"
+    ]
+  },
+  {
+    "question_id": "a_canPush_medium_16l",
+    "is_correct": null,
+    "score": 0.7,
+    "missing_concepts": [
+      "Caster",
+      "pushable",
+      "applicable_force"
+    ]
+  },
+  {
+    "question_id": "a_canPush_medium_17l",
+    "is_correct": null,
+    "score": 0.7,
+    "missing_concepts": [
+      "PivotRoller",
+      "pushable",
+      "applicable_force"
+    ]
+  },
+  {
+    "question_id": "a_canPush_medium_18l",
+    "is_correct": null,
+    "score": 0.7,
+    "missing_concepts": [
+      "Wheel",
+      "approachable",
+      "applicable_force"
+    ]
+  },
+  {
+    "question_id": "a_canPush_medium_19l",
+    "is_correct": null,
+    "score": 0.3,
+    "missing_concepts": [
+      "Tiago",
+      "TwoFingerClaw",
+      "PivotRoller",
+      "MiniShoppingCart",
+      "approachable",
+      "applicable_force",
+      "required_force"
+    ]
+  }
+]

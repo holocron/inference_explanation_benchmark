@@ -1,20 +1,32 @@
 import json
+import re
 import time
 import urllib.error
 import urllib.request
 
 class LemonadeHandler:
-	"""Drop-in replacement for OllamaHandler targeting a Lemonade Server
-	(OpenAI-compatible) endpoint instead of Ollama.
+	"""Drop-in replacement for OllamaHandler targeting OpenAI-compatible
+	endpoints (Lemonade Server router or a raw llama-server instance).
 
 	Same interface: call(question) -> (answer_text, duration).
 	Duration is reported on the same scale as OllamaHandler
 	((prompt_eval_duration + eval_duration) / 1000, i.e. microseconds).
 
-	Lemonade evicts models from memory when another model is loaded or
-	after idle time, answering chat requests with 'model_not_loaded'.
-	The handler therefore (re)loads the model via /api/v1/load and
-	retries transparently.
+	Backend quirks handled here:
+	- Lemonade evicts models and answers 'model_not_loaded' -> (re)load via
+	  /api/v1/load and retry (only when load_on_missing=True; for the
+	  lemond-resident gpt-oss-120b we wait and retry instead).
+	- Strict chat templates (Gemma) reject consecutive same-role messages
+	  -> merged in _merge_same_role.
+	- Thinking templates (Bonsai, gpt-oss) reject the benchmark's trailing
+	  assistant prefill ("prefill is incompatible with enable_thinking").
+	  Fallback chain per request: (1) as-is, (2) chat_template_kwargs
+	  enable_thinking=false, (3) drop the trailing assistant message.
+	  (2) keeps the paper's prompt intact for models whose template
+	  supports the switch (Bonsai); (3) is the last resort for gpt-oss,
+	  whose harmony template has no such switch — noted for the report.
+	- <think>...</think> blocks (emitted even when thinking is disabled)
+	  are stripped from the answer.
 	"""
 	def __init__(self, model, base_url="http://localhost:13305/api/v1", load_on_missing=True):
 		self.model_ = model
@@ -22,6 +34,9 @@ class LemonadeHandler:
 		# False for models managed elsewhere (e.g. gpt-oss-120b in lemond):
 		# wait-and-retry instead of issuing /load ourselves
 		self.load_on_missing_ = load_on_missing
+		# learned per model after the first fallback: 0 = as-is,
+		# 1 = enable_thinking=false, 2 = drop assistant prefill
+		self.prefill_mode_ = 0
 
 	# Some chat templates (e.g. Gemma) reject consecutive same-role
 	# messages ("roles must alternate"). The benchmark's init_prompt
@@ -49,23 +64,41 @@ class LemonadeHandler:
 		# loading a large model (gpt-oss-120b) can take several minutes
 		self._post("/load", {"model_name": self.model_}, timeout = 1800)
 
-	def _call_once(self, question):
+	def _call_once(self, messages):
 		payload = {
 			"model": self.model_,
-			"messages": self._merge_same_role(question),
+			"messages": messages,
 			"temperature": 0,
 			"stream": False,
 		}
+		if self.prefill_mode_ == 1:
+			payload["chat_template_kwargs"] = {"enable_thinking": False}
+		if self.prefill_mode_ == 2 and messages and messages[-1]["role"] == "assistant":
+			payload["messages"] = messages[:-1]
 		return self._post("/chat/completions", payload)
 
+	@staticmethod
+	def _strip_think(text):
+		return re.sub(r"<think>.*?</think>", "", text, flags = re.S).strip()
+
 	def call(self, question, verbose = False, full_verbose = False):
+		messages = self._merge_same_role(question)
 		response = None
-		for attempt in range(4):
+		for attempt in range(6):
 			try:
-				response = self._call_once(question)
+				response = self._call_once(messages)
 				break
 			except urllib.error.HTTPError as e:
 				body = e.read().decode(errors = "replace")
+				if "prefill is incompatible with enable_thinking" in body:
+					if self.prefill_mode_ == 0:
+						print(f"{self.model_}: thinking template, retrying with enable_thinking=false")
+						self.prefill_mode_ = 1
+						continue
+					if self.prefill_mode_ == 1:
+						print(f"{self.model_}: enable_thinking=false failed, dropping assistant prefill")
+						self.prefill_mode_ = 2
+						continue
 				if "model_not_loaded" in body and attempt < 3:
 					if self.load_on_missing_:
 						print(f"model {self.model_} not loaded, loading (attempt {attempt + 1})...")
@@ -84,7 +117,7 @@ class LemonadeHandler:
 		message = response["choices"][0]["message"]
 		# reasoning models (gpt-oss): chain-of-thought goes to
 		# 'reasoning_content', the final answer stays in 'content'
-		answer = message.get("content") or ""
+		answer = self._strip_think(message.get("content") or "")
 
 		if(verbose == True):
 			if(full_verbose == True):
@@ -93,7 +126,7 @@ class LemonadeHandler:
 					print("\t--", elem)
 				print("answer is : ", response)
 			else:
-				print("question is : ", question[-2]['content'])
+				print("question is : ", messages[-1]['content'] if self.prefill_mode_ != 2 else messages[-2]['content'])
 				print("answer is : ", answer)
 
 		# llama.cpp reports timings in milliseconds; convert to the

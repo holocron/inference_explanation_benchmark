@@ -1,13 +1,18 @@
-"""Generate a nonce-word variant of the question set (Wug-test style).
+"""Generate identifier-style variants of the question set (Wug-test style).
 
 The benchmark anonymises individuals as random gibberish (v, yo, onq, gjqb),
 which conflates verbalisation skill with robustness to token noise. This
 script rewrites each question variation, replacing every gibberish name with
-a pronounceable nonce word (wug, dax, ...) — consistent within a variation,
-fresh per variation, exactly like the original generator.
+an alternative identifier — consistent within a variation, fresh per
+variation, exactly like the original generator.
 
-Output mirrors the dataset layout so run_own.py can point at it:
-  python3 make_nonce_questions.py <src_dataset_dir> <dst_dataset_dir>
+Styles:
+  plain  — pronounceable nonce words (wug, dax, ...)
+  marked — salient nonce identifiers ([[WUG]], [[DAX]], ...) — tests whether
+           visually marked identifiers help the model track referents
+
+Usage:
+  python3 make_nonce_questions.py <src_dataset_dir> <dst_dataset_dir> [--style plain|marked]
   # then: python3 run_own.py <model> <dst_dataset_dir>
 """
 import json
@@ -23,8 +28,11 @@ NONCE_POOL = [
     "mep", "sig", "lorn", "tame", "zek", "nulf", "pab", "jex",
 ]
 
-def nonce_names(names, rng):
-    return rng.sample(NONCE_POOL, len(names))
+def nonce_names(names, rng, style):
+    picked = rng.sample(NONCE_POOL, len(names))
+    if style == "marked":
+        return ["[[" + n.upper() + "]]" for n in picked]
+    return picked
 
 def replace_names(text, mapping):
     for old, new in mapping.items():
@@ -34,6 +42,9 @@ def replace_names(text, mapping):
 if __name__ == '__main__':
     src = Path(sys.argv[1])
     dst = Path(sys.argv[2])
+    style = "plain"
+    if "--style" in sys.argv:
+        style = sys.argv[sys.argv.index("--style") + 1]
     rng = random.Random(42)  # reproducible mappings
 
     converted = 0
@@ -43,7 +54,7 @@ if __name__ == '__main__':
             names = question.get("selected_names", [])
             if not names:
                 continue
-            mapping = dict(zip(names, nonce_names(names, rng)))
+            mapping = dict(zip(names, nonce_names(names, rng, style)))
             question["question"] = replace_names(question["question"], mapping)
             question["selected_names"] = [mapping[n] for n in names]
 
@@ -53,4 +64,4 @@ if __name__ == '__main__':
         with open(target, "w") as f:
             json.dump(data, f, indent = 2)
         converted += 1
-    print(f"converted {converted} question files -> {dst / 'questions'}")
+    print(f"converted {converted} question files ({style}) -> {dst / 'questions'}")

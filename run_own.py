@@ -16,6 +16,7 @@ import subprocess
 import sys
 import time
 import urllib.request
+from pathlib import Path
 
 import config
 from src.AnswerGenerator import AnswerGenerator
@@ -36,10 +37,11 @@ def wait_ready(base_url, proc, attempts = 150):
   raise RuntimeError("llama-server did not become ready in time")
 
 if __name__ == '__main__':
-  if len(sys.argv) != 2:
-    sys.exit("usage: python3 run_own.py <model_id from config.LOCAL_GGUF>")
+  if len(sys.argv) < 2 or len(sys.argv) > 3:
+    sys.exit("usage: python3 run_own.py <model_id from config.LOCAL_GGUF> [dataset_dir]")
 
   model = sys.argv[1]
+  dataset_dir = Path(sys.argv[2]) if len(sys.argv) == 3 else config.DATASET_DIR
   gguf = config.LOCAL_GGUF[model]
   base_url = f"http://localhost:{PORT}/v1"
 
@@ -66,7 +68,7 @@ if __name__ == '__main__':
     wait_ready(base_url, server)
     print("server ready, running benchmark...")
     handler = LemonadeHandler(model, base_url, load_on_missing = False)
-    AnswerGenerator(config.DATASET_DIR).generate(handler, model)
+    AnswerGenerator(dataset_dir).generate(handler, model)
   finally:
     server.terminate()
     server.wait()

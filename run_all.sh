@@ -12,7 +12,7 @@ FAILED=()
 if [ "$#" -gt 0 ]; then
   MODELS=("$@")
 else
-  MODELS=("Gemma-3-4b-it-GGUF" "Llama-3.2-3B-Instruct-GGUF" "Bonsai-8B-gguf" "gpt-oss-20b-mxfp4-GGUF" "gpt-oss-120b-GGUF")
+  MODELS=("Gemma-3-4b-it-GGUF" "Llama-3.2-3B-Instruct-GGUF" "Bonsai-8B-gguf" "Qwen3-32B-GGUF")
 fi
 
 while pgrep -f download.sh > /dev/null; do

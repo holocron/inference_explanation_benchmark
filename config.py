@@ -16,20 +16,21 @@ MODELS = [
   "Gemma-3-4b-it-GGUF",
   "Llama-3.2-3B-Instruct-GGUF",
   "Bonsai-8B-gguf",
-  "gpt-oss-20b-mxfp4-GGUF",
+  "Qwen3-32B-GGUF",
 ]
 
 MODEL_ENDPOINTS = {model: OWN_SERVER_URL for model in MODELS}
-MODEL_ENDPOINTS["gpt-oss-120b-GGUF"] = LEMONADE_BASE_URL
 
 # Models we must never load/unload ourselves — managed elsewhere (lemond).
 NEVER_LOAD = {"gpt-oss-120b-GGUF"}
 
 # Local GGUF files for our own llama-server instances — same checkpoints
 # (repo + quant) that lemond serves, downloaded to ./models.
+# (Bonsai: lossless Q4_0 repack of the ternary weights — the native Q1_0
+# needs PrismML's llama.cpp fork, stock builds reject ggml type 41.)
 LOCAL_GGUF = {
   "Gemma-3-4b-it-GGUF":        BASE_DIR / "models/gemma-3-4b-it-Q4_K_M.gguf",
   "Llama-3.2-3B-Instruct-GGUF": BASE_DIR / "models/Llama-3.2-3B-Instruct-UD-Q4_K_XL.gguf",
   "Bonsai-8B-gguf":            BASE_DIR / "models/Ternary-Bonsai-8B-Q4_0-lossless.gguf",
-  "gpt-oss-20b-mxfp4-GGUF":    BASE_DIR / "models/gpt-oss-20b-MXFP4.gguf",
+  "Qwen3-32B-GGUF":            BASE_DIR / "models/Qwen3-32B-Q4_K_M.gguf",
 }

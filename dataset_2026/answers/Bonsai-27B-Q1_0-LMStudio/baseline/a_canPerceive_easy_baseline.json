@@ -1,0 +1,444 @@
+{
+  "id": "a_canPerceive_easy",
+  "template": {
+    "fact": "__agent__|canPerceive|__object__",
+    "explanation": [
+      "__agent__|Type|__Agent__",
+      "__Agent__|SubClassOf|Agent",
+      "__agent__|hasCapability|__agent_capa__",
+      "__agent_capa__|isCapabilityOf|__agent__",
+      "__agent__|hasComponent|__camera__",
+      "__camera__|Type|__Camera__",
+      "__Camera__|SubClassOf|Camera",
+      "__object__|Type|__Object__",
+      "__Object__|SubClassOf|Object",
+      "__object__|hasDisposition|__object_disp__",
+      "__object_disp__|isDispositionOf|__object__",
+      "__object__|hasPart|__scannable_part__",
+      "__scannable_part__|Type|__ScanablePart__",
+      "__ScanablePart__|SubClassOf|ScannablePart",
+      "__object__|isVisibleBy|__agent__",
+      "__camera__|Type|__Camera__",
+      "__Camera__|SubClassOf|Camera",
+      "__agent__|hasComponent|__camera__",
+      "__camera__|hasMaximumDistanceRange|integer#2",
+      "__object__|isAtDistance|integer#1",
+      "greaterThan(integer#2,integer#1)"
+    ]
+  },
+  "rules": [
+    "Agent(?a), hasCapability(?a, ?c), PerceivingCapability(?c), Object(?o), hasDisposition(?o, ?d), PerceivingDisposition(?d), isVisibleBy(?o,?a), Camera(?g), hasComponent(?a,?g), hasMaximumDistanceRange(?g,?w1), isAtDistance(?o,?w2), greaterThan(?w1,?w2) -> canPerceive(?a, ?o)",
+    "PerceivingCapability|EquivalentTo|(isCapabilityOf some (hasComponent some Camera)",
+    "PerceivingDisposition|EquivalentTo|(isDispositionOf some (hasPart some ScannablePart))"
+  ],
+  "concepts": [
+    "perceiving",
+    "perceivable",
+    "visible",
+    "camera range",
+    "object_distance",
+    "can perceive"
+  ],
+  "answers": [
+    {
+      "id": "a_canPerceive_easy_0b",
+      "selected_classes": [
+        "Robot",
+        "KinectV2",
+        "2DBarcode",
+        "Book"
+      ],
+      "selected_names": [
+        "tlpns",
+        "vjimq",
+        "rysvl",
+        "rmmrsb",
+        "njgpb",
+        "wl"
+      ],
+      "question": "-Inference : rmmrsb|canPerceive|vjimq \n -Justifications : rmmrsb|Type|Robot, Robot|SubClassOf|Agent, rmmrsb|hasCapability|tlpns, tlpns|isCapabilityOf|rmmrsb, rmmrsb|hasComponent|njgpb, njgpb|Type|KinectV2, KinectV2|SubClassOf|Camera, vjimq|Type|Book, Book|SubClassOf|Object, vjimq|hasDisposition|rysvl, rysvl|isDispositionOf|vjimq, vjimq|hasPart|wl, wl|Type|2DBarcode, 2DBarcode|SubClassOf|ScannablePart, vjimq|isVisibleBy|rmmrsb, njgpb|Type|KinectV2, KinectV2|SubClassOf|Camera, rmmrsb|hasComponent|njgpb, njgpb|hasMaximumDistanceRange|integer#90, vjimq|isAtDistance|integer#59, greaterThan(integer#90,integer#59) \n -Rules : Agent(?a), hasCapability(?a, ?c), PerceivingCapability(?c), Object(?o), hasDisposition(?o, ?d), PerceivingDisposition(?d), isVisibleBy(?o,?a), Camera(?g), hasComponent(?a,?g), hasMaximumDistanceRange(?g,?w1), isAtDistance(?o,?w2), greaterThan(?w1,?w2) -> canPerceive(?a, ?o)\n\tPerceivingCapability|EquivalentTo|(isCapabilityOf some (hasComponent some Camera)\n\tPerceivingDisposition|EquivalentTo|(isDispositionOf some (hasPart some ScannablePart))",
+      "answer": "the robot can perceive the book because it has a perceiving capability through its kinect v2 camera component, which allows it to see the book and scan its 2d barcode part due to the book having a perceiving disposition for scanning. The robot's maximum distance range of 90 is greater than the book's distance of 59 from the robot.",
+      "duration": 0.0
+    },
+    {
+      "id": "a_canPerceive_easy_1b",
+      "selected_classes": [
+        "Tiago",
+        "RGBCamera",
+        "QRCode",
+        "Luggage"
+      ],
+      "selected_names": [
+        "wtkncc",
+        "jnnni",
+        "gxwqv",
+        "lvvqzy",
+        "jhxqep",
+        "tpt"
+      ],
+      "question": "-Inference : lvvqzy|canPerceive|jnnni \n -Justifications : lvvqzy|Type|Tiago, Tiago|SubClassOf|Agent, lvvqzy|hasCapability|wtkncc, wtkncc|isCapabilityOf|lvvqzy, lvvqzy|hasComponent|jhxqep, jhxqep|Type|RGBCamera, RGBCamera|SubClassOf|Camera, jnnni|Type|Luggage, Luggage|SubClassOf|Object, jnnni|hasDisposition|gxwqv, gxwqv|isDispositionOf|jnnni, jnnni|hasPart|tpt, tpt|Type|QRCode, QRCode|SubClassOf|ScannablePart, jnnni|isVisibleBy|lvvqzy, jhxqep|Type|RGBCamera, RGBCamera|SubClassOf|Camera, lvvqzy|hasComponent|jhxqep, jhxqep|hasMaximumDistanceRange|integer#87, jnnni|isAtDistance|integer#61, greaterThan(integer#87,integer#61) \n -Rules : Agent(?a), hasCapability(?a, ?c), PerceivingCapability(?c), Object(?o), hasDisposition(?o, ?d), PerceivingDisposition(?d), isVisibleBy(?o,?a), Camera(?g), hasComponent(?a,?g), hasMaximumDistanceRange(?g,?w1), isAtDistance(?o,?w2), greaterThan(?w1,?w2) -> canPerceive(?a, ?o)\n\tPerceivingCapability|EquivalentTo|(isCapabilityOf some (hasComponent some Camera)\n\tPerceivingDisposition|EquivalentTo|(isDispositionOf some (hasPart some ScannablePart))",
+      "answer": "the agent can perceive the object because it has a perceiving capability through its camera component, which has a maximum distance range greater than the distance of the object, and the object has a perceiving disposition due to having a scannable part.",
+      "duration": 0.0
+    },
+    {
+      "id": "a_canPerceive_easy_2b",
+      "selected_classes": [
+        "Pepper",
+        "KinectV2",
+        "QRCode",
+        "Plate"
+      ],
+      "selected_names": [
+        "liib",
+        "ztzes",
+        "ey",
+        "ekpfs",
+        "xo",
+        "ajolru"
+      ],
+      "question": "-Inference : ekpfs|canPerceive|ztzes \n -Justifications : ekpfs|Type|Pepper, Pepper|SubClassOf|Agent, ekpfs|hasCapability|liib, liib|isCapabilityOf|ekpfs, ekpfs|hasComponent|xo, xo|Type|KinectV2, KinectV2|SubClassOf|Camera, ztzes|Type|Plate, Plate|SubClassOf|Object, ztzes|hasDisposition|ey, ey|isDispositionOf|ztzes, ztzes|hasPart|ajolru, ajolru|Type|QRCode, QRCode|SubClassOf|ScannablePart, ztzes|isVisibleBy|ekpfs, xo|Type|KinectV2, KinectV2|SubClassOf|Camera, ekpfs|hasComponent|xo, xo|hasMaximumDistanceRange|integer#95, ztzes|isAtDistance|integer#21, greaterThan(integer#95,integer#21) \n -Rules : Agent(?a), hasCapability(?a, ?c), PerceivingCapability(?c), Object(?o), hasDisposition(?o, ?d), PerceivingDisposition(?d), isVisibleBy(?o,?a), Camera(?g), hasComponent(?a,?g), hasMaximumDistanceRange(?g,?w1), isAtDistance(?o,?w2), greaterThan(?w1,?w2) -> canPerceive(?a, ?o)\n\tPerceivingCapability|EquivalentTo|(isCapabilityOf some (hasComponent some Camera)\n\tPerceivingDisposition|EquivalentTo|(isDispositionOf some (hasPart some ScannablePart))",
+      "answer": "the pepper can perceive the plate because it has a perceiving capability through its kinect v2 camera component, which allows it to see the plate and scan its qr code part since the plate is within the camera's maximum distance range.",
+      "duration": 0.0
+    },
+    {
+      "id": "a_canPerceive_easy_3b",
+      "selected_classes": [
+        "Pr2",
+        "RealsenseL515",
+        "2DBarcode",
+        "Plate"
+      ],
+      "selected_names": [
+        "zvfaqp",
+        "vtslo",
+        "alrc",
+        "pzrfjs",
+        "wpafkw",
+        "nbwruq"
+      ],
+      "question": "-Inference : pzrfjs|canPerceive|vtslo \n -Justifications : pzrfjs|Type|Pr2, Pr2|SubClassOf|Agent, pzrfjs|hasCapability|zvfaqp, zvfaqp|isCapabilityOf|pzrfjs, pzrfjs|hasComponent|wpafkw, wpafkw|Type|RealsenseL515, RealsenseL515|SubClassOf|Camera, vtslo|Type|Plate, Plate|SubClassOf|Object, vtslo|hasDisposition|alrc, alrc|isDispositionOf|vtslo, vtslo|hasPart|nbwruq, nbwruq|Type|2DBarcode, 2DBarcode|SubClassOf|ScannablePart, vtslo|isVisibleBy|pzrfjs, wpafkw|Type|RealsenseL515, RealsenseL515|SubClassOf|Camera, pzrfjs|hasComponent|wpafkw, wpafkw|hasMaximumDistanceRange|integer#98, vtslo|isAtDistance|integer#35, greaterThan(integer#98,integer#35) \n -Rules : Agent(?a), hasCapability(?a, ?c), PerceivingCapability(?c), Object(?o), hasDisposition(?o, ?d), PerceivingDisposition(?d), isVisibleBy(?o,?a), Camera(?g), hasComponent(?a,?g), hasMaximumDistanceRange(?g,?w1), isAtDistance(?o,?w2), greaterThan(?w1,?w2) -> canPerceive(?a, ?o)\n\tPerceivingCapability|EquivalentTo|(isCapabilityOf some (hasComponent some Camera)\n\tPerceivingDisposition|EquivalentTo|(isDispositionOf some (hasPart some ScannablePart))",
+      "answer": "the agent can perceive the object because it has a perceiving capability through its camera component, which has a maximum distance range greater than the distance to the object, and the object has a perceiving disposition due to having a scannable part.",
+      "duration": 0.0
+    },
+    {
+      "id": "a_canPerceive_easy_4b",
+      "selected_classes": [
+        "Pepper",
+        "KinectV2",
+        "ScanTag",
+        "Plate"
+      ],
+      "selected_names": [
+        "jpw",
+        "nnlxt",
+        "jtlzce",
+        "msj",
+        "mlxmm",
+        "xqxkx"
+      ],
+      "question": "-Inference : msj|canPerceive|nnlxt \n -Justifications : msj|Type|Pepper, Pepper|SubClassOf|Agent, msj|hasCapability|jpw, jpw|isCapabilityOf|msj, msj|hasComponent|mlxmm, mlxmm|Type|KinectV2, KinectV2|SubClassOf|Camera, nnlxt|Type|Plate, Plate|SubClassOf|Object, nnlxt|hasDisposition|jtlzce, jtlzce|isDispositionOf|nnlxt, nnlxt|hasPart|xqxkx, xqxkx|Type|ScanTag, ScanTag|SubClassOf|ScannablePart, nnlxt|isVisibleBy|msj, mlxmm|Type|KinectV2, KinectV2|SubClassOf|Camera, msj|hasComponent|mlxmm, mlxmm|hasMaximumDistanceRange|integer#47, nnlxt|isAtDistance|integer#33, greaterThan(integer#47,integer#33) \n -Rules : Agent(?a), hasCapability(?a, ?c), PerceivingCapability(?c), Object(?o), hasDisposition(?o, ?d), PerceivingDisposition(?d), isVisibleBy(?o,?a), Camera(?g), hasComponent(?a,?g), hasMaximumDistanceRange(?g,?w1), isAtDistance(?o,?w2), greaterThan(?w1,?w2) -> canPerceive(?a, ?o)\n\tPerceivingCapability|EquivalentTo|(isCapabilityOf some (hasComponent some Camera)\n\tPerceivingDisposition|EquivalentTo|(isDispositionOf some (hasPart some ScannablePart))",
+      "answer": "the pepper can perceive the plate because it has a perception capability through its kinect v2 camera component, which allows it to see the plate since the plate is visible by the pepper and is within the camera's maximum distance range of 47 units compared to the plate's distance of 33 units.",
+      "duration": 0.0
+    },
+    {
+      "id": "a_canPerceive_easy_5b",
+      "selected_classes": [
+        "Pepper",
+        "RealsenseL515",
+        "2DBarcode",
+        "Book"
+      ],
+      "selected_names": [
+        "qhjc",
+        "xfrh",
+        "cz",
+        "df",
+        "vtthy",
+        "rflomg"
+      ],
+      "question": "-Inference : df|canPerceive|xfrh \n -Justifications : df|Type|Pepper, Pepper|SubClassOf|Agent, df|hasCapability|qhjc, qhjc|isCapabilityOf|df, df|hasComponent|vtthy, vtthy|Type|RealsenseL515, RealsenseL515|SubClassOf|Camera, xfrh|Type|Book, Book|SubClassOf|Object, xfrh|hasDisposition|cz, cz|isDispositionOf|xfrh, xfrh|hasPart|rflomg, rflomg|Type|2DBarcode, 2DBarcode|SubClassOf|ScannablePart, xfrh|isVisibleBy|df, vtthy|Type|RealsenseL515, RealsenseL515|SubClassOf|Camera, df|hasComponent|vtthy, vtthy|hasMaximumDistanceRange|integer#59, xfrh|isAtDistance|integer#53, greaterThan(integer#59,integer#53) \n -Rules : Agent(?a), hasCapability(?a, ?c), PerceivingCapability(?c), Object(?o), hasDisposition(?o, ?d), PerceivingDisposition(?d), isVisibleBy(?o,?a), Camera(?g), hasComponent(?a,?g), hasMaximumDistanceRange(?g,?w1), isAtDistance(?o,?w2), greaterThan(?w1,?w2) -> canPerceive(?a, ?o)\n\tPerceivingCapability|EquivalentTo|(isCapabilityOf some (hasComponent some Camera)\n\tPerceivingDisposition|EquivalentTo|(isDispositionOf some (hasPart some ScannablePart))",
+      "answer": "the pepper can perceive the book because it has a perceiving capability through its real sense camera component, which allows it to see the book within its maximum distance range of 59 units since the book is at a distance of 53 units from the pepper.",
+      "duration": 0.0
+    },
+    {
+      "id": "a_canPerceive_easy_6b",
+      "selected_classes": [
+        "Tiago",
+        "Webcam",
+        "2DBarcode",
+        "Box"
+      ],
+      "selected_names": [
+        "icw",
+        "ara",
+        "zcima",
+        "hpx",
+        "evog",
+        "pyalk"
+      ],
+      "question": "-Inference : hpx|canPerceive|ara \n -Justifications : hpx|Type|Tiago, Tiago|SubClassOf|Agent, hpx|hasCapability|icw, icw|isCapabilityOf|hpx, hpx|hasComponent|evog, evog|Type|Webcam, Webcam|SubClassOf|Camera, ara|Type|Box, Box|SubClassOf|Object, ara|hasDisposition|zcima, zcima|isDispositionOf|ara, ara|hasPart|pyalk, pyalk|Type|2DBarcode, 2DBarcode|SubClassOf|ScannablePart, ara|isVisibleBy|hpx, evog|Type|Webcam, Webcam|SubClassOf|Camera, hpx|hasComponent|evog, evog|hasMaximumDistanceRange|integer#35, ara|isAtDistance|integer#34, greaterThan(integer#35,integer#34) \n -Rules : Agent(?a), hasCapability(?a, ?c), PerceivingCapability(?c), Object(?o), hasDisposition(?o, ?d), PerceivingDisposition(?d), isVisibleBy(?o,?a), Camera(?g), hasComponent(?a,?g), hasMaximumDistanceRange(?g,?w1), isAtDistance(?o,?w2), greaterThan(?w1,?w2) -> canPerceive(?a, ?o)\n\tPerceivingCapability|EquivalentTo|(isCapabilityOf some (hasComponent some Camera)\n\tPerceivingDisposition|EquivalentTo|(isDispositionOf some (hasPart some ScannablePart))",
+      "answer": "the agent can perceive the object because it has a perceiving capability through its webcam component, which allows it to see the object within its maximum distance range as the object is closer than that range. The object has a scannable part and a disposition for perception, making it visible to the agent.",
+      "duration": 0.0
+    },
+    {
+      "id": "a_canPerceive_easy_7b",
+      "selected_classes": [
+        "Tiago",
+        "Webcam",
+        "2DBarcode",
+        "Appliance"
+      ],
+      "selected_names": [
+        "dwk",
+        "bfe",
+        "fxquai",
+        "tr",
+        "qiwva",
+        "kqari"
+      ],
+      "question": "-Inference : tr|canPerceive|bfe \n -Justifications : tr|Type|Tiago, Tiago|SubClassOf|Agent, tr|hasCapability|dwk, dwk|isCapabilityOf|tr, tr|hasComponent|qiwva, qiwva|Type|Webcam, Webcam|SubClassOf|Camera, bfe|Type|Appliance, Appliance|SubClassOf|Object, bfe|hasDisposition|fxquai, fxquai|isDispositionOf|bfe, bfe|hasPart|kqari, kqari|Type|2DBarcode, 2DBarcode|SubClassOf|ScannablePart, bfe|isVisibleBy|tr, qiwva|Type|Webcam, Webcam|SubClassOf|Camera, tr|hasComponent|qiwva, qiwva|hasMaximumDistanceRange|integer#89, bfe|isAtDistance|integer#50, greaterThan(integer#89,integer#50) \n -Rules : Agent(?a), hasCapability(?a, ?c), PerceivingCapability(?c), Object(?o), hasDisposition(?o, ?d), PerceivingDisposition(?d), isVisibleBy(?o,?a), Camera(?g), hasComponent(?a,?g), hasMaximumDistanceRange(?g,?w1), isAtDistance(?o,?w2), greaterThan(?w1,?w2) -> canPerceive(?a, ?o)\n\tPerceivingCapability|EquivalentTo|(isCapabilityOf some (hasComponent some Camera)\n\tPerceivingDisposition|EquivalentTo|(isDispositionOf some (hasPart some ScannablePart))",
+      "answer": "the agent can perceive the object because it has a perceiving capability through its webcam component, which allows it to see objects within its maximum distance range of 89 units, and the object is at a distance of 50 units from the agent.",
+      "duration": 0.0
+    },
+    {
+      "id": "a_canPerceive_easy_8b",
+      "selected_classes": [
+        "Pr2",
+        "RealsenseL515",
+        "QRCode",
+        "Cube"
+      ],
+      "selected_names": [
+        "hysxn",
+        "eblbm",
+        "csw",
+        "jdflzd",
+        "vb",
+        "qgw"
+      ],
+      "question": "-Inference : jdflzd|canPerceive|eblbm \n -Justifications : jdflzd|Type|Pr2, Pr2|SubClassOf|Agent, jdflzd|hasCapability|hysxn, hysxn|isCapabilityOf|jdflzd, jdflzd|hasComponent|vb, vb|Type|RealsenseL515, RealsenseL515|SubClassOf|Camera, eblbm|Type|Cube, Cube|SubClassOf|Object, eblbm|hasDisposition|csw, csw|isDispositionOf|eblbm, eblbm|hasPart|qgw, qgw|Type|QRCode, QRCode|SubClassOf|ScannablePart, eblbm|isVisibleBy|jdflzd, vb|Type|RealsenseL515, RealsenseL515|SubClassOf|Camera, jdflzd|hasComponent|vb, vb|hasMaximumDistanceRange|integer#67, eblbm|isAtDistance|integer#15, greaterThan(integer#67,integer#15) \n -Rules : Agent(?a), hasCapability(?a, ?c), PerceivingCapability(?c), Object(?o), hasDisposition(?o, ?d), PerceivingDisposition(?d), isVisibleBy(?o,?a), Camera(?g), hasComponent(?a,?g), hasMaximumDistanceRange(?g,?w1), isAtDistance(?o,?w2), greaterThan(?w1,?w2) -> canPerceive(?a, ?o)\n\tPerceivingCapability|EquivalentTo|(isCapabilityOf some (hasComponent some Camera)\n\tPerceivingDisposition|EquivalentTo|(isDispositionOf some (hasPart some ScannablePart))",
+      "answer": "the agent can perceive the object because it has a perceiving capability through its camera component, which has a maximum distance range greater than the distance to the object, and the object has a perceiving disposition due to having a scannable part.",
+      "duration": 0.0
+    },
+    {
+      "id": "a_canPerceive_easy_9b",
+      "selected_classes": [
+        "Pr2",
+        "KinectV2",
+        "2DBarcode",
+        "Appliance"
+      ],
+      "selected_names": [
+        "sr",
+        "ezhzwp",
+        "ui",
+        "ef",
+        "qe",
+        "vgd"
+      ],
+      "question": "-Inference : ef|canPerceive|ezhzwp \n -Justifications : ef|Type|Pr2, Pr2|SubClassOf|Agent, ef|hasCapability|sr, sr|isCapabilityOf|ef, ef|hasComponent|qe, qe|Type|KinectV2, KinectV2|SubClassOf|Camera, ezhzwp|Type|Appliance, Appliance|SubClassOf|Object, ezhzwp|hasDisposition|ui, ui|isDispositionOf|ezhzwp, ezhzwp|hasPart|vgd, vgd|Type|2DBarcode, 2DBarcode|SubClassOf|ScannablePart, ezhzwp|isVisibleBy|ef, qe|Type|KinectV2, KinectV2|SubClassOf|Camera, ef|hasComponent|qe, qe|hasMaximumDistanceRange|integer#85, ezhzwp|isAtDistance|integer#45, greaterThan(integer#85,integer#45) \n -Rules : Agent(?a), hasCapability(?a, ?c), PerceivingCapability(?c), Object(?o), hasDisposition(?o, ?d), PerceivingDisposition(?d), isVisibleBy(?o,?a), Camera(?g), hasComponent(?a,?g), hasMaximumDistanceRange(?g,?w1), isAtDistance(?o,?w2), greaterThan(?w1,?w2) -> canPerceive(?a, ?o)\n\tPerceivingCapability|EquivalentTo|(isCapabilityOf some (hasComponent some Camera)\n\tPerceivingDisposition|EquivalentTo|(isDispositionOf some (hasPart some ScannablePart))",
+      "answer": "the agent can perceive the object because it has a perceiving capability through its kinect v2 camera component, which has a maximum distance range greater than the object's distance from the agent. The object has a scannable part and is visible to the agent.",
+      "duration": 0.0
+    },
+    {
+      "id": "a_canPerceive_easy_10b",
+      "selected_classes": [
+        "Robot",
+        "RGBCamera",
+        "QRTag",
+        "Luggage"
+      ],
+      "selected_names": [
+        "hccozp",
+        "zcy",
+        "udkan",
+        "xkxke",
+        "ta",
+        "mxyzvb"
+      ],
+      "question": "-Inference : xkxke|canPerceive|zcy \n -Justifications : xkxke|Type|Robot, Robot|SubClassOf|Agent, xkxke|hasCapability|hccozp, hccozp|isCapabilityOf|xkxke, xkxke|hasComponent|ta, ta|Type|RGBCamera, RGBCamera|SubClassOf|Camera, zcy|Type|Luggage, Luggage|SubClassOf|Object, zcy|hasDisposition|udkan, udkan|isDispositionOf|zcy, zcy|hasPart|mxyzvb, mxyzvb|Type|QRTag, QRTag|SubClassOf|ScannablePart, zcy|isVisibleBy|xkxke, ta|Type|RGBCamera, RGBCamera|SubClassOf|Camera, xkxke|hasComponent|ta, ta|hasMaximumDistanceRange|integer#71, zcy|isAtDistance|integer#68, greaterThan(integer#71,integer#68) \n -Rules : Agent(?a), hasCapability(?a, ?c), PerceivingCapability(?c), Object(?o), hasDisposition(?o, ?d), PerceivingDisposition(?d), isVisibleBy(?o,?a), Camera(?g), hasComponent(?a,?g), hasMaximumDistanceRange(?g,?w1), isAtDistance(?o,?w2), greaterThan(?w1,?w2) -> canPerceive(?a, ?o)\n\tPerceivingCapability|EquivalentTo|(isCapabilityOf some (hasComponent some Camera)\n\tPerceivingDisposition|EquivalentTo|(isDispositionOf some (hasPart some ScannablePart))",
+      "answer": "the robot can perceive the luggage because it has a perceiving capability through its RGBCamera component, which is within range of the luggage as indicated by the greater than distance relationship, and the luggage has a scannable part that makes it visible to the robot.",
+      "duration": 0.0
+    },
+    {
+      "id": "a_canPerceive_easy_11b",
+      "selected_classes": [
+        "Pepper",
+        "KinectV2",
+        "ScanTag",
+        "Book"
+      ],
+      "selected_names": [
+        "whnmks",
+        "kczw",
+        "zradox",
+        "ko",
+        "cylr",
+        "vih"
+      ],
+      "question": "-Inference : ko|canPerceive|kczw \n -Justifications : ko|Type|Pepper, Pepper|SubClassOf|Agent, ko|hasCapability|whnmks, whnmks|isCapabilityOf|ko, ko|hasComponent|cylr, cylr|Type|KinectV2, KinectV2|SubClassOf|Camera, kczw|Type|Book, Book|SubClassOf|Object, kczw|hasDisposition|zradox, zradox|isDispositionOf|kczw, kczw|hasPart|vih, vih|Type|ScanTag, ScanTag|SubClassOf|ScannablePart, kczw|isVisibleBy|ko, cylr|Type|KinectV2, KinectV2|SubClassOf|Camera, ko|hasComponent|cylr, cylr|hasMaximumDistanceRange|integer#22, kczw|isAtDistance|integer#21, greaterThan(integer#22,integer#21) \n -Rules : Agent(?a), hasCapability(?a, ?c), PerceivingCapability(?c), Object(?o), hasDisposition(?o, ?d), PerceivingDisposition(?d), isVisibleBy(?o,?a), Camera(?g), hasComponent(?a,?g), hasMaximumDistanceRange(?g,?w1), isAtDistance(?o,?w2), greaterThan(?w1,?w2) -> canPerceive(?a, ?o)\n\tPerceivingCapability|EquivalentTo|(isCapabilityOf some (hasComponent some Camera)\n\tPerceivingDisposition|EquivalentTo|(isDispositionOf some (hasPart some ScannablePart))",
+      "answer": "the pepper can perceive the book because it has a perceiving capability through its kinect v2 camera component, which allows it to see objects within its maximum distance range of 22 units, and the book is at a distance of 21 units from the pepper.",
+      "duration": 0.0
+    },
+    {
+      "id": "a_canPerceive_easy_12b",
+      "selected_classes": [
+        "Pepper",
+        "Webcam",
+        "QRCode",
+        "Plate"
+      ],
+      "selected_names": [
+        "vhbz",
+        "dlqg",
+        "ivp",
+        "pyemet",
+        "vjqtgp",
+        "zsph"
+      ],
+      "question": "-Inference : pyemet|canPerceive|dlqg \n -Justifications : pyemet|Type|Pepper, Pepper|SubClassOf|Agent, pyemet|hasCapability|vhbz, vhbz|isCapabilityOf|pyemet, pyemet|hasComponent|vjqtgp, vjqtgp|Type|Webcam, Webcam|SubClassOf|Camera, dlqg|Type|Plate, Plate|SubClassOf|Object, dlqg|hasDisposition|ivp, ivp|isDispositionOf|dlqg, dlqg|hasPart|zsph, zsph|Type|QRCode, QRCode|SubClassOf|ScannablePart, dlqg|isVisibleBy|pyemet, vjqtgp|Type|Webcam, Webcam|SubClassOf|Camera, pyemet|hasComponent|vjqtgp, vjqtgp|hasMaximumDistanceRange|integer#47, dlqg|isAtDistance|integer#42, greaterThan(integer#47,integer#42) \n -Rules : Agent(?a), hasCapability(?a, ?c), PerceivingCapability(?c), Object(?o), hasDisposition(?o, ?d), PerceivingDisposition(?d), isVisibleBy(?o,?a), Camera(?g), hasComponent(?a,?g), hasMaximumDistanceRange(?g,?w1), isAtDistance(?o,?w2), greaterThan(?w1,?w2) -> canPerceive(?a, ?o)\n\tPerceivingCapability|EquivalentTo|(isCapabilityOf some (hasComponent some Camera)\n\tPerceivingDisposition|EquivalentTo|(isDispositionOf some (hasPart some ScannablePart))",
+      "answer": "the pepper can perceive the plate because it has a perceiving capability through its webcam component, which is within range of the plate as the camera's maximum distance range is greater than the plate's distance from the camera. The plate has a scannable part in the form of a QR code, and the plate is visible to the pepper.",
+      "duration": 0.0
+    },
+    {
+      "id": "a_canPerceive_easy_13b",
+      "selected_classes": [
+        "Pr2",
+        "RGBCamera",
+        "2DBarcode",
+        "Appliance"
+      ],
+      "selected_names": [
+        "ill",
+        "rejf",
+        "ps",
+        "lqcxbs",
+        "swjs",
+        "qxy"
+      ],
+      "question": "-Inference : lqcxbs|canPerceive|rejf \n -Justifications : lqcxbs|Type|Pr2, Pr2|SubClassOf|Agent, lqcxbs|hasCapability|ill, ill|isCapabilityOf|lqcxbs, lqcxbs|hasComponent|swjs, swjs|Type|RGBCamera, RGBCamera|SubClassOf|Camera, rejf|Type|Appliance, Appliance|SubClassOf|Object, rejf|hasDisposition|ps, ps|isDispositionOf|rejf, rejf|hasPart|qxy, qxy|Type|2DBarcode, 2DBarcode|SubClassOf|ScannablePart, rejf|isVisibleBy|lqcxbs, swjs|Type|RGBCamera, RGBCamera|SubClassOf|Camera, lqcxbs|hasComponent|swjs, swjs|hasMaximumDistanceRange|integer#77, rejf|isAtDistance|integer#71, greaterThan(integer#77,integer#71) \n -Rules : Agent(?a), hasCapability(?a, ?c), PerceivingCapability(?c), Object(?o), hasDisposition(?o, ?d), PerceivingDisposition(?d), isVisibleBy(?o,?a), Camera(?g), hasComponent(?a,?g), hasMaximumDistanceRange(?g,?w1), isAtDistance(?o,?w2), greaterThan(?w1,?w2) -> canPerceive(?a, ?o)\n\tPerceivingCapability|EquivalentTo|(isCapabilityOf some (hasComponent some Camera)\n\tPerceivingDisposition|EquivalentTo|(isDispositionOf some (hasPart some ScannablePart))",
+      "answer": "the agent can perceive the object because it has a perceiving capability through its RGBCamera component, which has a maximum distance range greater than the distance to the object. The object has a perceiving disposition due to having a scannable part (a 2D barcode), and the camera can see the object.",
+      "duration": 0.0
+    },
+    {
+      "id": "a_canPerceive_easy_14b",
+      "selected_classes": [
+        "Pr2",
+        "KinectV2",
+        "2DBarcode",
+        "Book"
+      ],
+      "selected_names": [
+        "acoz",
+        "lkrc",
+        "lhe",
+        "cplhu",
+        "rczr",
+        "jr"
+      ],
+      "question": "-Inference : cplhu|canPerceive|lkrc \n -Justifications : cplhu|Type|Pr2, Pr2|SubClassOf|Agent, cplhu|hasCapability|acoz, acoz|isCapabilityOf|cplhu, cplhu|hasComponent|rczr, rczr|Type|KinectV2, KinectV2|SubClassOf|Camera, lkrc|Type|Book, Book|SubClassOf|Object, lkrc|hasDisposition|lhe, lhe|isDispositionOf|lkrc, lkrc|hasPart|jr, jr|Type|2DBarcode, 2DBarcode|SubClassOf|ScannablePart, lkrc|isVisibleBy|cplhu, rczr|Type|KinectV2, KinectV2|SubClassOf|Camera, cplhu|hasComponent|rczr, rczr|hasMaximumDistanceRange|integer#79, lkrc|isAtDistance|integer#27, greaterThan(integer#79,integer#27) \n -Rules : Agent(?a), hasCapability(?a, ?c), PerceivingCapability(?c), Object(?o), hasDisposition(?o, ?d), PerceivingDisposition(?d), isVisibleBy(?o,?a), Camera(?g), hasComponent(?a,?g), hasMaximumDistanceRange(?g,?w1), isAtDistance(?o,?w2), greaterThan(?w1,?w2) -> canPerceive(?a, ?o)\n\tPerceivingCapability|EquivalentTo|(isCapabilityOf some (hasComponent some Camera)\n\tPerceivingDisposition|EquivalentTo|(isDispositionOf some (hasPart some ScannablePart))",
+      "answer": "the agent can perceive the object because it has a perceiving capability through its kinect v2 camera component, which has a maximum distance range greater than the distance to the object, and the object has a scannable part that is visible by the agent.",
+      "duration": 0.0
+    },
+    {
+      "id": "a_canPerceive_easy_15b",
+      "selected_classes": [
+        "Robot",
+        "RGBCamera",
+        "2DBarcode",
+        "Cube"
+      ],
+      "selected_names": [
+        "cu",
+        "dja",
+        "vasoeg",
+        "tn",
+        "ba",
+        "dle"
+      ],
+      "question": "-Inference : tn|canPerceive|dja \n -Justifications : tn|Type|Robot, Robot|SubClassOf|Agent, tn|hasCapability|cu, cu|isCapabilityOf|tn, tn|hasComponent|ba, ba|Type|RGBCamera, RGBCamera|SubClassOf|Camera, dja|Type|Cube, Cube|SubClassOf|Object, dja|hasDisposition|vasoeg, vasoeg|isDispositionOf|dja, dja|hasPart|dle, dle|Type|2DBarcode, 2DBarcode|SubClassOf|ScannablePart, dja|isVisibleBy|tn, ba|Type|RGBCamera, RGBCamera|SubClassOf|Camera, tn|hasComponent|ba, ba|hasMaximumDistanceRange|integer#49, dja|isAtDistance|integer#16, greaterThan(integer#49,integer#16) \n -Rules : Agent(?a), hasCapability(?a, ?c), PerceivingCapability(?c), Object(?o), hasDisposition(?o, ?d), PerceivingDisposition(?d), isVisibleBy(?o,?a), Camera(?g), hasComponent(?a,?g), hasMaximumDistanceRange(?g,?w1), isAtDistance(?o,?w2), greaterThan(?w1,?w2) -> canPerceive(?a, ?o)\n\tPerceivingCapability|EquivalentTo|(isCapabilityOf some (hasComponent some Camera)\n\tPerceivingDisposition|EquivalentTo|(isDispositionOf some (hasPart some ScannablePart))",
+      "answer": "the robot can perceive the cube because it has a perceiving capability through its RGB camera, which is within range of the cube as the camera's maximum distance range is greater than the cube's distance from the robot. The cube has a scannable part in the form of a 2D barcode and is visible to the robot.",
+      "duration": 0.0
+    },
+    {
+      "id": "a_canPerceive_easy_16b",
+      "selected_classes": [
+        "Pepper",
+        "Webcam",
+        "ScanTag",
+        "Appliance"
+      ],
+      "selected_names": [
+        "jxzkoc",
+        "hzzdjd",
+        "nvmdk",
+        "hzmix",
+        "hdqjie",
+        "mha"
+      ],
+      "question": "-Inference : hzmix|canPerceive|hzzdjd \n -Justifications : hzmix|Type|Pepper, Pepper|SubClassOf|Agent, hzmix|hasCapability|jxzkoc, jxzkoc|isCapabilityOf|hzmix, hzmix|hasComponent|hdqjie, hdqjie|Type|Webcam, Webcam|SubClassOf|Camera, hzzdjd|Type|Appliance, Appliance|SubClassOf|Object, hzzdjd|hasDisposition|nvmdk, nvmdk|isDispositionOf|hzzdjd, hzzdjd|hasPart|mha, mha|Type|ScanTag, ScanTag|SubClassOf|ScannablePart, hzzdjd|isVisibleBy|hzmix, hdqjie|Type|Webcam, Webcam|SubClassOf|Camera, hzmix|hasComponent|hdqjie, hdqjie|hasMaximumDistanceRange|integer#27, hzzdjd|isAtDistance|integer#13, greaterThan(integer#27,integer#13) \n -Rules : Agent(?a), hasCapability(?a, ?c), PerceivingCapability(?c), Object(?o), hasDisposition(?o, ?d), PerceivingDisposition(?d), isVisibleBy(?o,?a), Camera(?g), hasComponent(?a,?g), hasMaximumDistanceRange(?g,?w1), isAtDistance(?o,?w2), greaterThan(?w1,?w2) -> canPerceive(?a, ?o)\n\tPerceivingCapability|EquivalentTo|(isCapabilityOf some (hasComponent some Camera)\n\tPerceivingDisposition|EquivalentTo|(isDispositionOf some (hasPart some ScannablePart))",
+      "answer": "the pepper can perceive the appliance because it has a perception capability through its webcam component, which allows it to see objects within its range, and the appliance has a perceptual disposition due to having a scannable part, with the distance between them being less than the camera's maximum detection range.",
+      "duration": 0.0
+    },
+    {
+      "id": "a_canPerceive_easy_17b",
+      "selected_classes": [
+        "Tiago",
+        "RealsenseD435i",
+        "QRTag",
+        "Box"
+      ],
+      "selected_names": [
+        "yeew",
+        "xwvkw",
+        "wjcu",
+        "wi",
+        "yd",
+        "ar"
+      ],
+      "question": "-Inference : wi|canPerceive|xwvkw \n -Justifications : wi|Type|Tiago, Tiago|SubClassOf|Agent, wi|hasCapability|yeew, yeew|isCapabilityOf|wi, wi|hasComponent|yd, yd|Type|RealsenseD435i, RealsenseD435i|SubClassOf|Camera, xwvkw|Type|Box, Box|SubClassOf|Object, xwvkw|hasDisposition|wjcu, wjcu|isDispositionOf|xwvkw, xwvkw|hasPart|ar, ar|Type|QRTag, QRTag|SubClassOf|ScannablePart, xwvkw|isVisibleBy|wi, yd|Type|RealsenseD435i, RealsenseD435i|SubClassOf|Camera, wi|hasComponent|yd, yd|hasMaximumDistanceRange|integer#98, xwvkw|isAtDistance|integer#19, greaterThan(integer#98,integer#19) \n -Rules : Agent(?a), hasCapability(?a, ?c), PerceivingCapability(?c), Object(?o), hasDisposition(?o, ?d), PerceivingDisposition(?d), isVisibleBy(?o,?a), Camera(?g), hasComponent(?a,?g), hasMaximumDistanceRange(?g,?w1), isAtDistance(?o,?w2), greaterThan(?w1,?w2) -> canPerceive(?a, ?o)\n\tPerceivingCapability|EquivalentTo|(isCapabilityOf some (hasComponent some Camera)\n\tPerceivingDisposition|EquivalentTo|(isDispositionOf some (hasPart some ScannablePart))",
+      "answer": "the agent can perceive the object because it has a perceiving capability through its camera component, which has a maximum distance range greater than the distance to the object, and the object has a perceiving disposition due to having a scannable part.",
+      "duration": 0.0
+    },
+    {
+      "id": "a_canPerceive_easy_18b",
+      "selected_classes": [
+        "Pepper",
+        "RealsenseD435i",
+        "ScanTag",
+        "Luggage"
+      ],
+      "selected_names": [
+        "szlwz",
+        "jxrpd",
+        "azhwkb",
+        "kgtq",
+        "uznn",
+        "wnegx"
+      ],
+      "question": "-Inference : kgtq|canPerceive|jxrpd \n -Justifications : kgtq|Type|Pepper, Pepper|SubClassOf|Agent, kgtq|hasCapability|szlwz, szlwz|isCapabilityOf|kgtq, kgtq|hasComponent|uznn, uznn|Type|RealsenseD435i, RealsenseD435i|SubClassOf|Camera, jxrpd|Type|Luggage, Luggage|SubClassOf|Object, jxrpd|hasDisposition|azhwkb, azhwkb|isDispositionOf|jxrpd, jxrpd|hasPart|wnegx, wnegx|Type|ScanTag, ScanTag|SubClassOf|ScannablePart, jxrpd|isVisibleBy|kgtq, uznn|Type|RealsenseD435i, RealsenseD435i|SubClassOf|Camera, kgtq|hasComponent|uznn, uznn|hasMaximumDistanceRange|integer#90, jxrpd|isAtDistance|integer#41, greaterThan(integer#90,integer#41) \n -Rules : Agent(?a), hasCapability(?a, ?c), PerceivingCapability(?c), Object(?o), hasDisposition(?o, ?d), PerceivingDisposition(?d), isVisibleBy(?o,?a), Camera(?g), hasComponent(?a,?g), hasMaximumDistanceRange(?g,?w1), isAtDistance(?o,?w2), greaterThan(?w1,?w2) -> canPerceive(?a, ?o)\n\tPerceivingCapability|EquivalentTo|(isCapabilityOf some (hasComponent some Camera)\n\tPerceivingDisposition|EquivalentTo|(isDispositionOf some (hasPart some ScannablePart))",
+      "answer": "the pepper can perceive the luggage because it has a perceiving capability through its real sense camera component, which has a maximum distance range greater than the distance to the luggage. The luggage has a scannable part and is visible by the pepper.",
+      "duration": 0.0
+    },
+    {
+      "id": "a_canPerceive_easy_19b",
+      "selected_classes": [
+        "Tiago",
+        "KinectV2",
+        "QRTag",
+        "Appliance"
+      ],
+      "selected_names": [
+        "pv",
+        "xq",
+        "scd",
+        "msst",
+        "nlbaq",
+        "zbb"
+      ],
+      "question": "-Inference : msst|canPerceive|xq \n -Justifications : msst|Type|Tiago, Tiago|SubClassOf|Agent, msst|hasCapability|pv, pv|isCapabilityOf|msst, msst|hasComponent|nlbaq, nlbaq|Type|KinectV2, KinectV2|SubClassOf|Camera, xq|Type|Appliance, Appliance|SubClassOf|Object, xq|hasDisposition|scd, scd|isDispositionOf|xq, xq|hasPart|zbb, zbb|Type|QRTag, QRTag|SubClassOf|ScannablePart, xq|isVisibleBy|msst, nlbaq|Type|KinectV2, KinectV2|SubClassOf|Camera, msst|hasComponent|nlbaq, nlbaq|hasMaximumDistanceRange|integer#82, xq|isAtDistance|integer#70, greaterThan(integer#82,integer#70) \n -Rules : Agent(?a), hasCapability(?a, ?c), PerceivingCapability(?c), Object(?o), hasDisposition(?o, ?d), PerceivingDisposition(?d), isVisibleBy(?o,?a), Camera(?g), hasComponent(?a,?g), hasMaximumDistanceRange(?g,?w1), isAtDistance(?o,?w2), greaterThan(?w1,?w2) -> canPerceive(?a, ?o)\n\tPerceivingCapability|EquivalentTo|(isCapabilityOf some (hasComponent some Camera)\n\tPerceivingDisposition|EquivalentTo|(isDispositionOf some (hasPart some ScannablePart))",
+      "answer": "the agent can perceive the object because it has a perceiving capability through its kinect v2 camera component, which has a maximum distance range greater than the distance to the object, and the object has a scannable part that is visible by the agent.",
+      "duration": 0.0
+    }
+  ]
+}

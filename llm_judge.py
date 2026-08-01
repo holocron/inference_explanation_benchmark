@@ -47,12 +47,17 @@ VERBALIZATION TO EVALUATE:
 {answer}
 
 ## Rubric
-1. CORRECTNESS: true if the verbalization states the inference correctly and contains NO claims that contradict or are not supported by the justification triples (wrong comparisons, swapped roles, invented facts make it false). Awkward style or omissions do NOT affect correctness.
+1. CORRECTNESS: judge strictly. Check EACH of the following explicitly before deciding:
+   a. COMPARISONS: every numeric/symbolic comparison in the verbalization must match the justification in DIRECTION and operands (e.g. if the justification says greaterThan(opening, holding-part width), then "parts with a width less than the holding-part width" or "holding part wider than the opening" is WRONG).
+   b. ROLES: the agent acts, the object is acted upon. "the pot is reachable by the gripper" is WRONG if the justification says the object is reachable by the agent.
+   c. ENTITIES: all referenced entities must be coherent and supported (a bare "A can grasp..." or a truncated phrase like "given the dimensions of the grip" is WRONG).
+   d. NO INVENTED FACTS and NO CONTRADICTIONS of the triples.
+   true only if all checks pass; awkward style or mere omissions do NOT affect correctness.
 2. COMPLETENESS: for each expected item, decide whether the verbalization conveys it, INCLUDING by paraphrase (e.g. "two-finger claw", "the claw", "its gripper" all cover the item TwoFingerClaw).
 
 ## Output
 Respond with ONLY a JSON object, no other text:
-{{"correct": true|false, "covered": ["item1", ...], "missing": ["item2", ...], "rationale": "one sentence"}}"""
+{{"comparison_check": "pass|fail: one short sentence", "role_check": "pass|fail: one short sentence", "entity_check": "pass|fail: one short sentence", "correct": true|false, "covered": ["item1", ...], "missing": ["item2", ...], "rationale": "one sentence"}}"""
 
 def judge_answer(handler, question_text, items, answer_text, retries = 3):
     prompt = JUDGE_PROMPT.format(

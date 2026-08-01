@@ -30,6 +30,6 @@ NEVER_LOAD = {"gpt-oss-120b-GGUF"}
 LOCAL_GGUF = {
   "Gemma-3-4b-it-GGUF":        BASE_DIR / "models/gemma-3-4b-it-Q4_K_M.gguf",
   "Llama-3.2-3B-Instruct-GGUF": BASE_DIR / "models/Llama-3.2-3B-Instruct-UD-Q4_K_XL.gguf",
-  "Bonsai-8B-gguf":            BASE_DIR / "models/Bonsai-8B-Q1_0.gguf",
+  "Bonsai-8B-gguf":            BASE_DIR / "models/Ternary-Bonsai-8B-Q4_0-lossless.gguf",
   "gpt-oss-20b-mxfp4-GGUF":    BASE_DIR / "models/gpt-oss-20b-MXFP4.gguf",
 }

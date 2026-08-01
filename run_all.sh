@@ -4,8 +4,10 @@
 # last through the lemond router.
 # Usage: ./run_all.sh [model ...]   (default: all four small models + 120b)
 # Waits for models/download.sh and any running run_own.py before starting.
-set -e
+set -u
 cd "$(dirname "$0")"
+
+FAILED=()
 
 if [ "$#" -gt 0 ]; then
   MODELS=("$@")
@@ -26,10 +28,14 @@ done
 for model in "${MODELS[@]}"; do
   echo "=== $model ==="
   if [ "$model" = "gpt-oss-120b-GGUF" ]; then
-    python3 -u run_120b.py
+    python3 -u run_120b.py || FAILED+=("$model")
   else
-    python3 -u run_own.py "$model"
+    python3 -u run_own.py "$model" || FAILED+=("$model")
   fi
 done
 
+if [ "${#FAILED[@]}" -gt 0 ]; then
+  echo "FAILED MODELS: ${FAILED[*]}"
+  exit 1
+fi
 echo "ALL_MODELS_DONE"

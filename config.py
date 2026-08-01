@@ -15,7 +15,7 @@ OWN_SERVER_URL = "http://localhost:9101/v1"
 MODELS = [
   "Gemma-3-4b-it-GGUF",
   "Llama-3.2-3B-Instruct-GGUF",
-  "Bonsai-8B-gguf",
+  "Bonsai-8B-1.58bit-Q4_0",
   "Qwen3-32B-GGUF",
 ]
 
@@ -31,6 +31,6 @@ NEVER_LOAD = {"gpt-oss-120b-GGUF"}
 LOCAL_GGUF = {
   "Gemma-3-4b-it-GGUF":        BASE_DIR / "models/gemma-3-4b-it-Q4_K_M.gguf",
   "Llama-3.2-3B-Instruct-GGUF": BASE_DIR / "models/Llama-3.2-3B-Instruct-UD-Q4_K_XL.gguf",
-  "Bonsai-8B-gguf":            BASE_DIR / "models/Ternary-Bonsai-8B-Q4_0-lossless.gguf",
+  "Bonsai-8B-1.58bit-Q4_0":            BASE_DIR / "models/Ternary-Bonsai-8B-Q4_0-lossless.gguf",
   "Qwen3-32B-GGUF":            BASE_DIR / "models/Qwen3-32B-Q4_K_M.gguf",
 }

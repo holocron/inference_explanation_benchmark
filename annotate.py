@@ -53,6 +53,21 @@ def evaluate_answers(json_file_path, target_file):
         total_answers = len(data['answers'])
         concepts = data['concepts']
 
+        # resume after an interrupted session: load what's already saved
+        # (autosave writes after EVERY answer) and continue from there
+        if os.path.exists(target_file):
+            try:
+                with open(target_file, 'r') as existing:
+                    evaluations = json.load(existing)
+                current_index = len(evaluations)
+                if current_index > 0:
+                    print(f"\033[92mResuming from answer {current_index + 1}/{total_answers} "
+                          f"(found {current_index} saved evaluations)\033[0m")
+                    input("Press Enter to continue...")
+            except (json.JSONDecodeError, IOError):
+                evaluations = []
+                current_index = 0
+
         while current_index < total_answers:
 
             answer_data = data['answers'][current_index]
@@ -128,6 +143,10 @@ def evaluate_answers(json_file_path, target_file):
                     'score': score,
                     'missing_concepts': missing_concepts
                 })
+
+            # autosave after EVERY answer — a crash must not lose annotations
+            with open(target_file, 'w') as autosave_file:
+                json.dump(evaluations, autosave_file, indent=4)
 
             # Navigation options
             nav = input("\033[1mPress Enter to continue, 'b' to go back to the previous question, or 'q' to quit: \033[0m").strip().lower()

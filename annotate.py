@@ -8,6 +8,36 @@ def print_progress_bar(current, total, bar_length=40):
     spaces = ' ' * (bar_length - len(arrow))
     print(f"\rProgress: |{arrow}{spaces}| {current}/{total} ({int(progress * 100)}%)")
 
+def build_alias_legend(question_text, selected_names=None):
+    """Decode anonymised individual names (v, yo, onq...) into their classes
+    using the triples inside the question, so the annotator does not have to
+    track gibberish identifiers mentally.
+    X|Type|Y resolves the class; objects of hasCapability/hasDisposition are
+    labelled as the capability/disposition instance (they have no Type triple).
+    selected_names may be absent (2025 answer files) — names are then taken
+    from the question itself."""
+    triples = []
+    for triple in question_text.replace("\n", " ").split(","):
+        parts = [p.strip() for p in triple.split("|")]
+        if len(parts) == 3:
+            triples.append(parts)
+    alias = {}
+    for subj, rel, obj in triples:
+        if rel == "Type":
+            alias.setdefault(subj, obj)
+    for subj, rel, obj in triples:
+        if rel == "hasCapability":
+            alias.setdefault(obj, "the capability")
+        if rel == "hasDisposition":
+            alias.setdefault(obj, "the disposition")
+    names = list(selected_names) if selected_names else list(alias.keys())
+    resolved = [f"{name} → {alias[name]}" for name in names if name in alias]
+    unresolved = [name for name in names if name not in alias]
+    legend = ", ".join(resolved)
+    if unresolved:
+        legend += ("  |  " if legend else "") + "unresolved: " + ", ".join(unresolved)
+    return legend
+
 def evaluate_answers(json_file_path, target_file):
     try:
         with open(json_file_path, 'r') as file:
@@ -36,6 +66,7 @@ def evaluate_answers(json_file_path, target_file):
             print_progress_bar(current_index + 1, total_answers)
 
             print("\033[1m\033[94mQuestion ID:\033[0m", f"\033[92m{question_id}\033[0m")
+            print("\033[1m\033[94mAliases:\033[0m", f"\033[96m{build_alias_legend(question, answer_data.get('selected_names', []))}\033[0m")
             print("\033[1m\033[94mQuestion:\033[0m", f"\033[93m{question}\033[0m")
             print("\033[1m\033[94mAnswer:\033[0m", f"\033[95m{answer}\033[0m\n")
 

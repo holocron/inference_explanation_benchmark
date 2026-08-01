@@ -99,6 +99,13 @@ class LemonadeHandler:
 						print(f"{self.model_}: enable_thinking=false failed, dropping assistant prefill")
 						self.prefill_mode_ = 2
 						continue
+				# gpt-oss (harmony template): enable_thinking=false is not
+				# supported and the request fails with a 400/500 parse error
+				# instead of the prefill message above -> drop the prefill
+				if self.prefill_mode_ == 1 and e.code in (400, 500) and "model_not_loaded" not in body:
+					print(f"{self.model_}: enable_thinking=false rejected (HTTP {e.code}), dropping assistant prefill")
+					self.prefill_mode_ = 2
+					continue
 				if "model_not_loaded" in body and attempt < 3:
 					if self.load_on_missing_:
 						print(f"model {self.model_} not loaded, loading (attempt {attempt + 1})...")

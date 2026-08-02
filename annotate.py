@@ -1,5 +1,6 @@
 import json
 import os
+import re
 import sys
 
 def print_progress_bar(current, total, bar_length=40):

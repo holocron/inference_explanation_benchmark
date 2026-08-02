@@ -21,7 +21,7 @@ VERBALIZE_INSTRUCTION = (
     "Below is an inference derived by a rule-based reasoner, followed by the facts that justify it. "
     "Combine the facts into a clear, coherent explanation of the inference in 2-4 short sentences. "
     "Cover EVERY fact listed, including every numeric comparison with its direction and values. "
-    "Always refer to entities by their class name (e.g., write 'The human' for indiv_1|Type|Human)."
+    "Always refer to entities by their class name (e.g., write 'The Pr2 robot' instead of its identifier)."
 )
 
 def _val(token):

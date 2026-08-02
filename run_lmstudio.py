@@ -21,7 +21,7 @@ import sys
 
 import config
 from src.AnswerGenerator import AnswerGenerator
-from src.LemonadeHandler import LemonadeHandler
+from src.OpenAIHandler import OpenAIHandler
 
 LMSTUDIO_URL = "http://localhost:1234/v1"
 MLX_URL = "http://localhost:1235/v1"
@@ -39,7 +39,7 @@ if __name__ == '__main__':
     generator = None
     for payload_id, dir_name, base_url in selected:
         print(f"=== {dir_name} (payload id: {payload_id}, via {base_url}) ===")
-        handler = LemonadeHandler(payload_id, base_url, load_on_missing = False)
+        handler = OpenAIHandler(payload_id, base_url, load_on_missing = False)
         if generator is None:
             generator = AnswerGenerator(config.DATASET_DIR)
         generator.generate(handler, dir_name)

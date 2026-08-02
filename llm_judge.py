@@ -21,7 +21,7 @@ Validate against the 2025 human evaluations before trusting:
 
 The judge model (gpt-oss-120b via the lemond router) is NOT part of the
 evaluated lineup, so there is no self-judging. Judge requests go through
-LemonadeHandler with load_on_missing=False — the 120b instance is managed
+OpenAIHandler with load_on_missing=False — the 120b instance is managed
 by lemond, we only send requests.
 """
 import json
@@ -30,7 +30,7 @@ import time
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from src.LemonadeHandler import LemonadeHandler
+from src.OpenAIHandler import OpenAIHandler
 
 JUDGE_PROMPT = """You are a strict evaluator of natural-language verbalizations of formal logical inferences.
 
@@ -107,7 +107,7 @@ if __name__ == '__main__':
     if "--judge" in sys.argv:
         judge_model = sys.argv[sys.argv.index("--judge") + 1]
 
-    handler = LemonadeHandler(judge_model, "http://localhost:13305/api/v1", load_on_missing = False)
+    handler = OpenAIHandler(judge_model, "http://localhost:13305/api/v1", load_on_missing = False)
 
     files = [answers_path] if answers_path.is_file() else sorted(answers_path.rglob("*.json"))
     base = answers_path if answers_path.is_dir() else answers_path.parent

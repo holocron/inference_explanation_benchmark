@@ -1,0 +1,209 @@
+[
+    {
+        "question_id": "a_grasp_easy_0r",
+        "is_correct": true,
+        "score": 0.7,
+        "missing_concepts": [
+            "handle",
+            "graspable",
+            "object_width"
+        ]
+    },
+    {
+        "question_id": "a_grasp_easy_1r",
+        "is_correct": true,
+        "score": 0.6,
+        "missing_concepts": [
+            "handle",
+            "graspable",
+            "opening width",
+            "object_width"
+        ]
+    },
+    {
+        "question_id": "a_grasp_easy_2r",
+        "is_correct": false,
+        "score": 0.7,
+        "missing_concepts": [
+            "handle",
+            "reachable",
+            "object_width"
+        ]
+    },
+    {
+        "question_id": "a_grasp_easy_3r",
+        "is_correct": true,
+        "score": 0.7,
+        "missing_concepts": [
+            "hand grip",
+            "graspable",
+            "object_width"
+        ]
+    },
+    {
+        "question_id": "a_grasp_easy_4r",
+        "is_correct": true,
+        "score": 0.5,
+        "missing_concepts": [
+            "hand grip",
+            "two-finger claw",
+            "graspable",
+            "reachable",
+            "object_width"
+        ]
+    },
+    {
+        "question_id": "a_grasp_easy_5r",
+        "is_correct": true,
+        "score": 0.7,
+        "missing_concepts": [
+            "handle",
+            "graspable",
+            "object_width"
+        ]
+    },
+    {
+        "question_id": "a_grasp_easy_6r",
+        "is_correct": true,
+        "score": 0.8,
+        "missing_concepts": [
+            "handle",
+            "object_width"
+        ]
+    },
+    {
+        "question_id": "a_grasp_easy_7r",
+        "is_correct": true,
+        "score": 0.7,
+        "missing_concepts": [
+            "handle",
+            "graspable",
+            "object_width"
+        ]
+    },
+    {
+        "question_id": "a_grasp_easy_8r",
+        "is_correct": false,
+        "score": 0.6,
+        "missing_concepts": [
+            "handle",
+            "claw",
+            "reachable",
+            "object_width"
+        ]
+    },
+    {
+        "question_id": "a_grasp_easy_9r",
+        "is_correct": true,
+        "score": 0.5,
+        "missing_concepts": [
+            "handle",
+            "two-finger claw",
+            "graspable",
+            "reachable",
+            "object_width"
+        ]
+    },
+    {
+        "question_id": "a_grasp_easy_10r",
+        "is_correct": true,
+        "score": 0.7,
+        "missing_concepts": [
+            "handle",
+            "graspable",
+            "object_width"
+        ]
+    },
+    {
+        "question_id": "a_grasp_easy_11r",
+        "is_correct": true,
+        "score": 0.8,
+        "missing_concepts": [
+            "graspable",
+            "object_width"
+        ]
+    },
+    {
+        "question_id": "a_grasp_easy_12r",
+        "is_correct": false,
+        "score": 0.6,
+        "missing_concepts": [
+            "two-finger claw",
+            "reachable",
+            "opening width",
+            "object_width"
+        ]
+    },
+    {
+        "question_id": "a_grasp_easy_13r",
+        "is_correct": true,
+        "score": 0.6,
+        "missing_concepts": [
+            "handle",
+            "graspable",
+            "reachable",
+            "object_width"
+        ]
+    },
+    {
+        "question_id": "a_grasp_easy_14r",
+        "is_correct": true,
+        "score": 0.8,
+        "missing_concepts": [
+            "graspable",
+            "object_width"
+        ]
+    },
+    {
+        "question_id": "a_grasp_easy_15r",
+        "is_correct": true,
+        "score": 0.7,
+        "missing_concepts": [
+            "graspable",
+            "reachable",
+            "object_width"
+        ]
+    },
+    {
+        "question_id": "a_grasp_easy_16r",
+        "is_correct": true,
+        "score": 0.6,
+        "missing_concepts": [
+            "handle",
+            "graspable",
+            "reachable",
+            "object_width"
+        ]
+    },
+    {
+        "question_id": "a_grasp_easy_17r",
+        "is_correct": true,
+        "score": 0.8,
+        "missing_concepts": [
+            "graspable",
+            "object_width"
+        ]
+    },
+    {
+        "question_id": "a_grasp_easy_18r",
+        "is_correct": true,
+        "score": 0.6,
+        "missing_concepts": [
+            "handle",
+            "graspable",
+            "reachable",
+            "object_width"
+        ]
+    },
+    {
+        "question_id": "a_grasp_easy_19r",
+        "is_correct": true,
+        "score": 0.6,
+        "missing_concepts": [
+            "handle",
+            "graspable",
+            "reachable",
+            "object_width"
+        ]
+    }
+]

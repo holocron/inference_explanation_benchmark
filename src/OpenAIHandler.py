@@ -4,9 +4,9 @@ import time
 import urllib.error
 import urllib.request
 
-class LemonadeHandler:
+class OpenAIHandler:
 	"""Drop-in replacement for OllamaHandler targeting OpenAI-compatible
-	endpoints (Lemonade Server router or a raw llama-server instance).
+	endpoints (OpenAI-compatible server router or a raw llama-server instance).
 
 	Same interface: call(question) -> (answer_text, duration).
 	Duration is reported on the same scale as OllamaHandler

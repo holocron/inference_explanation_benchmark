@@ -20,7 +20,7 @@ from pathlib import Path
 
 import config
 from src.AnswerGenerator import AnswerGenerator
-from src.LemonadeHandler import LemonadeHandler
+from src.OpenAIHandler import OpenAIHandler
 
 PORT = 9101
 CTX_SIZE = 8192  # prompts are ~2-4k tokens; keep KV cache small
@@ -67,7 +67,7 @@ if __name__ == '__main__':
   try:
     wait_ready(base_url, server)
     print("server ready, running benchmark...")
-    handler = LemonadeHandler(model, base_url, load_on_missing = False)
+    handler = OpenAIHandler(model, base_url, load_on_missing = False)
     AnswerGenerator(dataset_dir).generate(handler, model)
   finally:
     server.terminate()

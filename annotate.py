@@ -199,7 +199,9 @@ def display_question_menu(base_path, eval_path):
                 status = 1
                 break
 
-        question_id = question.replace('_b', '').replace('_r', '').replace('_s', '')
+        # strip only a trailing single-letter variant suffix (_b/_r/_s) so
+        # 2026-style names (a_canGrasp_easy_baseline) survive intact
+        question_id = re.sub(r'_[brs](?=/|$)', '', question)
         question_id = question_id.split("/")[-1]
         if question_id in questions_completion.keys():
             questions_completion[question_id] += status
@@ -319,7 +321,17 @@ def main():
     variant = display_variant_menu(base_path, evaluations_path, question, model)
     print(f"{model} / {variant} / {question}")
 
-    rel_path = model + "/" + variant + "/" + question + "_"  + variant[0] + ".json"
+    # resolve the answers file for both naming schemes:
+    # 2025: <question>_<b|r|s>.json   |   2026: <question>_<variant>.json
+    candidates = [
+        model + "/" + variant + "/" + question + "_" + variant[0] + ".json",
+        model + "/" + variant + "/" + question + ".json",
+        model + "/" + variant + "/" + question + "_" + variant + ".json",
+    ]
+    rel_path = next(
+        (c for c in candidates if os.path.exists(os.path.join(base_path, c))),
+        candidates[0],
+    )
 
     source_file = os.path.join(base_path, rel_path)
     target_path = os.path.join(evaluations_path, model, variant)

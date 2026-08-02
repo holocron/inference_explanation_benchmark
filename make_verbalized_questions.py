@@ -94,6 +94,13 @@ def verbalize_question(question_text):
     if not m:
         return question_text
     inference, blob = m.group(1).strip(), m.group(2)
+
+    # class names for capability/disposition instances live in the -Rules
+    # EquivalentTo definitions (dropped below) — rescue them to enrich the
+    # otherwise opaque instance facts ("kknn, a GraspingCapability")
+    cap_class = re.search(r"(\w+Capability)\|EquivalentTo", question_text)
+    disp_class = re.search(r"(\w+Disposition)\|EquivalentTo", question_text)
+
     # drop the formal rules section entirely — in the pre-verbalized variant
     # the facts already carry everything the rule says; formal syntax here
     # is pure noise and defeats the point of the variant
@@ -107,6 +114,12 @@ def verbalize_question(question_text):
         if not item:
             continue
         f = fact_for(item) or fact_for_builtin(item) or f"[formal] {item}."
+        parts = [p.strip() for p in item.split("|")]
+        if len(parts) == 3:
+            if parts[1] in ("hasCapability", "isCapabilityOf") and cap_class:
+                f = f[:-1] + f", a {cap_class.group(1)}."
+            if parts[1] in ("hasDisposition", "isDispositionOf") and disp_class:
+                f = f[:-1] + f", a {disp_class.group(1)}."
         facts.append(f)
 
     lines = [f"-Inference : {inference}", "-Facts :"]

@@ -25,24 +25,25 @@ INSTRUCTION = (
     "Below is an inference derived by a rule-based reasoner, followed by the facts that justify it. "
     "Combine the facts into a clear, coherent explanation of the inference in sentences. "
     "Cover all facts and prerequisites listed, including every numeric comparison with its "
-    "direction and values. Prerequisites listed are important and are essential part of inference. "
+    "direction and values, and every entity's capability and disposition. "
+    "Prerequisites listed are important and are essential part of inference. "
     "Always refer to entities by their class name (e.g., write \"The Pr2 robot\" instead of its identifier)."
 )
 
 EXAMPLE_QUESTION = (
-    "Inference: eavkgt canBeTowedBy fzbt.\n"
+    "Inference: gu canSpeakWith zvk.\n"
     "Facts:\n"
-    "  1. eavkgt is a Vehicle.\n"
-    "  2. eavkgt has the capability lzj, a TowingCapability.\n"
-    "  3. fzbt is a Car.\n"
-    "  4. Car is a type of Towable.\n"
-    "  5. the weight of fzbt is 2000.\n"
-    "  6. the towing capacity of eavkgt is 3000.\n"
-    "  7. 3000 is greater than 2000."
+    "  1. gu is a Robot.\n"
+    "  2. gu has the capability kitw, a VerbalCommunicationCapability.\n"
+    "  3. zvk is a Human.\n"
+    "  4. zvk has the disposition roro, a VerbalCommunicationDisposition.\n"
+    "  5. zvk is available: true.\n"
+    "  6. gu is facing zvk."
 )
 EXAMPLE_ANSWER = (
-    "The vehicle can tow the car because it has a towing capability, the car is a towable "
-    "object, and its towing capacity of 3000 is greater than the car's weight of 2000."
+    "The robot can speak with the human because it has a verbal communication capability, "
+    "the human has a verbal communication disposition and is available, and the robot is "
+    "facing the human."
 )
 
 def to_plain(text):

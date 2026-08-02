@@ -43,24 +43,10 @@ def build_alias_legend(question_text, selected_names=None):
         legend += ("  |  " if legend else "") + "unresolved: " + ", ".join(unresolved)
     return legend
 
-def load_claims_gloss(json_file_path):
-    """Pick up pre-generated atomic claims (make_annotation_glosses.py) from
-    an answers_glosses dir mirroring the answers dir. Returns {} if absent."""
-    gloss_path = str(json_file_path).replace("answers", "answers_glosses", 1)
-    if gloss_path != str(json_file_path) and os.path.exists(gloss_path):
-        try:
-            with open(gloss_path, 'r') as f:
-                return json.load(f)
-        except (json.JSONDecodeError, IOError):
-            pass
-    return {}
-
 def evaluate_answers(json_file_path, target_file):
     try:
         with open(json_file_path, 'r') as file:
             data = json.load(file)
-
-        claims_gloss = load_claims_gloss(json_file_path)
 
         evaluations = []
         current_index = 0
@@ -102,13 +88,7 @@ def evaluate_answers(json_file_path, target_file):
             print("\033[1m\033[94mQuestion ID:\033[0m", f"\033[92m{question_id}\033[0m")
             print("\033[1m\033[94mAliases:\033[0m", f"\033[96m{build_alias_legend(question, answer_data.get('selected_names', []))}\033[0m")
             print("\033[1m\033[94mQuestion:\033[0m", f"\033[93m{format_question(question)}\033[0m")
-            print("\033[1m\033[94mAnswer:\033[0m", f"\033[95m{answer}\033[0m")
-            gloss = claims_gloss.get(question_id, {}).get("claims", [])
-            if gloss:
-                print("\033[1m\033[94mClaims (reading aid):\033[0m")
-                for ci, claim in enumerate(gloss, 1):
-                    print(f"  \033[96m{ci}. {claim}\033[0m")
-            print()
+            print("\033[1m\033[94mAnswer:\033[0m", f"\033[95m{answer}\033[0m\n")
 
             # Validate the answer
             correct = input("\033[1mIs the answer correct? (y/n): \033[0m").strip().lower()

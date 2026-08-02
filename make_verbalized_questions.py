@@ -94,11 +94,11 @@ def verbalize_question(question_text):
     if not m:
         return question_text
     inference, blob = m.group(1).strip(), m.group(2)
-    # keep any trailing "-Rules" section out of the triple stream
-    rules = ""
+    # drop the formal rules section entirely — in the pre-verbalized variant
+    # the facts already carry everything the rule says; formal syntax here
+    # is pure noise and defeats the point of the variant
     rm = re.search(r"(\n\s*-Rules\s*:.*)", blob, re.S)
     if rm:
-        rules = rm.group(1)
         blob = blob[:rm.start()]
 
     facts = []
@@ -111,8 +111,6 @@ def verbalize_question(question_text):
 
     lines = [f"-Inference : {inference}", "-Facts :"]
     lines += [f"  {i+1}. {f}" for i, f in enumerate(facts)]
-    if rules:
-        lines.append(rules.strip())
     return "\n".join(lines)
 
 if __name__ == '__main__':

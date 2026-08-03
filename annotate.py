@@ -44,6 +44,12 @@ def build_alias_legend(question_text, selected_names=None):
         legend += ("  |  " if legend else "") + "unresolved: " + ", ".join(unresolved)
     return legend
 
+def normalize_text(text):
+    # CamelCase class names ("TwoFingerClaw") must match their natural
+    # renderings ("two-finger claw", "two finger claw") — compare on
+    # alphanumerics only (same normalization as auto_annotate.py)
+    return re.sub(r"[^a-z0-9]", "", text.lower())
+
 def evaluate_answers(json_file_path, target_file):
     try:
         with open(json_file_path, 'r') as file:
@@ -101,7 +107,7 @@ def evaluate_answers(json_file_path, target_file):
             total_classes = len(selected_classes) + len(concepts)
 
             for value in selected_classes:
-                if value.lower() in answer.lower():
+                if normalize_text(value) in normalize_text(answer):
                     matched_classes += 1
                 else:
                     print(f"\033[93mThe selected class '{value}' was not found in the answer.\033[0m")
@@ -114,7 +120,7 @@ def evaluate_answers(json_file_path, target_file):
                         missing_concepts.append(value)
                    
             for value in concepts:
-                if value.lower() in answer.lower():
+                if normalize_text(value) in normalize_text(answer):
                     matched_classes += 1
                 else:
                     print(f"\033[93mThe selected concept '{value}' was not found in the answer.\033[0m")

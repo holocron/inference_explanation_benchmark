@@ -41,7 +41,7 @@ disposition_expression = ClassExpression(easy= "PushableDisposition|EquivalentTo
                                          hard = "PushableDisposition|EquivalentTo|(isDispositionOf some (hasPart some (RollablePart and (isOnRollableSurface value boolean#true) and (isBlockedBySomething value boolean#false)))")
 
 diposition_explanation = ClassExpressionExplanation(disposition_expression,
-                                                    easy=["chair_1_disp|isDispositionOf|__object__",
+                                                    easy=["__object_disp__|isDispositionOf|__object__",
                                                           "__object__|hasPart|__wheel__",
                                                           "__wheel__|Type|__Wheel__",
                                                           "__Wheel__|SubClassOf|RollablePart"],
